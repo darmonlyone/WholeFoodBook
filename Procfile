@@ -1,1 +1,2 @@
-web: gunicorn {{ project_name }}.wsgi
+release: python manage.py migrate
+web: gunicorn Whole_Food_Cookbook.wsgi --log-file 
