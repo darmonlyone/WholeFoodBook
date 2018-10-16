@@ -5,5 +5,11 @@
 __pycache__/
 local_settings.py
 
+### Vscode ##
+.vscode/*
+
+
+venv
+staticfiles
 .env
 db.sqlite3
