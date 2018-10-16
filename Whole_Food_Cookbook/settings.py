@@ -25,7 +25,8 @@ SECRET_KEY = 'nq*(^#@klgvni@8#l-@6n*^o@38vbwc@lnbbsurw7^e2not*3y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
