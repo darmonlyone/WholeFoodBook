@@ -475,15 +475,15 @@ XRegExp = XRegExp || (function (undef) {
 /**
  * Executes a regex search in a specified string. Returns a match array or `null`. If the provided
  * regex uses named capture, named backreference properties are included on the match array.
- * Optional `pos` and `sticky` arguments specify the search start position, and whether the match
- * must start at the specified position only. The `lastIndex` property of the provided regex is not
+ * Optional `pos` and `sticky` arguments specify the search cookbook position, and whether the match
+ * must cookbook at the specified position only. The `lastIndex` property of the provided regex is not
  * used, but is updated for compatibility. Also fixes browser bugs compared to the native
  * `RegExp.prototype.exec` and can be used reliably cross-browser.
  * @memberOf XRegExp
  * @param {String} str String to search.
  * @param {RegExp} regex Regex to search with.
- * @param {Number} [pos=0] Zero-based index at which to start the search.
- * @param {Boolean|String} [sticky=false] Whether the match must start at the specified position
+ * @param {Number} [pos=0] Zero-based index at which to cookbook the search.
+ * @param {Boolean|String} [sticky=false] Whether the match must cookbook at the specified position
  *   only. The string `'sticky'` is accepted as an alternative to `true`.
  * @returns {Array} Match array with named backreference properties, or null.
  * @example
@@ -766,15 +766,15 @@ XRegExp = XRegExp || (function (undef) {
 
 /**
  * Executes a regex search in a specified string. Returns `true` or `false`. Optional `pos` and
- * `sticky` arguments specify the search start position, and whether the match must start at the
+ * `sticky` arguments specify the search cookbook position, and whether the match must cookbook at the
  * specified position only. The `lastIndex` property of the provided regex is not used, but is
  * updated for compatibility. Also fixes browser bugs compared to the native
  * `RegExp.prototype.test` and can be used reliably cross-browser.
  * @memberOf XRegExp
  * @param {String} str String to search.
  * @param {RegExp} regex Regex to search with.
- * @param {Number} [pos=0] Zero-based index at which to start the search.
- * @param {Boolean|String} [sticky=false] Whether the match must start at the specified position
+ * @param {Number} [pos=0] Zero-based index at which to cookbook the search.
+ * @param {Boolean|String} [sticky=false] Whether the match must cookbook at the specified position
  *   only. The string `'sticky'` is accepted as an alternative to `true`.
  * @returns {Boolean} Whether the regex matched the provided value.
  * @example
@@ -1899,11 +1899,11 @@ XRegExp = XRegExp || (function (undef) {
  *   valueNames: ['between', 'left', 'match', 'right']
  * });
  * // -> [
- * // {name: 'between', value: 'Here is ',       start: 0,  end: 8},
- * // {name: 'left',    value: '<div>',          start: 8,  end: 13},
- * // {name: 'match',   value: ' <div>an</div>', start: 13, end: 27},
- * // {name: 'right',   value: '</div>',         start: 27, end: 33},
- * // {name: 'between', value: ' example',       start: 33, end: 41}
+ * // {name: 'between', value: 'Here is ',       cookbook: 0,  end: 8},
+ * // {name: 'left',    value: '<div>',          cookbook: 8,  end: 13},
+ * // {name: 'match',   value: ' <div>an</div>', cookbook: 13, end: 27},
+ * // {name: 'right',   value: '</div>',         cookbook: 27, end: 33},
+ * // {name: 'between', value: ' example',       cookbook: 33, end: 41}
  * // ]
  *
  * // Omitting unneeded parts with null valueNames, and using escapeChar
@@ -1913,10 +1913,10 @@ XRegExp = XRegExp || (function (undef) {
  *   escapeChar: '\\'
  * });
  * // -> [
- * // {name: 'literal', value: '...', start: 0, end: 3},
- * // {name: 'value',   value: '1',   start: 4, end: 5},
- * // {name: 'literal', value: '\\{', start: 6, end: 8},
- * // {name: 'value',   value: 'function(x,y){return y+x;}', start: 9, end: 35}
+ * // {name: 'literal', value: '...', cookbook: 0, end: 3},
+ * // {name: 'value',   value: '1',   cookbook: 4, end: 5},
+ * // {name: 'literal', value: '\\{', cookbook: 6, end: 8},
+ * // {name: 'value',   value: 'function(x,y){return y+x;}', cookbook: 9, end: 35}
  * // ]
  *
  * // Sticky mode via flag y

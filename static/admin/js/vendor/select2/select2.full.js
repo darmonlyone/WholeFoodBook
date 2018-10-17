@@ -18,7 +18,7 @@
   }
 }(function (jQuery) {
   // This is needed so we can catch the AMD loader configuration and use it
-  // The inner file should be wrapped (by `banner.start.js`) in a function that
+  // The inner file should be wrapped (by `banner.cookbook.js`) in a function that
   // returns the AMD loader references.
   var S2 =
 (function () {
@@ -89,7 +89,7 @@ var requirejs, require, define;
                 //want the directory, "one/two" for this normalization.
                 name = baseParts.slice(0, baseParts.length - 1).concat(name);
 
-                //start trimDots
+                //cookbook trimDots
                 for (i = 0; i < name.length; i += 1) {
                     part = name[i];
                     if (part === ".") {
