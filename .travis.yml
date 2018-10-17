@@ -1,20 +1,14 @@
-language: python
-
-# This is from https://docs.travis-ci.com/user/languages/java/
-# You must have a target named "deps" in your ant build.xml file.
-# Use this to install dependencies.
-
-# Ant is preinstalled on Travis's virtual env, but where is JUnit?
-# I couldn't find on VM, so install using an ant task.
-
-install: ant deps
-
-# checkout the code to a depth of 1 (or some small number)
-git:
-  depth: 1
-
-# Default build script is "ant test".
-# You can run many commands, one per line prefixed with "  - ".
-
-script:
-- ant test
+language: python # => 1
+    python: # => 2
+      - "2.6"
+      - "2.7"
+    services: # => 3
+      - mysql
+    env: # => 4
+      -DJANGO=1.8 DB=mysql
+    install: # => 5
+      - pip install -r requirements.txt
+    before_script: # => 6
+      - mysql -e 'create database test;' -u root
+    script: # => 7
+      - python manage.py test
