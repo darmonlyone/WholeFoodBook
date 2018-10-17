@@ -363,7 +363,7 @@ def setBEGINLIBPATH():
     """The OS/2 EMX port has optional extension modules that do double duty
     as DLLs (and must use the .DLL file extension) for other extensions.
     The library search path needs to be amended so these will be found
-    during module import.  Use BEGINLIBPATH so that these are at the start
+    during module import.  Use BEGINLIBPATH so that these are at the cookbook
     of the library search path.
 
     """
