@@ -11,7 +11,6 @@ or [develop plan](https://app.asana.com/0/0/869948396459242).
 ## Design
 We designing our project by using adobe XD. You can look out our [application design here](https://xd.adobe.com/view/985eba2c-469d-450a-4a08-ef7d1c650c62-ee6f/).
 
-<<<<<<< HEAD
 ## Develop
 We make this application by using Django web framework for create application with html and python3 platform. We use Heroku 
 for deploying our application and using Travis Ci for test building.
@@ -19,8 +18,3 @@ for deploying our application and using Travis Ci for test building.
 Checkout our Application > [here](https://whole-food-cookbook.herokuapp.com/) 
 - [Travis Ci](https://travis-ci.com/darmonlyone/WholeFoodBook)
 - [Issue tracker](https://github.com/darmonlyone/WholeFoodBook/issues)
-=======
-### [CI Sever](https://travis-ci.com/darmonlyone/WholeFoodBook?utm_medium=notification&utm_source=email)
-
-### [Design Web](https://xd.adobe.com/view/985eba2c-469d-450a-4a08-ef7d1c650c62-ee6f/)
->>>>>>> 43f5640dcfd2c8be1d3aac6a30b7c5f246bbb301
