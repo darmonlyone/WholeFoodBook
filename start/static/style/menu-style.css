@@ -7,6 +7,7 @@
     padding:80px; 
     text-align:center;
     background: url(../image/realbanner.jpg) no-repeat ;
+    background-size: cover;
  
 
 }
