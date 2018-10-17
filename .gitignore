@@ -12,6 +12,7 @@ local_settings.py
 ### vitualenv ###
 venv
 .env
+env/
 db.sqlite3
 
 ### idea project ###
