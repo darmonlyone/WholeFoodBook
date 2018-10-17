@@ -5,7 +5,7 @@ Whole-Food-Cookbook is a recipe and cookbook site where f you can create your ow
 Check out [Whole-Food-Cookbook](https://whole-food-cookbook.herokuapp.com/) application for recipes and get cooking.
 
 ## Project plan
-we assign our teammate work by using [Asana Application](https://app.asana.com/). You can watch out our [project iteration](https://app.asana.com/0/867060982847769/867060982847769)
+We assign our teammate work by using [Asana Application](https://app.asana.com/). You can watch out our [project iteration](https://app.asana.com/0/867060982847769/867060982847769)
 or [develop plan](https://app.asana.com/0/0/869948396459242). 
 
 ## Design
