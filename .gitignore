@@ -9,8 +9,12 @@ local_settings.py
 .vscode/*
 
 
+### vitualenv ###
 venv
-staticfiles
 .env
 db.sqlite3
+static/
+
+### idea project ###
+.idea/
 *.xml
