@@ -18,3 +18,9 @@ for deploying our application and using Travis Ci for test building.
 Checkout our Application > [here](https://whole-food-cookbook.herokuapp.com/) 
 - [Travis Ci](https://travis-ci.com/darmonlyone/WholeFoodBook)
 - [Issue tracker](https://github.com/darmonlyone/WholeFoodBook/issues)
+
+## Member
+- **Manusporn Fukkham** 6010546702 [@darmonlyone](https://github.com/darmonlyone)
+- **Pichaaun Popukde** 6010545862 [@pichqning](https://github.com/pichqning)
+- **Raksani Kunamas** 6010546711 [@raksani](https://github.com/Raksani)
+- **Thaksina jansaengsri** 6010545765 [@thaksina](https://github.com/Thaksina)
