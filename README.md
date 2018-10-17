@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/darmonlyone/WholeFoodBook.svg?branch=master)](https://travis-ci.com/darmonlyone/WholeFoodBook)
 # Whole Food Cookbook
 
 ### [Iteration plan](https://app.asana.com/0/867060982847769/867060982847769)
