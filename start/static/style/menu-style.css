@@ -6,7 +6,8 @@
 .banner {
     padding:80px; 
     text-align:center;
-    background-image: url(../image/realbanner.jpg);
+    background: url(../image/realbanner.jpg) no-repeat ;
+ 
 
 }
 
