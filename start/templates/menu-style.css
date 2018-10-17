@@ -1,16 +1,33 @@
+.page {
+    width: auto;
+    height: auto;
+    margin: auto;
+}
 .banner {
     padding:80px; 
     text-align:center;
-    background-image: url(http://www.absolutelyedibles.com/wp-content/uploads/2017/01/healthyfood_banner.jpg) 
+    background-image: url(./image/realbanner.jpg);
+
 }
 
 .row {
     padding-top: 10px;
 }
+
 .iconname {
     font-family: 'Raleway';
+    text-align: center; 
+}
+
+.usericon {
+    font-size: 20pt;
+    padding-top: 3px;
+}
+
+#content {
     text-align: center;
 }
-#menu-but-search {
 
+#imagebox {
+    border-color: grey;
 }
