@@ -1,0 +1,32 @@
+body {
+    background: url(../image/webbg1.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.row {
+    height: auto;
+    margin: auto;
+}
+
+.welcome-div {
+    text-align: center;
+}
+.welcome-text{
+    font-style: normal;
+    text-shadow: black;
+    font-size: 40pt;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+}
+
+#welcome-but-start {
+    background-color: #ffdb58;
+    font-size : 20pt;
+    font-family: 'Raleway', sans-serif;
+    border-color: transparent;
+    background-radius: 20pt;
+}
+

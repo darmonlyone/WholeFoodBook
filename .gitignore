@@ -13,7 +13,6 @@ local_settings.py
 venv
 .env
 db.sqlite3
-static/
 
 ### idea project ###
 .idea/
