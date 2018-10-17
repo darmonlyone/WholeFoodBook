@@ -118,5 +118,5 @@ USE_TZ = True
 #     "WholeFoodBook/start/static"
 # ]
 
-STATIC_URL = '/static/'
+STATIC_URL = 'start/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
