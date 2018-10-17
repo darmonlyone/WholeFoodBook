@@ -11,7 +11,7 @@ local_settings.py
 
 ### vitualenv ###
 venv
-staticfiles
+static/
 .env
 db.sqlite3
 
