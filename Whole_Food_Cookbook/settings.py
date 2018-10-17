@@ -119,5 +119,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
+STATICFILES_DIR = [
+    "WholeFoodBook/start/static"
+]
+
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR)
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
