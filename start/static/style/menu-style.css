@@ -2,14 +2,13 @@
     width: auto;
     height: auto;
     margin: auto;
+    font-family: 'Raleway';
 }
 .banner {
     padding:80px; 
     text-align:center;
     background: url(../image/realbanner.jpg) no-repeat ;
     background-size: cover;
- 
-
 }
 
 .row {
@@ -31,5 +30,58 @@
 }
 
 #imagebox {
+
     border-color: grey;
 }
+
+.boxed{
+    border: 1px;
+    border-style: solid;
+    border-color: grey;
+    margin: 10px;
+    padding: 20px;
+    height: 150pt;
+    width: 250pt;
+    font-family: 'Raleway';
+    text-align: left;
+    color: dimgrey;
+}
+
+.checked {
+    color: orange;
+}
+
+div.stars {
+    width: 200px;
+    display: inline-block;
+  }
+  
+  input.star { display: none; }
+  
+  label.star {
+    float: right;
+    padding: 2px;
+    font-size: 20px;
+    color: #444;
+    transition: all .2s;
+  }
+  
+  input.star:checked ~ label.star:before {
+    content: '\f005';
+    color: #FD4;
+    transition: all .25s;
+  }
+  
+  input.star-5:checked ~ label.star:before {
+    color: #FE7;
+    text-shadow: 0 0 20px rgb(250, 249, 248);
+  }
+  
+  /* input.star-1:checked ~ label.star:before { color: #F62; } */
+  
+  label.star:hover { transform: rotate(-15deg) scale(1.3); }
+  
+  label.star:before {
+    content: '\f006';
+    font-family: FontAwesome;
+  }
