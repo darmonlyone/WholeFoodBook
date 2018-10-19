@@ -1,17 +1,72 @@
 .page {
-    width: auto;
+    width: 1920px;
     height: auto;
     margin: auto;
     font-family: 'Raleway';
 }
 .banner {
     padding:80px; 
+    height: 300px;
     text-align:center;
-    background: url(../image/realbanner.jpg) no-repeat ;
+    background: url(../image/banner.jpg) no-repeat ;
     background-size: cover;
 }
 
-.row {
+.bar {
+    height: 67px;
+    font-size: 25px;
+    background-color: #3b8832;
+    color: white;
+}
+
+.searcbox {
+    text-align: right;
+    width: 442px;
+    height: 26px;
+    border: none;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.iconname {
+    color: white;
+}
+
+#menu-login {
+    color: white;
+    font-family: 'Raleway';
+    font-size: 25px;
+}
+
+.menu-but-search {
+    background-color: transparent;
+    border:none;
+    color: white;
+    font-size: 20px;
+}
+.container {
+    background-color :transparent;
+    padding: 0px 10px;
+    float: left;
+}
+#menu-info {
+    height: 632px;
+    width: 1920px;
+    float: initial;
+}
+
+#menu-image {
+    background-color: #F3F3F3;
+    padding: 10px;
+    margin: 2px;
+}
+
+#menu-descrip {
+    background-color:#F3F3F3;
+    padding: 10px;
+    margin: 2px;
+}
+/* .row {
     padding-top: 10px;
 }
 
@@ -84,4 +139,4 @@ div.stars {
   label.star:before {
     content: '\f006';
     font-family: FontAwesome;
-  }
+  } */
