@@ -44,31 +44,58 @@
     <div class="container-fluid" style="margin-bottom : 80px;">
         <div class="row" id="menu-info">
             <div class="col-md-7 pr-md-1" id="menu-image">
-                <div class="row expanded">
-                    <!-- Close the image -->
-                    <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-
-                    <!-- Expanded image -->
-                    <img id="expandedImg" style="width:100%">
-
-                    <!-- Image text -->
-                    <div id="imgtext"></div>
-                </div>
-
-                <div class="row grid">
-                    <div class="column">
-                        <img src="../static/image/mockfood.jpg" alt="food" onclick="openImg(this);">
-                    </div>
-                    <div class="column">
-                        <img src="../static/image/food2.jpg" alt="food" onclick="openImg(this);">
-                    </div>
-                    <div class="column">
-                        <img src="../static/image/food3.jpg" alt="food" onclick="openImg(this);">
-                    </div>
-                    <div class="column">
-                        <img src="../static/image/food4.jpg" alt="food" onclick="openImg(this);">
-                    </div>
-                </div>
+                    <ul class="thumbnails">
+                      <li>
+                        <input type="radio" name="select" id="image1">
+                        <div class="item-hugger">
+                          <img class="thumb-image" src="../static/image/mockfood.jpg" />
+                          <label for="image1"></label>
+                        </div>
+                        <div class="content">
+                          <div class="item-wrapper"> 
+                            <img class="show-img" src="../static/image/mockfood.jpg">
+                          </div>
+                        </div>
+                      </li>
+                      <li class="is-active">
+                        <input type="radio" name="select" id="image2" checked>
+                        <div class="item-hugger">
+                          <img class="thumb-image" src="../static/image/food2.jpg" />
+                          <label for="image2"></label>
+                        </div>
+                        <div class="content">
+                          <div class="item-wrapper">
+                            <img class="show-img" src="../static/image/food2.jpg" />
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <input type="radio" name="select" id="image3">
+                        <div class="item-hugger">
+                    
+                          <img class="thumb-image" src="../static/image/food3.jpg" />
+                          <label for="image3"></label>
+                        </div>
+                        <div class="content">
+                          <div class="item-wrapper">
+                            <img class="show-img" src="../static/image/food3.jpg" />
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <input type="radio" name="select" id="image4">
+                        <div class="item-hugger">
+                          <img class="thumb-image" src="../static/image/food4.jpg" />
+                          <label for="image4"></label>
+                        </div>
+                        <div class="content">
+                          <div class="item-wrapper">
+                            <img class="show-img" src="../static/image/food4.jpg" />
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                    <!-- <div class="white-box"></div> -->
 
             </div>
             <div class="text-center col-md-5 pl-md-1">
