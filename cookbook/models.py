@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Recipe(models.Model):
-    user = models.CharField(max_length=30)
+    recipe_chef = models.CharField(max_length=30)
     recipe_name = models.CharField(max_length=30)
     recipe_info = models.TextField()
     recipe_time = models.IntegerField(null=True)
@@ -12,10 +12,10 @@ class Recipe(models.Model):
     recipe_method = models.TextField()
 
     def _str__(self):
-        return f"{self.user}: {self.recipe_name}"
+        return f"Chef: {self.recipe_chef}: {self.recipe_name}"
 
-    def get_user(self):
-        return self.user
+    def get_recipe_chef(self):
+        return self.recipe_chef
 
     def get_recipe_name(self):
         return self.recipe_name
