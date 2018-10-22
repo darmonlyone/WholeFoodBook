@@ -1,0 +1,23 @@
+.page {
+    width: 1920px;
+    height: auto;
+    margin: auto;
+    font-family: 'Signika Negative', sans-serif;
+}
+
+#login-header-container {
+    height: 353px;
+    width: 661px;
+    text-align: center;
+    background-color: #EA6D70;
+    padding-top : 99px;
+    padding-left: 130px;
+    padding-right: 130px;
+    padding-bottom:94px;
+    font-size:60px;
+}
+#login-img {
+    height: auto;
+    width: 1259px; 
+    position: absolute;
+}
