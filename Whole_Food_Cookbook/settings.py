@@ -80,8 +80,7 @@ DATABASES = {
         'NAME': '',
     }
 }
-Database_url = 'postgres://qlstobsaodofxt:30746315061f9e0de3682a5234ee91108f6356441458632932208e5f7a8edd56@ec2-174' \
-               '-129-22-84.compute-1.amazonaws.com:5432/d4a956rkpjmdd1 '
+Database_url = 'postgres://qlstobsaodofxt:30746315061f9e0de3682a5234ee91108f6356441458632932208e5f7a8edd56@ec2-174-129-22-84.compute-1.amazonaws.com:5432/d4a956rkpjmdd1'
 DATABASES['default'] = dj_database_url.config(default=Database_url, conn_max_age=600, ssl_require=True)
 
 # Password validation
