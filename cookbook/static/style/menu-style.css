@@ -2,8 +2,9 @@
     width: auto;
     height: auto;
     margin: auto;
-    font-family: 'Segoe UI', serif;
+    font-family: 'Signika Negative', sans-serif;
 }
+
 .banner {
     padding:80px; 
     height: 300px;
@@ -34,7 +35,7 @@
 
 #menu-login {
     color: white;
-    font-family: 'Raleway', serif;
+    font-family: 'Signika Negative', sans-serif;
     font-size: 25px;
 }
 
@@ -48,15 +49,16 @@
     background-color :transparent;
     padding: 0 10px;
 }
+
 #menu-info {
-    height: 632px;
+    height: auto;
     width: auto;
+    word-wrap: break-word;
 }
 
 #menu-image {
     background-color: #F3F3F3;
     padding: 20px;
-    height: 632px;
 }
 
 #menu-descrip {
@@ -65,7 +67,6 @@
     padding-top: 60px;
     padding-left: 119px;
     padding-right: 90px;
-    height: 632px;
 }
 
 .menu-but {
@@ -235,7 +236,7 @@ height: 140px;}
     position: absolute;
     margin-top:20px;
     bottom: 0;
-    left: 260px;
+    margin : auto;
     width: 600px;
     height: 500px;
     padding: 50px;
