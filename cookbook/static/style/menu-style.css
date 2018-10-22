@@ -3,6 +3,7 @@
     height: auto;
     margin: auto;
     font-family: 'Signika Negative', sans-serif;}
+
 .banner {
     padding:80px; 
     height: 300px;
@@ -45,7 +46,7 @@
 }
 .container {
     background-color :transparent;
-    padding: 0px 10px;
+    padding: 0 10px;
 }
 
 #menu-info {
