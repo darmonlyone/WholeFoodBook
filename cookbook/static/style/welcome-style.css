@@ -19,13 +19,13 @@ body {
     text-shadow: black;
     font-size: 40pt;
     text-align: center;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Signika Negative', sans-serif;
 }
 
 #welcome-but-start {
     background-color: #ffdb58;
     font-size : 20pt;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Signika Negative', sans-serif;
     border-color: transparent;
     background-radius: 20pt;
 }
