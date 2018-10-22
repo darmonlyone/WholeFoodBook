@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 
@@ -13,7 +14,7 @@
     <title>Menu</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../static/style/menu-style.css">
+    <link rel="stylesheet" href="{% static 'style/menu-style.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Raleway" rel="stylesheet">
@@ -48,24 +49,24 @@
                       <li>
                         <input type="radio" name="select" id="image1">
                         <div class="item-hugger">
-                          <img class="thumb-image" src="../static/image/mockfood.jpg" />
+                          <img class="thumb-image" src="{% static 'image/mockfood.jpg' %}" />
                           <label for="image1"></label>
                         </div>
                         <div class="content">
                           <div class="item-wrapper"> 
-                            <img class="show-img" src="../static/image/mockfood.jpg">
+                            <img class="show-img" src="{% static 'image/mockfood.jpg' %}">
                           </div>
                         </div>
                       </li>
                       <li class="is-active">
                         <input type="radio" name="select" id="image2" checked>
                         <div class="item-hugger">
-                          <img class="thumb-image" src="../static/image/food2.jpg" />
+                          <img class="thumb-image" src="{% static 'image/food2.jpg' %}" />
                           <label for="image2"></label>
                         </div>
                         <div class="content">
                           <div class="item-wrapper">
-                            <img class="show-img" src="../static/image/food2.jpg" />
+                            <img class="show-img" src="{% static 'image/food2.jpg' %}" />
                           </div>
                         </div>
                       </li>
@@ -73,24 +74,24 @@
                         <input type="radio" name="select" id="image3">
                         <div class="item-hugger">
                     
-                          <img class="thumb-image" src="../static/image/food3.jpg" />
+                          <img class="thumb-image" src="{% static 'image/food3.jpg' %}" />
                           <label for="image3"></label>
                         </div>
                         <div class="content">
                           <div class="item-wrapper">
-                            <img class="show-img" src="../static/image/food3.jpg" />
+                            <img class="show-img" src="{% static 'image/food3.jpg' %}" />
                           </div>
                         </div>
                       </li>
                       <li>
                         <input type="radio" name="select" id="image4">
                         <div class="item-hugger">
-                          <img class="thumb-image" src="../static/image/food4.jpg" />
+                          <img class="thumb-image" src="{% static 'image/food4.jpg' %}" />
                           <label for="image4"></label>
                         </div>
                         <div class="content">
                           <div class="item-wrapper">
-                            <img class="show-img" src="../static/image/food4.jpg" />
+                            <img class="show-img" src="{% static 'image/food4.jpg' %}" />
                           </div>
                         </div>
                       </li>
@@ -109,20 +110,20 @@
                     <div class="container" style="margin-bottom:70px;">
                         <div class="row menu-descrip-info">
                             <div class="col-md-6">
-                                <img src="../static/image/icons8_Chef_Hat_50px_1.png" style="margin-right:25px;" />TOTAL
+                                <img src="{% static 'image/icons8_Chef_Hat_50px_1.png' %}" style="margin-right:25px;" />TOTAL
                                 TIME:
                             </div>
                             <div class="col-md-6 descrip" id="descrip-time">1 HOURS 10 MINUTES</div>
                         </div>
                         <div class="row menu-descrip-info">
                             <div class="col-md-6">
-                                <img src="../static/image/icons8_Cooking_Pot_50px_2.png" style="margin-right:25px;">TYPE:
+                                <img src="{% static 'image/icons8_Cooking_Pot_50px_2.png' %}" style="margin-right:25px;">TYPE:
                             </div>
                             <div class="col-md-6 descrip" id="descrip-type">GRILL</div>
                         </div>
                         <div class="row menu-descrip-info">
                             <div class="col-md-6">
-                                <img src="../static/image/icons8_Fat_Man_50px_1.png" style="margin-right:25px;">FAT:
+                                <img src="{% static 'image/icons8_Fat_Man_50px_1.png' %}" style="margin-right:25px;">FAT:
                             </div>
                             <div class="col-md-6 descrip" id="descrip-fat">350 KCAL</div>
                         </div>

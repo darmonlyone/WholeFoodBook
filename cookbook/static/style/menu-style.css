@@ -1,8 +1,8 @@
 .page {
-    width: 1920px;
+    width: auto;
     height: auto;
     margin: auto;
-    font-family: 'Segoe UI';
+    font-family: 'Segoe UI', serif;
 }
 .banner {
     padding:80px; 
@@ -34,7 +34,7 @@
 
 #menu-login {
     color: white;
-    font-family: 'Raleway';
+    font-family: 'Raleway', serif;
     font-size: 25px;
 }
 
@@ -46,7 +46,7 @@
 }
 .container {
     background-color :transparent;
-    padding: 0px 10px;
+    padding: 0 10px;
 }
 #menu-info {
     height: 632px;
