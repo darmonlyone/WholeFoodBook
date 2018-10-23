@@ -103,9 +103,18 @@
             </div>
             <div class="text-center col-md-5 pl-md-1">
                 <div id="menu-descrip">
-                    <div id="menu-descrip-header">{{ recipe.get_recipe_name }}</div>
+                    <div id="menu-descrip-header">
+                        <!-- to show the menu name -->
+                        <script>
+                            document.getElementById("menu-descrip-header").innerHTML = recipe.get_recipe_name();
+                        </script>
+                    </div>
                     <p id="menu-descrip-detail">
-                        {{ recipe.get_recipe_info }}
+                        <!-- to show the menu description -->
+                        <script> //recipe.get_recipe_info
+                            //document.getElementById("menu-descrip-detail").innerHTML = recipe.get_recipe_info();
+                            document.write(recipe.get_recipe_info());
+                        </script>
                     </p>
                     <div class="container" style="margin-bottom:70px;">
                         <div class="row menu-descrip-info">
@@ -113,7 +122,39 @@
                                 <img src="{% static 'image/icons8_Chef_Hat_50px_1.png' %}" style="margin-right:25px;" />TOTAL
                                 TIME:
                             </div>
-                            <div class="col-md-6 descrip" id="descrip-time">{{ recipe.get_recipe_time }} MINUTES</div>
+                            <div class="col-md-6 descrip" id="descrip-time">
+                                <!-- show cooking time in terms of hour(s) and minute(s) -->
+                                <script>
+                                    var recipe_time = recipe.get_recipe_time();
+                                    function timeConvert(recipe_time) {
+                                    var minutes = recipe_time % 60;
+                                    var hours = (recipe_time-minutes)/60;
+                                    if(minutes===0){
+                                        //If minutes is zero, It won't show the word "minute".
+                                        if(hours>1){
+                                            return hours + " hours.";
+                                        }
+                                        else{
+                                            return "1 hour."
+                                        }
+                                    }
+                                    //there's no condition for 1 minute because the estimated cooking time won't be 1 hour 1 minute or 2 hours 1 minute.
+                                    else if(minutes>1){
+                                        if(hours>1){
+                                            return hours + " hours " + minutes + " minutes.";
+                                        }
+                                        else if(hours===1 && minutes>1){
+                                            return "1 hour " + minutes + " minutes."
+                                        }
+                                        //If hours is zero, It won't show the word "hour".
+                                        else{
+                                            return minutes + " minutes."
+                                        }
+                                    }
+                            }
+                                    document.write(timeConvert(recipe.get_recipe_time())); // ex. 2 hours 30 minutes.
+                                </script>
+                            </div>
                         </div>
                         <div class="row menu-descrip-info">
                             <div class="col-md-6">
