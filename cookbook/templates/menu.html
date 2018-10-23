@@ -106,14 +106,14 @@
                     <div id="menu-descrip-header">
                         <!-- to show the menu name -->
                         <script>
-                            document.getElementById("menu-descrip-header").innerHTML = recipe.get_recipe_name();
+                            document.write("menu-descrip-header").innerHTML = {{ recipe.get_recipe_name }};
                         </script>
                     </div>
                     <p id="menu-descrip-detail">
                         <!-- to show the menu description -->
                         <script> //recipe.get_recipe_info
                             //document.getElementById("menu-descrip-detail").innerHTML = recipe.get_recipe_info();
-                            document.write(recipe.get_recipe_info());
+                            document.write("{{ recipe.get_recipe_name }}");
                         </script>
                     </p>
                     <div class="container" style="margin-bottom:70px;">
@@ -124,12 +124,12 @@
                             </div>
                             <div class="col-md-6 descrip" id="descrip-time">
                                 <!-- show cooking time in terms of hour(s) and minute(s) -->
-                                <script>
-                                    var recipe_time = recipe.get_recipe_time();
-                                    function timeConvert(recipe_time) {
-                                    var minutes = recipe_time % 60;
-                                    var hours = (recipe_time-minutes)/60;
-                                    if(minutes===0){
+                                <script type="text/javascript">
+                                    function timeConvert(time) {
+                                        let recipe_time = parseInt(time);
+                                        let minutes = recipe_time % 60;
+                                        let hours = (recipe_time - minutes) / 60;
+                                        if(minutes===0){
                                         //If minutes is zero, It won't show the word "minute".
                                         if(hours>1){
                                             return hours + " hours.";
@@ -152,7 +152,7 @@
                                         }
                                     }
                             }
-                                    document.write(timeConvert(recipe.get_recipe_time())); // ex. 2 hours 30 minutes.
+                                    document.write(timeConvert("{{ recipe.get_recipe_time }}")); // ex. 2 hours 30 minutes.
                                 </script>
                             </div>
                         </div>
