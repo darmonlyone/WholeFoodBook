@@ -7,7 +7,7 @@ class WelcomeView(generic.ListView):
     template_name = 'welcome.html'
 
     def get_queryset(self):
-        return Recipe.objects.all()
+        return None
 
 
 class MenuView(generic.ListView):
@@ -24,7 +24,7 @@ class MenuView(generic.ListView):
 #         print(i.get_recipe_name())
 
 # def fake_put_db(request):
-#     Recipe.objects.get(id=1).delete()
+#
 # r = Recipe(recipe_chef="Wan", recipe_name="Chicken Breast",
 #            recipe_info="Pumpkin Pie? Pudding shots? Obviously the two belong together! Fireball adds some more cinnamon flavor to the shots but you can sub with all vodka if you prefer. ",
 #            recipe_time=80,
@@ -37,3 +37,5 @@ class MenuView(generic.ListView):
 # heroku pg:psql
 # \d
 # SELECT * FROM cookbook_recipe;
+
+# Recipe.objects.get(id=1).delete()
