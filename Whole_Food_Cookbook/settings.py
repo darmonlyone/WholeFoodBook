@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
 import os
+import sys
+
 import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -83,6 +85,14 @@ DATABASES = {
 Database_url = 'postgres://qlstobsaodofxt:30746315061f9e0de3682a5234ee91108f6356441458632932208e5f7a8edd56@ec2-174-129-22-84.compute-1.amazonaws.com:5432/d4a956rkpjmdd1'
 DATABASES['default'] = dj_database_url.config(default=Database_url, conn_max_age=600, ssl_require=True)
 
+
+if 'test' in sys.argv or 'test_coverage' in sys.argv:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'test_db',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+    }
 # Password validation
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators
 
