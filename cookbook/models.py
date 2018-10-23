@@ -37,3 +37,6 @@ class Recipe(models.Model):
 
     def get_recipe_method(self):
         return self.recipe_method
+
+    def get_recipe_method_list(self):
+        return self.recipe_method.split("||")

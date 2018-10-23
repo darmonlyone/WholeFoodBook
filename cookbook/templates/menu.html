@@ -211,16 +211,9 @@
                 <div id="menu-method">
                     <div class="menu-header">Methods:</div>
                     <ol id="med-li">
-                        <li class="li">Preheat oven to 200°C or 180°C fan. Line two baking trays with baking paper. Lay
-                            Lilydale
-                            breast strips on one of the prepared trays and bake according to packet instructions</li>
-                        <li class="li"> Place potatoes onto the other prepared tray in a single layer. Drizzle with oil
-                            and season
-                            well. Bake for 25-30 minutes, until golden and tender</li>
-                        <li class="li"> Meanwhile, make pesto. Place watercress, macadamias and garlic in a small food
-                            processor.
-                            Pulse until chopped. Add extra virgin olive oil, lemon juice and water. Process until a
-                            paste forms. Transfer hot potatoes to a bowl, add half of the pesto and stir to coat</li>
+                        {% for method in recipe.get_recipe_method_list %}
+                            <li class="li">{{ method }}</li>
+                        {% endfor %}
                     </ol>
                 </div>
             </div>
