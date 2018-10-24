@@ -27,21 +27,12 @@ class Recipe(models.Model):
         return self.recipe_time
 
     def get_recipe_type(self):
-        return self.recipe_type
+        return self.recipe_type.upper()
 
     def get_recipe_fat(self):
         return self.recipe_fat
 
     def get_recipe_ingredient(self):
-        return self.__get_recipe_ingredient_value()
-
-    def get_recipe_method(self):
-        return self.recipe_method
-
-    def get_recipe_method_list(self):
-        return self.recipe_method.split("||")
-
-    def __get_recipe_ingredient_value(self):
         ingredients = self.recipe_ingredient.split("||")
         ingredient = []
         for i in ingredients:
@@ -49,6 +40,11 @@ class Recipe(models.Model):
             ingredient.append(Ingredient(splitter[0], splitter[1]))
         return ingredient
 
+    def get_recipe_method(self):
+        return self.recipe_method
+
+    def get_recipe_method_list(self):
+        return self.recipe_method.split("||")
 
 class Ingredient:
 
