@@ -104,17 +104,10 @@
             <div class="text-center col-md-5 pl-md-1">
                 <div id="menu-descrip">
                     <div id="menu-descrip-header">
-                        <!-- to show the menu name -->
-                        <script>
-                            document.write("menu-descrip-header").innerHTML = {{ recipe.get_recipe_name }};
-                        </script>
+                        {{ recipe.get_recipe_name }}
                     </div>
                     <p id="menu-descrip-detail">
-                        <!-- to show the menu description -->
-                        <script> //recipe.get_recipe_info
-                            //document.getElementById("menu-descrip-detail").innerHTML = recipe.get_recipe_info();
-                            document.write("{{ recipe.get_recipe_name }}");
-                        </script>
+                        {{ recipe.get_recipe_info }}
                     </p>
                     <div class="container" style="margin-bottom:70px;">
                         <div class="row menu-descrip-info">
