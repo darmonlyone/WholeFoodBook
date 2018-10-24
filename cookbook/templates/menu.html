@@ -28,7 +28,7 @@
     {% for recipe in latest_question_list %}
     <nav class="navbar navbar-light justify-content-between bar">
         <a class="navbar-brand" href="#" style="font-size: 25px; color: white;">
-            <img src="{% static 'image/realicon.png' %}" style="width: 40px" alt=""> Organic Recipe
+            <img src="{% static 'image/organiclogo.png' %}" style="height: 67px;" alt=""> Organic Recipe
         </a>
         <div class="container">
             <div class="col-sm-4"></div>
@@ -93,7 +93,7 @@
 
             <div class="text-center col-md-5 pl-md-1" style="align-self:center; height: auto;">
                 <div id="menu-descrip">
-                    <div id="menu-descrip-header">{{ recipe.get_recipe_name }}</div>
+                    <div id="menu-descrip-header"><b>{{ recipe.get_recipe_name }}</b></div>
                     <p id="menu-descrip-detail">
                      {{ recipe.get_recipe_info }}
                     </p>
@@ -118,7 +118,7 @@
                             <div class="col-md-6 descrip" id="descrip-fat">{{ recipe.get_recipe_fat }} KCAL</div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12" id="menu-chef">By : {{ recipe.get_recipe_chef }}</div>
+                            <div class="col-md-12" id="menu-chef"><b>By : {{ recipe.get_recipe_chef }}</b></div>
                         </div>
                     </div>
                 </div>
@@ -130,7 +130,6 @@
                 <button class="menu-but clicked" id="menu-but-receive">Recieve</button>
                 <button class="menu-but" id="menu-but-review">Review</button>
             </div>
-
         </div>
 
         <div class="row" id="menu-content">

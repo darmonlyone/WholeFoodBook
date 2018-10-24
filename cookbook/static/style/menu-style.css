@@ -93,6 +93,7 @@
     height: 75px;
     text-align: center;
     cursor: pointer;
+    font-weight: bold;
 }
 .btn-group button:hover {
     background-color: rgb(221, 217, 217);
