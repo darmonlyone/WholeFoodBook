@@ -1,0 +1,181 @@
+1.
+name = Chicken Chickpea Stew
+detail = Chicken chickpea stew is great, using the simplest ingredients you could only imagine: boneless and skinless chicken breast (just a pound to make meat more of a side than main ingredient), tomatoes (you can use canned diced), quinoa and canned chickpeas for protein and healthy carbs boost, peppers that are so in season right now, and tahini paste. That 1/2 cup of tahini paste changes everything for this stew!
+time = 53 minutes
+type = Dinner
+fat = 391 KCAL
+ingredients = 1:large onion, finely chopped||3:large garlic cloves, minced||2 lbs:bell peppers, seeded and coarsely chopped||1 lb:boneless & skinless chicken breasts, cubed||10 g:Avocado oil, for frying||1 lb:tomatoes||1 cup:quinoa, uncooked||2 x 14 oz:cans chickpeas, rinsed & drained||2 cups:vegetable or chicken broth, low sodium||3/2 tsp:salt||15g:Ground black pepper, to taste||3:bay leaves||1/2 cup:tahini paste||1/2 cup:fresh parsley or basil, finely chopped
+methods = Preheat large dutch oven on low heat, swirl a bit of avocado oil to coat and add onion and garlic. Cook for 5 minutes, stirring occasionally. Increase heat to medium, add pepper and cook for 5 more minutes, stirring occasionally. Add chicken, cook 5 more minutes, stirring occasionally.||Add tomatoes, quinoa, chickpeas, broth, salt, pepper and bay leaves; stir, cover and cook on low for 20 minutes.||Add ingredients in exact order listed: onion, garlic, bell pepper, chicken, quinoa, chickpeas, broth, salt, pepper, bay leaves and tomatoes. DO NOT STIR. Pressure cook on High for 20 minutes and afterwards release pressure with Quick Release method.||Preheat large dutch oven on low heat, swirl a bit of avocado oil to coat and add onion and garlic. Cook for 5 minutes, stirring occasionally. Increase heat to medium, add pepper and cook for 5 more minutes, stirring occasionally.||Transfer to a large slow cooker along with chicken, tomatoes, quinoa, chickpeas, broth, salt, pepper, bay leaves; stir, cover and cook for 4 hours on High or 8 hours on Low.||Turn off heat; add tahini and herbs, stir and let stand for a couple minutes.
+
+2.
+name = Ground Chicken Tacos
+detail = These ground chicken tacos are the most simple recipe. And the best part is – there aren’t much extra fixins to prepare because they are all mixed in one humongous size skillet.
+time = 32 minutes
+type = Dinner
+fat = 166 KCAL
+ingredients = 3:garlic cloves, minced||1:large onion, finely chopped||2:large bell peppers, finely chopped||1 tbsp:avocado oil||1 lb:ground chicken (I used breast)||1 tbsp:organic taco seasoning||1 tsp:smoked paprika||1 cup:low sodium tomato sauce||3/2:cups frozen corn (thawed) or 1 can (drained)||1/2 cup:cilantro, chopped||1:bunch radishes, sliced||1 tsp:salt||1:Organic corn tortillas||1:Lime, cheese and Greek yogurt, for serving
+methods = Preheat large ceramic non-stick skillet on medium heat and swirl oil to coat. Add garlic and onion, saut? for 2 minutes, stirring occasionally. Add bell pepper and saut? for 7 minutes, stirring occasionally.||Add chicken, taco seasoning, smoked paprika and cook for 5 minutes, stirring occasionally and breaking chicken into pieces. Decrease heat to low, add tomato sauce and corn, and cook uncovered for 10 minutes.||Add cilantro, radishes and salt; stir. Serve hot over corn tortillas with lime, crumbled feta or shredded Monterey Jack cheese and Greek yogurt.
+
+3.
+name = Chicken Zucchini and Corn
+detail = This Garlic Chicken Zucchini and Corn Recipe is a 20 minute healthy weeknight dinner that was inspired by my Ukrainian roots. Low carb, easy and one pan deliciousness! Have you ever tried to cook chicken until golden brown in a little bit of oil with salt, pepper and garlic? No? Very simple but it is my favourite way to eat chicken. That’s how my mom prepared cornish chicken when I was a kid. Entire apartment would fill with a smell of sweet fried chicken and zesty garlic. So good, so Ukrainian!
+time = 20 minutes
+type = Dinner
+fat = 149 KCAL
+ingredients = 1 lb:chicken breast, cut into 1? pieces||1:tsp avocado oil||1:large garlic clove, crushed||1/4 tsp:salt||10g:Ground black pepper, to taste||1.5 lbs (3 medium):zucchini, cut into half moon shapes||2 cups:corn, frozen or fresh||1 tsp:avocado oil||1:large garlic clove, crushed||1/2 tsp:salt||1:garlic clove, crushed (optional)||1/4 cup:dill, parsley or green onions, chopped
+methods = Preheat cast iron skillet on medium heat and swirl oil to coat. Add garlic and cook for 10 seconds. Then add chicken, sprinkle with salt and pepper to taste. Cook for 8-10 minutes uncovered, stirring occasionally. Transfer to a bowl and set aside.(Chicken & Zucchini and corn)||Add chicken back to skillet and stir. Remove from heat, sprinkle with herbs and more garlic if you wish, stir. Serve hot or cold (I know!) with any salad or brown rice, quinoa, potatoes etc.
+
+4.
+name = Lazy Cabbage Rolls
+detail = Lazy cabbage rolls are perfect for lunches and leftovers can be frozen. I know for us this is enough for 2 meals. If you like cooked cabbage, you might also like cabbage and carrots stir fry with brown rice noodles and pan fried cabbage with apples. Enjoy!
+time = 80 minutes
+type = Lunch
+fat = 456 KCAL
+ingredients = 1:large onion, chopped||1 tbsp:avocado oil||2 lbs:ground turkey, extra lean||3 lbs:cabbage, coarsely chopped||14 oz:can tomato sauce (low sodium)||2 x 14 oz:cans diced tomatoes||1 cup:brown long grain rice, uncooked||5/4 cups:any stock*||1 tsp:oregano||1 tsp:thyme||2 tsp:salt||10g:Ground black pepper, to taste||optional:Fresh herbs (dill, parsley, green onions) & Greek yogurt, for serving 
+methods = Preheat large deep non-stick skillet on medium heat and swirl oil to coat. Add onion and cook for a few minutes, stirring occasionally.||Increase heat to medium – high, add turkey, oregano and thyme; cook for 10 more minutes, breaking into small pieces and stirring occasionally.||Reduce heat to low – medium, add cabbage, cover and let it cook for a few minutes so it will be easier to stir. Add tomato sauce, diced tomatoes, rice, water, salt, pepper and stir well. Bring to a boil, cover, reduce heat to low and cook for 55 – 60 minutes. Do not open! Check if rice is cooked and if not (mine was) add 1/4 cup water, cover and cook for another 5 – 10 minutes.||Serve warm topped with Greek yogurt and herbs.
+
+5.
+name = Salmon Stir Fry
+detail = Take short time to do, This recipe is simple to make, yet impressive. The marinade gives the fish a sweet taste that my family goes nuts for! If it's too cold out to grill it, you also may broil it.
+time = 20 minutes
+type = Lunch 
+fat = 201 KCAL
+ingredients = 1.5 lbs:salmon fillet, cut into 1? cubes||3 tbsp:soy sauce, divided (I used Bragg Liquid Aminos)||11 oz:green beans, trimmed & cut into 1? pieces||2 cups:mushrooms, sliced||1 tbsp:garlic, crushed & divided||1 tbsp:ginger, minced & divided||2 tsp:sesame oil, divided||1/2:lemon, juice of||1/4:cup green onion, chopped||1/2:tbsp sesame seeds
+methods = In a medium mixing bowl, combine salmon with 2 tbsp soy sauce and let marinate while you are getting other ingredients ready.||Preheat large deep skillet or a non-stick wok on low – medium heat and add 1 tsp sesame oil. Add salmon, 1/2 tbsp garlic, 1/2 tbsp ginger and cook for 8 – 10 minutes or until fish is cooked through, stirring occasionally. Transfer to a medium bowl and set aside.||Increase heat to medium – high and add remaining sesame oil to the skillet. Add green beans, mushrooms, 1 tbsp soy sauce, 1/2 tbsp garlic, 1/2 tbsp ginger and cook for 5 minutes, stirring occasionally. I like vegetables to be crispy, so cook a bit longer if you like them softer. Return salmon to the skillet, squeeze lemon over, top with green onions and sesame seeds. Stir gently, remove from heat and serve hot.
+
+6.
+name = Honey Garlic Salmon
+detail = Delicious honey garlic salmon recipe where tender salmon fillets have caramelized honey crust with a hint of garlic, topped with green onion. And rave reviews in the comments do not lie. Healthy, simple and delicious quick dinner!
+time = 26 minutes
+type = Dinner
+fat = 143 KCAL
+ingredeint = 2 tbsp:honey||1 tbsp:lemon (lime) juice||2 – 3:large garlic cloves, grated||1/2 tsp:salt||1/2 tsp:ground black pepper||6 x 3 oz:each salmon fillets, skin on/off||1 – 2 tsp:avocado oil||2:green onions, finely chopped
+methods = In a small bowl, whisk together honey, lemon/lime juice, garlic, salt and pepper.||Place salmon fillets in a large resealable Ziploc bag and pour marinade over. Squeeze as much air out as possible and seal the bag. Gently move fillets around inside the bag to make sure they are all evenly coated. Place flesh side down and let marinate 15 minutes.||Preheat large non-stick skillet on low – medium heat and add oil, making sure it coats the bottom of the skillet evenly. Place salmon fillets flesh side down leaving enough space in between them. Cover with a lid and cook for 3 minutes.||Remove the lid, cook another minute and flip over. Repeat: cover, cook for 3 minutes, remove the lid and cook for another minute. If your skillet is not large enough, I recommend cooking in two batches. If you over crowd the skillet, cooking time increases by a few minutes for each step.||Serve hot garnished with green onions, alongside quinoa and steamed broccoli – my favourite.
+
+7.
+name = Healthy Pumpkin Bars
+detail = Made these healthy pumpkin bars 3 times in a week. First batch was gone in less than 24 hours – bars are that good! Second batch went as fast. Third one lived long enough to photograph. These bars are easy, moist, a little bit crumbly and super filling thanks to almonds and oatmeal.  After you eat one or two you won’t be hungry for a while.
+time = 40 minutes
+type = Dessert 
+fat = 161 KCAL
+ingredeint = 3:eggs, large||15 oz:can pumpkin puree||1/2 cup:cane or coconut sugar||2 tbsp:pumpkin pie spice||1 tsp:cinnamon||1 tsp:pure vanilla extract||1/2 tsp:baking soda||1/4 tsp:salt||2 cups:almond flour||1 cup:oat flour||1/2 cup:dark chocolate chips
+methods = Preheat oven to 375 degrees F and line square baking dish with unbleached parchment paper and spray with cooking spray. Set aside.||In a large mixing bowl, whisk the eggs for 10 seconds. Add pumpkin puree, sugar, pumpkin pie spice, cinnamon, vanilla, baking soda and salt; whisk until well combined.||Add almond and oat flours, whisk until well mixed. Add chocolate chips and give a few stirs with a spatula.||Transfer to previously prepared baking dish and level with spatula. Bake for 30 minutes or until toothpick inserted comes out clean.||Remove from the oven and let cool for a couple hours or completely. Cut into 16 squares and enjoy!
+
+8.
+name = Almond Flour Chocolate Chip Cookies
+detail = These almond flour chocolate chip cookies is the first recipe from my “new” kitchen. We’ve been testing it on and off with the kids all year and by the time we perfected the recipe it was summer. I think that was the only time I was sad summer has arrived. Now back to gloomy rain and all my soul craves is a cup of black bergamot tea and cookies! Yes, I’m European tea time girl in the afternoon and Canadian coffee addict in the morning.
+time = 27 minutes
+type = Dessert
+fat = 136 KCAL
+ingredeint = 2:eggs, large||1/3 cup:cane or coconut sugar||1 tsp:pure vanilla extract||1/2 tsp:baking soda||1/2 tsp:salt||1/3 cup:coconut oil, melted||3 cups:almond flour||1/2 cup:chocolate chips
+medthods = Preheat oven to 375 degrees F. Line 2 baking sheets with silicone mats or parchment paper. Set aside.||In a medium mixing bowl, add eggs, sugar, vanilla extract, baking soda and salt. Beat with an electric mixer until well combined, about 3 minutes.||Add coconut oil and beat a bit more to incorporate. Add almond flour and using a spatula (mixer in the beginning and then spatula at the end), mix until the dough forms. Add chocolate chips and give a few more stirs to incorporate.||Using small cookie dough scoop, place small balls of dough on a baking sheet pressing with your hands to flatten them a bit. Leave about 2? between the cookies – cookies spread a bit but not much.||Bake for 12-15 minutes or before cookies start to turn golden. Remove from the oven and let cool for 10 minutes before removing onto cooling rack to cool a bit more.
+
+9.
+name = Egg Muffins
+detail = These egg muffins are a complete breakfast on-the-go or snack filled with quinoa’s complex carbs and flaxseed’s (or chia) healthy fats. Great for using up leftover quinoa, wilting spinach or sun dried tomatoes sitting at the bottom of a huge Costco jar. You could also make this recipe into an egg bake and cut into slices.
+time = 30 minutes
+type = Dessert 
+fat = 101 KCAL
+ingredeint = 9:eggs, large||1 cup:cooked quinoa||2 handfuls:spinach, coarsely chopped||1/2 cup:sun dried tomatoes packed in oil/water, drained & chopped||1/4 cup:feta cheese, crumbled||3 tbsp:ground flaxseed or chia seeds||1 tbsp:onion or garlic powder||1/2 tsp:salt||15g:Ground black pepper, to taste
+methods = Preheat oven to 350 degrees F and place unbleached muffin liners into a 12 muffin tin.||In a large mixing bowl, whisk the eggs. Add cooked quinoa, spinach, sun dried tomatoes, feta cheese, ground flaxseed, onion powder, salt and pepper; stir to combine.||Divide mixture evenly between 12 muffin tin openings and bake for 20 minutes.||Remove from the oven and let cool for about 10 minutes. Serve hot or cold.
+
+10.
+name = Cilantro Lime Cauliflower Rice
+detail = This cilantro lime cauliflower rice recipe is a 20 minute one pan healthy dinner. It has perfect amount of each food group, satisfies Mexican food crave and feeds entire family because who doesn’t love Chipotle cilantro lime rice?!
+time = 25 minutes
+type = Lunch
+fat = 266 KCAL
+ingredeint = 1.5 lbs:boneless chicken breast, cut into 1? pieces||2 lbs:head cauliflower||2:large garlic cloves, minced||1 tbsp:avocado oil||2 tsp:ground cumin, divided||3/4 tsp:salt||1 cup:cilantro, finely chopped||2:limes, juice of||3 cups:brown rice, cooked
+methods = To make cauliflower rice, add cauliflower florets to a food processor (not overcrowding it) and process until rice texture. Or use fresh or frozen store-bought.||Preheat large ceramic non-stick skillet on medium-high heat and swirl oil to coat. Add chicken and cook for 5 minutes, stirring occasionally. Add half garlic, 1 tsp cumin, 1/4 tsp salt and cook for 2 more minutes.||Reduce heat to low-medium, add cauliflower rice, remaining garlic, 1 tsp cumin, 1/2 tsp salt, stir and cook for 2 more minutes.||Add cooked rice, cilantro, lime juice, stir and serve hot.
+
+11.
+name = Healthy Egg Salad
+detail = Healthy Egg Salad with Greek yogurt, almost no mayo, mustard and that’s it. This egg salad recipe is silky smooth, full of flavour and makes THE BEST 5 minute healthy sandwich.
+time = 20 minutes
+type = Breakfast
+fat = 144 KCAL
+ingredeint = 8:large eggs, hard boiled & chopped||1/2 cup:plain or Greek yogurt (2%+ fat)||2 tbsp:avocado oil mayo||1 tbsp:Dijon mustard||1/4 tsp:pinch salt||1/4 tsp:smoked paprika
+methods = Cook the eggs either on a stovetop for 5 minutes after boiling OR in Instant Pot by adding 1 cup of water, placing eggs on a trivet and pressing Pressure Cook for 5 minutes, then vent right away and place in cold water. Easy-peasy.||In a medium bowl, add chopped eggs, yogurt, mayo, mustard, salt and pepper; mix gently until combined. Smoked paprika is up to a personal taste – I love that stuff. That’s it.
+
+12.
+name = Healthy Potato Salad
+detail = Healthy Potato Salad Recipe with Greek yogurt, chock full of vegetables and just a touch of eggs and mayo. Everyone will love this potato salad full of flavour and not drowning in cups of mayo!
+time = 25 minutes
+type = Breakfast
+fat = 196 KCAL
+ingredeint = 2:lbs baby potatoes||3/2:tsp salt||3:large eggs, chopped||1 tbsp:any vinegar except balsamic||2 bunches:radishes, sliced||1:long English cucumber||2 tbsp:chives or green onions, finely chopped||1 cup:Stonyfield Greek yogurt, whole milk||1 tbsp:avocado oil mayo||1 tsp:any mustard||1:small garlic clove, grated||1/2 tsp:salt||10g:Ground black pepper, to taste
+methods = In a medium pot, add potatoes, eggs and 2 tsp salt; add enough cold water to cover, place lid on top and bring to a boil on high heat. Reduce heat to low and cook for 5 minutes. Remove eggs with a slotted spoon into a bowl with cold water; cook potatoes for another 10 minutes or until fork tender. Drain potatoes and let cool for 10 minutes uncovered.||Slice potatoes into small rounds and transfer to a large salad bowl. Add 1 tbsp vinegar and 1/2 tsp salt, toss or mix with a wooden spoon and set aside.||In the meanwhile, cut cucumber lengthwise, remove seeds with a teaspoon (eat them), then cut each half lengthwise one more time, slice and transfer to a bowl with potatoes. Slice radishes, peel and chop eggs, whisk with a fork all Healthy Potato Salad Dressing Ingredients in a small bowl, and add to the salad.||Gently stir with wooden spoon. Enjoy immediately or chill for a few hours for best results.
+
+13.
+name = Protein Pancakes
+detail = Simple Protein Pancakes Recipe with oats, whey protein powder, Greek yogurt, and without banana. Moist, packed with protein, 5 ingredients, no blender.
+time = 15 minutes
+type = Breakfast
+fat = 48 KCAL
+ingredeint = 3:large eggs or 1/3 cup egg whites||1/3 cup:plain Greek yogurt||2 tbsp :maple syrup||1/2 cup + 1 tbsp:oat flour||1 scoop (30 g):whey protein powder, unflavoured or vanilla*
+methods = In a mixing bowl, whisk the eggs. Add yogurt and maple syrup, whisk well to combine. Add oat flour and protein powder; stir until combined.||Preheat skillet on medium heat. Spray with cooking spray and pour the batter depending on a desired size of a pancake (2-3 tbsp for a medium size like on a photo).||Cook for less than a minute and flip when bubbles appear but batter is still wet. Don’t wait for brown edges either. Then cook literally for 10 seconds more and pancakes are ready. Any further cooking will dry out the whey.
+
+14.
+name = Zucchini Quiche
+detail = Crustless Zucchini Quiche Recipe made healthy with few ingredients like grated zucchini, Parmesan cheese, eggs and whole wheat flour. Tastes so good cold!
+time = 60 minutes
+type = Breakfast
+fat = 149 KCAL
+ingredeint = 7 cups (2-2.5 lbs):shredded zucchini (measured before squeezing)||8:large eggs||1/2 cup:spelt or whole wheat flour||1/2 cup:any hard cheese, shredded||1/2 cup:Parmesan cheese, grated||1/2 cup:chives or green onions, finely chopped||1 tsp:salt
+methods = Give shredded zucchini a good squeeze to extract as much water as possible. I do it by placing zucchini into a linen towel and wringing into a ball (save the liquid for soup or smoothies). Transfer to a medium bowl and set aside. Preheat oven to 400 degrees F and spray pie baking dish with cooking spray.||In a medium bowl, add eggs and whisk. Add flour and whisk well to combine (it will take a few minutes). Add both cheeses, salt and pepper, and whisk one more time. To the bowl with zucchini add chives and using spatula mix, then pour egg flour mixture on top and stir well to combine.||Transfer mixture to previously prepared baking dish and bake for 45 minutes or until toothpick inserted in the middle comes out clean. Broil for a few minutes for a golden crust. Cool off a bit, cut into 8 slices and enjoy warm or cold (I love cold quiche!).
+
+15.
+name = Almond Crusted Chicken
+detail = Almond Crusted Chicken Strips are baked instead of fried, and coated in ground almonds in place of breadcrumbs.
+time = 45 minutes
+type = Lunch
+fat = 99 KCAL
+ingredeint = 1.5 lbs:large chicken breasts, boneless & skinless||5/4 cups:almonds, ground (almond meal works too)||1 tbsp:garlic or onion powder||1 tsp:oregano or basil, dried||3/4 tsp:salt||1/8 tsp:ground black pepper||2:eggs, large
+methods = Preheat oven to 450 F degrees. Line large baking sheet with unbleached parchment paper, spray well with cooking spray and set aside.||In one small bowl, mix ground almonds (almond meal), garlic (onion) powder, oregano (basil), salt and pepper. In another small bowl, whisk the eggs.||Wash chicken breasts and pat dry with paper towel. Cut into 1/2 inch thick strips lengthwise. Place a few on a cutting board, cover with a piece of plastic wrap and pound with a meat tenderizer a few times. Repeat with remaining pieces.||Dip each strip into an egg mixture, coat completely in almond mixture and place on prepared baking sheet. Try to hold meat by the ends to prevent almonds sticking to your fingers, or rinse your fingers after each piece in a bowl with cold water.||Bake for 15 minutes on one side, flip and bake for another 12-15 minutes or until golden brown. Please note, when flipping the bottom might look under baked and soggy but it will get browned and crispy, trust me.||Serve hot with organic ketchup or honey mustard sauce, and cauliflower mashed potatoes for a complete meal.
+
+16.
+name = Chicken Noodle Vegetable Soup
+detail = Chicken noodle vegetable soup is a healthy homemade chicken soup with carrot, cabbage, celery, potato and whole wheat pasta, with a slow cooker option.
+time = 32 minutes
+type = Lunch
+fat = 257 KCAL
+ingredeint = 10 cups:chicken broth, low sodium||1:large chicken breast, diced||1 lb:cabbage, coarsely chopped||2:bay leaves||1 tbsp:olive oil, extra virgin||2:large carrots, diced||2:potatoes, diced||3:tomatoes, diced (or 14 oz can of diced tomatoes)||3/2 tsp:original Mrs.Dash, salt free||7/4 tsp:salt||1/2 tsp:ground black pepper||4 oz:any healthy pasta (I used spelt egg noodles)||2:large garlic cloves, crushed||1/3 cup:parsley, chopped
+methods = Add chicken broth to a large pot and bring to a boil. Reduce heat to low – medium and add chicken, cabbage and bay leaves. Cook covered for 10 minutes. Add olive oil, carrots, potatoes, tomatoes, Mrs.Dash, salt, pepper and cook for another 10 minutes. Add pasta, cover and cook for 5 more minutes or until pasta is cooked. Add garlic and parsley. Serve hot.
+
+17.
+name = Cranberry-Grapefruit Sparkler
+detail = Cranberries, citrus, and pomegranates all harbor antioxidants such as vitamin C that will boost your immunity as cold and flu season rolls around. 
+time = 10 minutes
+type = Drink
+fat = - KCAL
+ingredeint = 1 cup:cranberry juice||1 cup:grapefruit juice||1 cup:sparkling mineral water||1/2:Juice of lime
+methods = Combine ingredients in 2 tall glasses, adding 1/2 cup of each juice, 1/2 cup sparkling mineral water, and a squeeze of lime to each glass. Stir, add ice, and serve with a slice of lime.
+
+18.
+name = Spicy Papaya Sunrise
+detail = Easy , healthy and take short time to do.
+time = 10 minutes
+type = Drink
+fat = - KCAL
+ingredeint = 3/4 cup:diced papaya||1 cup:diced watermelon||1 tablespoon:lime juice||1/2:red jalapeno (sliced; seeded if desired to reduce heat)||Slice:lime||Slice:jalapeno
+methods = Puree papaya, watermelon, lime juice, and 1/2 jalapeno in a blender until smooth. Strain and chill. Serve over ice and garnish with a slice each of lime and jalapeno.
+
+19.
+name = Chamomile Cooler
+detail = Meanwhile, place a large strainer lined with cheesecloth or a damp paper towel over another pot or heat-proof bowl. Strain tea, pressing on the herbs to extract all liquid. Stir in honey until it dissolves, and let the tea cool completely, about 1 hour. Fill four tall glasses with ice. Pour tea over ice and serve immediately.
+time = 70 minutes
+type = Drink
+fat = - KCAL
+ingredeint = 1/2 cup:dried chamomile flowers||2 tablespoons:dried lemon verbena leaves||1/3 cup:raw honey
+methods = In a large pot bring 6 cups of water to a boil over high heat. Remove pot from heat and stir in the chamomile and lemon verbena. Cover and steep for 10 minutes.||Meanwhile, place a large strainer lined with cheesecloth or a damp paper towel over another pot or heat-proof bowl. Strain tea, pressing on the herbs to extract all liquid. Stir in honey until it dissolves, and let the tea cool completely, about 1 hour. Fill four tall glasses with ice. Pour tea over ice and serve immediately.
+
+20.
+name = Chicken Burger Recipe
+detail = Chicken Burger Recipe with juicy chicken patties like my Ukrainian grandma used to make. Grill into a burger or pan fry as small patties and serve naked with quinoa and salad. No matter what you do, it’s THE BEST chicken burgers.
+time = 45 minutes
+type = Lunch
+fat = 135 KCAL
+ingredeint = 2 lbs:boneless and skinless chicken breasts, cubed||1:egg, large||1/2:small onion, cut in chunks||1:garlic clove||1 slice:sprouted whole grain bread||1/2 tsp:salt||3 tbsp:avocado or coconut oil
+methods = In a food processor or high speed blender, add chicken and process until ground. Work in batches and transfer to a large mixing bowl.||Return blender to its base, add egg, onion and garlic. Quickly soak bread in water, squeeze well and add to the blender along with salt and pepper. Process until well combined and add to the bowl with ground chicken meat. Using your hands, mix well.||Preheat large ceramic non-stick skillet or grill on medium heat and swirl some oil to coat (spray the grill). Form into a ball size of a tennis ball for a burger or somewhere between golf and tennis size for “naked” patty, then flatten.||Pan fry or grill for about 4-5 minutes per side (grills vary). It is time to flip when white edges appear and patty is brown on the bottom. Please note that second and third batches will take less time to cook as the skillet (grill) will be hotter.||Serve hot assembled in a burger or with a side grain + salad. They also taste very good cold.
+
+
