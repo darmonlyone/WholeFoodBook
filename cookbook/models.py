@@ -33,10 +33,31 @@ class Recipe(models.Model):
         return self.recipe_fat
 
     def get_recipe_ingredient(self):
-        return self.recipe_ingredient
+        return self.__get_recipe_ingredient_value()
 
     def get_recipe_method(self):
         return self.recipe_method
 
     def get_recipe_method_list(self):
         return self.recipe_method.split("||")
+
+    def __get_recipe_ingredient_value(self):
+        ingredients = self.recipe_ingredient.split("||")
+        ingredient = []
+        for i in ingredients:
+            splitter = i.split(":")
+            ingredient.append(Ingredient(splitter[0], splitter[1]))
+        return ingredient
+
+
+class Ingredient:
+
+    def __init__(self, amount, detail):
+        self.amount = amount
+        self.detail = detail
+
+    def get_detail(self):
+        return self.detail
+
+    def get_amount(self):
+        return self.amount
