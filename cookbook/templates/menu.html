@@ -103,7 +103,9 @@
             </div>
             <div class="text-center col-md-5 pl-md-1">
                 <div id="menu-descrip">
-                    <div id="menu-descrip-header">{{ recipe.get_recipe_name }}</div>
+                    <div id="menu-descrip-header">
+                        {{ recipe.get_recipe_name }}
+                    </div>
                     <p id="menu-descrip-detail">
                         {{ recipe.get_recipe_info }}
                     </p>
@@ -113,7 +115,38 @@
                                 <img src="{% static 'image/icons8_Chef_Hat_50px_1.png' %}" style="margin-right:25px;" />TOTAL
                                 TIME:
                             </div>
-                            <div class="col-md-6 descrip" id="descrip-time">{{ recipe.get_recipe_time }} MINUTES</div>
+                            <div class="col-md-6 descrip" id="descrip-time">
+                                <!-- show cooking time in terms of hour(s) and minute(s) -->
+                                <script type="text/javascript">
+                                    function timeConvert(time) {
+                                        let recipe_time = parseInt(time);
+                                        let minutes = recipe_time % 60;
+                                        let hours = (recipe_time - minutes) / 60;
+                                        let result =""
+                                        if (hours > 0){
+                                            result = result.concat(hours);
+                                            if (hours === 1){
+                                                result = result.concat(" HOUR");
+                                            } else {
+                                                result = result.concat(" HOURS");
+                                            }
+                                        }
+                                        if(hours > 0 && minutes > 0){
+                                            result = result.concat(" ")
+                                        }
+                                        if (minutes > 0){
+                                            result = result.concat(minutes);
+                                            if (minutes === 1){
+                                                result = result.concat(" MINUTE");
+                                            } else {
+                                                result = result.concat(" MINUTES");
+                                            }
+                                        }
+                                        return result;
+                                    }
+                                    document.write(timeConvert("{{ recipe.get_recipe_time }}")); // ex. 2 hours 30 minutes.
+                                </script>
+                            </div>
                         </div>
                         <div class="row menu-descrip-info">
                             <div class="col-md-6">
@@ -148,62 +181,16 @@
                 <div id="menu-ingredient">
                     <div class="menu-header">Ingredient:</div>
                     <div class="container">
+                        {% for ingredient in recipe.get_recipe_ingredient %}
                         <div class="row">
                             <div class="col-md-3 pb-md-2 ingre-quantity" id="">
-                                <p>2 x 400g</p>
+                                <p>{{ ingredient.get_amount }}</p>
                             </div>
                             <div class="col-md-8 pb-md-2 ingre-detail" id="">
-                                <p>packets Lilydale Breast Strips</p>
+                                <p>{{ ingredient.get_detail }}</p>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-3 pb-md-2 ingre-quantity" id="">
-                                <p>8</p>
-                            </div>
-                            <div class="col-md-8 pb-md-2 ingre-detail" id="">
-                                <p>kipfler potatoes, washed, cut into 1cm thick rounds</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3 pb-md-2 ingre-quantity" id="">
-                                <p>1</p>
-                            </div>
-                            <div class="col-md-8 pb-md-2 ingre-detail" id="">
-                                <p>tablespoon olive oil</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3 pb-md-2 ingre-quantity" id="">
-                                <p>100g</p>
-                            </div>
-                            <div class="col-md-8 pb-md-2 ingre-detail" id="">
-                                <p>cup macadamia nuts</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3 pb-md-2 ingre-quantity" id="">
-                                <p>1/2</p>
-                            </div>
-                            <div class="col-md-8 pb-md-2 ingre-detail" id="">
-                                <p>garlic clove, chopped</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3 pb-md-2 ingre-quantity" id="">
-                                <p>1</p>
-                            </div>
-                            <div class="col-md-8 pb-md-2 ingre-detail" id="">
-                                <p>tablespoon water</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3 pb-md-2 ingre-quantity" id="">
-                                <p>1</p>
-                            </div>
-                            <div class="col-md-8 pb-md-2 ingre-detail" id="">
-                                <p>baby beans, ends trimmed, blanched</p>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
