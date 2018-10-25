@@ -89,8 +89,8 @@ if 'test' in sys.argv or 'test_coverage' in sys.argv:
     DATABASES['default'] = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'test_db',
-        'USER': 'qlstobsaodofxt',
-        'PASSWORD': '30746315061f9e0de3682a5234ee91108f6356441458632932208e5f7a8edd56',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
     }
 # Password validation
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators
