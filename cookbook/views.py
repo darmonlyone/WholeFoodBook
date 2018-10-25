@@ -16,7 +16,8 @@ class MenuView(generic.ListView):
     model = Recipe
 
     def get_queryset(self):
-        return Recipe.objects.filter(recipe_name="Chicken Breast")
+        recipe_name = self.kwargs['recipe_name']
+        return Recipe.objects.filter(recipe_name=recipe_name)
 
 # def test(request):
 #     entry_list = list(Recipe.objects.all())
