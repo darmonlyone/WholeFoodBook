@@ -8,6 +8,4 @@ urlpatterns = [
     path('', views.WelcomeView.as_view(), name='welcome'),
     path('menu/', views.MenuView.as_view(), name='menu'),
     # path('database/', views.fake_put_db),
-]
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

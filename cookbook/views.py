@@ -12,7 +12,7 @@ class WelcomeView(generic.ListView):
 
 class MenuView(generic.ListView):
     template_name = 'menu.html'
-    context_object_name = 'latest_question_list'
+    context_object_name = 'recipe_enable'
     model = Recipe
 
     def get_queryset(self):
