@@ -40,7 +40,7 @@ padding-left: 0;
     background-color: white;
 }
 
-#login-header-container {
+#login-header-container-google {
     height: 353px;
     width: 661px;
     text-align: center;
@@ -53,14 +53,36 @@ padding-left: 0;
     font-size:60px;
 }
 
-#google-login-button{
+#login-header-container-facebook {
+    height: 353px;
+    width: 661px;
+    text-align: center;
+    color: white;
+    background-color: #5C7DEA;
+    padding-top : 90px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 90px;
+    font-size:60px;
+}
+
+#google-login{
     width: 280px;
     height: 50;
     margin-bottom: 20px;
     text-align: center;
-    background-color: #EA6D70;
+    background-color:#EA6D70;
 }
-#google-guest-button{
+
+#facebook-login{
+    width: 280px;
+    height: 40px;
+    margin-bottom: 20px ;
+    text-align: center;
+    background-color: #5C7DEA;
+}
+
+#guest-button{
     width: 180px;
     height: 50;
     padding-left: 60px;
@@ -70,6 +92,7 @@ padding-left: 0;
     background-color: #F3CD4C;
     color: white;
 }
+
 
 #organic-login-button{
     margin-top: 30px;
@@ -83,6 +106,12 @@ padding-left: 0;
     height: 20;
     background-color: #5C7DEA;
     
+}
+
+#google-login-button{
+    width: 411px;
+    height: 40px;
+    background-color: #EA6D70;
 }
 
 #google-email {
