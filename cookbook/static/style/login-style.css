@@ -66,6 +66,19 @@ padding-left: 0;
     font-size:60px;
 }
 
+#login-header-container-organic {
+    height: 353px;
+    width: 661px;
+    text-align: center;
+    color: white;
+    background-color: #55AD4B;
+    padding-top : 90px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 90px;
+    font-size:60px;
+}
+
 #google-login{
     width: 280px;
     height: 50;
@@ -80,6 +93,14 @@ padding-left: 0;
     margin-bottom: 20px ;
     text-align: center;
     background-color: #5C7DEA;
+}
+
+#organic-login{
+    width: 280px;
+    height: 40px;
+    margin-bottom: 20px ;
+    text-align: center;
+    background-color: #55AD4B;
 }
 
 #guest-button{
@@ -108,6 +129,13 @@ padding-left: 0;
     
 }
 
+#facebook2-login-button{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 411px;
+    background-color: #5C7DEA;
+}
+
 #google-login-button{
     width: 411px;
     height: 40px;
@@ -125,4 +153,10 @@ padding-left: 0;
     width: 480px;
     margin-bottom: 60px;
     color: white;
+}
+
+#emailHelp {
+    float: left;
+    margin-bottom: 20px;
+    
 }
