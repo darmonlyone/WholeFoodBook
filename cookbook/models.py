@@ -1,12 +1,40 @@
 from django.db import models
 
 
+class CookTime(models.Model):
+    cooking_time = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.cooking_time
+
+
+class Equipment(models.Model):
+    equipment_required = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.equipment_required
+
+
+class Allergies(models.Model):
+    allergies_ingredient = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.allergies_ingredient
+
+
+class Category(models.Model):
+    food_category = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.food_category
+
+
 class Recipe(models.Model):
     recipe_chef = models.CharField(max_length=30)
     recipe_name = models.CharField(max_length=30)
     recipe_info = models.TextField()
     recipe_time = models.IntegerField(null=True)
-    recipe_type = models.CharField(max_length=15)
+    recipe_equipment = models.CharField(max_length=15)
     recipe_fat = models.IntegerField(null=True)
     recipe_ingredient = models.TextField()
     recipe_method = models.TextField()
@@ -14,6 +42,10 @@ class Recipe(models.Model):
     recipe_image_2 = models.ImageField(upload_to='recipe_image/', blank=True)
     recipe_image_3 = models.ImageField(upload_to='recipe_image/', blank=True)
     recipe_image_4 = models.ImageField(upload_to='recipe_image/', blank=True)
+    category_tags = models.ManyToManyField(Category, related_name="categories")
+    time_tags = models.ManyToManyField(CookTime, related_name='cook_times', blank=True)
+    equipment_tags = models.ManyToManyField(Equipment, related_name='equipments', blank=True)
+    allergies_tags = models.ManyToManyField(Allergies, related_name='allergiess', blank=True)
 
     def __str__(self):
         return f"Chef: {self.recipe_chef}, Food: {self.recipe_name}"

@@ -6,6 +6,6 @@ from . import views
 app_name = 'cookbook'
 urlpatterns = [
     path('', views.WelcomeView.as_view(), name='welcome'),
-    path('menu/', views.MenuView.as_view(), name='menu'),
+    path('recipe/<str:recipe_name>', views.MenuView.as_view(), name='recipe'),
     # path('database/', views.fake_put_db),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
