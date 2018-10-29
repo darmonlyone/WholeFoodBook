@@ -34,7 +34,7 @@ class Recipe(models.Model):
     recipe_name = models.CharField(max_length=30)
     recipe_info = models.TextField()
     recipe_time = models.IntegerField(null=True)
-    recipe_type = models.CharField(max_length=15)
+    recipe_equipment = models.CharField(max_length=15)
     recipe_fat = models.IntegerField(null=True)
     recipe_ingredient = models.TextField()
     recipe_method = models.TextField()
