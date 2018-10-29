@@ -82,8 +82,8 @@ class Recipe(models.Model):
     def get_recipe_time(self):
         return self.recipe_time
 
-    def get_recipe_type(self):
-        return self.recipe_type.upper()
+    def get_recipe_equipment(self):
+        return self.recipe_equipment.upper()
 
     def get_recipe_fat(self):
         return self.recipe_fat
