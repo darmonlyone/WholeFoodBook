@@ -1,13 +1,6 @@
-import tempfile
-from django.core.files.images import ImageFile
 from django.test import TestCase
 
-from cookbook.models import CookTime, Equipment, Allergies, Category, Ingredient, Recipe
-
-
-def get_test_image_file():
-    file = tempfile.NamedTemporaryFile(suffix='.jpg')
-    return ImageFile(file, name=file.name)
+from cookbook.models import CookTime, Equipment, Allergies, Category, Recipe
 
 
 class ModelTest(TestCase):
@@ -16,27 +9,34 @@ class ModelTest(TestCase):
         """
         Set up database for testing.
         """
-        CookTime.objects.create(cooking_time="10 Min")
-        CookTime.objects.create(cooking_time="30 Min")
-        CookTime.objects.create(cooking_time="1 Hours")
+        CookTime.objects.create(cooking_time="10 Mins")
+        CookTime.objects.create(cooking_time="30 Mins")
+        CookTime.objects.create(cooking_time="1 Hour")
         Equipment.objects.create(equipment_required="mixer")
         Equipment.objects.create(equipment_required="blender")
         Allergies.objects.create(allergies_ingredient="egg")
         Allergies.objects.create(allergies_ingredient="milk")
         Allergies.objects.create(allergies_ingredient="soy")
         Category.objects.create(food_category="Main Course")
-        mock_image = get_test_image_file()
-        self.recipe = Recipe(recipe_chef="Darm", recipe_name="Fire egg", recipe_info="This is super egg of the years",
-                             recipe_time=60, recipe_equipment="oven", recipe_fat=200,
-                             recipe_ingredient="10g:Sugar||100%:love",
-                             recipe_method="Put you egg in mixer||Take it off and fire with air",
-                             recipe_image_1=mock_image)
+        Recipe.objects.create(recipe_chef="Darm", recipe_name="Fire egg",
+                              recipe_info="This is super egg of the years",
+                              recipe_time=60, recipe_equipment="oven", recipe_fat=200,
+                              recipe_ingredient="10g:Sugar||100%:love",
+                              recipe_method="Put you egg in mixer||Take it off and fire with air",
+                              recipe_image_1='')
         Recipe.objects.create(recipe_chef="Wanny", recipe_name="Super Chicken",
                               recipe_info="This checken come form real word that you will never know",
                               recipe_time=100, recipe_equipment="Fire", recipe_fat=1000,
                               recipe_ingredient="10000kg:Nothing",
                               recipe_method="Do nothing||Finished",
                               recipe_image_1='')
+        self.recipe = Recipe.objects.first()
+
+        # set recipe tags
+        self.recipe.time_tags.set(CookTime.objects.all())
+        self.recipe.allergies_tags.set(Allergies.objects.all())
+        self.recipe.category_tags.set(Category.objects.all())
+        self.recipe.equipment_tags.set(Equipment.objects.all())
 
     def test_amount_cooking_time_tags(self):
         """
@@ -62,29 +62,33 @@ class ModelTest(TestCase):
         """
         self.assertEqual(Category.objects.count(), 1)
 
-    def test_get_first_cooking_time_tags(self):
+    def test_get_first_last_cooking_time_tags(self):
         """
-        Test first time tags.
+        Test first and last time tags.
         """
-        self.assertEqual(str(CookTime.objects.first()), "10 Min")
+        self.assertEqual(str(CookTime.objects.first()), "10 Mins")
+        self.assertEqual(str(CookTime.objects.last()), "1 Hour")
 
     def test_get_first_equipment_tags(self):
         """
-        Test first equipment tags.
+        Test first and last equipment tags.
         """
         self.assertEqual(str(Equipment.objects.first()), "mixer")
+        self.assertEqual(str(Equipment.objects.last()), "blender")
 
-    def test_get_first_allergies_tags(self):
+    def test_get_first_last_allergies_tags(self):
         """
-        Test first allergies tags.
+        Test first and last allergies tags.
         """
         self.assertEqual(str(Allergies.objects.first()), "egg")
+        self.assertEqual(str(Allergies.objects.last()), "soy")
 
     def test_get_first_category_tags(self):
         """
-        Test first time tags.
+        Test first and last category tags.
         """
         self.assertEqual(str(Category.objects.first()), "Main Course")
+        self.assertEqual(str(Category.objects.last()), "Main Course")
 
     def test_get_recipe_chef(self):
         """
@@ -158,3 +162,35 @@ class ModelTest(TestCase):
         """
         self.assertTrue(Recipe.objects.filter(recipe_chef="Wanny", recipe_fat=1000))
         self.assertFalse(Recipe.objects.filter(recipe_time=99, recipe_name="Tello"))
+
+    def test_recipe_get_time_tags(self):
+        """
+        Test recipe time tags enable or not.
+        """
+        self.assertEqual(self.recipe.time_tags.count(), CookTime.objects.count())
+        self.assertEqual(str(self.recipe.time_tags.first()), "10 Mins")
+        self.assertEqual(str(self.recipe.time_tags.last()), "1 Hour")
+
+    def test_recipe_get_equipment_tags(self):
+        """
+        Test recipe equipment tags enable or not.
+        """
+        self.assertEqual(self.recipe.equipment_tags.count(), Equipment.objects.count())
+        self.assertEqual(str(self.recipe.equipment_tags.first()), "mixer")
+        self.assertEqual(str(self.recipe.equipment_tags.last()), "blender")
+
+    def test_recipe_get_allergies_tags(self):
+        """
+        Test recipe allergies tags enable or not.
+        """
+        self.assertEqual(self.recipe.allergies_tags.count(), Allergies.objects.count())
+        self.assertEqual(str(self.recipe.allergies_tags.first()), "egg")
+        self.assertEqual(str(self.recipe.allergies_tags.last()), "soy")
+
+    def test_recipe_get_category_tags(self):
+        """
+        Test recipe time tags enable or not.
+        """
+        self.assertEqual(self.recipe.category_tags.count(), Category.objects.count())
+        self.assertEqual(str(self.recipe.category_tags.first()), "Main Course")
+        self.assertEqual(str(self.recipe.category_tags.last()), "Main Course")
