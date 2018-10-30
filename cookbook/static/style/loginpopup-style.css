@@ -1,0 +1,71 @@
+.header {
+    text-align: center;
+}
+
+#myBtn {
+    background-color: transparent;
+    color: black;
+    border-color: transparent;
+}
+#modal {
+    width: 850px;
+    height: 340px;
+}
+
+#login {
+    font-size: 45px;
+   margin-top: 45px;
+   margin-left: 70px;
+   align-self: center;
+   color: #707070;
+}
+
+#close-btn {
+    margin-top: 5px;
+    margin-right: 8px;
+    width: 47px;
+    height: 47px;
+}
+
+#a {
+    margin-right: 5px;
+    align-self: baseline;
+    box-shadow: 20px;
+}
+
+#fb-login {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 50px; 
+    width: 400px;
+    height: 50px;
+    background-color: #5C7DEA;
+    color: white;
+    text-align: left;
+}
+
+#fb-logo {
+    margin-right: 100px;
+    margin-left: 10px;
+}
+
+#gg-logo {
+    margin-right: 100px;
+    margin-left: 10px;
+}
+#gg-login {
+    width: 400px;
+    height: 50px;
+    margin-left: 50px; 
+    background-color: #EA6D70;
+    color: white;
+    text-align: left;
+}
+.close {
+    padding-right: 10px;
+}
+
+
+#login-btn {
+    align-content: center;
+}
