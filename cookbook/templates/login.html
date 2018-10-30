@@ -6,13 +6,14 @@
   {% load static %}
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
-  <link rel="stylesheet" href="{% static 'style/loginpopup-style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'style/loginpopup-style.css' %}">
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
 <body>
+  
   <!-- Button trigger modal -->
   <!-- ปุ่มกดไปให้หน้าlogin เด้งขึ้น -->
   <button type="button" class="btn btn-primary" id="myBtn" data-toggle="modal" data-target="#myModal">
@@ -32,12 +33,12 @@
         </div>
         <div class="container" id="login-btn">
           <div class="row">
-            <button href="#" class="btn azm-social azm-btn azm-border-bottom azm-facebook" id="fb-login">
-                <img src="‎⁨cookbook/static/image/facebooklogo.png" id ="fb-logo" style="width: 37px;" alt="">Facebook Login</button>
-          </div>
+              <button href="#" class="btn azm-social azm-btn azm-border-bottom azm-facebook" id="fb-login">
+                  <img src="{% static 'image/facebooklogo.png' %}" id ="fb-logo" style="width: 37px;" alt="">Facebook Login</button>
+            </div>
           <div class="row">
-            <button href="#" class="btn azm-social azm-btn azm-border-bottom azm-facebook" id="gg-login">
-                <img src="cookbook/static/image/googlelogo.png" id ="gg-logo" style="width: 35px;" alt="">Google Login</button>
+            <button href="#" class="btn azm-social azm-btn azm-border-bottom azm-google" id="gg-login">
+                <img src="{% static 'image/googlelogo.png' %}" id ="gg-logo" style="width: 35px;" alt="">Google Login</button>
           </div>
 
         </div>
