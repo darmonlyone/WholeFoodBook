@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
 import os
+import sys
+
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -30,7 +33,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'cookbook.apps.cookbook_Config',
+    'cookbook.apps.CookbookConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -75,11 +78,20 @@ WSGI_APPLICATION = 'Whole_Food_Cookbook.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': '',
     }
 }
+Database_url = 'postgres://qlstobsaodofxt:30746315061f9e0de3682a5234ee91108f6356441458632932208e5f7a8edd56@ec2-174-129-22-84.compute-1.amazonaws.com:5432/d4a956rkpjmdd1'
+DATABASES['default'] = dj_database_url.config(default=Database_url, conn_max_age=600, ssl_require=True)
 
+if 'test' in sys.argv or 'test_coverage' in sys.argv:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'test_db',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+    }
 # Password validation
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators
 
@@ -119,6 +131,9 @@ STATICFILES_DIR = [
 ]
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR)
+STATIC_ROOT = os.path.join(BASE_DIR, 'cookbook')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'cookbook/static')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
