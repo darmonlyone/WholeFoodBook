@@ -79,7 +79,11 @@ WSGI_APPLICATION = 'Whole_Food_Cookbook.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': '',
+        'NAME': 'darm',
+        'USER': 'postgres',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 Database_url = 'postgres://qlstobsaodofxt:30746315061f9e0de3682a5234ee91108f6356441458632932208e5f7a8edd56@ec2-174-129-22-84.compute-1.amazonaws.com:5432/d4a956rkpjmdd1'
