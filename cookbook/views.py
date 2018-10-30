@@ -12,11 +12,12 @@ class WelcomeView(generic.ListView):
 
 class MenuView(generic.ListView):
     template_name = 'menu.html'
-    context_object_name = 'latest_question_list'
+    context_object_name = 'recipe_enable'
     model = Recipe
 
     def get_queryset(self):
-        return Recipe.objects.filter(recipe_name="Chicken Breast")
+        recipe_name = self.kwargs['recipe_name']
+        return Recipe.objects.filter(recipe_name=recipe_name)
 
 # def test(request):
 #     entry_list = list(Recipe.objects.all())
