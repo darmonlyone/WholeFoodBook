@@ -196,8 +196,8 @@
       max-width: 1200px;
       max-height: 600px;
       margin: auto;
-      border:6px solid;
-      border-color: #3b8832;
+      /* border:6px solid;
+      border-color: #3b8832; */
       margin-bottom: 40px;
       margin-top: 40px;     
   }
