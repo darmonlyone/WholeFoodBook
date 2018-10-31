@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 
@@ -9,7 +10,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="../static/style/login-style.css">
+    <link rel="stylesheet" href="{% static "style/login-style.css " %}">
     <link href="https://fonts.googleapis.com/css?family=Signika+Negative" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
         crossorigin="anonymous">
@@ -25,7 +26,7 @@
                 </div>
                 <div id="login-login-container">
                     <br>
-                        <h2 style="color:#55AD4B ">Sign in</h2>
+                    <h2 style="color:#55AD4B ">Sign in</h2>
                     <br>
                     <div style="padding-left: 90px; padding-right: 90px;">
                         <button href="#" class="btn azm-social azm-btn azm-border-bottom azm-facebook" id="facebook2-login-button" style="color: white">
@@ -37,7 +38,8 @@
                                 OR
                             </span>
                         </div>
-                        <button href="#" class="btn azm-social azm-btn azm-border-bottom btn-warning" id="continue-login-button" style="color: white">
+                        <button href="{% url 'cookbook:recipe' "Ground Chicken Tacos" %}" class="btn azm-social azm-btn azm-border-bottom btn-warning"
+                            id="continue-login-button" onclick="location.href='{% url 'cookbook:recipe' "Ground Chicken Tacos" %}'" style="color: white">
                             Continue </button>
                     </div>
                 </div>
