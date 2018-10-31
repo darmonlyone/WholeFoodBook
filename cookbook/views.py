@@ -19,6 +19,7 @@ class MenuView(generic.ListView):
         recipe_name = self.kwargs['recipe_name']
         return Recipe.objects.filter(recipe_name=recipe_name)
 
+
 class LoginView(generic.ListView):
     template_name = 'login.html'
 
