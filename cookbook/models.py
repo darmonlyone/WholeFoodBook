@@ -38,7 +38,7 @@ class Recipe(models.Model):
     recipe_fat = models.IntegerField(null=True)
     recipe_ingredient = models.TextField()
     recipe_method = models.TextField()
-    recipe_image_1 = models.ImageField(upload_to='recipe_image/')
+    recipe_image_1 = models.ImageField(upload_to='recipe_image/', blank=True)
     recipe_image_2 = models.ImageField(upload_to='recipe_image/', blank=True)
     recipe_image_3 = models.ImageField(upload_to='recipe_image/', blank=True)
     recipe_image_4 = models.ImageField(upload_to='recipe_image/', blank=True)
