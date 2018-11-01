@@ -123,12 +123,12 @@
 }
 
 #menu-descrip-header {
-    font-size: 40px;
+    font-size: 30px;
     text-align: center;
 }
 
 #menu-descrip-detail {
-    font-size :25px;
+    font-size :20px;
     text-align: left;
     margin-top: 20px;
     margin-bottom: 30px;
@@ -138,7 +138,7 @@
 }
 
 .menu-descrip-info {
-    font-size :25px;
+    font-size :20px;
     text-align: left;
     margin-bottom: 10px;
 }
