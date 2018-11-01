@@ -1,4 +1,3 @@
-from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import TestCase
 from django.urls import reverse
 
@@ -6,12 +5,6 @@ from cookbook.models import CookTime, Equipment, Allergies, Category, Recipe
 
 
 class ViewTest(TestCase):
-    # def setUp(self):
-    #     Recipe.objects.create(recipe_chef="Darm", recipe_name="Fire egg",
-    #                           recipe_info="This is super egg of the years",
-    #                           recipe_time=60, recipe_equipment="oven", recipe_fat=200,
-    #                           recipe_ingredient="10g:Sugar||100%:love",
-    #                           recipe_method="Put you egg in mixer||Take it off and fire with air")
 
     def test_no_recipe(self):
         """
@@ -22,16 +15,19 @@ class ViewTest(TestCase):
         self.assertContains(response, "This Recipe are not available.")
         self.assertQuerysetEqual(response.context['recipe_enable'], [])
 
-    # def test_recipe_show_up(self):
-    #     """
-    #     Questions with a pub_date in the past are displayed on the
-    #     index page.
-    #     """
-    #     response = self.client.get(reverse('cookbook:recipe', args=['Fire egg']))
-    #     self.assertQuerysetEqual(
-    #         response.context['latest_question_list'],
-    #         ['<Question: Past question.>']
-    #     )
+    def test_welcome_page(self):
+        """
+        Test status code form opening welcome page.
+        """
+        response = self.client.get(reverse('cookbook:welcome'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_login_page(self):
+        """
+        Test status code form opening login page.
+        """
+        response = self.client.get(reverse('cookbook:login'))
+        self.assertEqual(response.status_code, 200)
 
 
 class ModelTest(TestCase):
