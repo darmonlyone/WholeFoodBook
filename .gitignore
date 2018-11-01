@@ -14,3 +14,6 @@ db.sqlite3
 ### idea project ###
 .idea/
 *.xml
+
+### static file ###
+statics/
