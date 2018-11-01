@@ -152,7 +152,7 @@
   }
   
   .carousel__box:not(:last-child) {
-    margin-right: $carousel-margin;
+    margin-right: 75px;
   }
   
   .carousel__control {

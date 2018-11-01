@@ -1,4 +1,4 @@
-var size = 760;
+var size = 750;
 var margin = 20;
 var count = 6;
 var visible = 3; // Visible carousel slides (excluding the barely)
