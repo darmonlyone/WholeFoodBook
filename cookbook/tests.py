@@ -6,12 +6,12 @@ from cookbook.models import CookTime, Equipment, Allergies, Category, Recipe
 
 
 class ViewTest(TestCase):
-    def setUp(self):
-        Recipe.objects.create(recipe_chef="Darm", recipe_name="Fire egg",
-                              recipe_info="This is super egg of the years",
-                              recipe_time=60, recipe_equipment="oven", recipe_fat=200,
-                              recipe_ingredient="10g:Sugar||100%:love",
-                              recipe_method="Put you egg in mixer||Take it off and fire with air")
+    # def setUp(self):
+    #     Recipe.objects.create(recipe_chef="Darm", recipe_name="Fire egg",
+    #                           recipe_info="This is super egg of the years",
+    #                           recipe_time=60, recipe_equipment="oven", recipe_fat=200,
+    #                           recipe_ingredient="10g:Sugar||100%:love",
+    #                           recipe_method="Put you egg in mixer||Take it off and fire with air")
 
     def test_no_recipe(self):
         """
@@ -22,16 +22,16 @@ class ViewTest(TestCase):
         self.assertContains(response, "This Recipe are not available.")
         self.assertQuerysetEqual(response.context['recipe_enable'], [])
 
-    def test_recipe_show_up(self):
-        """
-        Questions with a pub_date in the past are displayed on the
-        index page.
-        """
-        response = self.client.get(reverse('cookbook:recipe', args=['Fire egg']))
-        self.assertQuerysetEqual(
-            response.context['latest_question_list'],
-            ['<Question: Past question.>']
-        )
+    # def test_recipe_show_up(self):
+    #     """
+    #     Questions with a pub_date in the past are displayed on the
+    #     index page.
+    #     """
+    #     response = self.client.get(reverse('cookbook:recipe', args=['Fire egg']))
+    #     self.assertQuerysetEqual(
+    #         response.context['latest_question_list'],
+    #         ['<Question: Past question.>']
+    #     )
 
 
 class ModelTest(TestCase):
