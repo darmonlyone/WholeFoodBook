@@ -1,3 +1,13 @@
+$(function() {
+    $('#showmore').on('click',function () {
+        console.log("clicked");
+            $('#foodlist li:hidden').slice(0, 2).show();
+            if ($('#foodlist li').length == $('#foodlist li:visible').length) {
+                $('#showmore ').hide();
+            }
+    });
+})
+
 var size = 750;
 var margin = 20;
 var count = 6;
@@ -32,7 +42,7 @@ $slides.each(function(index, slide) {
   $(slide).data('index', index);
 });
 
-$slides.on('mouseenter', _.debounce(function() {
+$slides.on('mouseenter',_.debounce(function() {
   var $slide = $(this);
   var index = $slide.data('index');
   $previous = previous(index);
@@ -43,10 +53,10 @@ $slides.on('mouseenter', _.debounce(function() {
   $slide.addClass('carousel__box--enter')
 }, 350));
 
-$slides.on('mouseout', _.debounce(function() {
+$slides.on('mouseout',_.debounce(function() {
   var $slide = $(this);
   
-  $slide
+    $slide
     .addClass('carousel__box--leave')
     .removeClass('carousel__box--enter')
     .delay(400)
@@ -118,12 +128,26 @@ function move(offset) {
 // }
 
 
-$('#showmore').on('click',function () {
-    console.log("clicked");
-        $('#foodlist li:hidden').slice(0, 2).show();
-        if ($('#foodlist li').length == $('#foodlist li:visible').length) {
-            $('#showmore').hide();
-        }
-});
+
+// console.log("reach here");
+// var $list = $(".list li");
+// var numToShow = 3;
+// var $button = $("#showmore");
+// var numInList = list.length;
+// $list.hide();
+// if (numInList > numToShow) {
+//   $button.show();
+// }
+// $list.slice(0, numToShow).show();
+
+// $button.on('click',function(){
+//     console.log("clicked");
+//     var showing = $list.filter(':visible').length;
+//     $list.slice(showing - 1, showing + numToShow).fadeIn();
+//     var nowShowing = $list.filter(':visible').length;
+//     if (nowShowing >= numInList) {
+//       $button.hide();
+//     }
+// });
 
 

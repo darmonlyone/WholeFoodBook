@@ -293,3 +293,7 @@
 ul li:nth-child(n+4) {
     display:none;
 }
+
+li {
+    display: -webkit-inline-box;
+}
