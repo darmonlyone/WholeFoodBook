@@ -102,3 +102,28 @@ function move(offset) {
     : -((size * offset) + (margin * offset));
   $container.css('transform', 'translateX(' + translateX + 'px)'); 
 }
+
+
+// /**
+//  * change button background
+//  */
+// var btnContainer = document.getElementById("btn-group");
+// var btns = btnContainer.getElementsByClassName("btn-cat");
+// for (var i = 0; i < btns.length; i++) {
+//   btns[i].addEventListener("click", function() {
+//     var current = document.getElementsByClassName("actived");
+//     current[0].className = current[0].className.replace(" actived", "");
+//     this.className += " actived";
+//   });
+// }
+
+
+$('#showmore').on('click',function () {
+    console.log("clicked");
+        $('#foodlist li:hidden').slice(0, 2).show();
+        if ($('#foodlist li').length == $('#foodlist li:visible').length) {
+            $('#showmore').hide();
+        }
+});
+
+

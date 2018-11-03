@@ -56,7 +56,7 @@
 .header {
     margin-left: 80px;
     margin: 30px;
-    font-size: 45px
+    font-size: 30px
 }
 
 @mixin clearfix() {
@@ -85,7 +85,7 @@
     padding-top: 20px;
     padding-bottom: 20px;
     height: 300px;
-    width: 1920px;
+    width: auto;
     margin-bottom: 50px;
     padding-left: 135px;
     padding-right: 135px;
@@ -154,6 +154,12 @@
   .carousel__box:not(:last-child) {
     margin-right: 75px;
   }
+
+  .carousel__box:hover {
+    transform: scale(1.25);
+  }
+
+
   
   .carousel__control {
     position: absolute;
@@ -186,3 +192,104 @@
   .carousel__control--disabled {
     opacity: 0;
   }
+
+#category-button {
+    margin-left:60px;
+}
+.btn-cat {
+    background-color: white;
+    border: none;
+    font-size: 28px;
+    width: 221px;
+    height: 75px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.actived {
+    background-color: #F3F3F3;
+    border: none;
+    font-size: 28px;
+    width: 221px;
+    height: 75px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+}
+.btn-group button:hover {
+    background-color: rgb(221, 217, 217);
+}
+
+#category-content {
+    background-color:#f3f3f3;
+    height: auto;
+    width: 1920px;
+    font-size: 25px;
+    padding-bottom:20px;
+    padding-top:54px;
+    padding-left: 36px;
+    margin-bottom: 160px;
+}
+
+
+.content {
+    margin-top:0px;
+    margin-left:5px;
+}
+
+#filter {
+    text-align: center;
+    padding-top:100px;
+}
+
+.time-prep {
+    text-align: center;
+}
+
+.btn-time {
+    margin: 10px;
+    border: none;
+    background: none;
+    font-size: 25px;
+    color: #5D5D5D;
+}
+
+.btn-time:hover {
+    color: #2A2A2A;
+}
+
+#display-food {
+    padding-bottom: 50px;
+}
+
+.card-row {
+    align-content: center;
+    text-align: center;
+    margin-top:50px;
+    display: -webkit-inline-box;
+}
+
+.food-card {
+    margin-left: 25px;
+    width: 430px;
+    height: 490px;
+}
+
+#showmore{
+    font-weight: bolder;
+    color: black;
+    font-size: 30px;
+    margin-bottom: 100px;
+    right: 20px;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+}
+
+#foodlist {
+    padding-left: 0px;
+}
+
+ul li:nth-child(n+4) {
+    display:none;
+}
