@@ -236,7 +236,7 @@
     margin-top:0px;
     margin-left:5px;
 }
-
+/* 
 #filter {
     text-align: center;
     padding-top:100px;
@@ -256,7 +256,7 @@
 
 .btn-time:hover {
     color: #2A2A2A;
-}
+} */
 
 #display-food {
     padding-bottom: 50px;
@@ -299,43 +299,75 @@ li {
 }
 
 #filterby {
-    text-align: center
-    
+    text-align: center;
+    width:450px;   
 }
 
-#timepreb{
-    margin-left: 160px;
-    margin-right: 132px;
-    margin-top: 100px;
-    margin-bottom: 30px;
+#filterby .checkbox {
+    display: none;
+}
+
+#filterby label {
+    display: inline;
+    margin-right: 30px;
+    font-size: 25px;
+    margin-left: 30px;
+   }
+   
+  #filterby label:hover {
+    color: black;
+    font-weight: bold;
+    cursor:pointer;
+   }
+
+#header {
+    margin: 10px;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+#timeprep{
+   margin-top: 100px;
+   text-align: center;
 }
 
 #Equipment{
     margin-top: 50px;
+    /* margin-left: 80px; */
+    /* margin-right: 65px; */
+    margin-bottom: 30px;
+    text-align: center;
+    /* margin-top: 50px;
     margin-left: 80px;
     margin-right: 65px;
+    margin-bottom: 30px;
+    text-align: center; */
+}
+
+#Rating{
+    margin-top: 50px;
+    /* margin-left: 80px; */
+    /* margin-right: 65px; */
     margin-bottom: 30px;
     text-align: center;
 }
 
-#Rating{
-    margin-left: 160px;
-    margin-right: 190px;
-    margin-top: 100px;
+#allergies {
+    margin-top: 50px;
+    /* margin-left: 80px; */
+    /* margin-right: 65px; */
     margin-bottom: 30px;
     text-align: center;
-
 }
 
 .filtext{
     display: inline;
 }
-
+/* 
 #t15-mins{
     display: inline;
     font-size: 25px;
     margin-left: 30px;
-    
 }
 
 #t30-mins{
@@ -362,15 +394,14 @@ li {
     font-size: 25px;
     margin-left: 76px;
     
-}
+} */
 
-#Morethanhour{
+/* #Morethanhour{
     display: inline;
     font-size: 25px;
     margin-left: 70px;
 
-
-}
+} */
 
 #Oven{
     display: inline;
@@ -428,3 +459,11 @@ li {
     font-size: 25px;
     margin-left: 20px;
 }
+hr {
+    margin: 0;
+    margin-bottom: 10px;
+    border: 0;
+    border-top: 1px solid rgba(0,0,0,.1);
+    width: 440px;
+}
+

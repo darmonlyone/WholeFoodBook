@@ -128,38 +128,41 @@
             <!-- filter tab -->
             <div class="col-md-5 col-lg-3" id="filterby">
 
-                <div class="row" id = "filterby" >
-                    <div>
-                        <h3 id="timepreb"> <b> TIME PREB </b></h3>
+                <div class="row" id="filterby">
+                    <div id="timeprep">
+                        <div id="header">TIME PREP</div>
                         <hr>
-
                         <div>
-                            <div id="t15-mins"> 
-                                <input type="checkbox" onclick="myFunction()">15 Minutes
-                            </div>
-                            <div id="t30-mins">
-                                <input type="checkbox" onclick="myFunction()">30 Minutes
-                            </div>
+                            <!-- ตัวอย่าง 
+                            div >> label
+                            -->
+                            
+                            <label id="t15-mins">
+                                <input type="checkbox" class="checkbox" name="t15-min" value="unchecked">15 Minutes
+                            </label>
+                            <label id="t30-mins">
+                                <input type="checkbox"  class="checkbox" onclick="myFunction()">30 Minutes
+                            </label>
                         </div>
                         <br>
 
                         <div>
-                            <div id="t1-hour"> 
-                                <input type="checkbox" onclick="myFunction()">1 hour
-                            </div>
-                            <div id="t1-halfhour">
-                                <input type="checkbox" onclick="myFunction()">1 Half Hours
-                            </div>
+                            <label id="t1-hour">
+                                <input type="checkbox" class="checkbox" onclick="myFunction()">1 hour
+                            </label>
+                            <label id="t1-halfhour">
+                                <input type="checkbox" class="checkbox" onclick="myFunction()">1 Half Hours
+                            </label>
                         </div>
                         <br>
 
                         <div>
-                            <div id="t2-hours"> 
+                            <label id="t2-hours">
                                 <input type="checkbox" onclick="myFunction()">2 hours
-                            </div>
-                            <div id="Morethanhour">
+                            </label>
+                            <label id="Morethanhour">
                                 <input type="checkbox" onclick="myFunction()">More than 2 hrs
-                            </div>
+                            </label>
                         </div>
                         <br>
 
@@ -167,14 +170,14 @@
 
                     </div>
 
-                    <div>
-                        <h3 id="Equipment"> <b> EQUIPMENT REQUIRED </b></h3>
+                    <div id="Equipment">
+                        <h3 id="header"> <b> EQUIPMENT REQUIRED </b></h3>
                         <hr>
 
                         <div>
-                            <div id="Oven"> 
+                            <label id="Oven">
                                 <input type="checkbox" onclick="myFunction()">Oven
-                            </div>
+                            </label>
                             <div id="Mixer">
                                 <input type="checkbox" onclick="myFunction()">Mixer
                             </div>
@@ -182,7 +185,7 @@
                         <br>
 
                         <div>
-                            <div id="Microwave"> 
+                            <div id="Microwave">
                                 <input type="checkbox" onclick="myFunction()">Microwave
                             </div>
                             <div id="Blender">
@@ -193,12 +196,11 @@
 
                     </div>
 
-                    <div>
-                        <h3 id="timepreb"> <b> ALLERGIES </b></h3>
+                    <div id="allergies">
+                        <div id="header">ALLERGIES</div>
                         <hr>
-                        
                         <div>
-                            <div id="Nut"> 
+                            <div id="Nut">
                                 <input type="checkbox" onclick="myFunction()">Nut
                             </div>
                             <div id="Shellfish">
@@ -208,7 +210,7 @@
                         <br>
 
                         <div>
-                            <div id="Milk"> 
+                            <div id="Milk">
                                 <input type="checkbox" onclick="myFunction()">Milk
                             </div>
                             <div id="Soy">
@@ -218,7 +220,7 @@
                         <br>
 
                         <div>
-                            <div id="Shrimp"> 
+                            <div id="Shrimp">
                                 <input type="checkbox" onclick="myFunction()">Shrimp
                             </div>
                             <div id="Egg">
@@ -230,11 +232,11 @@
                     </div>
 
                     <div>
-                        <h3 id="Rating"> <b> Rating </b></h3>
+                        <h3 id="Rating"> <b> RATING </b></h3>
                         <hr>
                     </div>
 
-                    
+
                 </div>
 
             </div>
@@ -420,9 +422,9 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-    crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
     <script src="./displayController.js"></script>
 
 
