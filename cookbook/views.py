@@ -2,6 +2,18 @@ from django.shortcuts import render
 from django.views import generic
 from cookbook.models import Recipe
 
+class ProfileView(generic.ListView):
+    template_name = 'profile.html'
+    def get_queryset(self):
+        return None
+
+#just for test one page
+
+class ProfileViewTest(generic.ListView):
+    template_name = 'profile_popup.html'
+    def get_queryset(self):
+        return None
+
 
 class WelcomeView(generic.ListView):
     template_name = 'welcome.html'
