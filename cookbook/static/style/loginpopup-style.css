@@ -2,11 +2,6 @@
     text-align: center;
 }
 
-#myBtn {
-    background-color: transparent;
-    color: black;
-    border-color: transparent;
-}
 #modal {
     width: 850px;
     height: 340px;
@@ -63,9 +58,4 @@
 }
 .close {
     padding-right: 10px;
-}
-
-
-#login-btn {
-    align-content: center;
 }
