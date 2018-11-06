@@ -330,3 +330,101 @@ li {
 .filtext{
     display: inline;
 }
+
+#t15-mins{
+    display: inline;
+    font-size: 25px;
+    margin-left: 30px;
+    
+}
+
+#t30-mins{
+    display: inline;
+    margin-left:30px;
+    font-size: 25px;
+}
+
+#t1-hour{
+    display: inline;
+    font-size: 25px;
+    margin-left: 43px;
+    margin-right: 20px;
+}
+
+#t1-halfhour{
+    display: inline;
+    font-size: 25px;
+    margin-left: 60px;
+}
+
+#t2-hours{
+    display: inline;
+    font-size: 25px;
+    margin-left: 76px;
+    
+}
+
+#Morethanhour{
+    display: inline;
+    font-size: 25px;
+    margin-left: 70px;
+
+
+}
+
+#Oven{
+    display: inline;
+    font-size: 25px;
+    margin-left: 20px;
+}
+#Mixer{
+    display: inline;
+    font-size: 25px;
+    margin-left: 76px;
+    margin-right: 47px;
+
+}
+#Microwave{
+    display: inline;
+    font-size: 25px;
+
+}
+
+#Blender{
+    display: inline;
+    font-size: 25px;
+    margin-left: 20px;
+    margin-right: 10px;
+
+}
+
+#Nut{
+    display: inline;
+    font-size: 25px;
+    margin-left: 72px;
+}
+#Shellfish{
+    display: inline;
+    font-size: 25px;
+    margin-left: 58px;
+}
+#Milk{
+    display: inline;
+    font-size: 25px;
+    margin-left: 18px;
+}
+#Soy{
+    display: inline;
+    font-size: 25px;
+    margin-left: 52px;
+}
+#Shrimp{
+    display: inline;
+    font-size: 25px;
+    margin-left: 20px;
+}
+#Egg{
+    display: inline;
+    font-size: 25px;
+    margin-left: 20px;
+}
