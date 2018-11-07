@@ -9,10 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com"> -->
     <!-- Bootstrap CSS -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'style/base_template.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'style/loginpopup-style.css' %}">
+    <script src="{% static 'base_templateController.js' %}"></script>
     <title>Menu</title>
     <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Signika+Negative:300" rel="stylesheet">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
@@ -45,11 +47,7 @@
         </div>
         <!-- link trigger modal -->
         <!-- ลิ้งกดไปให้หน้าlogin เด้งขึ้น -->
-        <nav class="stroke mt-3">
-            <ul>
-              <li><a style = "margin-right: 50px;" data-toggle="modal" href="#myModal">Login</a></li>
-            </ul>
-          </nav>
+        <a class= "navbar-brand" style="font-size: 25px; color: white; margin-right: 30px;" id="start-login" data-toggle="modal" href="#myModal" >Login</a>
     </nav>
 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -64,11 +62,11 @@
         </div>
         <div class="container" id="login-btn">
           <div class="row">
-              <button href="#" class="btn azm-social azm-btn azm-border-bottom azm-facebook" id="fb-login">
+              <button href="#" data-dismiss="modal" class= "btn azm-social azm-btn azm-border-bottom azm-facebook" id="fb-login">
                   <img src="{% static 'image/facebooklogo.png' %}" id ="fb-logo" style="width: 37px;" alt="">Facebook Login</button>
             </div>
           <div class="row">
-            <button href="#" class="btn azm-social azm-btn azm-border-bottom azm-google" id="gg-login">
+            <button href="#" data-dismiss="modal" class="btn azm-social azm-btn azm-border-bottom azm-google" id="gg-login">
                 <img src="{% static 'image/googlelogo.png' %}" id ="gg-logo" style="width: 35px;" alt="">Google Login</button>
           </div>
 
