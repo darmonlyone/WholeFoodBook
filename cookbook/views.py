@@ -26,6 +26,13 @@ class LoginView(generic.ListView):
     def get_queryset(self):
         return None
 
+class IndexView(generic.ListView):
+    template_name = 'display.html'
+    model = Recipe
+
+    def get_queryset(self):
+        return Recipe.objects.all()
+
 # def test(request):
 #     entry_list = list(Recipe.objects.all())
 #     for i in entry_list:

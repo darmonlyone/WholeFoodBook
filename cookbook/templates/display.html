@@ -1,432 +1,391 @@
-<!-- {% extends 'base_template.html' %}
+{% extends 'base_template.html' %}
 {% block content %}
-    {% load static %}
-    {% if recipe_enable %}
-    {% for recipe in recipe_enable %} -->
+{% load static %}
 
-<!-- {% load static %} -->
 <!doctype html>
 <html lang="en">
-<!-- {% csrf_token %} -->
+{% csrf_token %}
 
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com"> -->
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
-
+    crossorigin="anonymous">
+    
     <title>display</title>
     <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Signika+Negative:300" rel="stylesheet">
     <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../static/style/display.css">
+    <link rel="stylesheet" href="{% static 'style/display.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
         crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Raleway" rel="stylesheet">
-</head>
+        <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Raleway" rel="stylesheet">
+    </head>
 
-<body class="page">
-
-    <nav class="navbar navbar-light justify-content-between bar">
-        <a class="navbar-brand" href="#" style="font-size: 25px; color: white;">
-            <img src="../static/image/organiclogo.png" style="height: 67px;" alt=""> Organic Recipe
-        </a>
-        <div class="container">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-8">
-                <form class="navbar-form navbar-right">
-                    <!-- {% csrf_token %} -->
-                    <div class="input-group">
-                        <button class="btn menu-but-search" type="submit">
-                            <i class="fas fa-search"></i>
-                        </button>
-                        <input type="text" class="form-control searchbox" placeholder="Search">
-                    </div>
-                </form>
-            </div>
-        </div>
-        <a id="menu-login" href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a>
-    </nav>
-
-    <div class="banner">
-        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000">
-            <div class="carousel-inner banner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="../static/image/banner.jpg" alt="First slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="../static/image/banner2.jpg" alt="Second slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="../static/image/banner3.jpg" alt="Third slide">
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="header">
         <h3><b>SUGGESTION</b></h3>
     </div>
-
-    <div class="carousel suggestion">
-        <div class="carousel__inner">
-            <div class="carousel__box">
-                <img src="https://placehold.it/200x300">
-            </div>
-            <div class="carousel__box">
-                <img src="https://placehold.it/200x300">
-            </div>
-            <div class="carousel__box">
-                <img src="https://placehold.it/200x300">
-            </div>
-            <div class="carousel__box">
-                <img src="https://placehold.it/200x300">
-            </div>
-            <div class="carousel__box">
-                <img src="https://placehold.it/200x300">
-            </div>
-            <div class="carousel__box">
-                <img src="https://placehold.it/200x300">
-            </div>
-            <div class="carousel__box">
-                <img src="https://placehold.it/200x300">
-            </div>
-            <div class="carousel__box">
-                <img src="https://placehold.it/200x300">
-            </div>
+    
+<div class="carousel suggestion">
+    <div class="carousel__inner">
+        <div class="carousel__box">
+            <img src="{% static 'image/food2.jpg' %}">
         </div>
-
-        <button type="button" class="carousel__control carousel__control--left">
-            <i class="fa fa-angle-left"></i>
-        </button>
-
-        <button type="button" class="carousel__control carousel__control--right">
-            <i class="fa fa-angle-right"></i>
-        </button>
-    </div>
-
-    <div class="header">
-        <h3><b>CATEGORY</b></h3>
-    </div>
-
-    <div class="row" id="category-button">
-        <div class="btn-group">
-            <button class="btn-cat actived" id="cat-but-all">All Recipe</button>
-            <button class="btn-cat" id="cat-but-appertizers">Appetizers</button>
-            <button class="btn-cat" id="cat-but-main">Main Dishes</button>
-            <button class="btn-cat" id="cat-but-soup">Soups & Stews</button>
-            <button class="btn-cat" id="cat-but-desserts">Desserts</button>
-            <button class="btn-cat" id="cat-but-drinks">Drinks</button>
-            <button class="btn-cat" id="cat-but-salad">Salad</button>
+        <div class="carousel__box">
+            <img src="{% static 'image/food2.jpg' %}">
+        </div>
+        <div class="carousel__box">
+            <img src="{% static 'image/food2.jpg' %}">
+        </div>
+        <div class="carousel__box">
+            <img src="{% static 'image/food2.jpg' %}">
+        </div>
+        <div class="carousel__box">
+            <img src="{% static 'image/food2.jpg' %}">
+        </div>
+        <div class="carousel__box">
+            <img src="{% static 'image/food2.jpg' %}">
+        </div>
+        <div class="carousel__box">
+            <img src="{% static 'image/food2.jpg' %}">
+        </div>
+        <div class="carousel__box">
+            <img src="{% static 'image/food2.jpg' %}">
         </div>
     </div>
+    
+    <button type="button" class="carousel__control carousel__control--left">
+        <i class="fa fa-angle-left"></i>
+    </button>
 
-    <div class="container content">
-        <div class="row" id="category-content">
-            <!-- filter tab -->
-            <div class="col-md-5 col-lg-3" id="filterby">
+    <button type="button" class="carousel__control carousel__control--right">
+        <i class="fa fa-angle-right"></i>
+    </button>
+</div>
 
-                <div class="row" id="filterby">
-                    <div id="timeprep">
-                        <div id="header">TIME PREP</div>
-                        <hr>
-                        <div>
-                            <!-- ตัวอย่าง 
+<div class="header">
+    <h3><b>CATEGORY</b></h3>
+</div>
+
+<div class="row" id="category-button">
+    <div class="btn-group">
+        <button class="btn-cat actived" id="cat-but-all">All Recipe</button>
+        <button class="btn-cat" id="cat-but-appertizers">Appetizers</button>
+        <button class="btn-cat" id="cat-but-main">Main Dishes</button>
+        <button class="btn-cat" id="cat-but-soup">Soups & Stews</button>
+        <button class="btn-cat" id="cat-but-desserts">Desserts</button>
+        <button class="btn-cat" id="cat-but-drinks">Drinks</button>
+        <button class="btn-cat" id="cat-but-salad">Salad</button>
+    </div>
+</div>
+
+<div class="container content">
+    <div class="row" id="category-content">
+        <!-- filter tab -->
+        <div class="col-md-5 col-lg-3" id="filterby">
+            
+            <div class="row" id="filterby">
+                <div id="timeprep">
+                    <div id="header">TIME PREP</div>
+                    <hr>
+                    <div>
+                        <!-- ตัวอย่าง 
                             div >> label
-                            -->
-                            
-                            <label id="t15-mins">
-                                <input type="checkbox" class="checkbox" name="t15-min" value="unchecked">15 Minutes
-                            </label>
-                            <label id="t30-mins">
-                                <input type="checkbox"  class="checkbox" onclick="myFunction()">30 Minutes
-                            </label>
-                        </div>
-                        <br>
-
-                        <div>
-                            <label id="t1-hour">
-                                <input type="checkbox" class="checkbox" onclick="myFunction()">1 hour
-                            </label>
-                            <label id="t1-halfhour">
-                                <input type="checkbox" class="checkbox" onclick="myFunction()">1 Half Hours
-                            </label>
-                        </div>
-                        <br>
-
-                        <div>
-                            <label id="t2-hours">
-                                <input type="checkbox" class="checkbox" onclick="myFunction()">2 hours
-                            </label>
-                            <label id="Morethanhour">
-                                <input type="checkbox" class="checkbox" onclick="myFunction()">More than 2 hrs
-                            </label>
-                        </div>
-                        <br>
-
-
+                        -->
+                        
+                        <label id="t15-mins">
+                            <input type="checkbox" class="checkbox" name="t15-min" value="unchecked">15 Minutes
+                        </label>
+                        <label id="t30-mins">
+                            <input type="checkbox" class="checkbox" onclick="myFunction()">30 Minutes
+                        </label>
                     </div>
-
-                    <div id="Equipment">
-                        <h3 id="header"> <b> EQUIPMENT REQUIRED </b></h3>
-                        <hr>
-
-                        <div>
-                            <label id="Oven">
-                                <input type="checkbox" class="checkbox" onclick="myFunction()">Oven
-                            </label>
-                            <label id="Mixer">
-                                <input type="checkbox" class="checkbox" onclick="myFunction()">Mixer
-                            </label>
-                        </div>
-                        <br>
-
-                        <div>
-                            <label id="Microwave">
-                                <input type="checkbox" class="checkbox" onclick="myFunction()">Microwave
-                            </label>
-                            <label id="Blender">
-                                <input type="checkbox" class="checkbox" onclick="myFunction()">Blender
-                            </label>
-                        </div>
-                        <br>
-
-                    </div>
-
-                    <div id="allergies">
-                        <div id="header">ALLERGIES</div>
-                        <hr>
-                        <div>
-                            <label id="Nut">
-                                <input type="checkbox" class="checkbox" onclick="myFunction()">Nut
-                            </label>
-                            <label id="Shellfish">
-                                <input type="checkbox" class="checkbox" onclick="myFunction()">Shellfish
-                            </label>
-                        </div>
-                        <br>
-
-                        <div>
-                            <label id="Milk">
-                                <input type="checkbox" class="checkbox" onclick="myFunction()">Milk
-                            </label>
-                            <label id="Soy">
-                                <input type="checkbox" class="checkbox" onclick="myFunction()">Soy
-                            </label>
-                        </div>
-                        <br>
-
-                        <div>
-                            <label id="Shrimp">
-                                <input type="checkbox" class="checkbox" onclick="myFunction()">Shrimp
-                            </label>
-                            <label id="Egg">
-                                <input type="checkbox" class="checkbox" onclick="myFunction()">Egg
-                            </label>
-                        </div>
-                        <br>
-
-                    </div>
+                    <br>
 
                     <div>
-                        <h3 id="Rating"> <b> RATING </b></h3>
-                        <hr>
+                        <label id="t1-hour">
+                            <input type="checkbox" class="checkbox" onclick="myFunction()">1 hour
+                        </label>
+                        <label id="t1-halfhour">
+                            <input type="checkbox" class="checkbox" onclick="myFunction()">1 Half Hours
+                        </label>
                     </div>
+                    <br>
+                    
+                    <div>
+                        <label id="t2-hours">
+                            <input type="checkbox" class="checkbox" onclick="myFunction()">2 hours
+                        </label>
+                        <label id="Morethanhour">
+                            <input type="checkbox" class="checkbox" onclick="myFunction()">More than 2 hrs
+                        </label>
+                    </div>
+                    <br>
+                    
 
+                </div>
+                
+                <div id="Equipment">
+                    <h3 id="header"> <b> EQUIPMENT REQUIRED </b></h3>
+                    <hr>
+
+                    <div>
+                        <label id="Oven">
+                            <input type="checkbox" class="checkbox" onclick="myFunction()">Oven
+                        </label>
+                        <label id="Mixer">
+                            <input type="checkbox" class="checkbox" onclick="myFunction()">Mixer
+                        </label>
+                    </div>
+                    <br>
+                    
+                    <div>
+                        <label id="Microwave">
+                            <input type="checkbox" class="checkbox" onclick="myFunction()">Microwave
+                        </label>
+                        <label id="Blender">
+                            <input type="checkbox" class="checkbox" onclick="myFunction()">Blender
+                        </label>
+                    </div>
+                    <br>
 
                 </div>
 
-            </div>
+                <div id="allergies">
+                    <div id="header">ALLERGIES</div>
+                    <hr>
+                    <div>
+                        <label id="Nut">
+                            <input type="checkbox" class="checkbox" onclick="myFunction()">Nut
+                        </label>
+                        <label id="Shellfish">
+                            <input type="checkbox" class="checkbox" onclick="myFunction()">Shellfish
+                        </label>
+                    </div>
+                    <br>
+                    
+                    <div>
+                        <label id="Milk">
+                            <input type="checkbox" class="checkbox" onclick="myFunction()">Milk
+                        </label>
+                        <label id="Soy">
+                            <input type="checkbox" class="checkbox" onclick="myFunction()">Soy
+                        </label>
+                    </div>
+                    <br>
+                    
+                    <div>
+                        <label id="Shrimp">
+                            <input type="checkbox" class="checkbox" onclick="myFunction()">Shrimp
+                        </label>
+                        <label id="Egg">
+                            <input type="checkbox" class="checkbox" onclick="myFunction()">Egg
+                        </label>
+                    </div>
+                    <br>
+                    
+                </div>
 
-            <!-- แสดงเมนู -->
-            <div class="col-md-7 col-lg-9" id="display-food">
-                <ul id="foodlist">
-                    <li class="row card-row">
-                        <div class="card food-card">
-                            <a href="">
-                                <img class="card-img-top" src="../static/image/food2.jpg" alt="Card image cap">
-                            </a>
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                        <div class="card food-card">
-                            <a href="">
-                                <img class="card-img-top" src="../static/image/food2.jpg" alt="Card image cap">
-                            </a>
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                        <div class="card food-card">
-                            <a href="">
-                                <img class="card-img-top" src="../static/image/food2.jpg" alt="Card image cap">
-                            </a>
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="row card-row">
-                        <div class="card food-card">
-                            <a href="">
-                                <img class="card-img-top" src="../static/image/food2.jpg" alt="Card image cap">
-                            </a>
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                        <div class="card food-card">
-                            <a href="">
-                                <img class="card-img-top" src="../static/image/food2.jpg" alt="Card image cap">
-                            </a>
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                        <div class="card food-card">
-                            <a href="">
-                                <img class="card-img-top" src="../static/image/food2.jpg" alt="Card image cap">
-                            </a>
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="row card-row">
-                        <div class="card food-card">
-                            <a href="">
-                                <img class="card-img-top" src="../static/image/food2.jpg" alt="Card image cap">
-                            </a>
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                        <div class="card food-card">
-                            <a href="">
-                                <img class="card-img-top" src="../static/image/food2.jpg" alt="Card image cap">
-                            </a>
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                        <div class="card food-card">
-                            <a href="">
-                                <img class="card-img-top" src="../static/image/food2.jpg" alt="Card image cap">
-                            </a>
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="row card-row">
-                        <div class="card food-card">
-                            <a href="">
-                                <img class="card-img-top" src="../static/image/food2.jpg" alt="Card image cap">
-                            </a>
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                        <div class="card food-card">
-                            <a href="">
-                                <img class="card-img-top" src="../static/image/food2.jpg" alt="Card image cap">
-                            </a>
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                        <div class="card food-card">
-                            <a href="">
-                                <img class="card-img-top" src="../static/image/food2.jpg" alt="Card image cap">
-                            </a>
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="row card-row">
-                        <div class="card food-card">
-                            <a href="">
-                                <img class="card-img-top" src="../static/image/food2.jpg" alt="Card image cap">
-                            </a>
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                        <div class="card food-card">
-                            <a href="">
-                                <img class="card-img-top" src="../static/image/food2.jpg" alt="Card image cap">
-                            </a>
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                        <div class="card food-card">
-                            <a href="">
-                                <img class="card-img-top" src="../static/image/food2.jpg" alt="Card image cap">
-                            </a>
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                <div>
+                    <h3 id="Rating"> <b> RATING </b></h3>
+                    <hr>
+                </div>
+
+                
             </div>
+            
+        </div>
+
+        <!-- แสดงเมนู -->
+        <div class="col-md-7 col-lg-9" id="display-food">
+            <ul id="foodlist">
+                <li class="row card-row">
+                    <div class="card food-card">
+                        <a href="">
+                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the
+                                bulk of
+                                the card's content.</p>
+                            </div>
+                        </div>
+                    <div class="card food-card">
+                        <a href="">
+                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the
+                                bulk of
+                                the card's content.</p>
+                            </div>
+                        </div>
+                        <div class="card food-card">
+                            <a href="">
+                                <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the
+                                bulk of
+                                the card's content.</p>
+                            </div>
+                        </div>
+                    </li>
+                <li class="row card-row">
+                    <div class="card food-card">
+                        <a href="">
+                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the
+                                bulk of
+                                the card's content.</p>
+                            </div>
+                        </div>
+                    <div class="card food-card">
+                        <a href="">
+                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the
+                                bulk of
+                                the card's content.</p>
+                            </div>
+                    </div>
+                    <div class="card food-card">
+                        <a href="">
+                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the
+                                bulk of
+                                the card's content.</p>
+                            </div>
+                    </div>
+                </li>
+                <li class="row card-row">
+                    <div class="card food-card">
+                        <a href="">
+                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the
+                                bulk of
+                                the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card food-card">
+                        <a href="">
+                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the
+                                bulk of
+                                the card's content.</p>
+                            </div>
+                        </div>
+                        <div class="card food-card">
+                        <a href="">
+                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the
+                                bulk of
+                                the card's content.</p>
+                            </div>
+                        </div>
+                </li>
+                <li class="row card-row">
+                    <div class="card food-card">
+                        <a href="">
+                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the
+                                bulk of
+                                the card's content.</p>
+                            </div>
+                        </div>
+                        <div class="card food-card">
+                        <a href="">
+                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the
+                                bulk of
+                                the card's content.</p>
+                            </div>
+                    </div>
+                    <div class="card food-card">
+                        <a href="">
+                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the
+                                bulk of
+                                the card's content.</p>
+                            </div>
+                        </div>
+                    </li>
+                <li class="row card-row">
+                    <div class="card food-card">
+                        <a href="">
+                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the
+                                bulk of
+                                the card's content.</p>
+                            </div>
+                        </div>
+                    <div class="card food-card">
+                        <a href="">
+                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the
+                                bulk of
+                                the card's content.</p>
+                            </div>
+                        </div>
+                    <div class="card food-card">
+                        <a href="">
+                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the
+                                bulk of
+                                the card's content.</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
-    <button id="showmore">Show more</button>
+</div>
+<button id="showmore">Show more</button>
 
-    <!-- {% block content %} -->
-    <!-- {% endblock %} -->
-    <nav class="navbar navbar-light justify-content-between bar"></nav>
-
-
+{% endblock %}
+<nav class="navbar navbar-light justify-content-between bar"></nav>
 
 
-    <!-- Optional JavaScript -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-    <script src="./displayController.js"></script>
 
 
-</body>
+<!-- Optional JavaScript -->
+<script src="../templates/displayController.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+crossorigin="anonymous"></script>
 
-</html>
+
+<!-- </body>
+
+</html> -->

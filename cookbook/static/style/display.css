@@ -59,21 +59,6 @@
     font-size: 30px
 }
 
-@mixin clearfix() {
-  &:before,
-  &:after {
-    content: ".";    
-    display: block;    
-    height: 0;    
-    overflow: hidden; 
-  }
-  &:after { clear: both; } 
-}
-
-* {
-  box-sizing: border-box;
-}
-
 
 .suggestion {
     position: relative;
