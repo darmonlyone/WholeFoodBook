@@ -1,11 +1,13 @@
 $(function() {
     $('#fb-login').click(function () {
         console.log("click");
-        $("#start-login").text('Manusporn');
+        $("#start-login").hide();
+        $("#hamburger").show();
     });
 
     $('#gg-login').click(function () {
         console.log("click");
-        $("#start-login").text('Manusporn');
+        $("#start-login").hide();
+        $("#hamburger").show();
     });
  });
