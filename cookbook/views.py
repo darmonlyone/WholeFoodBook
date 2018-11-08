@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from random import randint
 from django.views import generic
 from cookbook.models import Recipe
 
@@ -26,14 +27,16 @@ class LoginView(generic.ListView):
     def get_queryset(self):
         return None
 
+
 class IndexView(generic.ListView):
     template_name = 'display.html'
 
-    def get_context_data(self,**kwargs):
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         recipe_all = Recipe.objects.all()
-        recipe_random = Recipe.objects.random
-        context['main_recipe'] = zip(recipe_all,recipe_random)
+        random_int = randint(0,recipe_all.all().count()-9)
+        recipe_random = Recipe.objects.all()[random_int:random_int+8]
+        context['main_recipe'] = zip(recipe_all, recipe_random)
         return context
 
 # def test(request):
@@ -55,5 +58,4 @@ class IndexView(generic.ListView):
 # heroku pg:psql
 # \d
 # SELECT * FROM cookbook_recipe;
-
 # Recipe.objects.get(id=1).delete()
