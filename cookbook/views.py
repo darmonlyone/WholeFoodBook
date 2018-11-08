@@ -35,6 +35,18 @@ class MenuView(generic.ListView):
         recipe_name = self.kwargs['recipe_name']
         return Recipe.objects.filter(recipe_name=recipe_name)
 
+class IndexView(generic.ListView):
+    template_name = 'display.html'
+    
+    def get_queryset(self):
+        return None
+
+class LoginView(generic.ListView):
+    template_name = 'login.html'
+
+    def get_queryset(self):
+        return None
+         
 # def test(request):
 #     entry_list = list(Recipe.objects.all())
 #     for i in entry_list:
