@@ -1,6 +1,7 @@
 from django.db import models
 from django_random_queryset import RandomManager
 
+
 class CookTime(models.Model):
     cooking_time = models.CharField(max_length=30)
 
@@ -30,6 +31,7 @@ class Category(models.Model):
 
 
 class Recipe(models.Model):
+    object = RandomManager()
     recipe_chef = models.CharField(max_length=100)
     recipe_name = models.CharField(max_length=100)
     recipe_info = models.TextField()
@@ -101,6 +103,7 @@ class Recipe(models.Model):
 
     def get_recipe_method_list(self):
         return self.recipe_method.split("||")
+
 
 class Ingredient:
 
