@@ -1,5 +1,4 @@
-from django.db import models
-from django_random_queryset import RandomManager
+from django.db import model
 
 class CookTime(models.Model):
     cooking_time = models.CharField(max_length=30)
