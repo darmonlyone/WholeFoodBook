@@ -29,6 +29,13 @@ class ViewTest(TestCase):
         response = self.client.get(reverse('cookbook:login'))
         self.assertEqual(response.status_code, 200)
 
+    def test_index_page(self):
+        """
+        Test status code from opening index page.
+        """
+        response = self.client.get(reverse('cookbook:index'))
+        self.assertEquals(response.status_code, 200)
+
 
 class ModelTest(TestCase):
 
