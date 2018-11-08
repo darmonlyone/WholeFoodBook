@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'style/base_template.css' %}">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="{% static 'base_templateController.js' %}"></script>
 
     <title>Menu</title>
     <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Signika+Negative:300" rel="stylesheet">
@@ -43,6 +45,9 @@
                 </form>
             </div>
         </div>
+        <!-- link trigger modal -->
+        <a class= "navbar-brand" style="font-size: 30px; color: white; margin-right: 30px; display: none;" id="start-login" data-toggle="modal" href="#myModal" >Login</a>
+        <!-- after login -->
         <nav class="navbar navbar-expand-lg navbar-light bg-transparent" id="hamburger">
       
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -58,7 +63,7 @@
                         <a class="dropdown-item" href="#">Your recipe</a>
                         <a class="dropdown-item" href="#">Make new recipe</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Sign out</a>
+                        <a class="dropdown-item" href="{% url 'cookbook:index' %}" id="SignOut">Sign out</a>
                       </div>
                     </li>
                   </ul>

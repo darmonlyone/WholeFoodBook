@@ -10,4 +10,10 @@ $(function() {
         $("#start-login").hide();
         $("#hamburger").show();
     });
+
+    $('#SignOut').click(function () {
+        console.log("user has signed out.");
+        $("#start-login").show();
+        $("#hamburger").hide();
+    });
  });
