@@ -88,7 +88,7 @@
                             <div class="col-md-6 descrip" id="descrip-fat">{{ recipe.get_recipe_fat }} KCAL</div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12" id="menu-chef"><b>By : {{ recipe.get_recipe_chef }}</b></div>
+                            <div class="col-md-12" id="menu-chef"><b>By: {{ recipe.get_recipe_chef }}</b></div>
                         </div>
                     </div>
                 </div>
@@ -133,5 +133,7 @@
         </div>
     </div>
     {% endfor %}
+        {% else %}
+        <h1>This Recipe are not available.</h1>
     {% endif %}
 {% endblock %}

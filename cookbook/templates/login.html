@@ -1,57 +1,60 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
-<!-- Bootstrap CSS -->
 
 <head>
-  {% load static %}
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-    crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="{% static 'style/loginpopup-style.css' %}">
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "style/login-style.css " %}">
+    <link href="https://fonts.googleapis.com/css?family=Signika+Negative" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+        crossorigin="anonymous">
+    <title>login organic recipe</title>
 </head>
 
-<body>
-  
-  <!-- Button trigger modal -->
-  <!-- ปุ่มกดไปให้หน้าlogin เด้งขึ้น -->
-  <a data-toggle="modal" href="#myModal">Login</a>
-  <button type="button" class="btn btn-primary" id="myBtn" data-toggle="modal" data-target="#myModal">
-    login
-  </button>
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content" id="modal">
-        <div class="header">
-          <button type="button" class="close" id="close-btn" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true" id="a">&times;</span>
-            </button>
-          <h3 id="login">Sign in with</h3>
-        </div>
-        <div class="container" id="login-btn">
-          <div class="row">
-              <button href="#" class="btn azm-social azm-btn azm-border-bottom azm-facebook" id="fb-login">
-                  <img src="{% static 'image/facebooklogo.png' %}" id ="fb-logo" style="width: 37px;" alt="">Facebook Login</button>
+<body class="page">
+    <div class="container box">
+        <div class="row" id="content">
+            <div class="col-md-5 ml-md-0 pl-md-0" style="width: auto;">
+                <div id="login-header-container-organic">
+                    Welcome to "Organic Recipe"
+                </div>
+                <div id="login-login-container">
+                    <br>
+                    <h2 style="color:#55AD4B ">Sign in</h2>
+                    <br>
+                    <div style="padding-left: 90px; padding-right: 90px;">
+                        <button href="#" class="btn azm-social azm-btn azm-border-bottom azm-facebook" id="facebook2-login-button" style="color: white">
+                            <img src="../static/image/facebooklogo.png" style="width: 20px;" alt=""> Log in with Facebook</button>
+                        <button href="#" class="btn azm-social azm-btn azm-border-bottom btn-danger" id="google-login-button" style="color: white">
+                            <img src="../static/image/googlelogo.png" style="width: 20px;" alt=""> Log in with google</button>
+                        <div style="width: 100%; height: 10px; border-bottom: 1px solid black; text-align: center">
+                            <span style="font-size: 15px; background-color:white; padding: 0 15px;">
+                                OR
+                            </span>
+                        </div>
+                        <button href="{% url 'cookbook:recipe' "Ground Chicken Tacos" %}" class="btn azm-social azm-btn azm-border-bottom btn-warning"
+                            id="continue-login-button" onclick="location.href='{% url 'cookbook:recipe' "Ground Chicken Tacos" %}'" style="color: white">
+                            Continue </button>
+                    </div>
+                </div>
             </div>
-          <div class="row">
-            <button href="#" class="btn azm-social azm-btn azm-border-bottom azm-google" id="gg-login">
-                <img src="{% static 'image/googlelogo.png' %}" id ="gg-logo" style="width: 35px;" alt="">Google Login</button>
-          </div>
-
         </div>
-      </div>
     </div>
-  </div>
-  <!-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script> -->
-  <!--Bootstrap css,js-->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

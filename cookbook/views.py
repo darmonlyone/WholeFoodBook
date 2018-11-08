@@ -35,8 +35,6 @@ class MenuView(generic.ListView):
         recipe_name = self.kwargs['recipe_name']
         return Recipe.objects.filter(recipe_name=recipe_name)
 
-
-"""Ignore this first. need it for remember"""
 # def test(request):
 #     entry_list = list(Recipe.objects.all())
 #     for i in entry_list:

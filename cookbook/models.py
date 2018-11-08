@@ -1,5 +1,5 @@
 from django.db import models
-
+from django_random_queryset import RandomManager
 
 class CookTime(models.Model):
     cooking_time = models.CharField(max_length=30)
@@ -30,15 +30,15 @@ class Category(models.Model):
 
 
 class Recipe(models.Model):
-    recipe_chef = models.CharField(max_length=30)
-    recipe_name = models.CharField(max_length=30)
+    recipe_chef = models.CharField(max_length=100)
+    recipe_name = models.CharField(max_length=100)
     recipe_info = models.TextField()
     recipe_time = models.IntegerField(null=True)
-    recipe_equipment = models.CharField(max_length=15)
+    recipe_equipment = models.CharField(max_length=150)
     recipe_fat = models.IntegerField(null=True)
     recipe_ingredient = models.TextField()
     recipe_method = models.TextField()
-    recipe_image_1 = models.ImageField(upload_to='recipe_image/')
+    recipe_image_1 = models.ImageField(upload_to='recipe_image/', blank=True)
     recipe_image_2 = models.ImageField(upload_to='recipe_image/', blank=True)
     recipe_image_3 = models.ImageField(upload_to='recipe_image/', blank=True)
     recipe_image_4 = models.ImageField(upload_to='recipe_image/', blank=True)
@@ -101,7 +101,6 @@ class Recipe(models.Model):
 
     def get_recipe_method_list(self):
         return self.recipe_method.split("||")
-
 
 class Ingredient:
 
