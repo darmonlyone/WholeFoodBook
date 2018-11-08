@@ -10,30 +10,13 @@
 
 <div class="carousel suggestion">
     <div class="carousel__inner">
-        <div class="carousel__box">
-            <img src="{% static 'image/food2.jpg' %}">
-        </div>
-        <div class="carousel__box">
-            <img src="{% static 'image/food2.jpg' %}">
-        </div>
-        <div class="carousel__box">
-            <img src="{% static 'image/food2.jpg' %}">
-        </div>
-        <div class="carousel__box">
-            <img src="{% static 'image/food2.jpg' %}">
-        </div>
-        <div class="carousel__box">
-            <img src="{% static 'image/food2.jpg' %}">
-        </div>
-        <div class="carousel__box">
-            <img src="{% static 'image/food2.jpg' %}">
-        </div>
-        <div class="carousel__box">
-            <img src="{% static 'image/food2.jpg' %}">
-        </div>
-        <div class="carousel__box">
-            <img src="{% static 'image/food2.jpg' %}">
-        </div>
+    {% if recipe_random %}
+        {% for all in recipe_random %}
+            <div class="carousel__box">
+                <img src="{{ all.get_recipe_image_1 }}">
+            </div>
+        {% endfor %}
+    {% endif %}
     </div>
 
     <button type="button" class="carousel__control carousel__control--left">

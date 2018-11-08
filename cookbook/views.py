@@ -30,14 +30,13 @@ class LoginView(generic.ListView):
 
 class IndexView(generic.ListView):
     template_name = 'display.html'
+    context_object_name = 'recipe_random'
+    model = Recipe
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+    def get_queryset(self):
         recipe_all = Recipe.objects.all()
-        random_int = randint(0,recipe_all.all().count()-9)
-        recipe_random = Recipe.objects.all()[random_int:random_int+8]
-        context['main_recipe'] = zip(recipe_all, recipe_random)
-        return context
+        random_int = randint(0, recipe_all.all().count() - 9)
+        return Recipe.objects.all()[random_int:random_int + 8]
 
 # def test(request):
 #     entry_list = list(Recipe.objects.all())
