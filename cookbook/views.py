@@ -35,8 +35,11 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
         recipe_all = Recipe.objects.all()
-        random_int = randint(0, recipe_all.all().count() - 9)
-        return Recipe.objects.all()[random_int:random_int + 8]
+        if recipe_all.count() > 8:
+            random_int = randint(0, recipe_all.all().count() - 9)
+            return Recipe.objects.all()[random_int:random_int + 8]
+        else:
+            return recipe_all
 
 # def test(request):
 #     entry_list = list(Recipe.objects.all())

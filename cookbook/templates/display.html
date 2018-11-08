@@ -11,10 +11,13 @@
 <div class="carousel suggestion">
     <div class="carousel__inner">
     {% if recipe_random %}
-        {% for all in recipe_random %}
+        {% for recipe_suggest in recipe_random %}
+            {% if recipe_suggest %}
             <div class="carousel__box">
-                <img src="{{ all.get_recipe_image_1 }}">
+                <img src="{{ recipe_suggest.get_recipe_image_1 }}">
             </div>
+            {% else %}
+            {% endif %}
         {% endfor %}
     {% endif %}
     </div>
