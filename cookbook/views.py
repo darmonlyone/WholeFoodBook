@@ -33,6 +33,7 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return Recipe.objects.all()
 
+
 # def test(request):
 #     entry_list = list(Recipe.objects.all())
 #     for i in entry_list:
