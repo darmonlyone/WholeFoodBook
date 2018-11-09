@@ -5,7 +5,9 @@
             {% for recipe_suggest in recipe %}
                 {% if recipe_suggest %}
                 <div class="carousel__box">
-                    <img src="{{ recipe_suggest.get_recipe_image_1 }}">
+                <a href='{% url 'cookbook:recipe' recipe_suggest.get_recipe_name %}'>
+                    <img src="{{ recipe_suggest.get_recipe_image_1.url }}">
+                </a>
                 </div>
                 {% else %}
                 {% endif %}
