@@ -1,0 +1,24 @@
+{% block suggest %}
+    <div class="carousel suggestion">
+        <div class="carousel__inner">
+        {% if recipe_random %}
+            {% for recipe_suggest in recipe %}
+                {% if recipe_suggest %}
+                <div class="carousel__box">
+                    <img src="{{ recipe_suggest.get_recipe_image_1 }}">
+                </div>
+                {% else %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        </div>
+
+        <button type="button" class="carousel__control carousel__control--left">
+            <i class="fa fa-angle-left"></i>
+        </button>
+
+        <button type="button" class="carousel__control carousel__control--right">
+            <i class="fa fa-angle-right"></i>
+        </button>
+    </div>
+{% endblock %}
