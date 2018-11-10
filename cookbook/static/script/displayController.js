@@ -8,19 +8,19 @@ $(function() {
     });
 })
 
-// /**
-//  * change button background
-//  */
-// console.log("reach here");
-// var btnContainer = document.getElementById("btn-group");
-// var btns = btnContainer.getElementsByClassName("btn-cat");
-// for (var i = 0; i < btns.length; i++) {
-//   btns[i].addEventListener("click", function() {
-//     var current = document.getElementsByClassName("actived");
-//     current[0].className = current[0].className.replace(" actived", "");
-//     this.className += " actived";
-//   });
-// }
+/**
+ * change button background
+ */
+var btnContainer = document.getElementById("btn-group");
+var btns = btnContainer.getElementsByClassName("btn-cat");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("actived");
+    current[0].className = current[0].className.replace(" actived", "");
+    this.className += " actived";
+  });
+}
+console.log("reach here");
 
 
 var size = 750;
