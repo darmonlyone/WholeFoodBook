@@ -1,6 +1,6 @@
 $(function() {
     $('#showmore').on('click',function () {
-        console.log("clicked");
+       // console.log("clicked");
             $('#foodlist li:hidden').slice(0, 2).show();
             if ($('#foodlist li').length == $('#foodlist li:visible').length) {
                 $('#showmore ').hide();
@@ -17,8 +17,9 @@ $(function() {
 // for (var i = 0; i < btns.length; i++) {
 //   btns[i].addEventListener("click", function() {
 //     var current = document.getElementsByClassName("actived");
-//     current[0].className = current[0].className.replace(" actived", "");
-//     this.className += " actived";
+//     current.style.cssText = 'background-color:#F3F3F3;';
+//     // current[0].className = current[0].className.replace(" actived", "");
+//     // this.className += " actived";
 //   });
 // }
 
@@ -127,6 +128,7 @@ function move(offset) {
     : -((size * offset) + (margin * offset));
   $container.css('transform', 'translateX(' + translateX + 'px)'); 
 }
+
 
 
 
