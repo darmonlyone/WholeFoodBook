@@ -58,7 +58,7 @@ $slides.each(function(index, slide) {
   $(slide).data('index', index);
 });
 
-$slides.on('mouseenter',_.debounce(function() {
+$slides.on('mouseenter',$.debounce(function() {
   var $slide = $(this);
   var index = $slide.data('index');
   $previous = previous(index);
@@ -69,7 +69,7 @@ $slides.on('mouseenter',_.debounce(function() {
   $slide.addClass('carousel__box--enter')
 }, 350));
 
-$slides.on('mouseout',_.debounce(function() {
+$slides.on('mouseout',$.debounce(function() {
   var $slide = $(this);
   
     $slide
