@@ -1,6 +1,6 @@
 $(function() {
     $('#showmore').on('click',function () {
-        console.log("clicked");
+       // console.log("clicked");
             $('#foodlist li:hidden').slice(0, 2).show();
             if ($('#foodlist li').length == $('#foodlist li:visible').length) {
                 $('#showmore ').hide();
@@ -47,7 +47,7 @@ $slides.on('mouseenter',$.debounce(function() {
   var index = $slide.data('index');
   $previous = previous(index);
   $next = next(index);
-  
+
   $previous.addClass('carousel__box--previous');
   $next.addClass('carousel__box--next');
   $slide.addClass('carousel__box--enter')
@@ -55,7 +55,7 @@ $slides.on('mouseenter',$.debounce(function() {
 
 $slides.on('mouseout',$.debounce(function() {
   var $slide = $(this);
-  
+
     $slide
     .addClass('carousel__box--leave')
     .removeClass('carousel__box--enter')
@@ -64,7 +64,7 @@ $slides.on('mouseout',$.debounce(function() {
       $(this).removeClass('carousel__box--leave')
         .dequeue();
     });
-  
+
   $previous.addClass('carousel__box--previous-leave')
     .removeClass('carousel__box--previous')
     .delay(300)
@@ -72,7 +72,7 @@ $slides.on('mouseout',$.debounce(function() {
       $(this).removeClass('carousel__box--previous-leave')
         .dequeue();
     });
-  
+
   $next.addClass('carousel__box--next-leave')
     .removeClass('carousel__box--next')
     .delay(300)
@@ -85,20 +85,20 @@ $slides.on('mouseout',$.debounce(function() {
 function previous(hovered) {
   // Index of the hovered slide in the current offset
   var index = hovered - offset;
-  
+
   // We could have this as start = offset, but we have
   // a weird slider presented here haha.
   var start = offset + visible === count
     ? offset - 1
     : offset;
-  
+
   return $slides.slice(start, offset + index);
 }
 
 function next(hovered) {
   // Index of the hovered slide in the current offset
   var index = hovered - offset;
-  
+
   if ( index === visible ) {
     return $slides.slice();
   } else {
@@ -110,8 +110,9 @@ function move(offset) {
   var translateX = offset === last
     ? -(container - carousel - margin)
     : -((size * offset) + (margin * offset));
-  $container.css('transform', 'translateX(' + translateX + 'px)'); 
+  $container.css('transform', 'translateX(' + translateX + 'px)');
 }
+
 
 
 
@@ -137,5 +138,3 @@ function move(offset) {
 //       $button.hide();
 //     }
 // });
-
-

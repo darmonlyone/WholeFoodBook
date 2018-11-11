@@ -53,7 +53,7 @@
     padding: 0 10px;
 }
 
-.header {
+.header-big {
     margin-left: 80px;
     margin: 30px;
     font-size: 30px
@@ -76,7 +76,7 @@
     padding-right: 135px;
     background-color: #f3f3f3;
 }
-  
+
   .carousel__inner {
     display: -webkit-inline-box;
     width: 100%;
@@ -84,7 +84,7 @@
     transition: 0.3s all ease;
     transform: translateX(0);
   }
-  
+
   .carousel__box {
     position: relative;
     width: 390px;
@@ -94,7 +94,7 @@
     margin-right: 80px;
     margin-top: 20px;
   }
-  
+
   .carousel__box img {
     position: absolute;
     top: 0;
@@ -103,39 +103,39 @@
     height: 220px;
     transform: translateX(0);
   }
-  
+
   .carousel__box--enter img {
     transform: scale(1.5);
     transition: 0.4s transform;
     transition-timing-function: cubic-bezier(0.5,0,0.1,1);
   }
-  
+
   .carousel__box--leave img {
     transform: scale(1);
     transition: 0.4s transform;
     transition-timing-function: cubic-bezier(0.5,0,0.1,1);
   }
-  
+
   .carousel__box--next {
     transform: translateX(50px);
     transition: 0.4s transform ease;
   }
-  
+
   .carousel__box--next-leave {
     transform: translateX(0);
     transition: 0.4s transform ease;
   }
-  
+
   .carousel__box--previous {
     transform: translateX(-50px);
     transition: 0.4s transform ease;
   }
-  
+
   .carousel__box--previous-leave {
     transform: translateX(0);
     transition: 0.3s transform ease;
   }
-  
+
   .carousel__box:not(:last-child) {
     margin-right: 75px;
   }
@@ -145,7 +145,7 @@
   }
 
 
-  
+
   .carousel__control {
     position: absolute;
     top: 25%;
@@ -161,19 +161,19 @@
     transition: 0.2s opacity;
     outline: 0;
   }
-  
+
   .carousel__control--left {
     left: 30px;
     font-size: 60px;
     opacity: 0.5;
   }
-  
+
   .carousel__control--right {
     right: 30px;
     font-size: 60px;
     opacity: 0.5;
   }
-  
+
   .carousel__control--disabled {
     opacity: 0;
   }
@@ -181,7 +181,7 @@
 #category-button {
     margin-left:60px;
 }
-.btn-cat {
+.btncat {
     background-color: white;
     border: none;
     font-size: 28px;
@@ -221,16 +221,14 @@
     margin-top:0px;
     margin-left:5px;
 }
-/* 
+/*
 #filter {
     text-align: center;
     padding-top:100px;
 }
-
 .time-prep {
     text-align: center;
 }
-
 .btn-time {
     margin: 10px;
     border: none;
@@ -238,7 +236,6 @@
     font-size: 25px;
     color: #5D5D5D;
 }
-
 .btn-time:hover {
     color: #2A2A2A;
 } */
@@ -285,25 +282,35 @@ li {
 
 #filterby {
     text-align: center;
-    width:450px;   
+    width:450px;
 }
 
 #filterby .checkbox {
     display: none;
+
 }
 
 #filterby label {
-    display: inline;
-    margin-right: 30px;
+    display: inline-flex;
     font-size: 25px;
     margin-left: 30px;
    }
-   
+
+
+   input[type=checkbox] + label {
+    color:black;
+  }
+  input[type=checkbox]:checked + label {
+    color: black;
+    font-style: normal;
+    font-weight: bold;
+  }
   #filterby label:hover {
     color: black;
     font-weight: bold;
     cursor:pointer;
    }
+
 
 #header {
     margin: 10px;
@@ -312,8 +319,9 @@ li {
 }
 
 #timeprep{
-   margin-top: 100px;
-   text-align: center;
+    margin-top: 100px;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 #Equipment{
@@ -348,44 +356,39 @@ li {
 .filtext{
     display: inline;
 }
-/* 
+/*
 #t15-mins{
     display: inline;
     font-size: 25px;
     margin-left: 30px;
 }
-
 #t30-mins{
     display: inline;
     margin-left:30px;
     font-size: 25px;
 }
-
 #t1-hour{
     display: inline;
     font-size: 25px;
     margin-left: 43px;
     margin-right: 20px;
 }
-
 #t1-halfhour{
     display: inline;
     font-size: 25px;
     margin-left: 60px;
 }
-
 #t2-hours{
     display: inline;
     font-size: 25px;
     margin-left: 76px;
-    
+
 } */
 
 /* #Morethanhour{
     display: inline;
     font-size: 25px;
     margin-left: 70px;
-
 } */
 
 #Oven{
@@ -452,3 +455,76 @@ hr {
     width: 440px;
 }
 
+
+.containerfilter {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+/* Hide the browser's default checkbox */
+.containerfilter input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border:1px solid;
+    border-color:grey;
+    border-radius:10px;
+
+}
+
+/* On mouse-over, add a grey background color */
+.containerfilter:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.containerfilter input:checked ~ .checkmark {
+    background-color: lightgray;
+    border-color:darkgray;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.containerfilter input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.containerfilter .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
