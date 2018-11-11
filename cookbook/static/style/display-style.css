@@ -76,7 +76,7 @@
     padding-right: 135px;
     background-color: #f3f3f3;
 }
-  
+
   .carousel__inner {
     display: -webkit-inline-box;
     width: 100%;
@@ -84,7 +84,7 @@
     transition: 0.3s all ease;
     transform: translateX(0);
   }
-  
+
   .carousel__box {
     position: relative;
     width: 390px;
@@ -94,7 +94,7 @@
     margin-right: 80px;
     margin-top: 20px;
   }
-  
+
   .carousel__box img {
     position: absolute;
     top: 0;
@@ -103,39 +103,39 @@
     height: 220px;
     transform: translateX(0);
   }
-  
+
   .carousel__box--enter img {
     transform: scale(1.5);
     transition: 0.4s transform;
     transition-timing-function: cubic-bezier(0.5,0,0.1,1);
   }
-  
+
   .carousel__box--leave img {
     transform: scale(1);
     transition: 0.4s transform;
     transition-timing-function: cubic-bezier(0.5,0,0.1,1);
   }
-  
+
   .carousel__box--next {
     transform: translateX(50px);
     transition: 0.4s transform ease;
   }
-  
+
   .carousel__box--next-leave {
     transform: translateX(0);
     transition: 0.4s transform ease;
   }
-  
+
   .carousel__box--previous {
     transform: translateX(-50px);
     transition: 0.4s transform ease;
   }
-  
+
   .carousel__box--previous-leave {
     transform: translateX(0);
     transition: 0.3s transform ease;
   }
-  
+
   .carousel__box:not(:last-child) {
     margin-right: 75px;
   }
@@ -145,7 +145,7 @@
   }
 
 
-  
+
   .carousel__control {
     position: absolute;
     top: 25%;
@@ -161,19 +161,19 @@
     transition: 0.2s opacity;
     outline: 0;
   }
-  
+
   .carousel__control--left {
     left: 30px;
     font-size: 60px;
     opacity: 0.5;
   }
-  
+
   .carousel__control--right {
     right: 30px;
     font-size: 60px;
     opacity: 0.5;
   }
-  
+
   .carousel__control--disabled {
     opacity: 0;
   }
@@ -221,16 +221,14 @@
     margin-top:0px;
     margin-left:5px;
 }
-/* 
+/*
 #filter {
     text-align: center;
     padding-top:100px;
 }
-
 .time-prep {
     text-align: center;
 }
-
 .btn-time {
     margin: 10px;
     border: none;
@@ -238,7 +236,6 @@
     font-size: 25px;
     color: #5D5D5D;
 }
-
 .btn-time:hover {
     color: #2A2A2A;
 } */
@@ -285,28 +282,26 @@ li {
 
 #filterby {
     text-align: center;
-    width:450px;   
+    width:450px;
 }
 
 #filterby .checkbox {
-
+    display: none;
 }
 
 #filterby label {
     display: inline;
+    margin-right: 30px;
     font-size: 25px;
     margin-left: 30px;
    }
-   
 
-   input[type=checkbox] + label {
-    color:black;
-  } 
-  input[type=checkbox]:checked + label {
+  #filterby label:hover {
     color: black;
-    font-style: normal;
     font-weight: bold;
-  }
+    cursor:pointer;
+   }
+
 
 #header {
     margin: 10px;
@@ -351,44 +346,39 @@ li {
 .filtext{
     display: inline;
 }
-/* 
+/*
 #t15-mins{
     display: inline;
     font-size: 25px;
     margin-left: 30px;
 }
-
 #t30-mins{
     display: inline;
     margin-left:30px;
     font-size: 25px;
 }
-
 #t1-hour{
     display: inline;
     font-size: 25px;
     margin-left: 43px;
     margin-right: 20px;
 }
-
 #t1-halfhour{
     display: inline;
     font-size: 25px;
     margin-left: 60px;
 }
-
 #t2-hours{
     display: inline;
     font-size: 25px;
     margin-left: 76px;
-    
+
 } */
 
 /* #Morethanhour{
     display: inline;
     font-size: 25px;
     margin-left: 70px;
-
 } */
 
 #Oven{
@@ -455,7 +445,6 @@ hr {
     width: 440px;
 }
 
-
 .containerfilter {
     display: block;
     position: relative;
@@ -467,7 +456,7 @@ hr {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    
+
 }
 
 /* Hide the browser's default checkbox */
@@ -490,7 +479,7 @@ hr {
     border:1px solid;
     border-color:grey;
     border-radius:10px;
-   
+
 }
 
 /* On mouse-over, add a grey background color */

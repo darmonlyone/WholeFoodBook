@@ -1,0 +1,15 @@
+navbar.navbar-expand-lg.navbar-light.bg-light {
+  background-color: transparent;
+}
+
+
+.bg-light {
+  background-color: transparent;
+}
+
+#hamburger.navbar-light .navbar-nav .nav-link {
+  background-color: transparent;
+  color: white;
+  font-weight: 100;
+  font-size: 25px;
+}

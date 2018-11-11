@@ -9,7 +9,7 @@
 
 .banner {
     /* padding:80px;  */
-    height: 200px;
+    height: 300px;
     text-align:center;
     /* background: url(../image/banner.jpg) no-repeat ; */
     background-size: cover;
@@ -20,9 +20,10 @@
     font-size: 25px;
     background-color: #3b8832;
     color: white;
+    width: 1920px;
 }
 
-.searcbox {
+.searchbox {
     text-align: right;
     width: 442px;
     height: 26px;
@@ -33,12 +34,6 @@
 
 .iconname {
     color: white;
-}
-
-#menu-login {
-    color: white;
-    font-family: 'Signika Negative', sans-serif;
-    font-size: 25px;
 }
 
 .menu-but-search {
@@ -99,6 +94,13 @@
     background-color: rgb(221, 217, 217);
 }
 
+#username {
+    color: white;
+    font-family: 'Signika Negative', sans-serif;
+    font-size: 25px;
+    margin-right: 30px;
+}
+
 #menu-button {
     margin-top: 100px;
     margin-left: 35px;
@@ -123,12 +125,12 @@
 }
 
 #menu-descrip-header {
-    font-size: 30px;
+    font-size: 40px;
     text-align: center;
 }
 
 #menu-descrip-detail {
-    font-size :20px;
+    font-size :25px;
     text-align: left;
     margin-top: 20px;
     margin-bottom: 30px;
@@ -138,7 +140,7 @@
 }
 
 .menu-descrip-info {
-    font-size :20px;
+    font-size :25px;
     text-align: left;
     margin-bottom: 10px;
 }
@@ -193,12 +195,114 @@
     margin: auto;
   } */
 .show-img img{
-      max-width: 800px;
+      max-width: 1200px;
       max-height: 600px;
       margin: auto;
-      /* border:6px solid;
-      border-color: #3b8832; */
+      border:6px solid;
+      border-color: #3b8832;
       margin-bottom: 40px;
       margin-top: 40px;     
   }
+
+  .profile {
+      width: 1920px;
+      margin:0px;
+  }
+
+  .user-content {
+      margin: 0px;
+      width: 1920px;
+      padding: 0px;
+  }
+
+  #user-profile {
+    margin-top: 50px;
+    margin-left: 85px;
+    color : black;
+    font-weight: bold;
+    font-size: 80px;
+    text-shadow: 5px 5px lightgray;
+  }
+
+  #edit-icon {
+      margin-top: 50px;
+      margin-left: 45px;
+      color: #3b8832;
+      font-size: 70px;
+      text-shadow: 5px 5px lightgrey;
+  }
+
+  #profile-pic {
+      margin-left: 170px;
+      margin-top: 20px;
+      color: #3b8832;
+      font-size: 250px;
+
+  }
+
+  #profile-detail {
+      width: 800px;
+      margin-top: 80px;
+      font-size: 55px;
+  }
+
+  .detail {
+      width: 1920px;
+      margin-bottom: 120px;
+  }
+
+  #fullname {
+      font-weight: bold;
+  }
   
+  #email {
+      margin-top: 15px;
+      font-size: 35px;
+  }
+  .row3 {
+    margin-top: 60px;
+  }
+
+  .recipe-post {
+      width: 1920px;
+      font-size: 60px;
+      margin-top: 80px;
+  }
+  #recipepost {
+      margin-left: 30px;
+  }
+
+  #box {
+    background-color: grey;
+    color: white;
+    width: 60px;
+    height: 40px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border: solid;
+    border-color: grey;
+    font-size: 40px;
+    font-weight: bold;
+    border-radius: 25px;
+  }
+
+  .post-box {
+      width: 1920px;
+  }
+  #postbox {
+      border-style:solid; 
+      border-color:rgb(248, 248, 179); 
+      padding: 1em;
+      border-radius: 5px;
+      border-width: 4px;
+      width: 1450px;
+      height: 740px;
+      margin: auto;
+      margin-top: 70px;
+      margin-bottom: 100px;
+      font-weight: bold;
+      color: gray;
+      font-size: 50px;
+  }
