@@ -1,10 +1,6 @@
 $(function() {
     $('#showmore').on('click',function () {
-<<<<<<< HEAD
        // console.log("clicked");
-=======
-        console.log("clicked");
->>>>>>> dev-html-hamburger-menu
             $('#foodlist li:hidden').slice(0, 2).show();
             if ($('#foodlist li').length == $('#foodlist li:visible').length) {
                 $('#showmore ').hide();
@@ -21,14 +17,9 @@ $(function() {
 // for (var i = 0; i < btns.length; i++) {
 //   btns[i].addEventListener("click", function() {
 //     var current = document.getElementsByClassName("actived");
-<<<<<<< HEAD
 //     current.style.cssText = 'background-color:#F3F3F3;';
 //     // current[0].className = current[0].className.replace(" actived", "");
 //     // this.className += " actived";
-=======
-//     current[0].className = current[0].className.replace(" actived", "");
-//     this.className += " actived";
->>>>>>> dev-html-hamburger-menu
 //   });
 // }
 
@@ -72,11 +63,7 @@ $slides.on('mouseenter',$.debounce(function() {
   var index = $slide.data('index');
   $previous = previous(index);
   $next = next(index);
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> dev-html-hamburger-menu
   $previous.addClass('carousel__box--previous');
   $next.addClass('carousel__box--next');
   $slide.addClass('carousel__box--enter')
@@ -84,11 +71,7 @@ $slides.on('mouseenter',$.debounce(function() {
 
 $slides.on('mouseout',$.debounce(function() {
   var $slide = $(this);
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> dev-html-hamburger-menu
     $slide
     .addClass('carousel__box--leave')
     .removeClass('carousel__box--enter')
@@ -97,11 +80,7 @@ $slides.on('mouseout',$.debounce(function() {
       $(this).removeClass('carousel__box--leave')
         .dequeue();
     });
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> dev-html-hamburger-menu
   $previous.addClass('carousel__box--previous-leave')
     .removeClass('carousel__box--previous')
     .delay(300)
@@ -109,11 +88,7 @@ $slides.on('mouseout',$.debounce(function() {
       $(this).removeClass('carousel__box--previous-leave')
         .dequeue();
     });
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> dev-html-hamburger-menu
   $next.addClass('carousel__box--next-leave')
     .removeClass('carousel__box--next')
     .delay(300)
@@ -126,32 +101,20 @@ $slides.on('mouseout',$.debounce(function() {
 function previous(hovered) {
   // Index of the hovered slide in the current offset
   var index = hovered - offset;
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> dev-html-hamburger-menu
   // We could have this as start = offset, but we have
   // a weird slider presented here haha.
   var start = offset + visible === count
     ? offset - 1
     : offset;
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> dev-html-hamburger-menu
   return $slides.slice(start, offset + index);
 }
 
 function next(hovered) {
   // Index of the hovered slide in the current offset
   var index = hovered - offset;
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> dev-html-hamburger-menu
   if ( index === visible ) {
     return $slides.slice();
   } else {
@@ -163,21 +126,14 @@ function move(offset) {
   var translateX = offset === last
     ? -(container - carousel - margin)
     : -((size * offset) + (margin * offset));
-<<<<<<< HEAD
   $container.css('transform', 'translateX(' + translateX + 'px)');
-=======
-  $container.css('transform', 'translateX(' + translateX + 'px)'); 
->>>>>>> dev-html-hamburger-menu
 }
 
 
 
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> dev-html-hamburger-menu
 // console.log("reach here");
 // var $list = $(".list li");
 // var numToShow = 3;
@@ -198,8 +154,3 @@ function move(offset) {
 //       $button.hide();
 //     }
 // });
-
-<<<<<<< HEAD
-=======
-
->>>>>>> dev-html-hamburger-menu
