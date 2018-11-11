@@ -1,4 +1,5 @@
 {% extends 'base_template.html' %}
+
 {% block content %}
 {% load static %}
 
@@ -7,44 +8,9 @@
 <div class="header">
     <h3><b>SUGGESTION</b></h3>
 </div>
-
-<div class="carousel suggestion">
-    <div class="carousel__inner">
-
-        <div class="carousel__box">
-            <img src="{% static 'image/food2.jpg' %}">
-        </div>
-        <div class="carousel__box">
-            <img src="{% static 'image/food2.jpg' %}">
-        </div>
-        <div class="carousel__box">
-            <img src="{% static 'image/food2.jpg' %}">
-        </div>
-        <div class="carousel__box">
-            <img src="{% static 'image/food2.jpg' %}">
-        </div>
-        <div class="carousel__box">
-            <img src="{% static 'image/food2.jpg' %}">
-        </div>
-        <div class="carousel__box">
-            <img src="{% static 'image/food2.jpg' %}">
-        </div>
-        <div class="carousel__box">
-            <img src="{% static 'image/food2.jpg' %}">
-        </div>
-        <div class="carousel__box">
-            <img src="{% static 'image/food2.jpg' %}">
-        </div>
-    </div>
-
-    <button type="button" class="carousel__control carousel__control--left">
-        <i class="fa fa-angle-left"></i>
-    </button>
-
-    <button type="button" class="carousel__control carousel__control--right">
-        <i class="fa fa-angle-right"></i>
-    </button>
-</div>
+    {% block suggest %}
+    {% include 'suggestion.html' with recipe=recipe_random %}
+    {% endblock %}
 
 <div class="header">
     <h3><b>CATEGORY</b></h3>

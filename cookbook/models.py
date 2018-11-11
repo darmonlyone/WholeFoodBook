@@ -1,4 +1,4 @@
-from django.db import model
+from django.db import models
 
 
 class CookTime(models.Model):
@@ -30,7 +30,6 @@ class Category(models.Model):
 
 
 class Recipe(models.Model):
-    object = RandomManager()
     recipe_chef = models.CharField(max_length=100)
     recipe_name = models.CharField(max_length=100)
     recipe_info = models.TextField()
