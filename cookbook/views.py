@@ -49,10 +49,6 @@ class IndexView(generic.ListView):
             return recipe_all
 
 
-
-
-
-
 # def test(request):
 #     entry_list = list(Recipe.objects.all())
 #     for i in entry_list:
@@ -72,5 +68,4 @@ class IndexView(generic.ListView):
 # heroku pg:psql
 # \d
 # SELECT * FROM cookbook_recipe;
-
 # Recipe.objects.get(id=1).delete()

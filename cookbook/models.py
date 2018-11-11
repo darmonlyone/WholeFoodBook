@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class CookTime(models.Model):
     cooking_time = models.CharField(max_length=30)
 
@@ -100,6 +101,7 @@ class Recipe(models.Model):
 
     def get_recipe_method_list(self):
         return self.recipe_method.split("||")
+
 
 class Ingredient:
 
