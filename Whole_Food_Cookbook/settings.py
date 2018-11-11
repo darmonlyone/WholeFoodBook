@@ -88,7 +88,7 @@ DATABASES['default'] = dj_database_url.config(default=Database_url, conn_max_age
 if 'test' in sys.argv or 'test_coverage' in sys.argv:
     DATABASES['default'] = {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'test_db',
+        'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
     }
@@ -131,7 +131,7 @@ STATICFILES_DIR = [
 ]
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'cookbook')
+STATIC_ROOT = os.path.join(BASE_DIR, 'statics')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'cookbook/static')
