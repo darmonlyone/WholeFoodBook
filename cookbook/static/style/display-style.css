@@ -289,24 +289,17 @@ li {
 }
 
 #filterby .checkbox {
-<<<<<<< HEAD
-
-=======
     display: none;
->>>>>>> dev-html-hamburger-menu
+
 }
 
 #filterby label {
     display: inline;
-<<<<<<< HEAD
-=======
     margin-right: 30px;
->>>>>>> dev-html-hamburger-menu
     font-size: 25px;
     margin-left: 30px;
    }
    
-<<<<<<< HEAD
 
    input[type=checkbox] + label {
     color:black;
@@ -316,13 +309,12 @@ li {
     font-style: normal;
     font-weight: bold;
   }
-=======
   #filterby label:hover {
     color: black;
     font-weight: bold;
     cursor:pointer;
    }
->>>>>>> dev-html-hamburger-menu
+
 
 #header {
     margin: 10px;
@@ -471,7 +463,6 @@ hr {
     width: 440px;
 }
 
-<<<<<<< HEAD
 
 .containerfilter {
     display: block;
@@ -545,5 +536,3 @@ hr {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
-=======
->>>>>>> dev-html-hamburger-menu
