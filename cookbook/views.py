@@ -4,6 +4,13 @@ from django.views import generic
 from cookbook.models import Recipe
 
 
+class ProfileView(generic.ListView):
+    template_name = 'profile.html'
+
+    def get_queryset(self):
+        return None
+
+
 class WelcomeView(generic.ListView):
     template_name = 'welcome.html'
 
@@ -46,16 +53,6 @@ class IndexView(generic.ListView):
 
 
 
-
-
-
-
-
-
-
-
-
-
 # def test(request):
 #     entry_list = list(Recipe.objects.all())
 #     for i in entry_list:
@@ -75,4 +72,5 @@ class IndexView(generic.ListView):
 # heroku pg:psql
 # \d
 # SELECT * FROM cookbook_recipe;
+
 # Recipe.objects.get(id=1).delete()

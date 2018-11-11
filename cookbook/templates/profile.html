@@ -1,7 +1,6 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
-{% csrf_token %}
 
 <head>
     <!-- Required meta tags -->
@@ -9,27 +8,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com"> -->
     <!-- Bootstrap CSS -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'style/base_template.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'style/loginpopup-style.css' %}">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="{% static 'base_templateController.js' %}"></script>
+
     <title>Menu</title>
     <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Signika+Negative:300" rel="stylesheet">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{% static 'style/menu-style.css' %}">
+    <link rel="stylesheet" href="{% static 'style/profile-style.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Raleway" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'style/display-style.css' %}">
 </head>
 
 <body class="page">
 
     <nav class="navbar navbar-light justify-content-between bar">
-        <a class="navbar-brand" href="" style="font-size: 25px; color: white;">
+        <a class="navbar-brand" href="#" style="font-size: 25px; color: white;">
             <img src="{% static 'image/organiclogo.png' %}" style="height: 67px;" alt=""> Organic Recipe
         </a>
         <div class="container">
@@ -47,10 +45,9 @@
             </div>
         </div>
         <!-- link trigger modal -->
-        <!-- ลิ้งกดไปให้หน้าlogin เด้งขึ้น -->
-        <a class= "navbar-brand" style="font-size: 30px; color: white; margin-right: 30px;" id="start-login" data-toggle="modal" href="#myModal" >Login</a>
+        <a class= "navbar-brand" style="font-size: 30px; color: white; margin-right: 30px; display: none;" id="start-login" data-toggle="modal" href="#myModal" >Login</a>
         <!-- after login -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-transparent" id="hamburger" style="display:none;">
+        <nav class="navbar navbar-expand-lg navbar-light bg-transparent" id="hamburger">
       
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav mr-auto">
@@ -70,65 +67,70 @@
                     </li>
                   </ul>
                 </div>
-        
             </nav>
     </nav>
-
-
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content" id="modal">
-        <div class="header">
-          <button type="button" class="close" id="close-btn" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true" id="a">&times;</span>
-            </button>
-          <h3 id="login">Sign in with</h3>
-        </div>
-        <div class="container" id="login-btn">
-          <div class="row">
-              <button href="#" data-dismiss="modal" class= "btn azm-social azm-btn azm-border-bottom azm-facebook" id="fb-login">
-                  <img src="{% static 'image/facebooklogo.png' %}" id ="fb-logo" style="width: 37px;" alt="">Facebook Login</button>
-            </div>
-          <div class="row">
-            <button href="#" data-dismiss="modal" class="btn azm-social azm-btn azm-border-bottom azm-google" id="gg-login">
-                <img src="{% static 'image/googlelogo.png' %}" id ="gg-logo" style="width: 35px;" alt="">Google Login</button>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
 
     <div class="banner">
         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000">
             <div class="carousel-inner banner">
-              <div class="carousel-item active">
-                <img class="d-block w-100" src="{% static 'image/banner.jpg' %}" alt="First slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="{% static 'image/banner2.jpg' %}" alt="Second slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="{% static 'image/banner3.jpg' %}" alt="Third slide">
-              </div>
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="{% static 'image/banner.jpg' %}" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{% static 'image/banner2.jpg' %}" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{% static 'image/banner3.jpg' %}" alt="Third slide">
+                </div>
             </div>
-          </div>
+        </div>
     </div>
     {% block content %}
     {% endblock %}
+    <div class="container user-content">
+        <div class="row profile">
+            <div class="col-md-3" id="user-profile">
+                User Profile
+            </div>
+            <div class="col-md-7"></div>
+            <div class="col-md-1" id="edit-icon">
+                <i class="far fa-edit" id="edit-icon"></i>
+            </div>
+        </div>
+        <div class="row detail">
+            <div class="col-md-4" id="profile-pic">
+                <i class="fas fa-user-circle" id="profile-pic"></i>
+            </div>
+            <div class="col-md-4" id="profile-detail">
+                <div class="row1" id="fullname">Manussporn Fukkham</div>
+                <div class="row2" id="email">darmonlyone@gmail.com</div>
+                <div class="row3"> <b>Alias: </b>
+                    <div style="display:inline; color : grey;">Darm</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-light justify-content-between bar"></nav>
+    <div class="container user-post m-0">
+        <div class="row recipe-post">
+            <div class="col-md-12"> <b id="recipepost">Manussporn Fukkham's Recipe Posts </b>
+                <div id="box" style="display:inline">0</div>
+            </div>
+        </div>
+        <div class="row post-box centered"><p id="postbox">You haven't posted any recipe yet.</p></div>
+    </div>
     <nav class="navbar navbar-light justify-content-between bar"></nav>
 
+
     <!-- Optional JavaScript -->
-    
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-    <script src="{% static 'script/displayController.js' %}"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
+    {#
+    <script src="../templates/menuController.js"></script>#}
 
 </body>
 
