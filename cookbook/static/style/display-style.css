@@ -287,6 +287,7 @@ li {
 
 #filterby .checkbox {
     display: none;
+
 }
 
 #filterby label {
@@ -296,6 +297,15 @@ li {
     margin-left: 30px;
    }
 
+
+   input[type=checkbox] + label {
+    color:black;
+  }
+  input[type=checkbox]:checked + label {
+    color: black;
+    font-style: normal;
+    font-weight: bold;
+  }
   #filterby label:hover {
     color: black;
     font-weight: bold;
@@ -444,6 +454,7 @@ hr {
     border-top: 1px solid rgba(0,0,0,.1);
     width: 440px;
 }
+
 
 .containerfilter {
     display: block;
