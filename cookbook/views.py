@@ -10,15 +10,6 @@ class ProfileView(generic.ListView):
         return None
 
 
-# just for test one page
-
-class ProfileViewTest(generic.ListView):
-    template_name = 'profile_popup.html'
-
-    def get_queryset(self):
-        return None
-
-
 class WelcomeView(generic.ListView):
     template_name = 'welcome.html'
 
