@@ -20,7 +20,7 @@ Website is developed by Django web framework for create website in html and pyth
 ## Installation
 This document gives the instructions to install this application to your computer.
 
-1. Downland python and django to your OS.
+1. Install python and django to your OS.
     - [Python 3 << 3.6](https://www.python.org/downloads/)  
     - [Django 2](https://docs.djangoproject.com/en/2.1/topics/install/#installing-official-release) 
 2. Clone this repositories
@@ -38,19 +38,19 @@ This document gives the instructions to install this application to your compute
      $ env/bin/activate
      ```
         
-    If your program not working very well and require some installation on step 4, come back on this step and
+    If your program not working very well and require some installation on step 4. Come back on this step and
     try out this command.     
     ```
     $ pip install -r requirement.txt
     ```
-    This command use for install all requirement to your python source for running program.
+    This command use for install all requirement source to your computer for running this program.
 
-4. Running the program using python 3.
+4. Running the program using python command.
     ```
     $ python manage.py runserver
     ```
     
-    If program cause `SyntaxError`. You can try this command to detect your program to use **Python 3**.
+    If program cause `SyntaxError`. You can try this command to detect your program to run with **Python 3**.
     ```
     $ python3 manage.py runserver
     ``` 
