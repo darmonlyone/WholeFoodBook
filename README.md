@@ -17,6 +17,44 @@ Website is developed by Django web framework for create website in html and pyth
 - [Travis Ci](https://travis-ci.com/darmonlyone/WholeFoodBook)
 - [Issue tracker](https://github.com/darmonlyone/WholeFoodBook/issues)
 
+## Installation
+This document gives the instructions to install this application using *Django* and *Python*.
+
+1. Downland python and django to your OS.
+    - [Python 3 << 3.6](https://www.python.org/downloads/)  
+    - [Django 2](https://docs.djangoproject.com/en/2.1/topics/install/#installing-official-release) 
+2. Clone this repositories
+    
+    ```
+    $ git clone https://github.com/darmonlyone/WholeFoodBook.git
+    ```
+3. Open `WholeFoodBook/` and activate virtualenv.
+    - Mac OS or Ubuntu
+     ```
+     $ source env/bin/activate
+     ```
+    - Window OS
+     ```
+     $ env/bin/activate
+     ```
+        
+    If your program not working very well and require some installation on step 4, come back on this step and
+    try out this command.     
+    ```
+    $ pip install -r requirement.txt
+    ```
+    This command use to install all requirement to your python source for running program.
+
+4. Running the program using python 3.
+    ```
+    $ python manage.py runserver
+    ```
+    
+    If your program cannot detect that you are using **Python 3** for running this program. You can try this command for running it.
+    ```
+    $ python3 manage.py runserver
+    ``` 
+    
 ## Member
 - **Manusporn Fukkham** 6010546702 [@darmonlyone](https://github.com/darmonlyone)
 - **Pichaaun Popukdee** 6010545862 [@pichqning](https://github.com/pichqning)
