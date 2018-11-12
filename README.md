@@ -18,7 +18,7 @@ Website is developed by Django web framework for create website in html and pyth
 - [Issue tracker](https://github.com/darmonlyone/WholeFoodBook/issues)
 
 ## Installation
-This document gives the instructions to install this application using *Django* and *Python*.
+This document gives the instructions to install this application to your computer.
 
 1. Downland python and django to your OS.
     - [Python 3 << 3.6](https://www.python.org/downloads/)  
