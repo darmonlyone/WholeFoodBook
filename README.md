@@ -50,7 +50,7 @@ This document gives the instructions to install this application using *Django* 
     $ python manage.py runserver
     ```
     
-    If program cause `SyntaxError`. You can try this command for running it. To detect your program to **Python 3**.
+    If program cause `SyntaxError`. You can try this command to detect your program to use **Python 3**.
     ```
     $ python3 manage.py runserver
     ``` 
