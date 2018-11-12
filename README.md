@@ -43,7 +43,7 @@ This document gives the instructions to install this application using *Django* 
     ```
     $ pip install -r requirement.txt
     ```
-    This command use to install all requirement to your python source for running program.
+    This command use for install all requirement to your python source for running program.
 
 4. Running the program using python 3.
     ```
