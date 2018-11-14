@@ -5,27 +5,22 @@
 
 <title>display</title>
 
-<div class="header">
-    <h3><b>SUGGESTION</b></h3>
-</div>
     {% block suggest %}
     {% include 'suggestion.html' with recipe=recipe_random %}
     {% endblock %}
 
-<div class="header">
+<div class="header-big">
     <h3><b>CATEGORY</b></h3>
 </div>
 
-<div class="row" id="category-button">
-    <div class="btn-group">
-        <button class="btn-cat actived" id="cat-but-all">All Recipe</button>
-        <button class="btn-cat" id="cat-but-appertizers">Appetizers</button>
-        <button class="btn-cat" id="cat-but-main">Main Dishes</button>
-        <button class="btn-cat" id="cat-but-soup">Soups & Stews</button>
-        <button class="btn-cat" id="cat-but-desserts">Desserts</button>
-        <button class="btn-cat" id="cat-but-drinks">Drinks</button>
-        <button class="btn-cat" id="cat-but-salad">Salad</button>
-    </div>
+<div class="row btn-group" id="category-button">
+        <button class="btncat actived" id="cat-but-all">All Recipe</button>
+        <button class="btncat" id="cat-but-appertizers">Appetizers</button>
+        <button class="btncat" id="cat-but-main">Main Dishes</button>
+        <button class="btncat" id="cat-but-soup">Soups & Stews</button>
+        <button class="btncat" id="cat-but-desserts">Desserts</button>
+        <button class="btncat" id="cat-but-drinks">Drinks</button>
+        <button class="btncat" id="cat-but-salad">Salad</button>
 </div>
 
 <div class="container content">
@@ -72,7 +67,7 @@
                     </div>
 
                 <div id="Equipment">
-                    <div id="header">Equipment</div>
+                    <div id="header">EQUIPMENT</div>
                     <hr>
                 </div>
                     <div class="row" align="left">
@@ -101,7 +96,7 @@
 
 
                  <div id="allergies">
-                    <div id="header">Allergies</div>
+                    <div id="header">ALLERGIES</div>
                     <hr>
                 </div>
                     <div class="row" align="left">
@@ -137,17 +132,14 @@
                     </div>
 
                     <div id="Rating">
-                    <div id="header">Rating</div>
+                    <div id="header">RATING</div>
                     <hr>
                 </div>
 
 
                 <button type="button" class="btn btn-light btn-lg btn-block">Filter By</button>
                 <button type="button" class="btn btn-secondary btn-lg btn-block" >Clear Filter</button>
-
-
             </div>
-
         </div>
 
         <!-- แสดงเมนู -->
@@ -333,4 +325,5 @@
     </div>
 </div>
 <button id="showmore">Show more</button>
+
 {% endblock %}

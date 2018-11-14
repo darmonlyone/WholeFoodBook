@@ -4,6 +4,13 @@ from django.views import generic
 from cookbook.models import Recipe
 
 
+class ProfileView(generic.ListView):
+    template_name = 'profile.html'
+
+    def get_queryset(self):
+        return None
+
+
 class WelcomeView(generic.ListView):
     template_name = 'welcome.html'
 
@@ -40,6 +47,7 @@ class IndexView(generic.ListView):
             return Recipe.objects.all()[random_int:random_int + 8]
         else:
             return recipe_all
+
 
 # def test(request):
 #     entry_list = list(Recipe.objects.all())

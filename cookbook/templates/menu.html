@@ -39,8 +39,8 @@
                     <div class="container" style="margin-bottom:20px;">
                         <div class="row menu-descrip-info">
                             <div class="col-md-6">
-                                <img src="{% static 'image/icons8_Chef_Hat_50px_1.png' %}" style="margin-right:25px;" />TOTAL
-                                TIME:
+                                <img src="{% static 'image/icons8_Chef_Hat_50px_1.png' %}" style="margin-right:20px;" /><b> TOTAL
+                                TIME: </b>
                             </div>
                             <div class="col-md-6 descrip" id="descrip-time">
                                 <!-- show cooking time in terms of hour(s) and minute(s) -->
@@ -77,13 +77,13 @@
                         </div>
                         <div class="row menu-descrip-info">
                             <div class="col-md-6">
-                                <img src="{% static 'image/icons8_Cooking_Pot_50px_2.png' %}" style="margin-right:25px;">TYPE:
+                                <img src="{% static 'image/icons8_Cooking_Pot_50px_2.png' %}" style="margin-right:20px;"> <b> TYPE: </b>
                             </div>
                             <div class="col-md-6 descrip" id="descrip-type">{{ recipe.get_recipe_equipment }}</div>
                         </div>
                         <div class="row menu-descrip-info">
                             <div class="col-md-6">
-                                <img src="{% static 'image/icons8_Fat_Man_50px_1.png' %}" style="margin-right:25px;">FAT:
+                                <img src="{% static 'image/icons8_Fat_Man_50px_1.png' %}" style="margin-right:20px;"><b> FAT: </b>
                             </div>
                             <div class="col-md-6 descrip" id="descrip-fat">{{ recipe.get_recipe_fat }} KCAL</div>
                         </div>
