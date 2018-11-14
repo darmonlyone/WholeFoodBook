@@ -20,12 +20,19 @@ class WelcomeView(generic.ListView):
 
 class MenuView(generic.ListView):
     template_name = 'menu.html'
-    context_object_name = 'recipe_enable'
     model = Recipe
 
-    def get_queryset(self):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
         recipe_name = self.kwargs['recipe_name']
-        return Recipe.objects.filter(recipe_name=recipe_name)
+        recipe_all = Recipe.objects.all()
+        if recipe_all.count() > 8:
+            random_int = randint(0, recipe_all.all().count() - 9)
+            context['recipe_suggest'] = recipe_all[random_int:random_int + 8]
+        else:
+            context['recipe_suggest'] = recipe_all
+        context['recipe_enable'] = recipe_all.filter(recipe_name=recipe_name)
+        return context
 
 
 class LoginView(generic.ListView):
@@ -37,17 +44,18 @@ class LoginView(generic.ListView):
 
 class IndexView(generic.ListView):
     template_name = 'display.html'
-    context_object_name = 'recipe_random'
     model = Recipe
 
-    def get_queryset(self):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
         recipe_all = Recipe.objects.all()
         if recipe_all.count() > 8:
             random_int = randint(0, recipe_all.all().count() - 9)
-            return Recipe.objects.all()[random_int:random_int + 8]
+            context['recipe_suggest'] = recipe_all[random_int:random_int + 8]
         else:
-            return recipe_all
-
+            context['recipe_suggest'] = recipe_all
+        context['recipe_show'] = recipe_all
+        return context
 
 # def test(request):
 #     entry_list = list(Recipe.objects.all())
