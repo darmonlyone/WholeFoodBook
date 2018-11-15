@@ -2,6 +2,13 @@ from django.shortcuts import render
 from random import randint
 from django.views import generic
 from cookbook.models import Recipe
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
+
+
+@login_required
+def home(request):
+    return render(request, 'login_test.html')
 
 
 class ProfileView(generic.ListView):
