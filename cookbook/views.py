@@ -1,14 +1,10 @@
-from django.shortcuts import render
 from random import randint
-from django.views import generic
-from cookbook.models import Recipe
+
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.utils.decorators import method_decorator
+from django.views import generic
 
-
-@login_required
-def home(request):
-    return render(request, 'login_test.html')
+from cookbook.models import Recipe
 
 
 class ProfileView(generic.ListView):
@@ -52,6 +48,10 @@ class LoginView(generic.ListView):
 class IndexView(generic.ListView):
     template_name = 'display.html'
     model = Recipe
+
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+        return super(IndexView, self).dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

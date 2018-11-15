@@ -5,6 +5,11 @@
 {% load diplay_tag %}
 <title>display</title>
 
+
+    <h1>Login as {{ user.username }}</h1>
+
+
+
     {% block suggest %}
     {% include 'suggestion.html' with recipe=recipe_suggest %}
     {% endblock %}
