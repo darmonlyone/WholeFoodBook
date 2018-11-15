@@ -41,7 +41,7 @@ This document gives the instructions to install this application to your compute
     If your program not working very well and require some installation on step 4. Come back on this step and
     try out this command.     
     ```
-    $ pip install -r requirement.txt
+    $ pip install -r requirements.txt
     ```
     This command use for install all requirement source to your computer for running this program.
 
