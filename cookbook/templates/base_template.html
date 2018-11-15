@@ -116,6 +116,14 @@
             </div>
           </div>
     </div>
+
+    {% if user.username %}
+    <h1>Login as {{ user.username }}</h1>
+    {% else %}
+    <h1>Didn't Login</h1>
+    {% endif %}
+
+
     {% block content %}
     {% endblock %}
     <nav class="navbar navbar-light justify-content-between bar"></nav>
