@@ -138,14 +138,14 @@
 
 
                 <button type="button" id="filterby" class="btn btn-light btn-lg btn-block">Filter By</button>
-                <button type="button" class="btn btn-secondary btn-lg btn-block">Clear Filter</button>
+                <button type="button" id="clearfilter"class="btn btn-secondary btn-lg btn-block">Clear Filter</button>
             </div>
         </div>
 
         <!-- {% for recipe in recipe_show %} -->
         <script>
             $(function () {
-                $('.filterby').on('click', function () {
+                $('#filterby').on('click', function () {
                     var a = js();
                     var time = document.getElementsByClassName("time-but");
                     var equip = document.getElementsByClassName("equip-but");
@@ -192,9 +192,12 @@
 
 
                 });
+
+                $('#clearfilter').on('click',function() {
+                    $('#foodlist').html("");
+                    //add list of food by filter
+                });
             });
-
-
         </script>
         <!-- {% endfor %} -->
         <!-- แสดงเมนู -->
