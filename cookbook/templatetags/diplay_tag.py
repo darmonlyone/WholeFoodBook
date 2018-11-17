@@ -22,3 +22,8 @@ def get_filter_model_allergies_tags(model, allergies):
 @register.simple_tag
 def get_filter_model_tags(model, time_prep=None, equipment=None, allergies=None):
     return model.filter(time_tags=time_prep, equipment_tags=equipment, allergies_tags=allergies)
+
+@register.simple_tag
+def js():
+    model = Recipe
+    return model
