@@ -254,7 +254,17 @@
 .food-card {
     margin-left: 25px;
     width: 430px;
-    height: 530px;
+    height: 620px;
+    margin-bottom: 30px;
+    padding: 10px 10px 10px 10px;
+}
+
+.cardshowimg{
+    height: 400px;
+    width: 100%;
+}
+.card-img-top{
+    height: 380px;
 }
 
 #showmore{

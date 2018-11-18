@@ -5,6 +5,7 @@
 {% load diplay_tag %}
 <title>display</title>
 
+
     {% block suggest %}
     {% include 'suggestion.html' with recipe=recipe_suggest %}
     {% endblock %}
@@ -14,13 +15,13 @@
 </div>
 
 <div class="row btn-group" id="category-button">
-        <button class="btncat actived" id="cat-but-all">All Recipe</button>
-        <button class="btncat" id="cat-but-appertizers">Appetizers</button>
-        <button class="btncat" id="cat-but-main">Main Dishes</button>
-        <button class="btncat" id="cat-but-soup">Soups & Stews</button>
-        <button class="btncat" id="cat-but-desserts">Desserts</button>
-        <button class="btncat" id="cat-but-drinks">Drinks</button>
-        <button class="btncat" id="cat-but-salad">Salad</button>
+        <button class="btncat actived" id="cat-but-all" data-toggle="tab" href="#cat-but-all" role="tab" aria-controls="cat-but-all" aria-selected="true">All Recipe</button>
+        <button class="btncat" id="cat-but-appertizers" data-toggle="tab" href="#cat-but-appertizers" role="tab" aria-controls="cat-but-appertizers" aria-selected="true">Appetizers</button>
+        <button class="btncat" id="cat-but-main" data-toggle="tab" href="#cat-but-main" role="tab" aria-controls="cat-but-main" aria-selected="true">Main Dishes</button>
+        <button class="btncat" id="cat-but-soup" data-toggle="tab" href="#cat-but-soup" role="tab" aria-controls="cat-but-soup" aria-selected="true">Soups & Stews</button>
+        <button class="btncat" id="cat-but-desserts" data-toggle="tab" href="#cat-but-desserts" role="tab" aria-controls="cat-but-desserts" aria-selected="true">Desserts</button>
+        <button class="btncat" id="cat-but-drinks" data-toggle="tab" href="#cat-but-drinks" role="tab" aria-controls="cat-but-drinks" aria-selected="true">Drinks</button>
+        <button class="btncat" id="cat-but-salad" data-toggle="tab" href="#cat-but-salad" role="tab" aria-controls="cat-but-salad" aria-selected="true">Salad</button>
 </div>
 
 <div class="container content">
@@ -145,185 +146,45 @@
         <!-- แสดงเมนู -->
         <div class="col-md-7 col-lg-9" id="display-food">
             <ul id="foodlist">
-                <li class="row card-row">
+                <li>
+                {% for a in recipe_show %}
+                    
                     <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
+                    <a href='{% url 'cookbook:recipe' a.get_recipe_name %}' style='color:black; text-decoration:none;'>
+                            <img class="card-img-top"  src="{{ a.get_recipe_image_1.url }}" alt="Card image cap">
+            
                         <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
+                            <p class="card-text {%replace_text_space a.get_recipe_name%}">{{ a.get_recipe_info }}</p>
+                            <p style="float:left;">{{ a.get_recipe_chef }}</p>                           
+<script>
+function truncateText(selector, maxLength) {
+    var element = document.querySelector(selector),
+        truncated = element.innerText;
+
+    if (truncated.length > maxLength) {
+        truncated = truncated.substr(0,maxLength) + '...';
+    }
+    return truncated;
+}
+</script>
+                            <script>document.querySelector('.'+"{%replace_text_space a.get_recipe_name%}").innerText = truncateText("."+"{%replace_text_space a.get_recipe_name%}", 90);</script>
                         </div>
-                    </div>
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
                         </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
                     </div>
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="row card-row">
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="row card-row">
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="row card-row">
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="row card-row">
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
+                    {% if forloop.counter|divisibleby:3 %}
+                    </li>
+                <li>
+                {% endif %}
+
+                {% endfor %}
                 </li>
             </ul>
         </div>
+
     </div>
+
 </div>
 <button id="showmore">Show more</button>
 
 {% endblock %}
+
