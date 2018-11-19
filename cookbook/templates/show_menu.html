@@ -129,6 +129,7 @@
                             <img class="card-img-top"  src="{{ recipe.get_recipe_image_1.url }}" alt="Card image cap">
 
                         <div class="card-body">
+                            <strong>{{ recipe.get_recipe_name }}</strong>
                             <p class="card-text {%replace_text_space recipe.get_recipe_name%}">{% cut_text_newline  recipe.get_recipe_info %}</p>
                             <p style="float:left;">{{ recipe.get_recipe_chef }}</p>
                         </div>
