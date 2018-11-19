@@ -213,12 +213,12 @@
     padding-bottom:20px;
     padding-top:54px;
     padding-left: 36px;
-    margin-bottom: 160px;
+    margin-bottom: 0;
 }
 
 
 .content {
-    margin-top:0px;
+    margin-top:0;
     margin-left:5px;
 }
 /*
@@ -271,7 +271,8 @@
     font-weight: bolder;
     color: black;
     font-size: 30px;
-    margin-bottom: 100px;
+    margin-top: 20px;
+    margin-bottom: 50px;
     right: 20px;
     cursor: pointer;
     border: none;
