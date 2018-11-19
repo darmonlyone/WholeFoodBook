@@ -3,11 +3,17 @@ from cookbook.models import Recipe
 
 register = template.Library()
 
+
 @register.simple_tag
 def replace_text_space(text):
     return text.replace(" ", "-")
 
-    
+
+@register.simple_tag
+def cut_text_newline(text):
+    return text.replace("\n", " ").replace('\r', '')
+
+
 @register.simple_tag
 def get_filter_model_time_tags(model, time_prep):
     return model.filter(time_tags=time_prep)

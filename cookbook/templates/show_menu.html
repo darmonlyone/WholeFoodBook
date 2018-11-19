@@ -129,19 +129,8 @@
                             <img class="card-img-top"  src="{{ recipe.get_recipe_image_1.url }}" alt="Card image cap">
 
                         <div class="card-body">
-                            <p class="card-text {%replace_text_space recipe.get_recipe_name%}">{{ recipe.get_recipe_info }}</p>
+                            <p class="card-text {%replace_text_space recipe.get_recipe_name%}">{% cut_text_newline  recipe.get_recipe_info %}</p>
                             <p style="float:left;">{{ recipe.get_recipe_chef }}</p>
-<script>
-function truncateText(selector, maxLength) {
-    let element = document.querySelector(selector),
-        truncated = element.innerText;
-
-    if (truncated.length > maxLength) {
-        truncated = truncated.substr(0,maxLength) + '...';
-    }
-    return truncated;
-}
-</script><script>document.querySelector('.'+"{%replace_text_space recipe.get_recipe_name%}").innerText = truncateText("."+"{%replace_text_space recipe.get_recipe_name%}", 90);</script>
                         </div>
                         </a>
                     </div>
