@@ -113,8 +113,10 @@ function move(offset) {
   $container.css('transform', 'translateX(' + translateX + 'px)');
 }
 
-
-
+new showHideText('.myContent', {
+  charQty     : 100,
+  ellipseText : "..."
+ });
 
 
 

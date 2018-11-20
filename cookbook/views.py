@@ -54,8 +54,16 @@ class IndexView(generic.ListView):
             context['recipe_suggest'] = recipe_all[random_int:random_int + 8]
         else:
             context['recipe_suggest'] = recipe_all
-        context['recipe_show'] = recipe_all
+        context['recipe_all'] = recipe_all
+        context['recipe_appetizer'] = recipe_all.filter(category_tags__food_category='appetizer')
+        context['recipe_main'] = recipe_all.filter(category_tags__food_category='main dish')
+        context['recipe_soup'] = recipe_all.filter(category_tags__food_category='soup and stew')
+        context['recipe_dessert'] = recipe_all.filter(category_tags__food_category='dessert')
+        context['recipe_drink'] = recipe_all.filter(category_tags__food_category='drink')
+        context['recipe_salad'] = recipe_all.filter(category_tags__food_category='salad')
         return context
+
+
 
 # def test(request):
 #     entry_list = list(Recipe.objects.all())
