@@ -97,6 +97,8 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.facebook.FacebookOAuth2',
     'social_core.backends.google.GoogleOpenId',
     'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.google.GooglePlusAuth',
+
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -167,9 +169,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'cookbook/static')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-LOGIN_URL = '/login'
-LOGOUT_URL = '/logout'
-LOGIN_REDIRECT_URL = '/index'
+LOGIN_URL = '/login/'
+LOGOUT_URL = '/logout/'
+LOGIN_REDIRECT_URL = '/index/'
 
 SOCIAL_AUTH_FACEBOOK_KEY = '182442539363349'
 SOCIAL_AUTH_FACEBOOK_SECRET = '497d0c4e785e64f75495148d49041e2c'
