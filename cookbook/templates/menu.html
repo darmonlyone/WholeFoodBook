@@ -77,13 +77,13 @@
                         </div>
                         <div class="row menu-descrip-info">
                             <div class="col-md-6">
-                                <img src="{% static 'image/icons8_Cooking_Pot_50px_2.png' %}" style="margin-right:20px;"> <b> TYPE: </b>
+                                <img src="{% static 'image/icons8_Cooking_Pot_50px_2.png' %}" style="margin-right:20px;"> <b> EQUIPMENT: </b>
                             </div>
-                            <div class="col-md-6 descrip" id="descrip-type">{{ recipe.get_recipe_equipment }}</div>
+                            <div class="col-md-6 descrip" id="descrip-equipment">{{ recipe.get_recipe_equipment }}</div>
                         </div>
                         <div class="row menu-descrip-info">
                             <div class="col-md-6">
-                                <img src="{% static 'image/icons8_Fat_Man_50px_1.png' %}" style="margin-right:20px;"><b> FAT: </b>
+                                <img src="{% static 'image/icons8_Fat_Man_50px_1.png' %}" style="margin-right:20px;"><b> CALORIES / SERVING: </b>
                             </div>
                             <div class="col-md-6 descrip" id="descrip-fat">{{ recipe.get_recipe_fat }} KCAL</div>
                         </div>
@@ -97,7 +97,7 @@
 
         <div class="row" id="menu-button">
             <div class="btn-group">
-                <button class="menu-but clicked" id="menu-but-receive">Recieve</button>
+                <button class="menu-but clicked" id="menu-but-recipe">Recipe</button>
                 <button class="menu-but" id="menu-but-review">Review</button>
             </div>
         </div>
@@ -121,9 +121,9 @@
                 </div>
             </div>
             <div class="col-md-7 pl-md-1">
-                <div id="menu-method">
-                    <div class="menu-header">Methods:</div>
-                    <ol id="med-li">
+                <div id="menu-direction">
+                    <div class="menu-header">Directions:</div>
+                    <ol type="1" id="med-li">
                         {% for method in recipe.get_recipe_method_list %}
                         <li class="li">{{ method }}</li>
                         {% endfor %}
