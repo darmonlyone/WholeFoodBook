@@ -146,22 +146,21 @@
         <script>
             $(function () {
                 $('#filterby').on('click', function () {
-                    var a = js();
+
                     var time = document.getElementsByClassName("time-but");
                     var equip = document.getElementsByClassName("equip-but");
                     var aller = document.getElementsByClassName("aller-but");
                     for (var i = 0; i < time.length; i++) {
                         time[i].addEventListener("click", function () {
                             // filter by time[i]
-                            a = get_filter_model_time_tags(a, time[i]);
                             for (var j = 0; j < equip.length; j++) {
                                 equip[j].addEventListener("click", function () {
                                     // filter by time[i]+equip[j]
-                                    a = get_filter_model_equipment_tags(a, equip[j]);
+
                                     for (var k = 0; k < aller.length; k++) {
                                         aller[k].addEventListener("click", function () {
                                             //filter by time[i]+equip[j]+aller[k]
-                                            a = get_filter_model_allergies_tags(a, aller[k]);
+
                                             break;
                                         });
                                     }
