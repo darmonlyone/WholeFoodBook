@@ -113,7 +113,7 @@
 
 
                 <button type="button" class="btn btn-light btn-lg btn-block" id="filterby-but">Filter By</button>
-                <button type="button" class="btn btn-secondary btn-lg btn-block">Clear Filter</button>
+                <button type="button" class="btn btn-secondary btn-lg btn-block" id="clear-but">Clear Filter</button>
             </div>
         </div>
 
@@ -129,7 +129,7 @@
 
                     for (let i = 0; i < time.length; i++) {
                         temp = time[i].id.replace("t", "");
-                        var s = get_filter_model_time_tags(s,temp);
+                        s = get_filter_model_time_tags(s,temp);
                     }
                     for (let j = 0; j < equip.length; j++) {
                         s = get_filter_model_equipment_tags (s ,equip[j].id);
@@ -141,6 +141,10 @@
                     $('#foodlist').html("<li>{% for recipe in s %} <div>{{ recipe.get_recipe_time }}</div> {% endfor %}</li>");
                     
                 });
+
+                $('#clear-but').on('click',function () {
+
+                })
             });
             
             </script>
