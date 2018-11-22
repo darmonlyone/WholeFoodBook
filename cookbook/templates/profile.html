@@ -4,7 +4,8 @@
 <!doctype html>
 <html lang="en">
 {% csrf_token %}
-    <link rel="stylesheet" href="{% static 'style/profile-style.css' %}">
+    <link rel="stylesheet" href="{% static 'style/profileStyle.css' %}">
+    <script src="{% static 'script/profileController.js' %}"></script>
 <body>
     <div class="container user-content">
         <div class="row profile">
@@ -25,7 +26,7 @@
                 <div class="row1" id="fullname">Manussporn Fukkham</div>
                 <div class="row2" id="email">darmonlyone@gmail.com</div>
                 <div class="row3"> <b>Alias: </b>
-                    <div style="display:inline; color : grey;">Darm</div>
+                    <div style="display:inline; color : grey;" id="alias">Darm</div>
                 </div>
             </div>
         </div>
@@ -33,19 +34,19 @@
 
     <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content" style= "min-width: 2000px; height: 1000px; vertical-align: middle;">
+    <div class="modal-dialog modal-dialog-centered" id="modal-box" role="document">
+      <div class="modal-content">
         <div class="header">
           <button type="button" class="close" id="close-btn" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true" id="a">&times;</span>
+              <span aria-hidden="true" id="x">&times;</span>
             </button>
           <h3 id="login">Edit</h3>
         </div>
         <div class="container" id="login-btn">
-          <div class="row">
-                <div class="input-group mb-3">
+          <div class="row" style="margin-top: 40px; margin-left:60px;">
+                <div class="input-group mb-3" style="width:1000px;">
                         <div class="input-group-prepend">
-                          <span class="input-group-text" id="inputGroup-sizing-default">Alias</span>
+                          <span class="input-group-text" style="font-size: 35px;" id="alias-head">Alias</span>
                         </div>
                         <input id="editedAlias" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                       </div>
@@ -53,8 +54,8 @@
           <div class="row">
             <!-- edit pic -->
           </div>
-          <div class = "row">
-                <button type="button" class="btn btn-outline-dark">Save</button>
+          <div class = "row" style="margin-top:400px; margin-left:500px;">
+                <button type="button" data-dismiss="modal" class="btn btn-outline-dark" id="savebtn" style="height:70px; width:120px; font-size:30px;">Save</button>
           </div>
 
         </div>
