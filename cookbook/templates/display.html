@@ -55,12 +55,9 @@
 <button id="showmore">Show more</button>
 
 <script>
-
 let all = document.getElementsByTagName("p");
-
 for (let i=0, max=all.length; i < max; i++) {
     let text = all[i].innerText;
-
     if (text.length > 90) {
         text = text.substr(0, 90) + "...";
     }
@@ -68,6 +65,4 @@ for (let i=0, max=all.length; i < max; i++) {
 }
 </script>
 
-
 {% endblock %}
-

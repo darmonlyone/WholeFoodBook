@@ -1,5 +1,5 @@
 {% load diplay_tag %}
-    <div class="container content">
+<div class="container content">
     <div class="row" id="category-content">
         <!-- filter tab -->
         <div class="col-md-5 col-lg-3" id="filterby">
@@ -9,138 +9,137 @@
                     <div id="header">TIME PREP</div>
                     <hr>
                 </div>
-                    <div class="row" align="left">
-                        <div class="col-md-6">
+                <div class="row" align="left">
+                    <div class="col-md-6">
 
-                            <label class="containerfilter">15 minutes
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="containerfilter">1 Hour
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                                <label class="containerfilter">2 Hours
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="containerfilter">30 minutes
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                                <label class="containerfilter">1 Half Hours
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                               <label class="containerfilter">Over 2 hrs
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-
-                        </div>
+                        <label class="containerfilter">15 minutes
+                            <input type="checkbox" class="check time-but" id="t15 min">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="containerfilter">1 Hour
+                            <input type="checkbox" class="check time-but" id="t1 hour">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="containerfilter">2 Hours
+                            <input type="checkbox" class="check time-but" id="t2 hour">
+                            <span class="checkmark"></span>
+                        </label>
                     </div>
+                    <div class="col-md-6">
+                        <label class="containerfilter">30 minutes
+                            <input type="checkbox" class="check time-but" id="t30 min">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="containerfilter">1 Half Hours
+                            <input type="checkbox" class="check time-but" id="t1 hr 30 min">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="containerfilter">Over 2 hrs
+                            <input type="checkbox" class="check time-but" id="tmore than 2 hr">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
 
                 <div id="Equipment">
                     <div id="header">EQUIPMENT</div>
                     <hr>
                 </div>
-                    <div class="row" align="left">
-                        <div class="col-md-6">
+                <div class="row" align="left">
+                    <div class="col-md-6">
 
-                            <label class="containerfilter">Oven
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="containerfilter">Microwave
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="containerfilter">Mixer
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                                <label class="containerfilter">Blender
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
+                        <label class="containerfilter">Oven
+                            <input type="checkbox" class="check equip-but" id="oven">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="containerfilter">Microwave
+                            <input type="checkbox" class="check equip-but" id="microwave">
+                            <span class="checkmark"></span>
+                        </label>
                     </div>
+                    <div class="col-md-6">
+                        <label class="containerfilter">Mixer
+                            <input type="checkbox" class="check equip-but" id="mixer">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="containerfilter">Blender
+                            <input type="checkbox" class="check equip-but" id="blender">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
 
 
-                 <div id="allergies">
+                <div id="allergies">
                     <div id="header">ALLERGIES</div>
                     <hr>
                 </div>
-                    <div class="row" align="left">
-                        <div class="col-md-6">
+                <div class="row" align="left">
+                    <div class="col-md-6">
 
-                            <label class="containerfilter">Nuts
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="containerfilter">Milk
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="containerfilter">Shrimp
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="containerfilter">Shellfish
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                                <label class="containerfilter">Soy
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="containerfilter">Egg
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
+                        <label class="containerfilter">Nuts
+                            <input type="checkbox" class="check aller-but" id="nuts">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="containerfilter">Milk
+                            <input type="checkbox" class="check aller-but" id="milk">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="containerfilter">Shrimp
+                            <input type="checkbox" class="check aller-but" id="shrimp">
+                            <span class="checkmark"></span>
+                        </label>
                     </div>
+                    <div class="col-md-6">
+                        <label class="containerfilter">Shellfish
+                            <input type="checkbox" class="check aller-but" id="shellfish">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="containerfilter">Soy
+                            <input type="checkbox" class="check aller-but" id="soy">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="containerfilter">Egg
+                            <input type="checkbox" class="check aller-but" id="egg">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
 
-                    <div id="Rating">
+                <div id="Rating">
                     <div id="header">RATING</div>
                     <hr>
                 </div>
 
 
-                <button type="button" class="btn btn-light btn-lg btn-block">Filter By</button>
-                <button type="button" class="btn btn-secondary btn-lg btn-block" >Clear Filter</button>
+                <button type="button" class="btn btn-light btn-lg btn-block" id="filterby-but">Filter By</button>
+                <button type="button" class="btn btn-secondary btn-lg btn-block" id="clear-but">Clear Filter</button>
             </div>
         </div>
+
 
         <!-- แสดงเมนู -->
         <div class="col-md-7 col-lg-9" id="display-food">
             <ul id="foodlist">
                 <li>
-                {% for recipe in recipe_show %}
+                    {% for recipe in recipe_show %}
+                    <div class="card food-card {{ recipe.get_all_tag_str }}">
+                        <a href='{% url 'cookbook:recipe' recipe.get_recipe_name %}' style='color:black; text-decoration:none;'>
+                            <img class="card-img-top" src="{{ recipe.get_recipe_image_1.url }}" alt="Card image cap">
 
-                    <div class="card food-card">
-                    <a href='{% url 'cookbook:recipe' recipe.get_recipe_name %}' style='color:black; text-decoration:none;'>
-                            <img class="card-img-top"  src="{{ recipe.get_recipe_image_1.url }}" alt="Card image cap">
-
-                        <div class="card-body">
-                            <strong>{{ recipe.get_recipe_name }}</strong>
-                            <p class="card-text {%replace_text_space recipe.get_recipe_name%}">{% cut_text_newline  recipe.get_recipe_info %}</p>
-                            <p style="float:left;">{{ recipe.get_recipe_chef }}</p>
-                        </div>
+                            <div class="card-body">
+                                <strong>{{ recipe.get_recipe_name }}</strong>
+                                <p class="card-text {%replace_text_space recipe.get_recipe_name%}">{% cut_text_newline recipe.get_recipe_info %}</p>
+                                <p style="float:left;">{{ recipe.get_recipe_chef }}</p>
+                            </div>
                         </a>
                     </div>
                     {% if forloop.counter|divisibleby:3 %}
-                    </li>
+                </li>
                 <li>
-                {% endif %}
+                    {% endif %}
 
-                {% endfor %}
+                    {% endfor %}
                 </li>
             </ul>
         </div>
