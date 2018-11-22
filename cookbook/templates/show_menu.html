@@ -120,7 +120,7 @@
 
         <!-- แสดงเมนู -->
         <div class="col-md-7 col-lg-9" id="display-food">
-            <ul id="foodlist">
+            <ul id="{{ recipe_poin }}">
                 <li>
                     {% for recipe in recipe_show %}
                     <div class="card food-card {{ recipe.get_all_tag_str }}">
