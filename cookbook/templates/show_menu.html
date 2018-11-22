@@ -118,56 +118,18 @@
         </div>
 
 
-        {% with s=recipe_show %}
-
-        <script>
-
-            $(function () {
-                $('#filterby-but').on('click', function () {
-                    var time = $('.time-but:checked');
-                    var equip = $('.equip-but:checked');
-                    var aller = $('.aller-but:checked');
-
-                    for (let i = 0; i < time.length; i++) {
-                        temp = time[i].id.replace("t", "");
-                        {% get_filter_model_time_tags s temp as time_filtered %}
-                        s = {{ time_filtered }};
-                    }
-                    for (let j = 0; j < equip.length; j++) {
-                        {% get_filter_model_equipment_tags s equip[j].id as equipment_filtered %}
-                        s = {{ equipment_filtered }};
-                    }
-                    for (let j = 0; j < aller.length; j++) {
-                        {% get_filter_model_allergies_tags s aller[j].id as allergies_tags %}
-                        s = {{ allergies_tags }};
-                    }
-
-                    $('#foodlist').html("<li>{% for recipe in s %} <div>{{ recipe.get_recipe_time }}</div> {% endfor %}</li>");
-                    
-                });
-
-                $('#clear-but').on('click',function () {
-
-                })
-            });
-            
-            </script>
-            {% endwith %}
-
         <!-- แสดงเมนู -->
         <div class="col-md-7 col-lg-9" id="display-food">
             <ul id="foodlist">
                 <li>
                     {% for recipe in recipe_show %}
-
-                    <div class="card food-card">
+                    <div class="card food-card {{ recipe.get_all_tag_str }}">
                         <a href='{% url 'cookbook:recipe' recipe.get_recipe_name %}' style='color:black; text-decoration:none;'>
                             <img class="card-img-top" src="{{ recipe.get_recipe_image_1.url }}" alt="Card image cap">
 
                             <div class="card-body">
                                 <strong>{{ recipe.get_recipe_name }}</strong>
-                                <p class="card-text {%replace_text_space recipe.get_recipe_name%}">{% cut_text_newline
-                                    recipe.get_recipe_info %}</p>
+                                <p class="card-text {%replace_text_space recipe.get_recipe_name%}">{% cut_text_newline recipe.get_recipe_info %}</p>
                                 <p style="float:left;">{{ recipe.get_recipe_chef }}</p>
                             </div>
                         </a>
