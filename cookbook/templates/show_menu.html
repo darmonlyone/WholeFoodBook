@@ -119,6 +119,7 @@
 
 
         {% with s=recipe_show %}
+
         <script>
 
             $(function () {
@@ -129,13 +130,16 @@
 
                     for (let i = 0; i < time.length; i++) {
                         temp = time[i].id.replace("t", "");
-                        s = get_filter_model_time_tags(s,temp);
+                        {% get_filter_model_time_tags s temp as time_filtered %}
+                        s = {{ time_filtered }};
                     }
                     for (let j = 0; j < equip.length; j++) {
-                        s = get_filter_model_equipment_tags (s ,equip[j].id);
+                        {% get_filter_model_equipment_tags s equip[j].id as equipment_filtered %}
+                        s = {{ equipment_filtered }};
                     }
                     for (let j = 0; j < aller.length; j++) {
-                        s = get_filter_model_allergies_tags (s ,aller[j].id);
+                        {% get_filter_model_allergies_tags s aller[j].id as allergies_tags %}
+                        s = {{ allergies_tags }};
                     }
 
                     $('#foodlist').html("<li>{% for recipe in s %} <div>{{ recipe.get_recipe_time }}</div> {% endfor %}</li>");
