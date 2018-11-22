@@ -1,15 +1,21 @@
 {% extends 'base_template.html' %}
     {% block content %}
-
+    {% load static %}
+<!doctype html>
+<html lang="en">
+{% csrf_token %}
+    <link rel="stylesheet" href="{% static 'style/profile-style.css' %}">
+<body>
     <div class="container user-content">
         <div class="row profile">
             <div class="col-md-3" id="user-profile">
                 User Profile
             </div>
             <div class="col-md-7"></div>
-            <div class="col-md-1" id="edit-icon">
+            <!-- <a data-toggle="modal" href="#myModal" >Login</a> -->
+            <a class="col-md-1" id="edit-icon" data-toggle="modal" href="#editModal">
                 <i class="far fa-edit" id="edit-icon"></i>
-            </div>
+            </a>
         </div>
         <div class="row detail">
             <div class="col-md-4" id="profile-pic">
@@ -24,6 +30,38 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content" style= "min-width: 2000px; height: 1000px; vertical-align: middle;">
+        <div class="header">
+          <button type="button" class="close" id="close-btn" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true" id="a">&times;</span>
+            </button>
+          <h3 id="login">Edit</h3>
+        </div>
+        <div class="container" id="login-btn">
+          <div class="row">
+                <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-default">Alias</span>
+                        </div>
+                        <input id="editedAlias" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                      </div>
+            </div>
+          <div class="row">
+            <!-- edit pic -->
+          </div>
+          <div class = "row">
+                <button type="button" class="btn btn-outline-dark">Save</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
     <nav class="navbar navbar-light justify-content-between bar"></nav>
     <div class="container user-post m-0">
         <div class="row recipe-post">
@@ -34,4 +72,5 @@
         <div class="row post-box centered"><p id="postbox">You haven't posted any recipe yet.</p></div>
     </div>
     <nav class="navbar navbar-light justify-content-between bar"></nav>
+</body>
     {% endblock %}
