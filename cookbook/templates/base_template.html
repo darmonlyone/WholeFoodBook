@@ -77,7 +77,7 @@
         
             </nav>
     </nav>
-    {% if user.name or user|length == 0 or user.email or user %}
+    {% if user.name and user|length == 0 %}
         <script>
         $("#start-login").hide();
         $("#hamburger").show();
