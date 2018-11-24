@@ -119,20 +119,23 @@
 
     {% if user.is_authenticated %}
         <script language="JavaScript" type="text/javascript">
-        $(document).ready(function () {
         console.log("nice");
-        $("#start-login").hide();
-        $("#hamburger").show();
-        });
+        {#$("#start-login").hide();#}
+        document.getElementById("start-login").style.display = 'none';
+        document.getElementById("hamburger").style.display = 'block';
+        {#$("#hamburger").show();#}
+
         </script>
     {% else %}
         <script language="JavaScript" type="text/javascript">
-        $(document).ready(function () {
+        document.getElementById("start-login").style.display = 'block';
+        document.getElementById("hamburger").style.display = 'none';
+        {#$(document).ready(function () {#}
             console.log("why");
-
-            $("#start-login").show();
-            $("#hamburger").hide();
-        });
+        {##}
+        {#    $("#start-login").show();#}
+        {#    $("#hamburger").hide();#}
+        {##}
         </script>
     {% endif %}
 
