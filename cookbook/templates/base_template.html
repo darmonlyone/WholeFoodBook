@@ -77,17 +77,6 @@
         
             </nav>
     </nav>
-    {% if user.name %}
-        <script>
-        $("#start-login").hide();
-        $("#hamburger").show();
-        </script>
-        {% else %}
-        <script>
-        $("#start-login").show();
-        $("#hamburger").hide();
-        </script>
-    {% endif %}
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -147,6 +136,20 @@
     <script src="{% static 'script/displayController.js' %}"></script>
     <script src="{% static 'script/categoriesController.js' %}"></script>
     <script src="{% static 'script/base_templateController.js' %}"></script>
+    {% if user.name %}
+        <script>
+        console.log("nice")
+        $("#start-login").hide();
+        $("#hamburger").show();
+        </script>
+    {% else %}
+        <script>
+        console.log("why")
+        $("#start-login").show();
+        $("#hamburger").hide();
+        </script>
+    {% endif %}
+
 </body>
 
 </html>
