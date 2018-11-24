@@ -5,6 +5,7 @@ from . import views
 
 app_name = 'cookbook'
 urlpatterns = [
+                  path('logout/', views.logout, name='logout'),
                   path('', views.WelcomeView.as_view(), name='welcome'),
                   path('recipe/<str:recipe_name>', views.MenuView.as_view(), name='recipe'),
                   path('login/', views.LoginView.as_view(), name='login'),

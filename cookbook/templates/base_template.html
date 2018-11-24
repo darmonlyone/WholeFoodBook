@@ -120,17 +120,16 @@
           </div>
     </div>
 
-    {% if user.username %}
+    {% if user %}
     <h1>Login as {{ user.first_name }} {{ user.last_name }}</h1>
     {% else %}
     <h1>Didn't Login</h1>
     {% endif %}
 
-    <h1><a href="{% url 'auth:logout' %}?next={{ request.path }}">Logout</a></h1>
-
-    <form method="post" action="{% url 'social:disconnect' 'google' %}" >
+    <form method="post" action="{% url 'cookbook:logout' %}" >
                               {% csrf_token %}
-    <input class="dropdown-item" type="submit" value="Sign out"></form>
+    <button type="submit">Disconnect</button>
+    </form>
     {% block content %}
     {% endblock %}
     <nav class="navbar navbar-light justify-content-between bar"></nav>

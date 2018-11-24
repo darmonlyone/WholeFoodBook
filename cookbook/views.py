@@ -1,6 +1,9 @@
 from random import randint
 
+from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render_to_response
+from django.template import RequestContext
 from django.utils.decorators import method_decorator
 from django.views import generic
 
@@ -45,12 +48,10 @@ class LoginView(generic.ListView):
         return None
 
 
-@login_required
 class IndexView(generic.ListView):
     template_name = 'display.html'
     model = Recipe
 
-    @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):
         return super(IndexView, self).dispatch(request, *args, **kwargs)
 
@@ -64,6 +65,13 @@ class IndexView(generic.ListView):
             context['recipe_suggest'] = recipe_all
         context['recipe_show'] = recipe_all
         return context
+
+
+def logout(request):
+    """Logs out user"""
+    auth_logout(request)
+    return render_to_response('display.html', {}, RequestContext(request))
+
 
 # def test(request):
 #     entry_list = list(Recipe.objects.all())
