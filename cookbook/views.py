@@ -2,6 +2,7 @@ from random import randint
 
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.utils.decorators import method_decorator
@@ -73,11 +74,10 @@ class IndexView(generic.ListView):
         return context
 
 
-
 def logout(request):
     """Logs out user"""
     auth_logout(request)
-    return render_to_response('display.html', {}, RequestContext(request))
+    return HttpResponseRedirect('/index')
 
 # def test(request):
 #     entry_list = list(Recipe.objects.all())
