@@ -118,7 +118,7 @@
           </div>
     </div>
 
-    {% if user %}
+    {% if user.is_authenticated %}
         <script>
         console.log("nice");
         $("#start-login").show();
