@@ -45,6 +45,7 @@ class LoginView(generic.ListView):
         return None
 
 
+@login_required
 class IndexView(generic.ListView):
     template_name = 'display.html'
     model = Recipe
