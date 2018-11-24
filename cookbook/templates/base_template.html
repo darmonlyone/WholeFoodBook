@@ -118,6 +118,21 @@
           </div>
     </div>
 
+    {% if user %}
+        <script>
+        console.log("nice")
+        $("#start-login").hide();
+        $("#hamburger").show();
+        </script>
+    {% else %}
+        <script>
+        console.log("why")
+        $("#start-login").show();
+        $("#hamburger").hide();
+        </script>
+    {% endif %}
+
+
     {% block content %}
     {% endblock %}
 
@@ -136,19 +151,7 @@
     <script src="{% static 'script/displayController.js' %}"></script>
     <script src="{% static 'script/categoriesController.js' %}"></script>
     <script src="{% static 'script/base_templateController.js' %}"></script>
-    {% if user.name %}
-        <script>
-        console.log("nice")
-        $("#start-login").hide();
-        $("#hamburger").show();
-        </script>
-    {% else %}
-        <script>
-        console.log("why")
-        $("#start-login").show();
-        $("#hamburger").hide();
-        </script>
-    {% endif %}
+
 
 </body>
 
