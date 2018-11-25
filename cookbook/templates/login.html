@@ -29,16 +29,17 @@
                     <h2 style="color:#55AD4B ">Sign in</h2>
                     <br>
                     <div style="padding-left: 90px; padding-right: 90px;">
-                        <button href="#" class="btn azm-social azm-btn azm-border-bottom azm-facebook" id="facebook2-login-button" style="color: white">
+                        <button onclick="location.href='{% url 'social:begin' 'facebook' %}'" class="btn azm-social azm-btn azm-border-bottom azm-facebook" id="facebook2-login-button" style="color: white">
                             <img src="../static/image/facebooklogo.png" style="width: 20px;" alt=""> Log in with Facebook</button>
-                        <button href="#" class="btn azm-social azm-btn azm-border-bottom btn-danger" id="google-login-button" style="color: white">
+                        <button onclick="location.href='{% url 'social:begin' 'google-oauth2' %}'" class="btn azm-social azm-btn azm-border-bottom btn-danger" id="google-login-button" style="color: white">
                             <img src="../static/image/googlelogo.png" style="width: 20px;" alt=""> Log in with google</button>
                         <div style="width: 100%; height: 10px; border-bottom: 1px solid black; text-align: center">
                             <span style="font-size: 15px; background-color:white; padding: 0 15px;">
                                 OR
                             </span>
+
                         </div>
-                        <button href="{% url 'cookbook:recipe' "Ground Chicken Tacos" %}" class="btn azm-social azm-btn azm-border-bottom btn-warning"
+                        <button class="btn azm-social azm-btn azm-border-bottom btn-warning"
                             id="continue-login-button" onclick="location.href='{% url 'cookbook:index' %}'" style="color: white">Continue </button>
                     </div>
                 </div>

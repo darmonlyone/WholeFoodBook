@@ -1,6 +1,13 @@
-from django.shortcuts import render
 from random import randint
+
+from django.contrib.auth import logout as auth_logout
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render_to_response
+from django.template import RequestContext
+from django.utils.decorators import method_decorator
 from django.views import generic
+
 from cookbook.models import Recipe
 
 
@@ -46,6 +53,9 @@ class IndexView(generic.ListView):
     template_name = 'display.html'
     model = Recipe
 
+    def dispatch(self, request, *args, **kwargs):
+        return super(IndexView, self).dispatch(request, *args, **kwargs)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         recipe_all = Recipe.objects.all()
@@ -64,6 +74,10 @@ class IndexView(generic.ListView):
         return context
 
 
+def logout(request):
+    """Logs out user"""
+    auth_logout(request)
+    return HttpResponseRedirect('/index')
 
 # def test(request):
 #     entry_list = list(Recipe.objects.all())

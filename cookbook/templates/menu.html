@@ -105,7 +105,7 @@
         <div class="row" id="menu-content">
             <div class="col-md-5 pr-md-1">
                 <div id="menu-ingredient">
-                    <div class="menu-header">Ingredient:</div>
+                    <div class="menu-header">Ingredients:</div>
                     <div class="container">
                         {% for ingredient in recipe.get_recipe_ingredient %}
                         <div class="row">
@@ -136,4 +136,8 @@
         {% else %}
         <h1>This Recipe are not available.</h1>
     {% endif %}
+
+    {% block suggest %}
+    {% include 'suggestion.html' with recipe=recipe_suggest %}
+    {% endblock %}
 {% endblock %}
