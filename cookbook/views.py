@@ -8,14 +8,18 @@ from django.template import RequestContext
 from django.utils.decorators import method_decorator
 from django.views import generic
 
-from cookbook.models import Recipe
+from cookbook.models import Recipe, AuthorUser
 
 
 class ProfileView(generic.ListView):
     template_name = 'profile.html'
+    model = Recipe
 
-    def get_queryset(self):
-        return None
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['author_user'] = AuthorUser.objects.all()
+        context['recipe_all'] = Recipe.objects.all()
+        return context
 
 
 class WelcomeView(generic.ListView):
