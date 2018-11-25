@@ -135,9 +135,8 @@
     {% endfor %}
         {% else %}
         <h1>This Recipe are not available.</h1>
-    {% endif %}
-
     {% block suggest %}
     {% include 'suggestion.html' with recipe=recipe_suggest %}
     {% endblock %}
+    {% endif %}
 {% endblock %}
