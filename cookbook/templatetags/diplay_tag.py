@@ -5,6 +5,11 @@ register = template.Library()
 
 
 @register.simple_tag
+def capitalize(temp):
+    return temp.capitalize()
+
+
+@register.simple_tag
 def replace_text_space(text):
     return text.replace(" ", "-")
 

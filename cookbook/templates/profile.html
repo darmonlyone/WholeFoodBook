@@ -1,37 +1,91 @@
 {% extends 'base_template.html' %}
-    {% block content %}
+{% load diplay_tag %}
+{% block content %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+{% csrf_token %}
+<link rel="stylesheet" href="{% static 'style/profileStyle.css' %}">
+<script src="{% static 'script/profileController.js' %}"></script>
 
+<body>
+{% if user.is_authenticated %}
     <div class="container user-content">
         <div class="row profile">
             <div class="col-md-3" id="user-profile">
                 User Profile
             </div>
             <div class="col-md-7"></div>
-            <div class="col-md-1" id="edit-icon">
+            <!-- <a data-toggle="modal" href="#myModal" >Login</a> -->
+            <a class="col-md-1" id="edit-icon" data-toggle="modal" href="#editModal">
                 <i class="far fa-edit" id="edit-icon"></i>
-            </div>
+            </a>
         </div>
         <div class="row detail">
-            <div class="col-md-4" id="profile-pic">
-                <i class="fas fa-user-circle" id="profile-pic"></i>
-            </div>
-            <div class="col-md-4" id="profile-detail">
-                <div class="row1" id="fullname">Manussporn Fukkham</div>
-                <div class="row2" id="email">darmonlyone@gmail.com</div>
+            <div class="col-sd-2" id="profile-pic">
+                <!-- <i class="fas fa-user-circle" id="profile-pic"></i> -->
+                <div class="imgUp">
+                    <div class="imagePreview"></div>
+                    <label class="btn btn-primary">
+                        Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
+                    </label>
+                </div><!-- col-2 -->
+            </div><!-- row -->
+            <div class="col-sd-2" id="profile-detail">
+                <div class="row1" id="fullname">{% capitalize user.first_name %} {% capitalize user.last_name %}</div>
+                <div class="row2" id="email">{{ user.email|lower }}</div>
                 <div class="row3"> <b>Alias: </b>
-                    <div style="display:inline; color : grey;">Darm</div>
+                    <div style="display:inline; color : grey;" id="alias">{{ user.username }}</div>
                 </div>
             </div>
         </div>
     </div>
-    <nav class="navbar navbar-light justify-content-between bar"></nav>
+
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" id="modal-box" role="document">
+            <div class="modal-content">
+                <div class="header">
+                    <button type="button" class="close" id="close-btn" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" id="x">&times;</span>
+                    </button>
+                    <h3 id="login">Edit</h3>
+                </div>
+                <div class="container" id="login-btn">
+                    <div class="row" style="margin-top: 40px; margin-left:60px;">
+                        <div class="input-group mb-3" style="width:1000px;">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" style="font-size: 35px;" id="alias-head">Alias</span>
+                            </div>
+                            <input id="editedAlias" type="text" class="form-control" aria-label="Default"
+                                aria-describedby="inputGroup-sizing-default">
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:400px; margin-left:500px;">
+                        <button type="button" data-dismiss="modal" class="btn btn-outline-dark" id="savebtn" style="height:70px; width:120px; font-size:30px;">Save</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container user-post m-0">
         <div class="row recipe-post">
-            <div class="col-md-12"> <b id="recipepost">Manussporn Fukkham's Recipe Posts </b>
+            <div class="col-md-12"> <b id="recipepost">{% capitalize user.first_name %} {% capitalize user.last_name %}'s Recipe Posts </b>
                 <div id="box" style="display:inline">0</div>
             </div>
         </div>
-        <div class="row post-box centered"><p id="postbox">You haven't posted any recipe yet.</p></div>
+        <div class="row post-box centered">
+            <p id="postbox">You haven't posted any recipe yet.</p>
+        </div>
     </div>
     <nav class="navbar navbar-light justify-content-between bar"></nav>
-    {% endblock %}
+    {% else %}
+     <div class="col-md-3" id="user-profile">
+     You haven't login yet
+    <button class="btn azm-social azm-btn azm-border-bottom btn-warning" id="continue-login-button" onclick="location.href='{% url 'cookbook:index' %}'" style="color: white; font-size: 40px">Back to main page </button>
+     </div>
+{% endif %}
+</body>
+{% endblock %}
