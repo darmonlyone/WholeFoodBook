@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Recipe, CookTime, Category, Allergies, Equipment
+from .models import Recipe, CookTime, Category, Allergies, Equipment, Author
 
 
 class RecipeAdmin(admin.ModelAdmin):
@@ -12,3 +12,4 @@ admin.site.register(Category)
 admin.site.register(CookTime)
 admin.site.register(Equipment)
 admin.site.register(Allergies)
+admin.site.register(Author)
