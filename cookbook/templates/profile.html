@@ -1,4 +1,5 @@
 {% extends 'base_template.html' %}
+{% load diplay_tag %}
 {% block content %}
 {% load static %}
 <!doctype html>
@@ -31,10 +32,10 @@
                 </div><!-- col-2 -->
             </div><!-- row -->
             <div class="col-sd-2" id="profile-detail">
-                <div class="row1" id="fullname">Manussporn Fukkham</div>
-                <div class="row2" id="email">darmonlyone@gmail.com</div>
+                <div class="row1" id="fullname">{% capitalize user.first_name %} {% capitalize user.last_name %}</div>
+                <div class="row2" id="email">{{ user.email|lower }}</div>
                 <div class="row3"> <b>Alias: </b>
-                    <div style="display:inline; color : grey;" id="alias">Darm</div>
+                    <div style="display:inline; color : grey;" id="alias">{{ user.username }}</div>
                 </div>
             </div>
         </div>
@@ -71,7 +72,7 @@
 
     <div class="container user-post m-0">
         <div class="row recipe-post">
-            <div class="col-md-12"> <b id="recipepost">Manussporn Fukkham's Recipe Posts </b>
+            <div class="col-md-12"> <b id="recipepost">{% capitalize user.first_name %} {% capitalize user.last_name %}'s Recipe Posts </b>
                 <div id="box" style="display:inline">0</div>
             </div>
         </div>

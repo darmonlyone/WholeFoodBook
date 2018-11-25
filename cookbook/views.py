@@ -77,7 +77,7 @@ class IndexView(generic.ListView):
 def logout(request):
     """Logs out user"""
     auth_logout(request)
-    return HttpResponseRedirect('/index')
+    return HttpResponseRedirect(f'/{request.path}/')
 
 # def test(request):
 #     entry_list = list(Recipe.objects.all())
