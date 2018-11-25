@@ -8,6 +8,7 @@
 <script src="{% static 'script/profileController.js' %}"></script>
 
 <body>
+{% if user.is_authenticated %}
     <div class="container user-content">
         <div class="row profile">
             <div class="col-md-3" id="user-profile">
@@ -68,7 +69,6 @@
         </div>
     </div>
 
-    <nav class="navbar navbar-light justify-content-between bar"></nav>
     <div class="container user-post m-0">
         <div class="row recipe-post">
             <div class="col-md-12"> <b id="recipepost">Manussporn Fukkham's Recipe Posts </b>
@@ -80,5 +80,11 @@
         </div>
     </div>
     <nav class="navbar navbar-light justify-content-between bar"></nav>
+    {% else %}
+     <div class="col-md-3" id="user-profile">
+     You haven't login yet
+    <button class="btn azm-social azm-btn azm-border-bottom btn-warning" id="continue-login-button" onclick="location.href='{% url 'cookbook:index' %}'" style="color: white; font-size: 40px">Back to main page </button>
+     </div>
+{% endif %}
 </body>
 {% endblock %}
