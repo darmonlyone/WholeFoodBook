@@ -167,7 +167,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'statics')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'cookbook/static')
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 LOGIN_URL = '/login/'
 LOGOUT_URL = '/logout/'
