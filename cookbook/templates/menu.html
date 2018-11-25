@@ -133,10 +133,11 @@
         </div>
     </div>
     {% endfor %}
-        {% else %}
-        <h1>This Recipe are not available.</h1>
     {% block suggest %}
     {% include 'suggestion.html' with recipe=recipe_suggest %}
     {% endblock %}
+
+        {% else %}
+        <h1>This recipe are not available.</h1>
     {% endif %}
 {% endblock %}
