@@ -5,7 +5,7 @@ def replace_space(temp):
     return temp.replace(" ", "-")
 
 
-class Author(models.Model):
+class AuthorUser(models.Model):
     user_username = models.CharField(max_length=100)
     recipe_name = models.CharField(max_length=100)
 
