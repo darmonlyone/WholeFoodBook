@@ -124,13 +124,14 @@
                     templist = document.getElementsByClassName('food-card');
                 });
                 $('#filterby-but').on('click', function () {
+                    console.log('checkyeah');
                     var time = $('.time-but:checked');
                     var equip = $('.equip-but:checked');
                     var aller = $('.aller-but:checked');
                     
                     var templist2 = [];
                     var food;
-
+                
                     if (time.length > 0) {
                         for (var i = 0; i < time.length; i++) {
                             var temp = time[i].id.replace("t", "");
