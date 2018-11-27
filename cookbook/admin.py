@@ -13,7 +13,7 @@ class AuthorAdmin(admin.ModelAdmin):
 
 
 class AliasAdmin(admin.ModelAdmin):
-    list_display = ('alis_name', 'user_username')
+    list_display = ('alias_name', 'user_username')
     list_filter = ['user_username']
 
 

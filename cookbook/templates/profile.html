@@ -25,8 +25,13 @@
                 <div class="row1" id="fullname">{% capitalize user.first_name %} {% capitalize user.last_name %}</div>
                 <div class="row2" id="email">{{ user.email|lower }}</div>
                 <div class="row3"> <b>Alias: </b>
+                    {% get_last_alias_from_user author_alias user.username as current_user_alias %}
+                    {% if current_user_alias %}
+                    <div style="display:inline; color : grey;" id="alias">{{ current_user_alias.alias_name }}</div>
+                        {% else %}
                     <div style="display:inline; color : grey;" id="alias">{{ user.username }}</div>
-                </div>
+                    {% endif %}
+                    </div>
             </div>
         </div>
     </div>
@@ -75,10 +80,11 @@
             </div>
         </div>
     </div>
+
     <div class="card border border-black alert alert-light" role="alert" style="margin-left: 10%; margin-right: 10%; margin-bottom: 60px;">
             {% if recipe_user %}
                 {% for recipe in recipe_user %}
-                <a class="dropdown-item" href="#" style="font-size: 50px"><span class="font-weight-bold">Recipe: </span><span>{{ recipe.recipe_name }}</span></a>
+                <a class="dropdown-item" href="{% url 'cookbook:recipe' recipe.get_recipe_name %}" style="font-size: 50px"><span class="font-weight-bold">Recipe: </span><span>{{ recipe.recipe_name }}</span></a>
                 {% endfor %}
 
                 {% else %}
@@ -93,6 +99,11 @@
     <button class="btn azm-social azm-btn azm-border-bottom btn-warning" id="continue-login-button" onclick="location.href='{% url 'cookbook:index' %}'" style="color: white; font-size: 40px">Back to main page </button>
      </div>
 {% endif %}
+
+
+    <button type="button" href="#" class="btn  btn-outline-danger" style="margin-left: 50px; font-size: 40px; margin-bottom: 50px;">Add New Recipe</button>
+
+
 
 <script>
 let all = document.getElementsByTagName("span");
