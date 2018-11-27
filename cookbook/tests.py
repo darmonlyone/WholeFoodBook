@@ -13,7 +13,7 @@ class ViewTest(TestCase):
         # pass
         response = self.client.get(reverse('cookbook:recipe', args=['darm']))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "This Recipe are not available.")
+        self.assertContains(response, "This recipe are not available.")
         self.assertQuerysetEqual(response.context['recipe_enable'], [])
 
     def test_welcome_page(self):
