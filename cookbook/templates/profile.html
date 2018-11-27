@@ -42,19 +42,23 @@
                     <h3 id="login">Edit</h3>
                 </div>
                 <div class="container" id="login-btn">
+                    <form action="{% url 'cookbook:updateAlias' %}"  method="post">
+                        {% csrf_token %}
                     <div class="row" style="margin-top: 40px; margin-left:60px;">
+                        <input type="text" name="user_name" value="{{ user.username }}" style="color: white; outline: none; border: 0px white;">
                         <div class="input-group mb-3" style="width:1000px;">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" style="font-size: 35px;" id="alias-head">Alias</span>
                             </div>
                             <input id="editedAlias" type="text" class="form-control" aria-label="Default"
-                                aria-describedby="inputGroup-sizing-default">
+                                aria-describedby="inputGroup-sizing-default" name="alias_name">
                         </div>
+
                     </div>
                     <div class="row" style="margin-top:50px; margin-left:500px; margin-right:500px;">
-                        <button type="button" data-dismiss="modal" class="btn btn-outline-dark" id="savebtn" style="height:70px; width:120px; font-size:30px;">Save</button>
+                        <input type="submit" value="Save" class="btn btn-outline-dark" style="height:70px; width:120px; font-size:30px;">
                     </div>
-
+                    </form>
                 </div>
             </div>
         </div>

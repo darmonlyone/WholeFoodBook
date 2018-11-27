@@ -1,15 +1,12 @@
 from random import randint
 
 from django.contrib.auth import logout as auth_logout
-from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render_to_response
-from django.template import RequestContext
+from django.http import HttpResponseRedirect, Http404
 from django.urls import reverse
-from django.utils.decorators import method_decorator
 from django.views import generic
 
-from cookbook.models import Recipe, AuthorUser
+from cookbook.forms import UserAliasForm
+from cookbook.models import Recipe, AuthorUser, UserAlias
 
 
 class ProfileView(generic.ListView):
@@ -83,6 +80,18 @@ def logout(request):
     """Logs out user"""
     auth_logout(request)
     return HttpResponseRedirect(reverse("cookbook:index"))
+
+
+def userAliasPost(request):
+    if request.method == 'POST':
+        form = UserAliasForm(request.POST)
+        if not form.is_valid():
+            user_name = request.POST.get('user_name', '')
+            alias = request.POST.get('alias_name', '')
+            alias_model = UserAlias(user_username=user_name, alis_name=alias)
+            alias_model.save()
+            return HttpResponseRedirect(reverse("cookbook:profile"))
+        raise Http404
 
 # def test(request):
 #     entry_list = list(Recipe.objects.all())

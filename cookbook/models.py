@@ -5,7 +5,7 @@ def replace_space(temp):
     return temp.replace(" ", "-")
 
 
-class UserAlis(models.Model):
+class UserAlias(models.Model):
     user_username = models.CharField(max_length=100)
     alis_name = models.CharField(max_length=50)
 

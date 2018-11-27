@@ -11,4 +11,6 @@ urlpatterns = [
                   path('login/', views.LoginView.as_view(), name='login'),
                   path('index/', views.IndexView.as_view(), name='index'),
                   path('profile/', views.ProfileView.as_view(), name='profile'),
+                  path('profile/update/alias', views.userAliasPost, name='updateAlias'),
+
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
