@@ -9,7 +9,7 @@ def recipe_author(recipe_model, author_user, username):
     user_recipe = author_user.filter(user_username__exact=username)
     recipe = []
     for i in user_recipe:
-        recipe.append(recipe_model.get(recipe_name__contains=i.recipe_name))
+        recipe.append(recipe_model.get(recipe_name__exact=i.recipe_name))
     return recipe
 
 

@@ -141,7 +141,7 @@
         {% is_recipe_owner author_user recipe.get_recipe_name user.username as is_recipe_owner %}
         {% if is_recipe_owner %}
 
-        <div style="height: 0">
+        <div style="height: 0; visibility: hidden;">
             <form action="{% url 'cookbook:delete_recipe' recipe.get_recipe_name %}" method="post">
                 {% csrf_token %}
                 <input type="text" name="deleted_recipe" value="{{ recipe.get_recipe_name }}" style="color: white; outline: none; border: 0 white;">
