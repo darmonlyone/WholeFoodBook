@@ -12,10 +12,15 @@ class AuthorAdmin(admin.ModelAdmin):
     list_filter = ['user_username']
 
 
+class AliasAdmin(admin.ModelAdmin):
+    list_display = ('alis_name', 'user_username')
+    list_filter = ['user_username']
+
+
 admin.site.register(Recipe, RecipeAdmin)
 admin.site.register(Category)
 admin.site.register(CookTime)
 admin.site.register(Equipment)
 admin.site.register(Allergies)
 admin.site.register(AuthorUser, AuthorAdmin)
-admin.site.register(UserAlias)
+admin.site.register(UserAlias, AliasAdmin)
