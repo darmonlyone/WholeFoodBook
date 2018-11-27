@@ -42,6 +42,7 @@ class MenuView(generic.ListView):
         else:
             context['recipe_suggest'] = recipe_all
         context['recipe_enable'] = recipe_all.filter(recipe_name=recipe_name)
+        context['author_user'] = AuthorUser.objects.all()
         return context
 
 
@@ -93,6 +94,18 @@ def userAliasPost(request):
             alias_model.save()
             return HttpResponseRedirect(reverse("cookbook:profile"))
         raise Http404
+
+
+class DeleteRecipeView(generic.ListView):
+    def post(self, request, *args, **kwargs):
+        delete_recipe = request.POST.get('deleted_recipe', '')
+        user_name = request.POST.get('user_name', '')
+        delete_recipe_model = Recipe.objects.get(recipe_name__exact=delete_recipe)
+        delete_recipe_model.delete()
+        author_recipe = AuthorUser.objects.get(recipe_name__exact=delete_recipe, user_username__exact=user_name)
+        author_recipe.delete()
+        return HttpResponseRedirect(reverse("cookbook:profile"))
+
 
 # def test(request):
 #     entry_list = list(Recipe.objects.all())
