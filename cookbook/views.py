@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.urls import reverse
 from django.utils.decorators import method_decorator
 from django.views import generic
 
@@ -81,7 +82,7 @@ class IndexView(generic.ListView):
 def logout(request):
     """Logs out user"""
     auth_logout(request)
-    return HttpResponseRedirect('/index/')
+    return HttpResponseRedirect(reverse("cookbook:index"))
 
 # def test(request):
 #     entry_list = list(Recipe.objects.all())
