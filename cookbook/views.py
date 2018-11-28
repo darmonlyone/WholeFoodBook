@@ -57,6 +57,12 @@ class IndexView(generic.ListView):
         context['recipe_show'] = recipe_all
         return context
 
+class AddRecipeView(generic.ListView):
+    template_name = 'add_recipe.html'
+    
+    def get_queryset(self):
+        return None
+
 # def test(request):
 #     entry_list = list(Recipe.objects.all())
 #     for i in entry_list:
