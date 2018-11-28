@@ -1,9 +1,64 @@
 $(function() {
-    $('#showmore').on('click',function () {
+    $('#showmore_all').on('click',function () {
        // console.log("clicked");
-            $('#foodlist li:hidden').slice(0, 2).show();
-            if ($('#foodlist li').length == $('#foodlist li:visible').length) {
-                $('#showmore ').hide();
+            $('#all_list li:hidden').slice(0, 2).show();
+            if ($('#all_list li').length === $('#all_list li:visible').length) {
+                $('#showmore_all ').hide();
+            }
+    });
+})
+$(function() {
+    $('#showmore_appertizers').on('click',function () {
+       // console.log("clicked");
+            $('#appertizer_list li:hidden').slice(0, 2).show();
+            if ($('#appertizer_list li').length === $('#appertizer_list li:visible').length) {
+                $('#showmore_appertizers ').hide();
+            }
+    });
+})
+$(function() {
+    $('#showmore_main').on('click',function () {
+       // console.log("clicked");
+            $('#main_list li:hidden').slice(0, 2).show();
+            if ($('#main_list li').length === $('#main_list li:visible').length) {
+                $('#showmore_main ').hide();
+            }
+    });
+})
+$(function() {
+    $('#showmore_soup').on('click',function () {
+       // console.log("clicked");
+            $('#soup_list li:hidden').slice(0, 2).show();
+            if ($('#soup_list li').length === $('#soup_list li:visible').length) {
+                $('#showmore_soup ').hide();
+            }
+    });
+})
+$(function() {
+    $('#showmore_dessert').on('click',function () {
+       // console.log("clicked");
+            $('#dessert_list li:hidden').slice(0, 2).show();
+            if ($('#dessert_list li').length === $('#dessert_list li:visible').length) {
+                $('#showmore_dessert ').hide();
+            }
+    });
+})
+$(function() {
+    $('#showmore_drink').on('click',function () {
+       // console.log("clicked");
+            $('#drinks_list li:hidden').slice(0, 2).show();
+            if ($('#drinks_list li').length === $('#drinks_list li:visible').length) {
+                $('#showmore_drink ').hide();
+            }
+    });
+})
+
+$(function() {
+    $('#showmore_salad').on('click',function () {
+       // console.log("clicked");
+            $('#salad_list li:hidden').slice(0, 2).show();
+            if ($('#salad_list li').length === $('#salad_list li:visible').length) {
+                $('#showmore_salad ').hide();
             }
     });
 })
@@ -113,8 +168,10 @@ function move(offset) {
   $container.css('transform', 'translateX(' + translateX + 'px)');
 }
 
-
-
+new showHideText('.myContent', {
+  charQty     : 100,
+  ellipseText : "..."
+ });
 
 
 

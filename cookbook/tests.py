@@ -10,9 +10,10 @@ class ViewTest(TestCase):
         """
         If no recipe exist, an appropriate message is displayed.
         """
+        # pass
         response = self.client.get(reverse('cookbook:recipe', args=['darm']))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "This Recipe are not available.")
+        self.assertContains(response, "This recipe are not available.")
         self.assertQuerysetEqual(response.context['recipe_enable'], [])
 
     def test_welcome_page(self):
@@ -33,6 +34,7 @@ class ViewTest(TestCase):
         """
         Test status code from opening index page.
         """
+        # pass
         response = self.client.get(reverse('cookbook:index'))
         self.assertEquals(response.status_code, 200)
 

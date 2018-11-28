@@ -1,6 +1,26 @@
 from django.db import models
 
 
+def replace_space(temp):
+    return temp.replace(" ", "-")
+
+
+class UserAlias(models.Model):
+    user_username = models.CharField(max_length=100)
+    alias_name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.user_username
+
+
+class AuthorUser(models.Model):
+    user_username = models.CharField(max_length=100)
+    recipe_name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.user_username
+
+
 class CookTime(models.Model):
     cooking_time = models.CharField(max_length=30)
 
@@ -101,6 +121,30 @@ class Recipe(models.Model):
 
     def get_recipe_method_list(self):
         return self.recipe_method.split("||")
+
+    def get_time_tag_str(self):
+        temp = ''
+        for i in self.time_tags.all():
+            temp += replace_space(i.cooking_time)
+            temp += " "
+        return temp
+
+    def get_equipment_tag_str(self):
+        temp = ''
+        for i in self.equipment_tags.all():
+            temp += replace_space(i.equipment_required)
+            temp += " "
+        return temp
+
+    def get_allergies_tag_str(self):
+        temp = ''
+        for i in self.allergies_tags.all():
+            temp += replace_space(i.allergies_ingredient)
+            temp += " "
+        return temp
+
+    def get_all_tag_str(self):
+        return self.get_time_tag_str() + self.get_equipment_tag_str() + self.get_allergies_tag_str()
 
 
 class Ingredient:

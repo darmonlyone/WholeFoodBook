@@ -13,317 +13,62 @@
     <h3><b>CATEGORY</b></h3>
 </div>
 
-<div class="row btn-group" id="category-button">
-        <button class="btncat actived" id="cat-but-all">All Recipe</button>
-        <button class="btncat" id="cat-but-appertizers">Appetizers</button>
-        <button class="btncat" id="cat-but-main">Main Dishes</button>
-        <button class="btncat" id="cat-but-soup">Soups & Stews</button>
-        <button class="btncat" id="cat-but-desserts">Desserts</button>
-        <button class="btncat" id="cat-but-drinks">Drinks</button>
-        <button class="btncat" id="cat-but-salad">Salad</button>
+<div class="nav row btn-group" id="category-button">
+        <a id="cat-but-all-tab" data-toggle="tab" href="#cat-but-all" role="tab" aria-controls="cat-but-all" aria-selected="true"><button class="btncat active actived" >All Recipe</button></a>
+        <a id="cat-but-appetizers-tab" data-toggle="tab" href="#cat-but-appetizers" role="tab" aria-controls="cat-but-appetizers" aria-selected="false"><button class="btncat">Appetizers</button></a>
+        <a id="cat-but-main-tab" data-toggle="tab" href="#cat-but-main" role="tab" aria-controls="cat-but-main" aria-selected="false"><button class="btncat" >Main Dishes</button></a>
+        <a id="cat-but-soup-tab" data-toggle="tab" href="#cat-but-soup" role="tab" aria-controls="cat-but-soup" aria-selected="false"><button class="btncat" >Soups & Stews</button></a>
+        <a id="cat-but-desserts-tab" data-toggle="tab" href="#cat-but-desserts" role="tab" aria-controls="cat-but-desserts" aria-selected="false"><button class="btncat">Desserts</button></a>
+        <a id="cat-but-drinks-tab" data-toggle="tab" href="#cat-but-drinks" role="tab" aria-controls="cat-but-drinks" aria-selected="false"><button class="btncat">Drinks</button></a>
+        <a id="cat-but-salad-tab" data-toggle="tab" href="#cat-but-salad" role="tab" aria-controls="cat-but-salad" aria-selected="false"><button class="btncat">Salad</button></a>
 </div>
-
-<div class="container content">
-    <div class="row" id="category-content">
-        <!-- filter tab -->
-        <div class="col-md-5 col-lg-3" id="filterby">
-
-            <div class="row" id="filterby">
-                <div id="timeprep">
-                    <div id="header">TIME PREP</div>
-                    <hr>
-                </div>
-                    <div class="row" align="left">
-                        <div class="col-md-6">
-
-                            <label class="containerfilter">15 minutes
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="containerfilter">1 Hour
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                                <label class="containerfilter">2 Hours
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="containerfilter">30 minutes
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                                <label class="containerfilter">1 Half Hours
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                               <label class="containerfilter">Over 2 hrs
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                            
-                        </div>
-                    </div>
-
-                <div id="Equipment">
-                    <div id="header">EQUIPMENT</div>
-                    <hr>
-                </div>
-                    <div class="row" align="left">
-                        <div class="col-md-6">
-
-                            <label class="containerfilter">Oven
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="containerfilter">Microwave
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="containerfilter">Mixer
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                                <label class="containerfilter">Blender
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </div>
-
-
-                 <div id="allergies">
-                    <div id="header">ALLERGIES</div>
-                    <hr>
-                </div>
-                    <div class="row" align="left">
-                        <div class="col-md-6">
-
-                            <label class="containerfilter">Nuts
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="containerfilter">Milk
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="containerfilter">Shrimp
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="containerfilter">Shellfish
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                                <label class="containerfilter">Soy
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="containerfilter">Egg
-                                <input type="checkbox" >
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div id="Rating">
-                    <div id="header">RATING</div>
-                    <hr>
-                </div>
-
-
-                <button type="button" class="btn btn-light btn-lg btn-block">Filter By</button>
-                <button type="button" class="btn btn-secondary btn-lg btn-block" >Clear Filter</button>
-            </div>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="cat-but-all" role="tabpanel" aria-labelledby="cat-but-all-tab">
+            {% include 'show_menu.html' with recipe_show=recipe_all recipe_poin="all_list"%}
+            <button id="showmore_all" class="showmore">Show more</button>
         </div>
 
-        <!-- แสดงเมนู -->
-        <div class="col-md-7 col-lg-9" id="display-food">
-            <ul id="foodlist">
-                <li class="row card-row">
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="row card-row">
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="row card-row">
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="row card-row">
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="row card-row">
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
-                    <div class="card food-card">
-                        <a href="">
-                            <img class="card-img-top" src="{% static 'image/food2.jpg' %}" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <p style="float:left;">By:Wan</p>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+        <div class="tab-pane fade" id="cat-but-appetizers" role="tabpanel" aria-labelledby="cat-but-appertizers-tab">
+            {% include 'show_menu.html' with recipe_show=recipe_appetizer recipe_poin="appertizer_list"%}
+            <button id="showmore_appertizers" class="showmore">Show more</button>
+        </div>
+
+        <div class="tab-pane fade" id="cat-but-main" role="tabpanel" aria-labelledby="cat-but-main-tab">
+            {% include 'show_menu.html' with recipe_show=recipe_main recipe_poin="main_list"%}
+            <button id="showmore_main" class="showmore">Show more</button>
+        </div>
+
+        <div class="tab-pane fade" id="cat-but-soup" role="tabpanel" aria-labelledby="cat-but-soup-tab">
+            {% include 'show_menu.html' with recipe_show=recipe_soup recipe_poin="soup_list"%}
+            <button id="showmore_soup" class="showmore">Show more</button>
+        </div>
+
+        <div class="tab-pane fade" id="cat-but-desserts" role="tabpanel" aria-labelledby="cat-but-desserts-tab">
+            {% include 'show_menu.html' with recipe_show=recipe_dessert recipe_poin="dessert_list"%}
+            <button id="showmore_dessert" class="showmore">Show more</button>
+        </div>
+
+        <div class="tab-pane fade" id="cat-but-drinks" role="tabpanel" aria-labelledby="cat-but-drinks-tab">
+            {% include 'show_menu.html' with recipe_show=recipe_drink recipe_poin="drinks_list" %}
+            <button id="showmore_drink" class="showmore">Show more</button>
+        </div>
+
+        <div class="tab-pane fade" id="cat-but-salad" role="tabpanel" aria-labelledby="cat-but-salad-tab">
+            {% include 'show_menu.html' with recipe_show=recipe_salad recipe_poin="salad_list" %}
+            <button id="showmore_salad" class="showmore">Show more</button>
         </div>
     </div>
-</div>
-<button id="showmore">Show more</button>
+
+
+<script>
+let all = document.getElementsByTagName("p");
+for (let i=0, max=all.length; i < max; i++) {
+    let text = all[i].innerText;
+    if (text.length > 90) {
+        text = text.substr(0, 90) + "...";
+    }
+    all[i].innerText = text;
+}
+</script>
 
 {% endblock %}
