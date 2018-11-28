@@ -119,105 +119,102 @@
 
         <script>
             $(function () {
-                var templist = [];
                 $('#clear-but').on('click', function () {
+                    var hidden = document.getElementsByClassName('unselected');
+                    // hidden.classList.remove("unselected")
+                    for (var i = 0; i < hidden.length; i++) {
+                        hidden[i].classList.remove("unselected");
+                    }
+                    var timeType = ['15-min', '30-min', '1-hr', '2-hr', '1-hr-30-min', 'more-than-2-hr'];
+                    var equipType = ['oven', 'mixer', 'blender', 'microwave'];
+                    var allerType = ['nuts', 'shellfish', 'milk', 'shrimp', 'egg', 'soy'];
                     var filterbut = $('.check:checked');
                     if (filterbut.length > 0) {
                         for (var j = 0; j < filterbut.length; j++) {
                             filterbut[j].checked = false;
                         }
                     }
-                    console.log('clear clicked!')
-                    $('#foodlist').html('<li>{% for recipe in recipe_show %}<div class="card food-card {{ recipe.get_all_tag_str }}">' + `<a href="{% url 'cookbook:recipe' recipe.get_recipe_name %}"` + 'style="color:black; text-decoration:none;"><img class="card-img-top" src="{{ recipe.get_recipe_image_1.url }}" alt="Card image cap"><div class="card-body"><strong>{{ recipe.get_recipe_name }}</strong><p class="card-text {%replace_text_space recipe.get_recipe_name%}">{% cut_text_newline recipe.get_recipe_info %}</p><p style="float:left;">{{ recipe.get_recipe_chef }}</p></div></a></div>{% if forloop.counter|divisibleby:3 %}</li><li>{% endif %}{% endfor %}</li>');
                 });
                 $('#filter-but').on('click', function () {
                     console.log('filter!');
                     var time = $('.time-but:checked');
                     var equip = $('.equip-but:checked');
                     var aller = $('.aller-but:checked');
+                    var timeType = ['15-min', '30-min', '1-hr', '2-hr', '1-hr-30-min', 'more-than-2-hr'];
+                    var equipType = ['oven', 'mixer', 'blender', 'microwave'];
+                    var allerType = ['nuts', 'shellfish', 'milk', 'shrimp', 'egg', 'soy'];
 
-                    var templist2 = [];
-                    var food;
+                    /** ไม่กดอะไรไม่ต้องทำอะไร
+                     * - วน .contain กลับมา -
+                     */
 
+                    /* time -start */
                     if (time.length > 0) {
-                        for (var i = 0; i < time.length; i++) {
-                            var temp = time[i].id.replace("t", "");
-                            food = document.getElementsByClassName(temp);
-                            for (var a = 0; a < food.length; a++) {
-                                templist.push(food[a]);
+                        for (var i = 0; i < timeType.length; i++) {
+                            for (var j = 0; j < time.length; j++) {
+                                var temp = time[j].id.replace("t", "");
+                                if (timeType[i] === temp) timeType.splice(i, 1);
                             }
                         }
-                        if (equip.length > 0) {
-                        for (var j = 0; j < equip.length; j++) {
-                            // food = $(templist).getElementsByClassName(equip[j].id);
-                            for (var a = 0; a < templist.length; a++) {
-                                templist2.push(food[a]);
-                            }
-                        }
-                        templist = [];
-                    }
-                    if (aller.length > 0) {
-
-                        if (templist.length > 0) {
-                            for (var k = 0; k < aller.length; k++) {
-                                food = $(templist).getElementsByClassName(aller[k].id);
-                                for (var a = 0; a < food.length; a++) {
-                                    templist2.push(food[a]);
+                        for (var i = 0; i < timeType.length; i++) {
+                            var foodByTime = document.getElementsByClassName(timeType[i]);
+                            for (var j = 0; j < foodByTime.length; j++) {
+                                foodByTime[j].className += " unselected";
+                                for (var k = 0; k < time.length; k++) {
+                                    if (foodByTime[j].classList.contains(time[k])) foodByTime[j].classList.remove("unselected");
                                 }
-                                templist.shift(k);
-                            }
-                            templist = templist2;
-                        }
-                        else {
-                            for (var k = 0; k < aller.length; k++) {
-                                food = templist2.getElementsByClassName(aller[k].id);
-                                for (var a = 0; a < food.length; a++) {
-                                    templist.push(food[a]);
-                                }
-                                templist2.shift(k);
                             }
                         }
 
+
                     }
-                    }
+
+                    /* equip - start*/
                     if (equip.length > 0) {
-                        for (var j = 0; j < equip.length; j++) {
-                            food = document.getElementsByClassName(equip[j].id);
-                            for (var a = 0; a < food.length; a++) {
-                                templist.push(food[a]);
+                        for (var i = 0; i < equipType.length; i++) {
+                            for (var k = 0; k < equip.length; k++) {
+                                if (equipType[i] === equip[k]) equipType.splice(i, 1);
                             }
                         }
-                        if (aller.length > 0) {
-                            if (templist.length > 0) {
-                            for (var k = 0; k < aller.length; k++) {
-                                food = $(templist).getElementsByClassName(aller[k].id);
-                                for (var a = 0; a < food.length; a++) {
-                                    templist2.push(food[a]);
+                        for (var i = 0; i < equipType.length; i++) {
+                            var foodByEquip = document.getElementsByClassName(equipType[i]);
+                            for (var j = 0; j < foodByEquip.length; j++) {
+                                foodByEquip[j].className += " unselected";
+                                for (var k = 0; k < equip.length; k++) {
+                                    if (foodByEquip[j].classList.contains(equip[k])) foodByEquip[j].remove("unselected");
                                 }
-                                templist.shift(k);
                             }
-                            templist = templist2;
                         }
-                        }
-                        
+
                     }
+                    /* aller - start */
                     if (aller.length > 0) {
-                            for (var k = 0; k < aller.length; k++) {
-                                food = document.getElementsByClassName(aller[k].id);
-                                for (var a = 0; a < food.length; a++) {
-                                    templist.push(food[a]);
-                                }
+                        for (var i = 0; i < allerType.length; i++) {
+                            var foodByAller = document.getElementsByClassName(aller[i]);
+                            for (var j = 0; j < foodByAller.length; j++) {
+                                foodByAller[j].className += " unselected";
                             }
+                        }
                     }
 
-                    $('#foodlist').html("");
-                    for (var order = 0; order < templist.length; order++) {
-                        $('#foodlist').append(templist[order]);
-                    }
+
+
+
                 });
 
             });
         </script>
+
+        <style>
+            .unselected {
+                display:none;
+                width: 0;
+                height: 0;
+            } 
+            #foodlist .unselected {
+                
+            }
+        </style>
         <!-- แสดงเมนู -->
         <div class="col-md-7 col-lg-9" id="display-food">
             <ul id="foodlist">
