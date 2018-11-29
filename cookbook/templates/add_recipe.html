@@ -9,7 +9,7 @@
 var ingredients_count =0;
 var textarea_count = 0;
 
-function myFunction()
+function addform()
  { ingredients_count+=1; 
   a = document.getElementById("ingredients");
   a.innerHTML += "<div class='row' id='ingredients' style='width: 1800px; margin-left:1px;'><div class='col'><input type='text' id='ingre-id-measurement-"+ingredients_count+"' class='form-control formbox'></div><div class='col'><input type='text' id='ingre-id-ingredients-"+ingredients_count+"' class='form-control formbox'></div>";
@@ -18,7 +18,7 @@ function myFunction()
 
 <script>
 
-function myFunction2() {
+function addbox() {
     textarea_count+=1;
   a = document.getElementById("addtextarea");
   a.innerHTML += "<div id='addtextarea'><textarea class='form-control directionbox' id='textarea-"+textarea_count+"' rows='3'></textarea></div>"
@@ -61,7 +61,7 @@ function myFunction2() {
 <b id="header"> Ingredients </b>
 <div class="ingredients_part">
 <div>
-    <button class="w3-button w3-circle " onclick="myFunction()" id="buttonaddingre">+</button>
+    <button class="w3-button w3-circle " onclick="addform()" id="buttonaddingre">+</button>
 </div>
 
   <div class="row">
@@ -91,7 +91,7 @@ function myFunction2() {
 <div id="directionspart">
 
 <div style="margin-bottom: 70px;">
-    <button class="w3-button w3-circle " onclick="myFunction2()" id="buttonadddirection">+</button>
+    <button class="w3-button w3-circle " onclick="addbox()" id="buttonadddirection">+</button>
     <br>
 </div>
 <div id="addtextarea">
