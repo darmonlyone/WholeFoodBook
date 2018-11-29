@@ -1,5 +1,6 @@
 from django.test import TestCase
 from django.urls import reverse
+from selenium import webdriver
 
 from cookbook.models import CookTime, Equipment, Allergies, Category, Recipe
 
@@ -228,3 +229,10 @@ class ModelTest(TestCase):
         self.assertEqual(self.recipe.category_tags.count(), Category.objects.count())
         self.assertEqual(str(self.recipe.category_tags.first()), "Main Course")
         self.assertEqual(str(self.recipe.category_tags.last()), "Main Course")
+
+class selenuimTest ():
+    
+    def get_link(url):
+        driver = webdriver.Chrome()
+        driver.get(url)
+        
