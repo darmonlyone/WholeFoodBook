@@ -46,18 +46,18 @@ This document gives the instructions to install this application to your compute
      ```
     Install all requirements to your venv with this command. 
     ```
-    $ pip install -r requirements.txt
+    (venv) $ pip install -r requirements.txt
     ```
     This command use for install all requirement library to your python source for running this program.
 
 4. Running the program using python command.
     ```
-    $ python manage.py runserver
+    (venv) $ python manage.py runserver
     ```
     
     If program cause `SyntaxError`. You can try this command to detect your program to run with **Python 3**.
     ```
-    $ python3 manage.py runserver
+    (venv) $ python3 manage.py runserver
     ``` 
     
 ## Member
