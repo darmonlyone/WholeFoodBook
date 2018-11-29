@@ -13,29 +13,29 @@
                     <div class="col-md-6">
 
                         <label class="containerfilter">15 minutes
-                            <input type="checkbox" class="check time-but" id="t15 min">
+                            <input type="checkbox" class="check time-but" id="t15-min">
                             <span class="checkmark"></span>
                         </label>
                         <label class="containerfilter">1 Hour
-                            <input type="checkbox" class="check time-but" id="t1 hour">
+                            <input type="checkbox" class="check time-but" id="t1-hr">
                             <span class="checkmark"></span>
                         </label>
                         <label class="containerfilter">2 Hours
-                            <input type="checkbox" class="check time-but" id="t2 hour">
+                            <input type="checkbox" class="check time-but" id="t2-hr">
                             <span class="checkmark"></span>
                         </label>
                     </div>
                     <div class="col-md-6">
                         <label class="containerfilter">30 minutes
-                            <input type="checkbox" class="check time-but" id="t30 min">
+                            <input type="checkbox" class="check time-but" id="t30-min">
                             <span class="checkmark"></span>
                         </label>
                         <label class="containerfilter">1 Half Hours
-                            <input type="checkbox" class="check time-but" id="t1 hr 30 min">
+                            <input type="checkbox" class="check time-but" id="t1-hr-30-min">
                             <span class="checkmark"></span>
                         </label>
                         <label class="containerfilter">Over 2 hrs
-                            <input type="checkbox" class="check time-but" id="tmore than 2 hr">
+                            <input type="checkbox" class="check time-but" id="tmore-than-2-hr">
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -112,19 +112,119 @@
                 </div>
 
 
-                <button type="button" class="btn btn-light btn-lg btn-block" id="filterby-but">Filter By</button>
+                <button type="button" class="btn btn-light btn-lg btn-block" id="filter-but">Filter By</button>
                 <button type="button" class="btn btn-secondary btn-lg btn-block" id="clear-but">Clear Filter</button>
             </div>
         </div>
 
+        <script>
+            $(function () {
+                $('#clear-but').on('click', function () {
+                    var hidden = document.getElementsByClassName('unselected');
+                    // hidden.classList.remove("unselected")
+                    for (var i = 0; i < hidden.length; i++) {
+                        hidden[i].classList.remove("unselected");
+                    }
+                    var timeType = ['15-min', '30-min', '1-hr', '2-hr', '1-hr-30-min', 'more-than-2-hr'];
+                    var equipType = ['oven', 'mixer', 'blender', 'microwave'];
+                    var allerType = ['nuts', 'shellfish', 'milk', 'shrimp', 'egg', 'soy'];
+                    var filterbut = $('.check:checked');
+                    if (filterbut.length > 0) {
+                        for (var j = 0; j < filterbut.length; j++) {
+                            filterbut[j].checked = false;
+                        }
+                    }
+                });
+                $('#filter-but').on('click', function () {
+                    console.log('filter!');
+                    var time = $('.time-but:checked');
+                    var equip = $('.equip-but:checked');
+                    var aller = $('.aller-but:checked');
+                    var timeType = ['15-min', '30-min', '1-hr', '2-hr', '1-hr-30-min', 'more-than-2-hr'];
+                    var equipType = ['oven', 'mixer', 'blender', 'microwave'];
+                    var allerType = ['nuts', 'shellfish', 'milk', 'shrimp', 'egg', 'soy'];
 
+                    /** ไม่กดอะไรไม่ต้องทำอะไร
+                     * - วน .contain กลับมา -
+                     */
+
+                    /* time -start */
+                    if (time.length > 0) {
+                        for (var i = 0; i < timeType.length; i++) {
+                            for (var j = 0; j < time.length; j++) {
+                                var temp = time[j].id.replace("t", "");
+                                if (timeType[i] === temp) timeType.splice(i, 1);
+                            }
+                        }
+                        for (var i = 0; i < timeType.length; i++) {
+                            var foodByTime = document.getElementsByClassName(timeType[i]);
+                            for (var j = 0; j < foodByTime.length; j++) {
+                                if (!foodByTime[j].classList.contains("unselected")){
+                                    foodByTime[j].className += " unselected";
+                                }
+                                for (var k = 0; k < time.length; k++) {
+                                    if (foodByTime[j].classList.contains(time[k])) foodByTime[j].classList.remove("unselected");
+                                }
+                            }
+                        }
+
+
+                    }
+
+                    /* equip - start*/
+                    if (equip.length > 0) {
+                        for (var i = 0; i < equipType.length; i++) {
+                            for (var k = 0; k < equip.length; k++) {
+                                if (equipType[i] === equip[k]) equipType.splice(i, 1);
+                            }
+                        }
+                        for (var i = 0; i < equipType.length; i++) {
+                            var foodByEquip = document.getElementsByClassName(equipType[i]);
+                            for (var j = 0; j < foodByEquip.length; j++) {
+                                if (!foodByTime[j].classList.contains("unselected")){
+                                    foodByTime[j].className += " unselected";
+                                }
+                                for (var k = 0; k < equip.length; k++) {
+                                    if (foodByEquip[j].classList.contains(equip[k])) foodByEquip[j].remove("unselected");
+                                }
+                            }
+                        }
+
+                    }
+                    /* aller - start */
+                    if (aller.length > 0) {
+                        for (var i = 0; i < allerType.length; i++) {
+                            var foodByAller = document.getElementsByClassName(aller[i]);
+                            for (var j = 0; j < foodByAller.length; j++) {
+                                if (!foodByTime[j].classList.contains("unselected")){
+                                    foodByTime[j].className += " unselected";
+                                }
+                            }
+                        }
+                    }
+
+
+
+
+                });
+
+            });
+        </script>
+
+        <style>
+            #foodlist .unselected {
+                display:none;
+                width: 0;
+                height: 0;
+            }
+        </style>
         <!-- แสดงเมนู -->
         <div class="col-md-7 col-lg-9" id="display-food">
             <ul id="{{ recipe_poin }}">
                 <li>
                     {% for recipe in recipe_show %}
                     <div class="card food-card {{ recipe.get_all_tag_str }}">
-                        <a href='{% url 'cookbook:recipe' recipe.get_recipe_name %}' style='color:black; text-decoration:none;'>
+                        <a href="{% url 'cookbook:recipe' recipe.get_recipe_name %}" style="color:black; text-decoration:none;">
                             <img class="card-img-top" src="{{ recipe.get_recipe_image_1.url }}" alt="Card image cap">
 
                             <div class="card-body">
