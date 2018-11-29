@@ -11,9 +11,6 @@ for (var i = 0; i < btns.length; i++) {
       for (var j =0 ; j < filterbut.length ; j ++ ) {
         filterbut[j].checked = false;
       }
-    } 
-    for (var i = 0; i < hidden.length; i++) {
-        hidden[i].classList.remove("unselected");
     }
   });
 }

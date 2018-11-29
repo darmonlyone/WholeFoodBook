@@ -3,7 +3,7 @@
 {% block content %}
 {% load static %}
 {% load diplay_tag %}
-<title>display</title>
+<title>Menu</title>
 
     {% block suggest %}
     {% include 'suggestion.html' with recipe=recipe_suggest %}
@@ -12,15 +12,20 @@
 <div class="header-big">
     <h3><b>CATEGORY</b></h3>
 </div>
-
+<script>
+function showHide() {
+        let clear_but = document.getElementById("clear-but");
+        clear_but.click()
+}
+</script>
 <div class="nav row btn-group" id="category-button">
-        <a id="cat-but-all-tab" data-toggle="tab" href="#cat-but-all" role="tab" aria-controls="cat-but-all" aria-selected="true"><button class="btncat active actived" >All Recipe</button></a>
-        <a id="cat-but-appetizers-tab" data-toggle="tab" href="#cat-but-appetizers" role="tab" aria-controls="cat-but-appetizers" aria-selected="false"><button class="btncat">Appetizers</button></a>
-        <a id="cat-but-main-tab" data-toggle="tab" href="#cat-but-main" role="tab" aria-controls="cat-but-main" aria-selected="false"><button class="btncat" >Main Dishes</button></a>
-        <a id="cat-but-soup-tab" data-toggle="tab" href="#cat-but-soup" role="tab" aria-controls="cat-but-soup" aria-selected="false"><button class="btncat" >Soups & Stews</button></a>
-        <a id="cat-but-desserts-tab" data-toggle="tab" href="#cat-but-desserts" role="tab" aria-controls="cat-but-desserts" aria-selected="false"><button class="btncat">Desserts</button></a>
-        <a id="cat-but-drinks-tab" data-toggle="tab" href="#cat-but-drinks" role="tab" aria-controls="cat-but-drinks" aria-selected="false"><button class="btncat">Drinks</button></a>
-        <a id="cat-but-salad-tab" data-toggle="tab" href="#cat-but-salad" role="tab" aria-controls="cat-but-salad" aria-selected="false"><button class="btncat">Salad</button></a>
+        <a onclick="showHide()" id="cat-but-all-tab" data-toggle="tab" href="#cat-but-all" role="tab" aria-controls="cat-but-all" aria-selected="true"><button class="btncat active actived" >All Recipe</button></a>
+        <a onclick="showHide()" id="cat-but-appetizers-tab" data-toggle="tab" href="#cat-but-appetizers" role="tab" aria-controls="cat-but-appetizers" aria-selected="false"><button class="btncat">Appetizers</button></a>
+        <a onclick="showHide()" id="cat-but-main-tab" data-toggle="tab" href="#cat-but-main" role="tab" aria-controls="cat-but-main" aria-selected="false"><button class="btncat" >Main Dishes</button></a>
+        <a onclick="showHide()" id="cat-but-soup-tab" data-toggle="tab" href="#cat-but-soup" role="tab" aria-controls="cat-but-soup" aria-selected="false"><button class="btncat" >Soups & Stews</button></a>
+        <a onclick="showHide()" id="cat-but-desserts-tab" data-toggle="tab" href="#cat-but-desserts" role="tab" aria-controls="cat-but-desserts" aria-selected="false"><button class="btncat">Desserts</button></a>
+        <a onclick="showHide()" id="cat-but-drinks-tab" data-toggle="tab" href="#cat-but-drinks" role="tab" aria-controls="cat-but-drinks" aria-selected="false"><button class="btncat">Drinks</button></a>
+        <a onclick="showHide()" id="cat-but-salad-tab" data-toggle="tab" href="#cat-but-salad" role="tab" aria-controls="cat-but-salad" aria-selected="false"><button class="btncat">Salad</button></a>
 </div>
     <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="cat-but-all" role="tabpanel" aria-labelledby="cat-but-all-tab">
@@ -61,6 +66,7 @@
 
 
 <script>
+
 let all = document.getElementsByTagName("p");
 for (let i=0, max=all.length; i < max; i++) {
     let text = all[i].innerText;
