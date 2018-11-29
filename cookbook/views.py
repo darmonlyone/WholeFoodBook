@@ -79,6 +79,13 @@ class IndexView(generic.ListView):
         return context
 
 
+class AddRecipeView(generic.ListView):
+    template_name = 'add_recipe.html'
+
+    def get_queryset(self):
+        return None
+
+
 def logout(request):
     """Logs out user"""
     auth_logout(request)
@@ -106,7 +113,6 @@ class DeleteRecipeView(generic.ListView):
         author_recipe = AuthorUser.objects.get(recipe_name__exact=delete_recipe, user_username__exact=user_name)
         author_recipe.delete()
         return HttpResponseRedirect(reverse("cookbook:profile"))
-
 
 # def test(request):
 #     entry_list = list(Recipe.objects.all())
