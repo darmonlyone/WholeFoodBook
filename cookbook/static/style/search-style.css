@@ -23,6 +23,7 @@
   padding: 14px 20px 12px 45px;
   border: none;
   border-bottom: 1px solid #ddd;
+  width: 500px;
 }
 
 /* The search field when it gets focus/clicked on */
@@ -60,3 +61,6 @@
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
 
+.input-group{
+    margin-left: 300px;
+}
