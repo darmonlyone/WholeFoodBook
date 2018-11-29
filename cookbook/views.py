@@ -79,6 +79,35 @@ class IndexView(generic.ListView):
         return context
 
 
+class SearchView(generic.ListView):
+    template_name = 'searcher.html'
+    model = Recipe
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        recipe_search = self.kwargs['recipe_search']
+        recipe_all = Recipe.objects.all()
+        if recipe_all.count() > 8:
+            random_int = randint(0, recipe_all.all().count() - 9)
+            context['recipe_suggest'] = recipe_all[random_int:random_int + 8]
+        else:
+            context['recipe_suggest'] = recipe_all
+        context['recipe_recipe_search'] = recipe_all.filter(recipe_name__contains=recipe_search)
+        context['recipe_chef_search'] = recipe_all.filter(recipe_chef__contains=recipe_search)
+        context['recipe_category_search'] = recipe_all.filter(category_tags__food_category__contains=recipe_search)
+        context['recipe_time_search'] = recipe_all.filter(time_tags__cooking_time__contains=recipe_search)
+        context['recipe_equipment_search'] = recipe_all.filter(
+            equipment_tags__equipment_required__contains=recipe_search)
+        context['recipe_equipment_search'] = recipe_all.filter(
+            allergies_tags__allergies_ingredient__contains=recipe_search)
+        return context
+
+
+def search(request):
+    searcher = request.POST.get('search_recipe', '')
+    return HttpResponseRedirect(reverse("cookbook:search", args=[searcher]))
+
+
 class AddRecipeView(generic.ListView):
     template_name = 'add_recipe.html'
 

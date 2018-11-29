@@ -15,5 +15,6 @@ urlpatterns = [
                   path('index/', views.IndexView.as_view(), name='index'),
                   path('profile/', views.ProfileView.as_view(), name='profile'),
                   path('profile/update/alias', views.userAliasPost, name='updateAlias'),
-
+                  path('search/<str:recipe_search>', views.SearchView.as_view(), name='search'),
+                  path('searcher', views.search, name='searcher'),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,14 @@
+{% extends 'base_template.html' %}
+{% block content %}
+    <title>Search</title>
+
+    {% block suggest %}
+    {% include 'suggestion.html' with recipe=recipe_suggest %}
+    {% endblock %}
+
+
+
+
+
+
+{% endblock %}
