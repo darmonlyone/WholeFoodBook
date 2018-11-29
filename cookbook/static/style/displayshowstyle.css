@@ -280,7 +280,7 @@
 }
 
 
-ul li:nth-child(n+4) {
+#foodlist li:nth-child(n+4) {
     display:none;
 }
 
