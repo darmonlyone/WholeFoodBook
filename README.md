@@ -1,6 +1,6 @@
 # Organic Recipe [![Build Status](https://travis-ci.com/darmonlyone/WholeFoodBook.svg?branch=master)](https://travis-ci.com/darmonlyone/WholeFoodBook)
 
-Organic Recipe is a recipe book website which you can create your own digital recipe books using recipes from many well-known brands and chefs, combing with your own ideas. Not only create your own, but also provide a lot of recipes from other members of our website and you can communicate with other members by giving rate or leaving any comments on their recipe too.
+Organic Recipe is a recipe book website which you can create your own digital recipe books using recipes from many well-known brands and chefs, combining with your own ideas. Not only create your own recipe, but also provide a lot of recipes from other members of our website and you can communicate with other members by giving rate or leaving any comments on their recipe too.
 
 Check [Whole-Food-Cookbook](https://whole-food-cookbook.herokuapp.com/) out and ready for cooking with our good recipes.
 
