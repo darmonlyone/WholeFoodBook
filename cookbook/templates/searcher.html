@@ -1,14 +1,109 @@
 {% extends 'base_template.html' %}
+{% load static %}
 {% block content %}
     <title>Search</title>
+<style>
+h1{
+    font-size: 40px;
+    font-weight: bold;
+}
+h2{
+    font-size: 30px;
+    font-weight: bold;
+}
+.search_bar{
+    overflow: auto;
+    max-height: 250px;
+}
+.bigA{
+    font-size: 25px;
+}
+.bold{
+    font-weight: bold;
+}
+.mg-b-50{
+    margin-bottom: 50px;
+}
+.pd-lr-100{
+    padding-right: 100px;
+    padding-left: 100px;
+}
+.pd-tb-50{
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+
+</style>
+
+    <br>
+    <br>
+    <h1>Searching for "{{ recipe_search }}"</h1>
+    <br>
+    <div class="mg-b-50 pd-lr-100 pd-tb-50 card">
+    {% if recipe_recipe_search or recipe_chef_search or recipe_category_search or recipe_time_search or recipe_equipment_search or recipe_allergies_search %}
+
+        {% if recipe_recipe_search %}
+            <h2 class="bold">Recipe name matched</h2>
+            <div class="list-group search_bar mg-b-50">
+            {% for recipe in recipe_recipe_search %}
+            <a href="{% url 'cookbook:recipe' recipe.get_recipe_name %}" class="list-group-item list-group-item-action bigA">{{ recipe.get_recipe_name }}</a>
+            {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if recipe_chef_search %}
+            <h2 class="bold">Recipe chef matched</h2>
+            <div class="list-group search_bar mg-b-50">
+            {% for recipe in recipe_chef_search %}
+            <a href="{% url 'cookbook:recipe' recipe.get_recipe_name %}" class="list-group-item list-group-item-action bigA">{{ recipe.get_recipe_name }} <span class="bold">chef:</span> {{ recipe.get_recipe_chef }}</a>
+            {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if recipe_category_search %}
+            <h2 class="bold">Recipe category matched</h2>
+            <div class="list-group search_bar mg-b-50">
+            {% for recipe in recipe_category_search %}
+                <a href="{% url 'cookbook:recipe' recipe.get_recipe_name %}" class="list-group-item list-group-item-action bigA">{{ recipe.get_recipe_name }} <span class="bold">category:</span> {{ recipe.get_category_tag_str }}</a>
+            {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if recipe_time_search %}
+            <h2 class="bold">Recipe time matched</h2>
+            <div class="list-group search_bar mg-b-50">
+            {% for recipe in recipe_time_search %}
+                <a href="{% url 'cookbook:recipe' recipe.get_recipe_name %}" class="list-group-item list-group-item-action bigA">{{ recipe.get_recipe_name }} <span class="bold">time preb:</span> {{ recipe.get_time_tag_str }}</a>
+            {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if recipe_equipment_search %}
+            <h2 class="bold">Recipe equipment matched</h2>
+            <div class="list-group search_bar mg-b-50">
+            {% for recipe in recipe_equipment_search %}
+                <a href="{% url 'cookbook:recipe' recipe.get_recipe_name %}" class="list-group-item list-group-item-action bigA">{{ recipe.get_recipe_name }} <span class="bold">equipment:</span> {{ recipe.get_equipment_tag_str }}</a>
+            {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if recipe_allergies_search_search %}
+            <h2 class="bold">Recipe allergies matched</h2>
+            <div class="list-group search_bar mg-b-50">
+            {% for recipe in recipe_allergies_search %}
+                <a href="{% url 'cookbook:recipe' recipe.get_recipe_name %}" class="list-group-item list-group-item-action bigA">{{ recipe.get_recipe_name }} <span class="bold">allergies:</span> {{ recipe.get_allergies_tag_str }}</a>
+            {% endfor %}
+            </div>
+        {% endif %}
+
+        {% else %}
+        <h1 class="bold">There are no Recipe match to your search here</h1>
+    {% endif %}
+    </div>
 
     {% block suggest %}
     {% include 'suggestion.html' with recipe=recipe_suggest %}
     {% endblock %}
-
-
-
-
-
 
 {% endblock %}

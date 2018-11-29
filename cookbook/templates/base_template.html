@@ -33,14 +33,14 @@
             /* When the user clicks on the button,
         toggle between hiding and showing the dropdown content */
             function showSearch(temp) {
-                if (temp.value === "")
-                document.getElementById("myDropdown").style.display = ("none");
-                else
-                    document.getElementById("myDropdown").style.display = ("block");
+                if (temp) document.getElementById("myDropdown").style.display = ("none");
+                else document.getElementById("myDropdown").style.display = ("block");
 
             }
 
             function filterFunction() {
+                let is_add_hide = true;
+                let list_hided = [];
                 var input, filter, li, a, i;
                 input = document.getElementById("myInput");
                 filter = input.value.toUpperCase();
@@ -49,11 +49,19 @@
                 for (i = 0; i < a.length; i++) {
                     if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
                         a[i].style.display = "block";
-                        } else {
+                        list_hided.push(true)
+                    } else {
                         a[i].style.display = "none";
+                        list_hided.push(false)
                     }
-                    showSearch(input)
                 }
+                for(let i = 0; i < list_hided.length; i++){
+                    if (list_hided[i] === true)
+                        is_add_hide = false;
+                }
+                if (is_add_hide || input.value === "")
+                    showSearch(true);
+                else showSearch(false)
             }
         </script>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>

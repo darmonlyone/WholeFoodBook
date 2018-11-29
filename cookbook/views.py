@@ -92,14 +92,16 @@ class SearchView(generic.ListView):
             context['recipe_suggest'] = recipe_all[random_int:random_int + 8]
         else:
             context['recipe_suggest'] = recipe_all
+        context['recipe_all'] = recipe_all
         context['recipe_recipe_search'] = recipe_all.filter(recipe_name__contains=recipe_search)
         context['recipe_chef_search'] = recipe_all.filter(recipe_chef__contains=recipe_search)
         context['recipe_category_search'] = recipe_all.filter(category_tags__food_category__contains=recipe_search)
         context['recipe_time_search'] = recipe_all.filter(time_tags__cooking_time__contains=recipe_search)
         context['recipe_equipment_search'] = recipe_all.filter(
             equipment_tags__equipment_required__contains=recipe_search)
-        context['recipe_equipment_search'] = recipe_all.filter(
+        context['recipe_allergies_search'] = recipe_all.filter(
             allergies_tags__allergies_ingredient__contains=recipe_search)
+        context['recipe_search'] = recipe_search
         return context
 
 
