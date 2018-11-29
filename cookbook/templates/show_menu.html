@@ -159,7 +159,9 @@
                         for (var i = 0; i < timeType.length; i++) {
                             var foodByTime = document.getElementsByClassName(timeType[i]);
                             for (var j = 0; j < foodByTime.length; j++) {
-                                foodByTime[j].className += " unselected";
+                                if (!foodByTime[j].classList.contains("unselected")){
+                                    foodByTime[j].className += " unselected";
+                                }
                                 for (var k = 0; k < time.length; k++) {
                                     if (foodByTime[j].classList.contains(time[k])) foodByTime[j].classList.remove("unselected");
                                 }
@@ -179,7 +181,9 @@
                         for (var i = 0; i < equipType.length; i++) {
                             var foodByEquip = document.getElementsByClassName(equipType[i]);
                             for (var j = 0; j < foodByEquip.length; j++) {
-                                foodByEquip[j].className += " unselected";
+                                if (!foodByTime[j].classList.contains("unselected")){
+                                    foodByTime[j].className += " unselected";
+                                }
                                 for (var k = 0; k < equip.length; k++) {
                                     if (foodByEquip[j].classList.contains(equip[k])) foodByEquip[j].remove("unselected");
                                 }
@@ -192,7 +196,9 @@
                         for (var i = 0; i < allerType.length; i++) {
                             var foodByAller = document.getElementsByClassName(aller[i]);
                             for (var j = 0; j < foodByAller.length; j++) {
-                                foodByAller[j].className += " unselected";
+                                if (!foodByTime[j].classList.contains("unselected")){
+                                    foodByTime[j].className += " unselected";
+                                }
                             }
                         }
                     }
@@ -206,13 +212,10 @@
         </script>
 
         <style>
-            .unselected {
+            #foodlist .unselected {
                 display:none;
                 width: 0;
                 height: 0;
-            } 
-            #foodlist .unselected {
-                
             }
         </style>
         <!-- แสดงเมนู -->
