@@ -97,8 +97,10 @@ def userAliasPost(request):
         if not form.is_valid():
             user_name = request.POST.get('user_name', '')
             alias = request.POST.get('alias_name', '')
-            alias_model = UserAlias(user_username=user_name, alias_name=alias)
-            alias_model.save()
+            older_alias = UserAlias.objects.filter(user_username__exact=user_name)
+            older_alias.delete()
+            new_alias_model = UserAlias(user_username=user_name, alias_name=alias)
+            new_alias_model.save()
             return HttpResponseRedirect(reverse("cookbook:profile"))
         raise Http404
 
