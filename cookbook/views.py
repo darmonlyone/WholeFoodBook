@@ -43,6 +43,7 @@ class MenuView(generic.ListView):
             context['recipe_suggest'] = recipe_all
         context['recipe_enable'] = recipe_all.filter(recipe_name=recipe_name)
         context['author_user'] = AuthorUser.objects.all()
+        context['recipe_all'] = Recipe.objects.all()
         return context
 
 
