@@ -3,7 +3,7 @@
 {% block content %}
 {% load static %}
 {% load diplay_tag %}
-<title>display</title>
+<title>Menu</title>
 
     {% block suggest %}
     {% include 'suggestion.html' with recipe=recipe_suggest %}
@@ -14,54 +14,53 @@
 </div>
 <script>
 function showHide() {
-for (let i = 0; i < hidden.length; i++) {
-        hidden[i].classList.remove("unselected");
-    }
+        let clear_but = document.getElementById("clear-but");
+        clear_but.click()
 }
 </script>
 <div class="nav row btn-group" id="category-button">
-        <a id="cat-but-all-tab" data-toggle="tab" href="#cat-but-all" role="tab" aria-controls="cat-but-all" aria-selected="true"><button class="btncat active actived" >All Recipe</button></a>
-        <a id="cat-but-appetizers-tab" data-toggle="tab" href="#cat-but-appetizers" role="tab" aria-controls="cat-but-appetizers" aria-selected="false"><button class="btncat">Appetizers</button></a>
-        <a id="cat-but-main-tab" data-toggle="tab" href="#cat-but-main" role="tab" aria-controls="cat-but-main" aria-selected="false"><button class="btncat" >Main Dishes</button></a>
-        <a id="cat-but-soup-tab" data-toggle="tab" href="#cat-but-soup" role="tab" aria-controls="cat-but-soup" aria-selected="false"><button class="btncat" >Soups & Stews</button></a>
-        <a id="cat-but-desserts-tab" data-toggle="tab" href="#cat-but-desserts" role="tab" aria-controls="cat-but-desserts" aria-selected="false"><button class="btncat">Desserts</button></a>
-        <a id="cat-but-drinks-tab" data-toggle="tab" href="#cat-but-drinks" role="tab" aria-controls="cat-but-drinks" aria-selected="false"><button class="btncat">Drinks</button></a>
-        <a id="cat-but-salad-tab" data-toggle="tab" href="#cat-but-salad" role="tab" aria-controls="cat-but-salad" aria-selected="false"><button class="btncat">Salad</button></a>
+        <a onclick="showHide()" id="cat-but-all-tab" data-toggle="tab" href="#cat-but-all" role="tab" aria-controls="cat-but-all" aria-selected="true"><button class="btncat active actived" >All Recipe</button></a>
+        <a onclick="showHide()" id="cat-but-appetizers-tab" data-toggle="tab" href="#cat-but-appetizers" role="tab" aria-controls="cat-but-appetizers" aria-selected="false"><button class="btncat">Appetizers</button></a>
+        <a onclick="showHide()" id="cat-but-main-tab" data-toggle="tab" href="#cat-but-main" role="tab" aria-controls="cat-but-main" aria-selected="false"><button class="btncat" >Main Dishes</button></a>
+        <a onclick="showHide()" id="cat-but-soup-tab" data-toggle="tab" href="#cat-but-soup" role="tab" aria-controls="cat-but-soup" aria-selected="false"><button class="btncat" >Soups & Stews</button></a>
+        <a onclick="showHide()" id="cat-but-desserts-tab" data-toggle="tab" href="#cat-but-desserts" role="tab" aria-controls="cat-but-desserts" aria-selected="false"><button class="btncat">Desserts</button></a>
+        <a onclick="showHide()" id="cat-but-drinks-tab" data-toggle="tab" href="#cat-but-drinks" role="tab" aria-controls="cat-but-drinks" aria-selected="false"><button class="btncat">Drinks</button></a>
+        <a onclick="showHide()" id="cat-but-salad-tab" data-toggle="tab" href="#cat-but-salad" role="tab" aria-controls="cat-but-salad" aria-selected="false"><button class="btncat">Salad</button></a>
 </div>
     <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="cat-but-all" role="tabpanel" aria-labelledby="cat-but-all-tab">
             {% include 'show_menu.html' with recipe_show=recipe_all recipe_poin="all_list"%}
-            <button id="showmore_all" onclick="showHide()" class="showmore">Show more</button>
+            <button id="showmore_all" class="showmore">Show more</button>
         </div>
 
         <div class="tab-pane fade" id="cat-but-appetizers" role="tabpanel" aria-labelledby="cat-but-appertizers-tab">
             {% include 'show_menu.html' with recipe_show=recipe_appetizer recipe_poin="appertizer_list"%}
-            <button id="showmore_appertizers" onclick="showHide()" class="showmore">Show more</button>
+            <button id="showmore_appertizers" class="showmore">Show more</button>
         </div>
 
         <div class="tab-pane fade" id="cat-but-main" role="tabpanel" aria-labelledby="cat-but-main-tab">
             {% include 'show_menu.html' with recipe_show=recipe_main recipe_poin="main_list"%}
-            <button id="showmore_main" onclick="showHide()" class="showmore">Show more</button>
+            <button id="showmore_main" class="showmore">Show more</button>
         </div>
 
         <div class="tab-pane fade" id="cat-but-soup" role="tabpanel" aria-labelledby="cat-but-soup-tab">
             {% include 'show_menu.html' with recipe_show=recipe_soup recipe_poin="soup_list"%}
-            <button id="showmore_soup" onclick="showHide()" class="showmore">Show more</button>
+            <button id="showmore_soup" class="showmore">Show more</button>
         </div>
 
         <div class="tab-pane fade" id="cat-but-desserts" role="tabpanel" aria-labelledby="cat-but-desserts-tab">
             {% include 'show_menu.html' with recipe_show=recipe_dessert recipe_poin="dessert_list"%}
-            <button id="showmore_dessert" onclick="showHide()" class="showmore">Show more</button>
+            <button id="showmore_dessert" class="showmore">Show more</button>
         </div>
 
         <div class="tab-pane fade" id="cat-but-drinks" role="tabpanel" aria-labelledby="cat-but-drinks-tab">
             {% include 'show_menu.html' with recipe_show=recipe_drink recipe_poin="drinks_list" %}
-            <button id="showmore_drink" onclick="showHide()" class="showmore">Show more</button>
+            <button id="showmore_drink" class="showmore">Show more</button>
         </div>
 
         <div class="tab-pane fade" id="cat-but-salad" role="tabpanel" aria-labelledby="cat-but-salad-tab">
             {% include 'show_menu.html' with recipe_show=recipe_salad recipe_poin="salad_list" %}
-            <button id="showmore_salad" onclick="showHide()" class="showmore">Show more</button>
+            <button id="showmore_salad" class="showmore">Show more</button>
         </div>
     </div>
 
