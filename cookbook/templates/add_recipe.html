@@ -1,0 +1,262 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+{% load static %}
+{% load diplay_tag %}
+<title>Add recipe</title>
+<script>
+
+var ingredients_count =0;
+var textarea_count = 0;
+
+function myFunction()
+ { ingredients_count+=1; 
+  a = document.getElementById("ingredients");
+  a.innerHTML += "<div class='row' id='ingredients' style='width: 1800px; margin-left:1px;'><div class='col'><input type='text' id='ingre-id-measurement-"+ingredients_count+"' class='form-control formbox'></div><div class='col'><input type='text' id='ingre-id-ingredients-"+ingredients_count+"' class='form-control formbox'></div>";
+}
+</script>
+
+<script>
+
+function myFunction2() {
+    textarea_count+=1;
+  a = document.getElementById("addtextarea");
+  a.innerHTML += "<div id='addtextarea'><textarea class='form-control directionbox' id='textarea-"+textarea_count+"' rows='3'></textarea></div>"
+}
+
+</script>
+
+
+<div class="page">
+
+<b id="header"> Add Recipe </b>
+<div id="firstform">
+<br>
+    <form>
+        <div class="form-group row">
+            <label  class="col-sm-2 col-form-label">Name: </label>
+            <div class="col-sm-10">
+            <input  class="form-control info"  >
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Info: </label>
+            <div class="col-sm-10">
+            <input class="form-control info" >
+            </div>
+        </div>
+
+        <div  class="form-group row">
+            <label class="col-sm-2 col-form-label">Chef: </label>
+            <div class="col-sm-10">
+            <p style="font-size:25px; margin-top:12px;">EIEIEIEI</p>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+<b id="header"> Ingredients </b>
+<div class="ingredients_part">
+<div>
+    <button class="w3-button w3-circle " onclick="myFunction()" id="buttonaddingre">+</button>
+</div>
+
+  <div class="row">
+    <div class="col" >
+      <h2 style="text-align: center;">Measurement</h2>
+    </div>
+    <div class="col">
+      <h2 style="text-align: center;">Ingredients</h2>
+    </div>
+  </div>
+
+<form>
+  <div class="row" id="ingredients" >
+    <div class="col">
+      <input type="text" class="form-control formbox" id="ingre-id-measurement-0">
+    </div>
+    <div class="col" style="margin-left:12px;">
+      <input type="text" class="form-control formbox" id="ingre-id-ingredients-0">
+    </div>
+  </div>
+</form>
+</div>
+
+
+
+<b id="header"> Directions </b>
+<div id="directionspart">
+
+<div style="margin-bottom: 70px;">
+    <button class="w3-button w3-circle " onclick="myFunction2()" id="buttonadddirection">+</button>
+    <br>
+</div>
+<div id="addtextarea">
+<textarea class="form-control directionbox"  rows="3" id="textarea-0"></textarea>
+</div>
+
+</div>
+
+
+
+<div id="imagepart">
+<b id="header"> Image </b>
+<div class="row addimagepart">
+  <div class="col-2 imagefont">
+  <p style="margin-bottom:16px;"> Recipe image 1: </p>
+  <p style="margin-bottom:16px;"> Recipe image 2: </p>
+  <p style="margin-bottom:17px;"> Recipe image 3: </p>
+  <p> Recipe image 4: </p>
+  </div>
+
+  <div class="col-3">
+    <div class="btn-group-vertical " style="margin-top: 30px; width:350px;">
+      <button type="button" class="btn btn-outline-secondary  buttonimage" id="image1">Choose Image</button>
+      <button type="button" class="btn btn-outline-secondary buttonimage" id="image2">Choose Image</button>
+      <button type="button" class="btn btn-outline-secondary  buttonimage" id="image3">Choose Image</button>
+      <button type="button" class="btn btn-outline-secondary  buttonimage" id="image4">Choose Image</button>
+    </div>
+  </div>
+
+  <div class="col-6 ">
+    <p class="requireimage"> (Image 1 is Require.) </p>
+  </div>
+
+
+
+</div>
+
+
+</div>
+
+
+<div class="row centerpage" id="checkfilterpart">
+  <div class="col-4">
+  <div id="time">
+                <div id="headercheck"><b>TIME PREP</b></div>
+                    <hr>
+                </div>
+                    <div class="row" align="left">
+                        <div class="col-md-6">
+
+                            <label class="containerfilter textfilter">15 minutes
+                                <input type="checkbox" >
+                                <span class="checkmark bigger"></span>
+                            </label>
+                            <label class="containerfilter textfilter">1 Hour
+                                <input type="checkbox" >
+                                <span class="checkmark bigger"></span>
+                            </label>
+                                <label class="containerfilter textfilter">2 Hours
+                                <input type="checkbox" >
+                                <span class="checkmark bigger"></span>
+                            </label>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="containerfilter textfilter">30 minutes
+                                <input type="checkbox" >
+                                <span class="checkmark bigger"></span>
+                            </label>
+                                <label class="containerfilter textfilter">1 Half Hours
+                                <input type="checkbox" >
+                                <span class="checkmark bigger"></span>
+                            </label>
+                               <label class="containerfilter textfilter">Over 2 hrs
+                                <input type="checkbox" >
+                                <span class="checkmark bigger"></span>
+                            </label>
+                            
+                        </div>
+                    </div>
+  </div>
+
+  <div class="col-4" style="flaot:center;">
+  <div id="Equip">
+
+                    <div id="headercheck"><b>EQUIPMENT</b></div>
+                    <hr>
+                </div>
+                    <div class="row" align="left" >
+                        <div class="col-md-6">
+                            <label class="containerfilter textfilter" >Oven
+                                <input type="checkbox" >
+                                <span class="checkmark bigger"></span>
+                            </label>
+                            <label class="containerfilter textfilter">Microwave
+                                <input type="checkbox" >
+                                <span class="checkmark bigger"></span>
+                            </label>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="containerfilter textfilter">Mixer
+                                <input type="checkbox" >
+                                <span class="checkmark bigger"></span>
+                            </label>
+                                <label class="containerfilter textfilter">Blender
+                                <input type="checkbox" >
+                                <span class="checkmark bigger"></span>
+                            </label>
+                        </div>
+                    </div>
+  </div>
+
+
+  <div class="col-4" style="flaot:center;">
+     <div id="aller">
+                    <div id="headercheck"><b>ALLERGIES</b></div>
+                    <hr>
+                </div>
+                    <div class="row" align="left">
+                        <div class="col-md-6">
+
+                            <label class="containerfilter textfilter">Nuts
+                                <input type="checkbox" >
+                                <span class="checkmark bigger"></span>
+                            </label>
+                            <label class="containerfilter textfilter">Milk
+                                <input type="checkbox" >
+                                <span class="checkmark bigger"></span>
+                            </label>
+                            <label class="containerfilter textfilter">Shrimp
+                                <input type="checkbox" >
+                                <span class="checkmark bigger"></span>
+                            </label>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="containerfilter textfilter">Shellfish
+                                <input type="checkbox" >
+                                <span class="checkmark bigger"></span>
+                            </label>
+                                <label class="containerfilter textfilter">Soy
+                                <input type="checkbox" >
+                                <span class="checkmark bigger"></span>
+                            </label>
+                            <label class="containerfilter textfilter">Egg
+                                <input type="checkbox" >
+                                <span class="checkmark bigger"></span>
+                            </label>
+                        </div>
+                    </div>
+
+  </div>
+</div>
+
+<div class="row centerpage" style="margin: 30px 80px 0px 80px;">
+    <div class="col-4">
+    <button type="button" class="btn btn-outline-dark savebutton">Cancel</button>
+    <button type="button" class="btn btn-outline-danger savebutton">Delete</button>
+    </div>
+    <div class="col-8" style="text-align:right;">
+    <button type="button" class="btn btn-success savebutton">Save and add other</button>
+    <button type="button" class="btn btn-outline-success savebutton">Save</button>
+    </div>
+
+</div>
+
+</div>
+
+
+{% endblock %}

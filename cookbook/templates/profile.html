@@ -1,37 +1,119 @@
 {% extends 'base_template.html' %}
-    {% block content %}
-
+{% load diplay_tag %}
+{% block content %}
+{% load static profile_tag %}}
+    <title>Profile</title>
+<link rel="stylesheet" href="{% static 'style/profileStyle.css' %}">
+<script src="{% static 'script/profileController.js' %}"></script>
+{% if user.is_authenticated %}
     <div class="container user-content">
         <div class="row profile">
             <div class="col-md-3" id="user-profile">
                 User Profile
             </div>
             <div class="col-md-7"></div>
-            <div class="col-md-1" id="edit-icon">
+            <!-- <a data-toggle="modal" href="#myModal" >Login</a> -->
+            <a class="col-md-1" id="edit-icon" data-toggle="modal" href="#editModal">
                 <i class="far fa-edit" id="edit-icon"></i>
-            </div>
+            </a>
         </div>
         <div class="row detail">
-            <div class="col-md-4" id="profile-pic">
-                <i class="fas fa-user-circle" id="profile-pic"></i>
-            </div>
-            <div class="col-md-4" id="profile-detail">
-                <div class="row1" id="fullname">Manussporn Fukkham</div>
-                <div class="row2" id="email">darmonlyone@gmail.com</div>
+            <div class="col-sd-2" id="profile-pic">
+                <!-- <i class="fas fa-user-circle" id="profile-pic"></i> -->
+                <img style="width: 400px; height: 400px; margin-left: 50px" src="{% static 'image/icons8_Male_User_100px.png' %}">
+            </div><!-- row -->
+            <div class="col-sd-2" id="profile-detail">
+                <div class="row1" id="fullname">{% capitalize user.first_name %} {% capitalize user.last_name %}</div>
+                <div class="row2" id="email">{{ user.email|lower }}</div>
                 <div class="row3"> <b>Alias: </b>
-                    <div style="display:inline; color : grey;">Darm</div>
+                    {% get_last_alias_from_user author_alias user.username as current_user_alias %}
+                    {% if current_user_alias %}
+                    <div style="display:inline; color : grey;" id="alias">{{ current_user_alias.alias_name }}</div>
+                        {% else %}
+                    <div style="display:inline; color : grey;" id="alias">{{ user.username }}</div>
+                    {% endif %}
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" id="modal-box" role="document">
+            <div class="modal-content" style="height: auto; padding-bottom: 50px">
+                <div class="header">
+                    <button type="button" class="close" id="close-btn" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" id="x">&times;</span>
+                    </button>
+                    <h3 id="login">Edit</h3>
+                </div>
+                <div class="container" id="login-btn">
+                    <form action="{% url 'cookbook:updateAlias' %}"  method="post">
+                        {% csrf_token %}
+                    <div class="row" style="margin-top: 40px; margin-left:60px;">
+                        <input type="text" name="user_name" value="{{ user.username }}" style="color: white; outline: none; border: 0px white;">
+                        <div class="input-group mb-3" style="width:1000px;">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" style="font-size: 35px;" id="alias-head">Alias</span>
+                            </div>
+                            <input id="editedAlias" type="text" class="form-control" aria-label="Default"
+                                aria-describedby="inputGroup-sizing-default" name="alias_name">
+                        </div>
+
+                    </div>
+                    <div class="row" style="margin-top:50px; margin-left:500px; margin-right:500px;">
+                        <input type="submit" value="Save" class="btn btn-outline-dark" style="height:70px; width:120px; font-size:30px;">
+                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+
     <nav class="navbar navbar-light justify-content-between bar"></nav>
-    <div class="container user-post m-0">
+     {% recipe_author recipe_all author_user user.username as recipe_user %}
+
+    <div class="user-post" style="margin-bottom: 50px">
         <div class="row recipe-post">
-            <div class="col-md-12"> <b id="recipepost">Manussporn Fukkham's Recipe Posts </b>
-                <div id="box" style="display:inline">0</div>
+            <div class="h1">
+                <h1 id="recipepost" class="font-weight-bold">{% capitalize user.first_name %} {% capitalize user.last_name %}'s Recipe Posts
+                    <span class="badge badge-pill badge-secondary" style="font-size: 70px">{{ recipe_user|length }}</span></h1>
             </div>
         </div>
-        <div class="row post-box centered"><p id="postbox">You haven't posted any recipe yet.</p></div>
     </div>
-    <nav class="navbar navbar-light justify-content-between bar"></nav>
-    {% endblock %}
+
+    <div class="card border border-black alert alert-light" role="alert" style="margin-left: 10%; margin-right: 10%; margin-bottom: 60px;">
+            {% if recipe_user %}
+                {% for recipe in recipe_user %}
+                <a class="dropdown-item" href="{% url 'cookbook:recipe' recipe.get_recipe_name %}" style="font-size: 50px"><span class="font-weight-bold">Recipe: </span><span>{{ recipe.recipe_name }}</span></a>
+                {% endfor %}
+
+                {% else %}
+                <span class="dropdown-item-text font-weight-bold"  style="font-size: 50px">You haven't posted any recipe yet.</span>
+            {% endif %}
+    </div>
+    <button type="button" href="#" class="btn  btn-outline-danger" style="margin-left: 50px; font-size: 40px; margin-bottom: 50px;">Add New Recipe</button>
+
+    {% else %}
+     <div class="col-md-3" id="user-profile">
+     You haven't login yet
+    <button class="btn azm-social azm-btn azm-border-bottom btn-warning" id="continue-login-button" onclick="location.href='{% url 'cookbook:index' %}'" style="color: white; font-size: 40px">Back to main page </button>
+     </div>
+{% endif %}
+
+
+
+
+
+
+<script>
+let all = document.getElementsByTagName("span");
+for (let i=0, max=all.length; i < max; i++) {
+    let text = all[i].innerText;
+    if (text.length > 37) {
+        text = text.substr(0, 37) + "...";
+    }
+    all[i].innerText = text;
+}
+</script>
+{% endblock %}
