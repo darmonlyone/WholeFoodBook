@@ -77,6 +77,12 @@ class IndexView(generic.ListView):
         context['recipe_salad'] = recipe_all.filter(category_tags__food_category='salad')
         return context
 
+class AddRecipeView(generic.ListView):
+    template_name = 'add_recipe.html'
+    
+    def get_queryset(self):
+        return None
+
 
 def logout(request):
     """Logs out user"""
@@ -105,6 +111,7 @@ class DeleteRecipeView(generic.ListView):
         author_recipe = AuthorUser.objects.get(recipe_name__exact=delete_recipe, user_username__exact=user_name)
         author_recipe.delete()
         return HttpResponseRedirect(reverse("cookbook:profile"))
+
 
 
 # def test(request):
