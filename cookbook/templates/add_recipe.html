@@ -7,12 +7,25 @@
 <style>
     .invalid {
     border-color : red;
-}
+    }
     .formbox {
         width: 800px;
     }
     .savebutton {
         margin-left: 10px;
+    }
+    .cir-but {
+        margin-left: 10px;
+        width: 45px;
+    }
+    .ing {
+        padding: 25px 0px 0px 0px;
+    }
+    .directionbox {
+        width: 1700px;
+    border: solid 2px;
+    border-color: lightgray;
+    margin: 0px 0px 20px 0px;
     }
 </style>
 <script>
@@ -87,15 +100,28 @@
 
     function addform() {
         ingredients_count += 1;
-        $("#addmeasureandingre").append("<div class='row' id='ingredients' style='width: 1800px;'><div class='col-6'><input type='text' id='ingre-id-measurement-" + ingredients_count + "' class='form-control formbox measurements'></div><div class='col-5'><input type='text' id='ingre-id-ingredients-" + ingredients_count + "' class='form-control formbox ingredients'></div>");
+        $("#addmeasureandingre").append("<div class='row ing' id='ingredients-" + ingredients_count + "' style='width: 1800px;'><div class='col-6'><input type='text' id='ingre-id-measurement-" + ingredients_count + "' class='form-control formbox measurements'></div><div class='col-5'><input type='text' id='ingre-id-ingredients-" + ingredients_count + "' class='form-control formbox ingredients'></div>");
     }
+    function removeform() {
+        if (ingredients_count > 0) {
+            $("#ingredients-" + ingredients_count).remove();
+            ingredients_count -= 1;
+        }
+    }
+
 </script>
 
 <script>
 
     function addbox() {
         textarea_count += 1;
-        $("#addtextarea").append("<div id='addtextarea'><textarea class='form-control directionbox' id='textarea-" + textarea_count + "' rows='3'></textarea></div>");
+        $("#addtextarea").append("<textarea class='form-control directionbox' id='textarea-" + textarea_count + "' rows='3'></textarea>");
+    }
+    function removebox() {
+        if (textarea_count > 0) {
+            $("#textarea-" + textarea_count).remove();
+            textarea_count -= 1;
+        }
     }
 // function deletebox() {  
 //     a = document.getElementById("addtextarea");
@@ -141,7 +167,9 @@
     <b id="header"> Ingredients </b>
     <div class="ingredients_part">
         <div>
-            <button class="w3-button w3-circle " onclick="addform()" id="buttonaddingre">+</button>
+            <button class="w3-button w3-circle cir-but " onclick="addform()" id="buttonaddingre">+</button>
+            <button class="w3-button w3-circle cir-but" onclick="removeform()" id="buttonaddingre">-</button>
+
         </div>
 
         <div class="row">
@@ -155,7 +183,7 @@
 
         <form>
             <div id="addmeasureandingre">
-                <div class='row' id='ingredients' style='width: 1800px;'>
+                <div class='row ing' id='ingredients-0' style='width: 1800px;'>
                     <div class='col-6'>
                         <input type='text' id='ingre-id-measurement-0' class='form-control formbox measurements'></div>
                     <div class='col-5'>
@@ -175,88 +203,90 @@
 
 
 
-    <b id="header"> Directions </b>
-    <div id="directionspart">
+<b id="header"> Directions </b>
+<div id="directionspart">
 
-        <div style="margin-bottom: 70px;">
-            <button class="w3-button w3-circle " onclick="addbox()" id="buttonadddirection">+</button>
-            <br>
+    <div style="margin-bottom: 40px;">
+        <button class="w3-button w3-circle cir-but" onclick="addbox()" id="buttonadddirection">+</button>
+        <button class="w3-button w3-circle cir-but" onclick="removebox()" id="buttonadddirection">-</button>
+        <br>
+    </div>
+    
+    <div id="addtextarea">
+        <textarea class="form-control directionbox" rows="3" id="textarea-0"></textarea>
+    </div>
+
+</div>
+
+
+
+<div id="imagepart">
+    <b id="header"> Image </b>
+    <div class="row addimagepart">
+        <div class="col-2 imagefont">
+            <p style="margin-bottom:16px;"> Recipe image 1: </p>
+            <p style="margin-bottom:16px;"> Recipe image 2: </p>
+            <p style="margin-bottom:17px;"> Recipe image 3: </p>
+            <p> Recipe image 4: </p>
         </div>
-        <div id="addtextarea">
-            <textarea class="form-control directionbox" rows="3" id="textarea-0"></textarea>
+
+        <div class="col-3">
+            <div class="btn-group-vertical " style="margin-top: 30px; width:350px;">
+                <button type="button" class="btn btn-outline-secondary  buttonimage" id="image1">Choose Image</button>
+                <button type="button" class="btn btn-outline-secondary buttonimage" id="image2">Choose Image</button>
+                <button type="button" class="btn btn-outline-secondary  buttonimage" id="image3">Choose Image</button>
+                <button type="button" class="btn btn-outline-secondary  buttonimage" id="image4">Choose Image</button>
+            </div>
+        </div>
+
+        <div class="col-3 ">
+            <p class="requireimage"> (Image 1 is Require.) </p>
+        </div>
+
+        <div class="col-4" style="align:right;">
+            <div id="cat">
+                <div id="headercheck"><b>CATEGORIES</b></div>
+                <hr>
+            </div>
+            <div class="row" align="left">
+                <div class="col-md-6">
+
+                    <label class="containerfilter textfilter">Appetizers
+                        <input type="checkbox" id="appetizer">
+                        <span class="checkmark bigger"></span>
+                    </label>
+                    <label class="containerfilter textfilter">Salad
+                        <input type="checkbox" id="salad">
+                        <span class="checkmark bigger"></span>
+                    </label>
+                    <label class="containerfilter textfilter">Main dish
+                        <input type="checkbox" id="main-dish">
+                        <span class="checkmark bigger"></span>
+                    </label>
+                </div>
+                <div class="col-md-6">
+                    <label class="containerfilter textfilter">Soup and Stew
+                        <input type="checkbox" id="soup-and-stew">
+                        <span class="checkmark bigger"></span>
+                    </label>
+                    <label class="containerfilter textfilter">Dessert
+                        <input type="checkbox" id="dessert">
+                        <span class="checkmark bigger"></span>
+                    </label>
+                    <label class="containerfilter textfilter">Drink
+                        <input type="checkbox" id="drink">
+                        <span class="checkmark bigger"></span>
+                    </label>
+                </div>
+            </div>
+
         </div>
 
     </div>
 
 
 
-    <div id="imagepart">
-        <b id="header"> Image </b>
-        <div class="row addimagepart">
-            <div class="col-2 imagefont">
-                <p style="margin-bottom:16px;"> Recipe image 1: </p>
-                <p style="margin-bottom:16px;"> Recipe image 2: </p>
-                <p style="margin-bottom:17px;"> Recipe image 3: </p>
-                <p> Recipe image 4: </p>
-            </div>
-
-            <div class="col-3">
-                <div class="btn-group-vertical " style="margin-top: 30px; width:350px;">
-                    <button type="button" class="btn btn-outline-secondary  buttonimage" id="image1">Choose Image</button>
-                    <button type="button" class="btn btn-outline-secondary buttonimage" id="image2">Choose Image</button>
-                    <button type="button" class="btn btn-outline-secondary  buttonimage" id="image3">Choose Image</button>
-                    <button type="button" class="btn btn-outline-secondary  buttonimage" id="image4">Choose Image</button>
-                </div>
-            </div>
-
-            <div class="col-3 ">
-                <p class="requireimage"> (Image 1 is Require.) </p>
-            </div>
-
-            <div class="col-4" style="align:right;">
-                <div id="cat">
-                    <div id="headercheck"><b>CATEGORIES</b></div>
-                    <hr>
-                </div>
-                <div class="row" align="left">
-                    <div class="col-md-6">
-
-                        <label class="containerfilter textfilter">Appetizers
-                            <input type="checkbox" id="appetizer">
-                            <span class="checkmark bigger"></span>
-                        </label>
-                        <label class="containerfilter textfilter">Salad
-                            <input type="checkbox" id="salad">
-                            <span class="checkmark bigger"></span>
-                        </label>
-                        <label class="containerfilter textfilter">Main dish
-                            <input type="checkbox" id="main-dish">
-                            <span class="checkmark bigger"></span>
-                        </label>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="containerfilter textfilter">Soup and Stew
-                            <input type="checkbox" id="soup-and-stew">
-                            <span class="checkmark bigger"></span>
-                        </label>
-                        <label class="containerfilter textfilter">Dessert
-                            <input type="checkbox" id="dessert">
-                            <span class="checkmark bigger"></span>
-                        </label>
-                        <label class="containerfilter textfilter">Drink
-                            <input type="checkbox" id="drink">
-                            <span class="checkmark bigger"></span>
-                        </label>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-
-
-    </div>
+</div>
 
 
 </div>
