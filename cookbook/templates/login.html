@@ -18,7 +18,7 @@
 </head>
 
 <body class="page">
-  {% if user.is_authenticated %}
+  {% if user.is_authenticated and user.username|length != 0 %}
       <script>
       document.location.href = '{% url 'cookbook:index' %}';
       </script>
