@@ -121,8 +121,49 @@ function myFunction2() {
     </div>
   </div>
 
-  <div class="col-6 ">
+  <div class="col-3 ">
     <p class="requireimage"> (Image 1 is Require.) </p>
+  </div>
+
+   <div class="col-4" style="align:right;">
+     <div id="cat">
+                    <div id="headercheck"><b>CATEGORIES</b></div>
+                    <hr>
+                </div>
+                    <div class="row" align="left">
+                        <div class="col-md-6">
+
+                            <label class="containerfilter textfilter">Appetizers
+                                <input type="checkbox" id="appetizer" >
+                                <span class="checkmark bigger"></span>
+                            </label>
+                            <label class="containerfilter textfilter">Salad
+                                <input type="checkbox" id="salad" >
+                                <span class="checkmark bigger"></span>
+                            </label>
+                            <label class="containerfilter textfilter">Main dish
+                                <input type="checkbox" id="main-dish">
+                                <span class="checkmark bigger"></span>
+                            </label>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="containerfilter textfilter">Soup and Stew
+                                <input type="checkbox" id="soup-and-stew" >
+                                <span class="checkmark bigger"></span>
+                            </label>
+                                <label class="containerfilter textfilter">Dessert
+                                <input type="checkbox" id="dessert" >
+                                <span class="checkmark bigger"></span>
+                            </label>
+                            <label class="containerfilter textfilter">Drink
+                                <input type="checkbox" id="drink">
+                                <span class="checkmark bigger"></span>
+                            </label>
+                        </div>
+                    </div>
+
+    </div>
+
   </div>
 
 
@@ -143,29 +184,29 @@ function myFunction2() {
                         <div class="col-md-6">
 
                             <label class="containerfilter textfilter">15 minutes
-                                <input type="checkbox" >
+                                <input type="checkbox" id="t15-min" >
                                 <span class="checkmark bigger"></span>
                             </label>
                             <label class="containerfilter textfilter">1 Hour
-                                <input type="checkbox" >
+                                <input type="checkbox" id="t1-hr" >
                                 <span class="checkmark bigger"></span>
                             </label>
                                 <label class="containerfilter textfilter">2 Hours
-                                <input type="checkbox" >
+                                <input type="checkbox" id="t2-hr" >
                                 <span class="checkmark bigger"></span>
                             </label>
                         </div>
                         <div class="col-md-6">
                             <label class="containerfilter textfilter">30 minutes
-                                <input type="checkbox" >
+                                <input type="checkbox" id="t30-min">
                                 <span class="checkmark bigger"></span>
                             </label>
                                 <label class="containerfilter textfilter">1 Half Hours
-                                <input type="checkbox" >
+                                <input type="checkbox" id="t1-hr-30-min">
                                 <span class="checkmark bigger"></span>
                             </label>
                                <label class="containerfilter textfilter">Over 2 hrs
-                                <input type="checkbox" >
+                                <input type="checkbox" id="tmore-than-2-hr">
                                 <span class="checkmark bigger"></span>
                             </label>
                             
@@ -182,21 +223,21 @@ function myFunction2() {
                     <div class="row" align="left" >
                         <div class="col-md-6">
                             <label class="containerfilter textfilter" >Oven
-                                <input type="checkbox" >
+                                <input type="checkbox" id="oven">
                                 <span class="checkmark bigger"></span>
                             </label>
                             <label class="containerfilter textfilter">Microwave
-                                <input type="checkbox" >
+                                <input type="checkbox" id="microwave">
                                 <span class="checkmark bigger"></span>
                             </label>
                         </div>
                         <div class="col-md-6">
                             <label class="containerfilter textfilter">Mixer
-                                <input type="checkbox" >
+                                <input type="checkbox" id="mixer">
                                 <span class="checkmark bigger"></span>
                             </label>
                                 <label class="containerfilter textfilter">Blender
-                                <input type="checkbox" >
+                                <input type="checkbox" id="blender" >
                                 <span class="checkmark bigger"></span>
                             </label>
                         </div>
@@ -213,21 +254,21 @@ function myFunction2() {
                         <div class="col-md-6">
 
                             <label class="containerfilter textfilter">Nuts
-                                <input type="checkbox" >
+                                <input type="checkbox" id="nuts">
                                 <span class="checkmark bigger"></span>
                             </label>
                             <label class="containerfilter textfilter">Milk
-                                <input type="checkbox" >
+                                <input type="checkbox" id="milk">
                                 <span class="checkmark bigger"></span>
                             </label>
                             <label class="containerfilter textfilter">Shrimp
-                                <input type="checkbox" >
+                                <input type="checkbox" id="shrimp">
                                 <span class="checkmark bigger"></span>
                             </label>
                         </div>
                         <div class="col-md-6">
                             <label class="containerfilter textfilter">Shellfish
-                                <input type="checkbox" >
+                                <input type="checkbox" id="shellfish" >
                                 <span class="checkmark bigger"></span>
                             </label>
                                 <label class="containerfilter textfilter">Soy
@@ -235,7 +276,7 @@ function myFunction2() {
                                 <span class="checkmark bigger"></span>
                             </label>
                             <label class="containerfilter textfilter">Egg
-                                <input type="checkbox" >
+                                <input type="checkbox" id="egg">
                                 <span class="checkmark bigger"></span>
                             </label>
                         </div>
@@ -244,7 +285,7 @@ function myFunction2() {
   </div>
 </div>
 
-<div class="row centerpage" style="margin: 30px; 80px; 0px; 80px;">
+<div class="row centerpage" style="margin: 30px 80px 30px 80px;">
     <div class="col-4">
     <button type="button" class="btn btn-outline-dark savebutton">Cancel</button>
     <button type="button" class="btn btn-outline-danger savebutton">Delete</button>
@@ -256,21 +297,6 @@ function myFunction2() {
 
 </div>
 
-
-
-<script>
-
-$(document).ready(function(){
-	$("#buttonaddingre").click(function(){
-	  $("#ingredients").append("<div> <div class="col">
-      <input type="text" class="form-control formbox">
-    </div>
-    <div class="col">
-      <input type="text" class="form-control formbox">
-    </div></div>");
-	});
-});
-</script>
 
 
 </div>

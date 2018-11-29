@@ -60,6 +60,10 @@ margin-bottom: 35px;
 
 }
 
+.containerfilter{
+    width: 300px;
+}
+
 #firstform{
     margin: 0px 120px 50px 150px;
 }
