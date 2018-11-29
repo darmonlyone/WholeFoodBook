@@ -267,7 +267,7 @@
     height: 380px;
 }
 
-#showmore{
+.showmore{
     font-weight: bolder;
     color: black;
     font-size: 30px;
@@ -279,9 +279,6 @@
     background: transparent;
 }
 
-#foodlist {
-    padding-left: 0px;
-}
 
 #foodlist li:nth-child(n+4) {
     display:none;

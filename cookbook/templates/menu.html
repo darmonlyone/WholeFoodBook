@@ -1,8 +1,10 @@
 {% extends 'base_template.html' %}
 {% block content %}
-    {% load static %}
+
+    {% load static profile_tag %}
     {% if recipe_enable %}
     {% for recipe in recipe_enable %}
+        <title>{{ recipe.get_recipe_name }}</title>
     <div class="container-fluid" style="margin-bottom : 80px;">
         <div class="row" id="menu-info">
             <div class="col-md-7 pr-md-1" id="menu-image">
@@ -121,7 +123,7 @@
                 </div>
             </div>
             <div class="col-md-7 pl-md-1">
-                <div id="menu-direction">
+                <div id="menu-direction" style="padding-top: 40px;">
                     <div class="menu-header">Directions:</div>
                     <ol type="1" id="med-li">
                         {% for method in recipe.get_recipe_method_list %}
@@ -132,8 +134,48 @@
             </div>
         </div>
     </div>
-    {% endfor %}
+    {% block suggest %}
+    {% include 'suggestion.html' with recipe=recipe_suggest %}
+    {% endblock %}
+
+        {% is_recipe_owner author_user recipe.get_recipe_name user.username as is_recipe_owner %}
+        {% if is_recipe_owner %}
+
+        <div style="height: 0; visibility: hidden;">
+            <form action="{% url 'cookbook:delete_recipe' recipe.get_recipe_name %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="deleted_recipe" value="{{ recipe.get_recipe_name }}" style="color: white; outline: none; border: 0 white;">
+                <input type="text" name="user_name" value="{{ user.username }}" style="color: white; outline: none; border: 0 white;">
+                <input type="submit" id="delete_recipe_submit" value="DELETE" style="height: 0; outline: none; border: 0 white; " class="">
+            </form>
+        </div>
+        <script>
+        function editConfirm() {
+            let r = confirm("Press a button!");
+            if (r) {
+                document.location.href = '{% url 'cookbook:edit' recipe.get_recipe_name %}';
+            }
+        }
+        function deleteConfirm() {
+            let r = confirm("Press a button!");
+            if (r) {
+                let delete_but = document.getElementById("delete_recipe_submit");
+                delete_but.click();
+            }
+        }
+        </script>
+
+        <div class="header-big">
+            <h3><b>USER STATUS</b></h3>
+        </div>
+        <div style="margin-bottom: 50px">
+        <button type="button" onclick="editConfirm()" class="btn btn-warning" style="font-size: 30px; margin-left: 20px;">Edit</button>
+        <button type="button" onclick="deleteConfirm()" class="btn btn-danger" style="font-size: 30px; margin-left: 10px;">Delete</button>
+        </div>
+        {% endif %}
+
+        {% endfor %}
         {% else %}
-        <h1>This Recipe are not available.</h1>
+        <h1>This recipe are not available.</h1>
     {% endif %}
 {% endblock %}

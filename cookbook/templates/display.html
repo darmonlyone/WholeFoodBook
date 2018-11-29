@@ -5,7 +5,6 @@
 {% load diplay_tag %}
 <title>display</title>
 
-
     {% block suggest %}
     {% include 'suggestion.html' with recipe=recipe_suggest %}
     {% endblock %}
@@ -25,34 +24,41 @@
 </div>
     <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="cat-but-all" role="tabpanel" aria-labelledby="cat-but-all-tab">
-            {% include 'show_menu.html' with recipe_show=recipe_all %}
+            {% include 'show_menu.html' with recipe_show=recipe_all recipe_poin="all_list"%}
+            <button id="showmore_all" class="showmore">Show more</button>
         </div>
 
         <div class="tab-pane fade" id="cat-but-appetizers" role="tabpanel" aria-labelledby="cat-but-appertizers-tab">
-            {% include 'show_menu.html' with recipe_show=recipe_appetizer %}
+            {% include 'show_menu.html' with recipe_show=recipe_appetizer recipe_poin="appertizer_list"%}
+            <button id="showmore_appertizers" class="showmore">Show more</button>
         </div>
 
         <div class="tab-pane fade" id="cat-but-main" role="tabpanel" aria-labelledby="cat-but-main-tab">
-            {% include 'show_menu.html' with recipe_show=recipe_main %}
+            {% include 'show_menu.html' with recipe_show=recipe_main recipe_poin="main_list"%}
+            <button id="showmore_main" class="showmore">Show more</button>
         </div>
 
         <div class="tab-pane fade" id="cat-but-soup" role="tabpanel" aria-labelledby="cat-but-soup-tab">
-            {% include 'show_menu.html' with recipe_show=recipe_soup %}
+            {% include 'show_menu.html' with recipe_show=recipe_soup recipe_poin="soup_list"%}
+            <button id="showmore_soup" class="showmore">Show more</button>
         </div>
 
         <div class="tab-pane fade" id="cat-but-desserts" role="tabpanel" aria-labelledby="cat-but-desserts-tab">
-            {% include 'show_menu.html' with recipe_show=recipe_dessert %}
+            {% include 'show_menu.html' with recipe_show=recipe_dessert recipe_poin="dessert_list"%}
+            <button id="showmore_dessert" class="showmore">Show more</button>
         </div>
 
         <div class="tab-pane fade" id="cat-but-drinks" role="tabpanel" aria-labelledby="cat-but-drinks-tab">
-            {% include 'show_menu.html' with recipe_show=recipe_drink %}
+            {% include 'show_menu.html' with recipe_show=recipe_drink recipe_poin="drinks_list" %}
+            <button id="showmore_drink" class="showmore">Show more</button>
         </div>
 
         <div class="tab-pane fade" id="cat-but-salad" role="tabpanel" aria-labelledby="cat-but-salad-tab">
-            {% include 'show_menu.html' with recipe_show=recipe_salad %}
+            {% include 'show_menu.html' with recipe_show=recipe_salad recipe_poin="salad_list" %}
+            <button id="showmore_salad" class="showmore">Show more</button>
         </div>
     </div>
-<button id="showmore">Show more</button>
+
 
 <script>
 let all = document.getElementsByTagName("p");

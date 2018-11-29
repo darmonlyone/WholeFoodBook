@@ -28,7 +28,14 @@ This document gives the instructions to install this application to your compute
     ```
     $ git clone https://github.com/darmonlyone/WholeFoodBook.git
     ```
-3. Open `WholeFoodBook/` and activate virtualenv.
+3. Open `WholeFoodBook/` install virtualenv and activate it.
+
+    Install virtualenv
+    ```angular2html
+    $ pip3 install virtualenv 
+    $ virtualenv venv 
+    ```
+    Activate virtualenv
     - Mac OS or Ubuntu
      ```
      $ source env/bin/activate
@@ -37,13 +44,11 @@ This document gives the instructions to install this application to your compute
      ```
      $ env/bin/activate
      ```
-        
-    If your program not working very well and require some installation on step 4. Come back on this step and
-    try out this command.     
+    Install all requirements to your venv with this command. 
     ```
     $ pip install -r requirements.txt
     ```
-    This command use for install all requirement source to your computer for running this program.
+    This command use for install all requirement library to your python source for running this program.
 
 4. Running the program using python command.
     ```

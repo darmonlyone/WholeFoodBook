@@ -5,6 +5,22 @@ def replace_space(temp):
     return temp.replace(" ", "-")
 
 
+class UserAlias(models.Model):
+    user_username = models.CharField(max_length=100)
+    alias_name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.user_username
+
+
+class AuthorUser(models.Model):
+    user_username = models.CharField(max_length=100)
+    recipe_name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.user_username
+
+
 class CookTime(models.Model):
     cooking_time = models.CharField(max_length=30)
 
