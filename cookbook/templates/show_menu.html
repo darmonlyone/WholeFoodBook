@@ -1,4 +1,4 @@
-{% load diplay_tag %}
+{% load diplay_tag static %}
 <div class="container content">
     <div class="row" id="category-content">
         <!-- filter tab -->
@@ -225,8 +225,11 @@
                     {% for recipe in recipe_show %}
                     <div class="card food-card {{ recipe.get_all_tag_str }}">
                         <a href="{% url 'cookbook:recipe' recipe.get_recipe_name %}" style="color:black; text-decoration:none;">
+                            {% if recipe.get_recipe_image_1 %}
                             <img class="card-img-top" src="{{ recipe.get_recipe_image_1.url }}" alt="Card image cap">
-
+                            {% else %}
+                                <img class="card-img-top" src="{% static 'image/noimage.jpg' %}" alt="Card image cap">
+                            {% endif %}
                             <div class="card-body">
                                 <strong>{{ recipe.get_recipe_name }}</strong>
                                 <p class="card-text {%replace_text_space recipe.get_recipe_name%}">{% cut_text_newline recipe.get_recipe_info %}</p>

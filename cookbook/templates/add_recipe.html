@@ -98,7 +98,7 @@
 
     function addform() {
         ingredients_count += 1;
-        $("#addmeasureandingre").append("<div class='row ing' id='ingredients-" + ingredients_count + "' style='width: 1800px;'><div class='col-6'><input type='text' id='ingre-id-measurement-" + ingredients_count + "' class='form-control formbox measurements'></div><div class='col-5'><input type='text' id='ingre-id-ingredients-" + ingredients_count + "' class='form-control formbox ingredients'></div>");
+        $("#addmeasureandingre").append("<div class='row ing' id='ingredients-" + ingredients_count + "' style='width: 1800px;'><div class='col-6'><input type='text' id='ingre-id-measurement-" + ingredients_count + "' name='text_measurement' class='form-control formbox measurements'></div><div class='col-5'><input type='text' id='ingre-id-ingredients-" + ingredients_count + "' name='text_ingredient' class='form-control formbox ingredients'></div>");
     }
     function removeform() {
         if (ingredients_count > 0) {
@@ -113,7 +113,7 @@
 
     function addbox() {
         textarea_count += 1;
-        $("#addtextarea").append("<textarea class='form-control directionbox' id='textarea-" + textarea_count + "' rows='3'></textarea>");
+        $("#addtextarea").append("<textarea name='text_direction' class='form-control directionbox' id='textarea-" + textarea_count + "'  rows='3'></textarea>");
     }
     function removebox() {
         if (textarea_count > 0) {
@@ -131,9 +131,9 @@
 </script>
 
 
-{% if user.is_authenticated or user.username|length > 0 %}
+{% if user.is_authenticated and user.username|length != 0 %}
     {% get_last_alias_from_user author_alias user.username as current_user_alias %}
-    <form action="" method="post">
+    <form action="{% url 'cookbook:addRecipe_request' %}" method="post">{% csrf_token %}
 <div class="page_add">
     <b id="header"> Add Recipe </b>
     <div id="firstform">
@@ -141,14 +141,14 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Name: </label>
                 <div class="col-sm-10">
-                    <label for="name-input"></label><input class="form-control info" id="name-input">
+                    <input name="name_input" class="form-control info" id="name-input"/>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Infomation: </label>
                 <div class="col-sm-10">
-                    <input class="form-control info" id="info-input">
+                    <input name="info_input" class="form-control info" id="info-input"/>
                 </div>
             </div>
 
@@ -157,11 +157,33 @@
                 <div class="col-sm-10">
                     {% if current_user_alias %}
                     <p style="font-size:25px; margin-top:12px;">{{ current_user_alias }}</p>
+                        <input name="chef_input" style="font-size: 1px; visibility: hidden;" value="{{ current_user_alias }}">
+                        <input name="username_input" style="font-size: 1px; visibility: hidden;" value="{{ user.username }}">
                         {% else %}
                     <p style="font-size:25px; margin-top:12px;">{{ user.username }}</p>
+                        <input name="chef_input" style="font-size: 1px; visibility: hidden;" value="{{ user.username }}">
+                        <input name="username_input" style="font-size: 1px; visibility: hidden;" value="{{ user.username }}">
                     {% endif %}
                 </div>
             </div>
+
+        <div class="form-group row">
+                <label class="col-form-label">Time preb: </label>
+                <div class="col-sm-2" style="margin-right: 50px">
+                    <input name="time_input" class="form-control info" id="info-input"/>
+                </div>
+
+                <label class="col-form-label">Equipment (require): </label>
+                <div class="col-sm-2" style="margin-right: 50px">
+                    <input name="equipment_input" class="form-control info" id="info-input"/>
+                </div>
+
+                <label class="col-form-label">Fat (per serving): </label>
+                <div class="col-sm-2" style="margin-right: 50px">
+                    <input name="fat_input" class="form-control info" id="info-input"/>
+                </div>
+        </div>
+
     </div>
 
 
@@ -169,8 +191,8 @@
     <b id="header"> Ingredients </b>
     <div class="ingredients_part">
         <div>
-            <button class="w3-button w3-circle cir-but " onclick="addform()" id="buttonaddingre">+</button>
-            <button class="w3-button w3-circle cir-but" onclick="removeform()" id="buttonaddingre">-</button>
+            <button type="button" class="w3-button w3-circle cir-but" onclick="addform()" id="buttonaddingre">+</button>
+            <button type="button" class="w3-button w3-circle cir-but" onclick="removeform()" id="buttonaddingre">-</button>
 
         </div>
 
@@ -186,9 +208,9 @@
             <div id="addmeasureandingre">
                 <div class='row ing' id='ingredients-0' style='width: 1800px;'>
                     <div class='col-6'>
-                        <input type='text' id='ingre-id-measurement-0' class='form-control formbox measurements'></div>
+                        <input type='text' id='ingre-id-measurement-0' name="text_measurement" class='form-control formbox measurements'></div>
                     <div class='col-5'>
-                        <input type='text' id='ingre-id-ingredients-0' class='form-control formbox ingredients'></div>
+                        <input type='text' id='ingre-id-ingredients-0' name="text_ingredient" class='form-control formbox ingredients'></div>
                     <!-- <div class="row" id="ingredients">
                     <div class="col">
                         <input type="text" class="form-control formbox measurements" id="ingre-id-measurement-0">
@@ -208,13 +230,13 @@
 <div id="directionspart">
 
     <div style="margin-bottom: 40px;">
-        <button class="w3-button w3-circle cir-but" onclick="addbox()" id="buttonadddirection">+</button>
-        <button class="w3-button w3-circle cir-but" onclick="removebox()" id="buttonadddirection">-</button>
+        <button type="button" class="w3-button w3-circle cir-but" onclick="addbox()" id="buttonadddirection">+</button>
+        <button type="button" class="w3-button w3-circle cir-but" onclick="removebox()" id="buttonadddirection">-</button>
         <br>
     </div>
     
     <div id="addtextarea">
-        <textarea class="form-control directionbox" rows="3" id="textarea-0"></textarea>
+        <textarea name="text_direction" class="form-control directionbox" rows="3" id="textarea-0"></textarea>
     </div>
 
 </div>
@@ -233,11 +255,11 @@
 
         <div class="col-3">
             <div class="btn-group-vertical " style="margin-top: 30px; width:350px;">
-                <input type="file" class="btn btn-outline-secondary  buttonimage" accept="image/*" id="image1"
+                <input type="file" class="btn btn-outline-secondary  buttonimage" accept="image/*" name="image1" id="image1"
                        value="Choose Image"/>
-                <input type="file" class="btn btn-outline-secondary  buttonimage" accept="image/*" id="image2" value="Choose Image"/>
-                <input type="file" class="btn btn-outline-secondary  buttonimage" accept="image/*" id="image3" value="Choose Image"/>
-                <input type="file" class="btn btn-outline-secondary  buttonimage" accept="image/*" id="image4" value="Choose Image"/>
+                <input type="file" class="btn btn-outline-secondary  buttonimage" accept="image/*" name="image2" id="image2" value="Choose Image"/>
+                <input type="file" class="btn btn-outline-secondary  buttonimage" accept="image/*" name="image3" id="image3" value="Choose Image"/>
+                <input type="file" class="btn btn-outline-secondary  buttonimage" accept="image/*" name="image4" id="image4" value="Choose Image"/>
             </div>
         </div>
 
@@ -254,29 +276,29 @@
                 <div class="col-md-6">
 
                     <label class="containerfilter textfilter">Appetizers
-                        <input type="checkbox" id="appetizer" name="check_category" value="appetizer">
+                        <input type="checkbox" id="appetizer" name="check_category" value="1">
                         <span class="checkmark bigger"></span>
                     </label>
                     <label class="containerfilter textfilter">Salad
-                        <input type="checkbox" id="salad" name="check_category" value="salad">
+                        <input type="checkbox" id="salad" name="check_category" value="2">
                         <span class="checkmark bigger"></span>
                     </label>
                     <label class="containerfilter textfilter">Main dish
-                        <input type="checkbox" id="main-dish" name="check_category" value="main">
+                        <input type="checkbox" id="main-dish" name="check_category" value="3">
                         <span class="checkmark bigger"></span>
                     </label>
                 </div>
                 <div class="col-md-6">
                     <label class="containerfilter textfilter">Soup and Stew
-                        <input type="checkbox" id="soup-and-stew" name="check_category" value="soup">
+                        <input type="checkbox" id="soup-and-stew" name="check_category" value="4">
                         <span class="checkmark bigger"></span>
                     </label>
                     <label class="containerfilter textfilter">Dessert
-                        <input type="checkbox" id="dessert" name="check_category" value="dessert">
+                        <input type="checkbox" id="dessert" name="check_category" value="5">
                         <span class="checkmark bigger"></span>
                     </label>
                     <label class="containerfilter textfilter">Drink
-                        <input type="checkbox" id="drink" name="check_category" value="drink">
+                        <input type="checkbox" id="drink" name="check_category" value="6">
                         <span class="checkmark bigger"></span>
                     </label>
                 </div>
@@ -301,29 +323,29 @@
             <div class="col-md-6">
 
                 <label class="containerfilter textfilter">15 minutes
-                    <input type="checkbox" id="t15-min" name="check_time" value="15_min">
+                    <input type="checkbox" id="t15-min" name="check_time" value="1">
                     <span class="checkmark bigger"></span>
                 </label>
                 <label class="containerfilter textfilter">1 Hour
-                    <input type="checkbox" id="t1-hr" name="check_time" value="1_hour">
+                    <input type="checkbox" id="t1-hr" name="check_time" value="3">
                     <span class="checkmark bigger"></span>
                 </label>
                 <label class="containerfilter textfilter">2 Hours
-                    <input type="checkbox" id="t2-hr" name="check_time" value="2_hour">
+                    <input type="checkbox" id="t2-hr" name="check_time" value="5">
                     <span class="checkmark bigger"></span>
                 </label>
             </div>
             <div class="col-md-6">
                 <label class="containerfilter textfilter">30 minutes
-                    <input type="checkbox" id="t30-min" name="check_time" value="30_min">
+                    <input type="checkbox" id="t30-min" name="check_time" value="2">
                     <span class="checkmark bigger"></span>
                 </label>
                 <label class="containerfilter textfilter">1 Half Hours
-                    <input type="checkbox" id="t1-hr-30-min" name="check_time" value="1_half_hour">
+                    <input type="checkbox" id="t1-hr-30-min" name="check_time" value="4">
                     <span class="checkmark bigger"></span>
                 </label>
                 <label class="containerfilter textfilter">Over 2 hrs
-                    <input type="checkbox" id="tmore-than-2-hr" name="check_time" value="over_2_hour">
+                    <input type="checkbox" id="tmore-than-2-hr" name="check_time" value="6">
                     <span class="checkmark bigger"></span>
                 </label>
 
@@ -339,21 +361,21 @@
         <div class="row" align="left">
             <div class="col-md-6">
                 <label class="containerfilter textfilter">Oven
-                    <input type="checkbox" id="oven" name="check_equipment" value="oven">
+                    <input type="checkbox" id="oven" name="check_equipment" value="1">
                     <span class="checkmark bigger"></span>
                 </label>
                 <label class="containerfilter textfilter">Microwave
-                    <input type="checkbox" id="microwave" name="check_equipment" value="microwave">
+                    <input type="checkbox" id="microwave" name="check_equipment" value="2">
                     <span class="checkmark bigger"></span>
                 </label>
             </div>
             <div class="col-md-6">
                 <label class="containerfilter textfilter">Mixer
-                    <input type="checkbox" id="mixer" name="check_equipment" value="mixer">
+                    <input type="checkbox" id="mixer" name="check_equipment" value="3">
                     <span class="checkmark bigger"></span>
                 </label>
                 <label class="containerfilter textfilter">Blender
-                    <input type="checkbox" id="blender" name="check_equipment" value="blender">
+                    <input type="checkbox" id="blender" name="check_equipment" value="4">
                     <span class="checkmark bigger"></span>
                 </label>
             </div>
@@ -370,7 +392,7 @@
             <div class="col-md-6">
 
                 <label class="containerfilter textfilter">Nuts
-                    <input type="checkbox" id="nuts" name="check_allergies" value="nut">
+                    <input type="checkbox" id="nuts" name="check_allergies" value="nuts">
                     <span class="checkmark bigger"></span>
                 </label>
                 <label class="containerfilter textfilter">Milk
@@ -407,8 +429,7 @@
         <button type="button" class="btn btn-outline-danger savebutton">Delete</button>
     </div>
     <div class="col-8" style="text-align:right;">
-        <button type="submit" class="btn btn-success savebutton">Save and add other</button>
-        <button type="submit" class="btn btn-outline-success savebutton">Save</button>
+        <button type="submit" class="btn btn-success savebutton">Save</button>
     </div>
 </div>
     </form>
