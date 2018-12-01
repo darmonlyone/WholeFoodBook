@@ -5,7 +5,7 @@
     <title>Profile</title>
 <link rel="stylesheet" href="{% static 'style/profileStyle.css' %}">
 <script src="{% static 'script/profileController.js' %}"></script>
-{% if user.is_authenticated %}
+{% if user.is_authenticated or user.username|length > 0 %}
     <div class="container user-content">
         <div class="row profile">
             <div class="col-md-3" id="user-profile">

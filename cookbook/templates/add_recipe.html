@@ -2,7 +2,7 @@
 
 {% block content %}
 {% load static %}
-{% load diplay_tag %}
+{% load diplay_tag profile_tag %}
 <title>Add recipe</title>
 <style>
     .invalid {
@@ -19,11 +19,11 @@
         width: 45px;
     }
     .ing {
-        padding: 25px 0px 0px 0px;
+        padding: 25px 0 0 0;
     }
     .directionbox {
         width: 1700px;
-    margin: 0px 0px 20px 0px;
+    margin: 0 0 20px 0;
     }
 </style>
 <script>
@@ -131,16 +131,17 @@
 </script>
 
 
-<div class="page">
-
+{% if user.is_authenticated or user.username|length > 0 %}
+    {% get_last_alias_from_user author_alias user.username as current_user_alias %}
+    <form action="" method="post">
+<div class="page_add">
     <b id="header"> Add Recipe </b>
     <div id="firstform">
         <br>
-        <form>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Name: </label>
                 <div class="col-sm-10">
-                    <input class="form-control info" id="name-input">
+                    <label for="name-input"></label><input class="form-control info" id="name-input">
                 </div>
             </div>
 
@@ -154,10 +155,13 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Chef: </label>
                 <div class="col-sm-10">
-                    <p style="font-size:25px; margin-top:12px;">EIEIEIEI</p>
+                    {% if current_user_alias %}
+                    <p style="font-size:25px; margin-top:12px;">{{ current_user_alias }}</p>
+                        {% else %}
+                    <p style="font-size:25px; margin-top:12px;">{{ user.username }}</p>
+                    {% endif %}
                 </div>
             </div>
-        </form>
     </div>
 
 
@@ -179,7 +183,6 @@
             </div>
         </div>
 
-        <form>
             <div id="addmeasureandingre">
                 <div class='row ing' id='ingredients-0' style='width: 1800px;'>
                     <div class='col-6'>
@@ -196,7 +199,6 @@
                 </div> -->
                 </div>
             </div>
-        </form>
     </div>
 </div>
 
@@ -231,10 +233,11 @@
 
         <div class="col-3">
             <div class="btn-group-vertical " style="margin-top: 30px; width:350px;">
-                <button type="button" class="btn btn-outline-secondary  buttonimage" id="image1">Choose Image</button>
-                <button type="button" class="btn btn-outline-secondary buttonimage" id="image2">Choose Image</button>
-                <button type="button" class="btn btn-outline-secondary  buttonimage" id="image3">Choose Image</button>
-                <button type="button" class="btn btn-outline-secondary  buttonimage" id="image4">Choose Image</button>
+                <input type="file" class="btn btn-outline-secondary  buttonimage" accept="image/*" id="image1"
+                       value="Choose Image"/>
+                <input type="file" class="btn btn-outline-secondary  buttonimage" accept="image/*" id="image2" value="Choose Image"/>
+                <input type="file" class="btn btn-outline-secondary  buttonimage" accept="image/*" id="image3" value="Choose Image"/>
+                <input type="file" class="btn btn-outline-secondary  buttonimage" accept="image/*" id="image4" value="Choose Image"/>
             </div>
         </div>
 
@@ -251,29 +254,29 @@
                 <div class="col-md-6">
 
                     <label class="containerfilter textfilter">Appetizers
-                        <input type="checkbox" id="appetizer">
+                        <input type="checkbox" id="appetizer" name="check_category" value="appetizer">
                         <span class="checkmark bigger"></span>
                     </label>
                     <label class="containerfilter textfilter">Salad
-                        <input type="checkbox" id="salad">
+                        <input type="checkbox" id="salad" name="check_category" value="salad">
                         <span class="checkmark bigger"></span>
                     </label>
                     <label class="containerfilter textfilter">Main dish
-                        <input type="checkbox" id="main-dish">
+                        <input type="checkbox" id="main-dish" name="check_category" value="main">
                         <span class="checkmark bigger"></span>
                     </label>
                 </div>
                 <div class="col-md-6">
                     <label class="containerfilter textfilter">Soup and Stew
-                        <input type="checkbox" id="soup-and-stew">
+                        <input type="checkbox" id="soup-and-stew" name="check_category" value="soup">
                         <span class="checkmark bigger"></span>
                     </label>
                     <label class="containerfilter textfilter">Dessert
-                        <input type="checkbox" id="dessert">
+                        <input type="checkbox" id="dessert" name="check_category" value="dessert">
                         <span class="checkmark bigger"></span>
                     </label>
                     <label class="containerfilter textfilter">Drink
-                        <input type="checkbox" id="drink">
+                        <input type="checkbox" id="drink" name="check_category" value="drink">
                         <span class="checkmark bigger"></span>
                     </label>
                 </div>
@@ -288,10 +291,7 @@
 </div>
 
 
-</div>
-
-
-<div class="row centerpage" id="checkfilterpart">
+    <div class="row centerpage" id="checkfilterpart">
     <div class="col-4">
         <div id="time">
             <div id="headercheck"><b>TIME PREP</b></div>
@@ -301,29 +301,29 @@
             <div class="col-md-6">
 
                 <label class="containerfilter textfilter">15 minutes
-                    <input type="checkbox" id="t15-min">
+                    <input type="checkbox" id="t15-min" name="check_time" value="15_min">
                     <span class="checkmark bigger"></span>
                 </label>
                 <label class="containerfilter textfilter">1 Hour
-                    <input type="checkbox" id="t1-hr">
+                    <input type="checkbox" id="t1-hr" name="check_time" value="1_hour">
                     <span class="checkmark bigger"></span>
                 </label>
                 <label class="containerfilter textfilter">2 Hours
-                    <input type="checkbox" id="t2-hr">
+                    <input type="checkbox" id="t2-hr" name="check_time" value="2_hour">
                     <span class="checkmark bigger"></span>
                 </label>
             </div>
             <div class="col-md-6">
                 <label class="containerfilter textfilter">30 minutes
-                    <input type="checkbox" id="t30-min">
+                    <input type="checkbox" id="t30-min" name="check_time" value="30_min">
                     <span class="checkmark bigger"></span>
                 </label>
                 <label class="containerfilter textfilter">1 Half Hours
-                    <input type="checkbox" id="t1-hr-30-min">
+                    <input type="checkbox" id="t1-hr-30-min" name="check_time" value="1_half_hour">
                     <span class="checkmark bigger"></span>
                 </label>
                 <label class="containerfilter textfilter">Over 2 hrs
-                    <input type="checkbox" id="tmore-than-2-hr">
+                    <input type="checkbox" id="tmore-than-2-hr" name="check_time" value="over_2_hour">
                     <span class="checkmark bigger"></span>
                 </label>
 
@@ -340,21 +340,21 @@
         <div class="row" align="left">
             <div class="col-md-6">
                 <label class="containerfilter textfilter">Oven
-                    <input type="checkbox" id="oven">
+                    <input type="checkbox" id="oven" name="check_equipment" value="oven">
                     <span class="checkmark bigger"></span>
                 </label>
                 <label class="containerfilter textfilter">Microwave
-                    <input type="checkbox" id="microwave">
+                    <input type="checkbox" id="microwave" name="check_equipment" value="microwave">
                     <span class="checkmark bigger"></span>
                 </label>
             </div>
             <div class="col-md-6">
                 <label class="containerfilter textfilter">Mixer
-                    <input type="checkbox" id="mixer">
+                    <input type="checkbox" id="mixer" name="check_equipment" value="mixer">
                     <span class="checkmark bigger"></span>
                 </label>
                 <label class="containerfilter textfilter">Blender
-                    <input type="checkbox" id="blender">
+                    <input type="checkbox" id="blender" name="check_equipment" value="blender">
                     <span class="checkmark bigger"></span>
                 </label>
             </div>
@@ -371,29 +371,29 @@
             <div class="col-md-6">
 
                 <label class="containerfilter textfilter">Nuts
-                    <input type="checkbox" id="nuts">
+                    <input type="checkbox" id="nuts" name="check_allergies" value="nut">
                     <span class="checkmark bigger"></span>
                 </label>
                 <label class="containerfilter textfilter">Milk
-                    <input type="checkbox" id="milk">
+                    <input type="checkbox" id="milk" name="check_allergies" value="milk">
                     <span class="checkmark bigger"></span>
                 </label>
                 <label class="containerfilter textfilter">Shrimp
-                    <input type="checkbox" id="shrimp">
+                    <input type="checkbox" id="shrimp" name="check_allergies" value="shrimp">
                     <span class="checkmark bigger"></span>
                 </label>
             </div>
             <div class="col-md-6">
                 <label class="containerfilter textfilter">Shellfish
-                    <input type="checkbox" id="shellfish">
+                    <input type="checkbox" id="shellfish" name="check_allergies" value="shellfish">
                     <span class="checkmark bigger"></span>
                 </label>
                 <label class="containerfilter textfilter">Soy
-                    <input type="checkbox">
+                    <input type="checkbox" name="check_allergies" value="soy">
                     <span class="checkmark bigger"></span>
                 </label>
                 <label class="containerfilter textfilter">Egg
-                    <input type="checkbox" id="egg">
+                    <input type="checkbox" id="egg" name="check_allergies" value="egg">
                     <span class="checkmark bigger"></span>
                 </label>
             </div>
@@ -404,19 +404,20 @@
 
 <div class="row centerpage" style="margin: 30px 80px 30px 80px;">
     <div class="col-4">
-        <button type="button" class="btn btn-outline-dark savebutton">Cancel</button>
+        <button type="button" onclick="location.href='{% url 'cookbook:profile' %}'" class="btn btn-outline-dark savebutton">Cancel</button>
         <button type="button" class="btn btn-outline-danger savebutton">Delete</button>
     </div>
     <div class="col-8" style="text-align:right;">
-        <button type="button" class="btn btn-success savebutton">Save and add other</button>
-        <button type="button" class="btn btn-outline-success savebutton">Save</button>
+        <button type="submit" class="btn btn-success savebutton">Save and add other</button>
+        <button type="submit" class="btn btn-outline-success savebutton">Save</button>
     </div>
-
 </div>
-
-
-
-</div>
-
+    </form>
+{% else %}
+     <div class="col-md-3" id="user-profile">
+     You haven't login yet
+    <button class="btn azm-social azm-btn azm-border-bottom btn-warning" id="continue-login-button" onclick="location.href='{% url 'cookbook:index' %}'" style="color: white; font-size: 40px">Back to main page </button>
+     </div>
+{% endif %}
 
 {% endblock %}
