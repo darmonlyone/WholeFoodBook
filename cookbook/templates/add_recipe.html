@@ -3,7 +3,11 @@
 {% block content %}
 {% load static %}
 {% load diplay_tag profile_tag %}
+    {% if edit %}
+<title>Edit recipe</title>
+    {% else %}
 <title>Add recipe</title>
+    {% endif %}
 <style>
     .invalid {
     border-color : red;
@@ -132,8 +136,18 @@
 
 
 {% if user.is_authenticated and user.username|length != 0 %}
-    {% get_last_alias_from_user author_alias user.username as current_user_alias %}
+    {% if edit %}
+        {% is_recipe_owner author_user recipe.get_recipe_name user.username as is_recipe_ownered %}
+    {% if not is_recipe_ownered %}
+        <script>
+        document.location.href = '{% url 'cookbook:profile' %}';
+        </script>
+    {% endif %}
+    {% endif %}
     <form action="{% url 'cookbook:addRecipe_request' %}" method="post">{% csrf_token %}
+    {% if edit %}
+    <input name="old_recipe" value="{{ recipe.get_recipe_name }}" style="visibility: hidden;">
+    {% endif %}
 <div class="page_add">
     <b id="header"> Add Recipe </b>
     <div id="firstform">
@@ -141,23 +155,33 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Name: </label>
                 <div class="col-sm-10">
-                    <input name="name_input" class="form-control info" id="name-input"/>
+    {% if edit %}
+        <input name="name_input" class="form-control info" id="name-input" value="{{ recipe.get_recipe_name }}"/>
+    {% else %}
+        <input name="name_input" class="form-control info" id="name-input"/>
+    {% endif %}
                 </div>
             </div>
 
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Infomation: </label>
                 <div class="col-sm-10">
+                    {% if edit %}
+                    <input name="info_input" class="form-control info" value="{{ recipe.get_recipe_info }}" id="info-input"/>
+                        {% else %}
                     <input name="info_input" class="form-control info" id="info-input"/>
+                    {% endif %}
                 </div>
             </div>
 
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Chef: </label>
                 <div class="col-sm-10">
+
+                {% get_last_alias_from_user author_alias user.username as current_user_alias %}
                     {% if current_user_alias %}
-                    <p style="font-size:25px; margin-top:12px;">{{ current_user_alias }}</p>
-                        <input name="chef_input" style="font-size: 1px; visibility: hidden;" value="{{ current_user_alias }}">
+                    <p style="font-size:25px; margin-top:12px;">{{ current_user_alias.alias_name }}</p>
+                        <input name="chef_input" style="font-size: 1px; visibility: hidden;" value="{{ current_user_alias.alias_name }}">
                         <input name="username_input" style="font-size: 1px; visibility: hidden;" value="{{ user.username }}">
                         {% else %}
                     <p style="font-size:25px; margin-top:12px;">{{ user.username }}</p>
@@ -170,17 +194,29 @@
         <div class="form-group row">
                 <label class="col-form-label">Time preb: </label>
                 <div class="col-sm-2" style="margin-right: 50px">
+                    {% if edit %}
+                    <input name="time_input" class="form-control info" id="info-input" value="{{ recipe.get_recipe_time }}"/>
+                        {% else %}
                     <input name="time_input" class="form-control info" id="info-input"/>
+                        {% endif %}
                 </div>
 
                 <label class="col-form-label">Equipment (require): </label>
                 <div class="col-sm-2" style="margin-right: 50px">
+                     {% if edit %}
+                    <input name="equipment_input" class="form-control info" id="info-input" value="{{ recipe.get_recipe_equipment }}"/>
+                    {% else %}
                     <input name="equipment_input" class="form-control info" id="info-input"/>
+                    {% endif %}
                 </div>
 
                 <label class="col-form-label">Fat (per serving): </label>
                 <div class="col-sm-2" style="margin-right: 50px">
+                 {% if edit %}
+                    <input name="fat_input" class="form-control info" id="info-input" value="{{ recipe.get_recipe_fat }}"/>
+                     {% else %}
                     <input name="fat_input" class="form-control info" id="info-input"/>
+                     {% endif %}
                 </div>
         </div>
 
@@ -207,10 +243,19 @@
 
             <div id="addmeasureandingre">
                 <div class='row ing' id='ingredients-0' style='width: 1800px;'>
+                {% if edit %}
+                    {% for ingretient in recipe.get_recipe_ingredient %}
+                    <div class='col-6'>
+                        <input type='text' id='ingre-id-measurement-0' name="text_measurement" class='form-control formbox measurements' value="{{ ingretient.get_amount }}"></div>
+                    <div class='col-5'>
+                        <input type='text' id='ingre-id-ingredients-0' name="text_ingredient" class='form-control formbox ingredients' value="{{ ingretient.get_detail }}"></div>
+                    {% endfor %}
+                    {% else %}
                     <div class='col-6'>
                         <input type='text' id='ingre-id-measurement-0' name="text_measurement" class='form-control formbox measurements'></div>
                     <div class='col-5'>
                         <input type='text' id='ingre-id-ingredients-0' name="text_ingredient" class='form-control formbox ingredients'></div>
+                {% endif %}
                     <!-- <div class="row" id="ingredients">
                     <div class="col">
                         <input type="text" class="form-control formbox measurements" id="ingre-id-measurement-0">
@@ -234,11 +279,15 @@
         <button type="button" class="w3-button w3-circle cir-but" onclick="removebox()" id="buttonadddirection">-</button>
         <br>
     </div>
-    
+    {% if edit %}
+        {% for method in recipe.get_recipe_method_list %}
+            <textarea name="text_direction" class="form-control directionbox" rows="3" id="textarea-0">{{ method }}</textarea>
+        {% endfor %}
+    {% else %}
     <div id="addtextarea">
         <textarea name="text_direction" class="form-control directionbox" rows="3" id="textarea-0"></textarea>
     </div>
-
+    {% endif %}
 </div>
 
 
@@ -255,8 +304,7 @@
 
         <div class="col-3">
             <div class="btn-group-vertical " style="margin-top: 30px; width:350px;">
-                <input type="file" class="btn btn-outline-secondary  buttonimage" accept="image/*" name="image1" id="image1"
-                       value="Choose Image"/>
+                <input type="file" class="btn btn-outline-secondary  buttonimage" accept="image/*" name="image1" id="image1" value="Choose Image"/>
                 <input type="file" class="btn btn-outline-secondary  buttonimage" accept="image/*" name="image2" id="image2" value="Choose Image"/>
                 <input type="file" class="btn btn-outline-secondary  buttonimage" accept="image/*" name="image3" id="image3" value="Choose Image"/>
                 <input type="file" class="btn btn-outline-secondary  buttonimage" accept="image/*" name="image4" id="image4" value="Choose Image"/>
@@ -274,32 +322,55 @@
             </div>
             <div class="row" align="left">
                 <div class="col-md-6">
-
                     <label class="containerfilter textfilter">Appetizers
+                        {% if edit and "appetizer" in recipe.get_category_tag_str %}
+                        <input type="checkbox" id="appetizer" name="check_category" value="1" checked>
+                            {% else %}
                         <input type="checkbox" id="appetizer" name="check_category" value="1">
+                        {% endif %}
                         <span class="checkmark bigger"></span>
                     </label>
                     <label class="containerfilter textfilter">Salad
-                        <input type="checkbox" id="salad" name="check_category" value="2">
+                        {% if edit and "salad" in recipe.get_category_tag_str %}
+                        <input type="checkbox" id="salad" name="check_category" value="2" checked>
+                        {% else %}
+                            <input type="checkbox" id="salad" name="check_category" value="2">
+                        {% endif %}
                         <span class="checkmark bigger"></span>
                     </label>
                     <label class="containerfilter textfilter">Main dish
+                        {% if edit and "main" in recipe.get_category_tag_str %}
+                        <input type="checkbox" id="main-dish" name="check_category" value="3" checked>
+                            {% else %}
                         <input type="checkbox" id="main-dish" name="check_category" value="3">
+                            {% endif %}
                         <span class="checkmark bigger"></span>
                     </label>
                 </div>
                 <div class="col-md-6">
                     <label class="containerfilter textfilter">Soup and Stew
-                        <input type="checkbox" id="soup-and-stew" name="check_category" value="4">
+                        {% if edit and "soup" in recipe.get_category_tag_str %}
+                        <input type="checkbox" id="soup-and-stew" name="check_category" value="4" checked>
+                        {% else %}
+                            <input type="checkbox" id="soup-and-stew" name="check_category" value="4">
+                            {% endif %}
                         <span class="checkmark bigger"></span>
                     </label>
                     <label class="containerfilter textfilter">Dessert
+                        {% if edit and "dessert" in recipe.get_category_tag_str %}
+                        <input type="checkbox" id="dessert" name="check_category" value="5" checked>
+                            {% else %}
                         <input type="checkbox" id="dessert" name="check_category" value="5">
+                            {% endif %}
                         <span class="checkmark bigger"></span>
                     </label>
                     <label class="containerfilter textfilter">Drink
-                        <input type="checkbox" id="drink" name="check_category" value="6">
-                        <span class="checkmark bigger"></span>
+                        {% if edit and "dessert" in recipe.get_category_tag_str %}
+                        <input type="checkbox" id="drink" name="check_category" value="6" checked>
+                        {% else %}
+                            <input type="checkbox" id="drink" name="check_category" value="6">
+                        {% endif %}
+                            <span class="checkmark bigger"></span>
                     </label>
                 </div>
             </div>
@@ -307,9 +378,6 @@
         </div>
 
     </div>
-
-
-
 </div>
 
 
@@ -323,30 +391,54 @@
             <div class="col-md-6">
 
                 <label class="containerfilter textfilter">15 minutes
-                    <input type="checkbox" id="t15-min" name="check_time" value="1">
-                    <span class="checkmark bigger"></span>
+                     {% if edit and "15-min" in recipe.get_time_tag_str %}
+                            <input type="checkbox" id="t15-min" name="check_time" value="1" checked>
+                    {% else %}
+                            <input type="checkbox" id="t15-min" name="check_time" value="1">
+                    {% endif %}
+                            <span class="checkmark bigger"></span>
                 </label>
                 <label class="containerfilter textfilter">1 Hour
+                     {% if edit and "1-hr" in recipe.get_time_tag_str %}
+                    <input type="checkbox" id="t1-hr" name="check_time" value="3" checked>
+                         {% else %}
                     <input type="checkbox" id="t1-hr" name="check_time" value="3">
+                         {% endif %}
                     <span class="checkmark bigger"></span>
                 </label>
                 <label class="containerfilter textfilter">2 Hours
+                     {% if edit and "2-hr" in recipe.get_time_tag_str %}
+                    <input type="checkbox" id="t2-hr" name="check_time" value="5" checked>
+                         {% else %}
                     <input type="checkbox" id="t2-hr" name="check_time" value="5">
+                         {% endif %}
                     <span class="checkmark bigger"></span>
                 </label>
             </div>
             <div class="col-md-6">
                 <label class="containerfilter textfilter">30 minutes
+                     {% if edit and "30-min" in recipe.get_time_tag_str %}
+                    <input type="checkbox" id="t30-min" name="check_time" value="2" checked>
+                    {% else %}
                     <input type="checkbox" id="t30-min" name="check_time" value="2">
+                    {% endif %}
                     <span class="checkmark bigger"></span>
                 </label>
                 <label class="containerfilter textfilter">1 Half Hours
+                     {% if edit and "1-hr-30-min" in recipe.get_time_tag_str %}
+                    <input type="checkbox" id="t1-hr-30-min" name="check_time" value="4" checked>
+                    {% else %}
                     <input type="checkbox" id="t1-hr-30-min" name="check_time" value="4">
+                    {% endif %}
                     <span class="checkmark bigger"></span>
                 </label>
                 <label class="containerfilter textfilter">Over 2 hrs
-                    <input type="checkbox" id="tmore-than-2-hr" name="check_time" value="6">
-                    <span class="checkmark bigger"></span>
+                     {% if edit and "more-than" in recipe.get_time_tag_str %}
+                    <input type="checkbox" id="tmore-than-2-hr" name="check_time" value="6" checked>
+                    {% else %}
+                         <input type="checkbox" id="tmore-than-2-hr" name="check_time" value="6">
+                    {% endif %}
+                         <span class="checkmark bigger"></span>
                 </label>
 
             </div>
@@ -361,21 +453,37 @@
         <div class="row" align="left">
             <div class="col-md-6">
                 <label class="containerfilter textfilter">Oven
+                     {% if edit and "oven" in recipe.get_equipment_tag_str %}
+                    <input type="checkbox" id="oven" name="check_equipment" value="1" checked>
+                    {% else %}
                     <input type="checkbox" id="oven" name="check_equipment" value="1">
+                    {% endif %}
                     <span class="checkmark bigger"></span>
                 </label>
                 <label class="containerfilter textfilter">Microwave
+                     {% if edit and "microwave" in recipe.get_equipment_tag_str %}
+                    <input type="checkbox" id="microwave" name="check_equipment" value="2" checked>
+                    {% else %}
                     <input type="checkbox" id="microwave" name="check_equipment" value="2">
+                    {% endif %}
                     <span class="checkmark bigger"></span>
                 </label>
             </div>
             <div class="col-md-6">
                 <label class="containerfilter textfilter">Mixer
+                     {% if edit and "mixer" in recipe.get_equipment_tag_str %}
+                    <input type="checkbox" id="mixer" name="check_equipment" value="3" checked>
+                    {% else %}
                     <input type="checkbox" id="mixer" name="check_equipment" value="3">
+                    {% endif %}
                     <span class="checkmark bigger"></span>
                 </label>
                 <label class="containerfilter textfilter">Blender
+                     {% if edit and "blender" in recipe.get_equipment_tag_str %}
+                    <input type="checkbox" id="blender" name="check_equipment" value="4" checked>
+                         {% else %}
                     <input type="checkbox" id="blender" name="check_equipment" value="4">
+                         {% endif %}
                     <span class="checkmark bigger"></span>
                 </label>
             </div>
@@ -392,47 +500,92 @@
             <div class="col-md-6">
 
                 <label class="containerfilter textfilter">Nuts
-                    <input type="checkbox" id="nuts" name="check_allergies" value="nuts">
-                    <span class="checkmark bigger"></span>
+                     {% if edit and "nut" in recipe.get_allergies_tag_str %}
+                    <input type="checkbox" id="nuts" name="check_allergies" value="1" checked>
+                         {% else %}
+                    <input type="checkbox" id="nuts" name="check_allergies" value="1">
+                    {% endif %}
+                         <span class="checkmark bigger"></span>
                 </label>
                 <label class="containerfilter textfilter">Milk
-                    <input type="checkbox" id="milk" name="check_allergies" value="milk">
+                     {% if edit and "milk" in recipe.get_allergies_tag_str %}
+                    <input type="checkbox" id="milk" name="check_allergies" value="3" checked>
+                    {% else %}
+                    <input type="checkbox" id="milk" name="check_allergies" value="3">
+                    {% endif %}
                     <span class="checkmark bigger"></span>
                 </label>
                 <label class="containerfilter textfilter">Shrimp
-                    <input type="checkbox" id="shrimp" name="check_allergies" value="shrimp">
+                     {% if edit and "shrimp" in recipe.get_allergies_tag_str %}
+                    <input type="checkbox" id="shrimp" name="check_allergies" value="5" checked>
+                    {% else %}
+                    <input type="checkbox" id="shrimp" name="check_allergies" value="5">
+                    {% endif %}
                     <span class="checkmark bigger"></span>
                 </label>
             </div>
             <div class="col-md-6">
                 <label class="containerfilter textfilter">Shellfish
-                    <input type="checkbox" id="shellfish" name="check_allergies" value="shellfish">
+                     {% if edit and "shellfish" in recipe.get_allergies_tag_str %}
+                    <input type="checkbox" id="shellfish" name="check_allergies" value="2" checked>
+                    {% else %}
+                    <input type="checkbox" id="shellfish" name="check_allergies" value="2">
+                    {% endif %}
                     <span class="checkmark bigger"></span>
                 </label>
                 <label class="containerfilter textfilter">Soy
-                    <input type="checkbox" name="check_allergies" value="soy">
+                     {% if edit and "soy" in recipe.get_allergies_tag_str %}
+                    <input type="checkbox" name="check_allergies" value="4" checked>
+                    {% else %}
+                    <input type="checkbox" name="check_allergies" value="4">
+                    {% endif %}
                     <span class="checkmark bigger"></span>
                 </label>
                 <label class="containerfilter textfilter">Egg
-                    <input type="checkbox" id="egg" name="check_allergies" value="egg">
-                    <span class="checkmark bigger"></span>
+                     {% if edit and "egg" in recipe.get_allergies_tag_str %}
+                    <input type="checkbox" id="egg" name="check_allergies" value="6" checked>
+                    {% else %}
+                         <input type="checkbox" id="egg" name="check_allergies" value="6">
+                    {% endif %}
+                         <span class="checkmark bigger"></span>
                 </label>
             </div>
         </div>
 
     </div>
 </div>
+    <script>
+        function deleteConfirm() {
+            let r = confirm("Press a button!");
+            if (r) {
+                let delete_but = document.getElementById("delete_recipe_submit");
+                delete_but.click();
+            }
+        }
+    </script>
 
 <div class="row centerpage" style="margin: 30px 80px 30px 80px;">
     <div class="col-4">
         <button type="button" onclick="location.href='{% url 'cookbook:profile' %}'" class="btn btn-outline-dark savebutton">Cancel</button>
-        <button type="button" class="btn btn-outline-danger savebutton">Delete</button>
+        {% if edit %}
+        <button type="button" onclick="deleteConfirm()" class="btn btn-outline-danger savebutton">Delete</button>
+        {% endif %}
     </div>
     <div class="col-8" style="text-align:right;">
         <button type="submit" class="btn btn-success savebutton">Save</button>
     </div>
 </div>
     </form>
+    {% if edit %}
+    <div style="height: 0; visibility: hidden;">
+            <form action="{% url 'cookbook:delete_recipe' recipe.get_recipe_name %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="deleted_recipe" value="{{ recipe.get_recipe_name }}" style="color: white; outline: none; border: 0 white;">
+                <input type="text" name="user_name" value="{{ user.username }}" style="color: white; outline: none; border: 0 white;">
+                <input type="submit" id="delete_recipe_submit" value="DELETE" style="height: 0; outline: none; border: 0 white; " class="">
+            </form>
+        </div>
+    {% endif %}
 {% else %}
      <div class="col-md-3" id="user-profile">
      You haven't login yet

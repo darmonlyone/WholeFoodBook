@@ -153,8 +153,24 @@ class DeleteRecipeView(generic.ListView):
         return HttpResponseRedirect(reverse("cookbook:profile"))
 
 
+class EditRecipeView(generic.ListView):
+    template_name = 'add_recipe.html'
+    model = Recipe
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        recipe_name = self.kwargs['recipe_name']
+        context['recipe'] = Recipe.objects.get(recipe_name__exact=recipe_name)
+        context['author_user'] = AuthorUser.objects.all()
+        context['author_alias'] = UserAlias.objects.all()
+        context['recipe_all'] = Recipe.objects.all()
+        context['edit'] = 'edit'
+        return context
+
+
 def update_recipe(request):
     if request.method == 'POST':
+        old_recipe = request.POST.get('old_recipe', '')
         recipe_name = request.POST.get('name_input', '')
         recipe_info = request.POST.get('info_input', '')
         recipe_chef = request.POST.get('chef_input', '')
@@ -192,6 +208,15 @@ def update_recipe(request):
             recipe.recipe_image_3 = recipe_image_3
         if recipe_image_4:
             recipe.recipe_image_4 = recipe_image_4
+
+        if old_recipe:
+            delete_recipe = Recipe.objects.get(recipe_name__exact=old_recipe)
+            if delete_recipe:
+                delete_recipe.delete()
+
+            delete_author = AuthorUser.objects.get(recipe_name__exact=old_recipe, user_username__exact=username)
+            if delete_author:
+                delete_author.delete()
 
         recipe.save()
 

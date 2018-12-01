@@ -107,8 +107,8 @@
                             <a class="dropdown-item" href="#">Signed in as<div style="font-weight: bold;">{% capitalize user.first_name %} {% capitalize user.last_name %}</div></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{% url 'cookbook:profile' %}">Your profile</a>
-                            <a class="dropdown-item" href="#">Your recipe</a>
-                            <a class="dropdown-item" href="#">Make new recipe</a>
+                            <a class="dropdown-item" href="{% url 'cookbook:profile' %}">Your recipe</a>
+                            <a class="dropdown-item" href="{% url 'cookbook:addRecipe' %}">Make new recipe</a>
                             <div class="dropdown-divider"></div>
                             <form method="post" action="{% url 'cookbook:logout' %}">
                                 {% csrf_token %}
