@@ -43,6 +43,7 @@ class MenuView(generic.ListView):
             context['recipe_suggest'] = recipe_all
         context['recipe_enable'] = recipe_all.filter(recipe_name=recipe_name)
         context['author_user'] = AuthorUser.objects.all()
+        context['recipe_all'] = Recipe.objects.all()
         return context
 
 
@@ -89,6 +90,37 @@ class AddRecipeView(generic.ListView):
         return context
 
 
+class SearchView(generic.ListView):
+    template_name = 'searcher.html'
+    model = Recipe
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        recipe_search = self.kwargs['recipe_search']
+        recipe_all = Recipe.objects.all()
+        if recipe_all.count() > 8:
+            random_int = randint(0, recipe_all.all().count() - 9)
+            context['recipe_suggest'] = recipe_all[random_int:random_int + 8]
+        else:
+            context['recipe_suggest'] = recipe_all
+        context['recipe_all'] = recipe_all
+        context['recipe_recipe_search'] = recipe_all.filter(recipe_name__contains=recipe_search)
+        context['recipe_chef_search'] = recipe_all.filter(recipe_chef__contains=recipe_search)
+        context['recipe_category_search'] = recipe_all.filter(category_tags__food_category__contains=recipe_search)
+        context['recipe_time_search'] = recipe_all.filter(time_tags__cooking_time__contains=recipe_search)
+        context['recipe_equipment_search'] = recipe_all.filter(
+            equipment_tags__equipment_required__contains=recipe_search)
+        context['recipe_allergies_search'] = recipe_all.filter(
+            allergies_tags__allergies_ingredient__contains=recipe_search)
+        context['recipe_search'] = recipe_search
+        return context
+
+
+def search(request):
+    searcher = request.POST.get('search_recipe', '')
+    return HttpResponseRedirect(reverse("cookbook:search", args=[searcher]))
+
+
 def logout(request):
     """Logs out user"""
     auth_logout(request)
@@ -101,8 +133,10 @@ def userAliasPost(request):
         if not form.is_valid():
             user_name = request.POST.get('user_name', '')
             alias = request.POST.get('alias_name', '')
-            alias_model = UserAlias(user_username=user_name, alias_name=alias)
-            alias_model.save()
+            older_alias = UserAlias.objects.filter(user_username__exact=user_name)
+            older_alias.delete()
+            new_alias_model = UserAlias(user_username=user_name, alias_name=alias)
+            new_alias_model.save()
             return HttpResponseRedirect(reverse("cookbook:profile"))
         raise Http404
 
