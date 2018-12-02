@@ -232,9 +232,19 @@ class ModelTest(TestCase):
         self.assertEqual(str(self.recipe.category_tags.first()), "Main Course")
         self.assertEqual(str(self.recipe.category_tags.last()), "Main Course")
 
-class selenuimTest ():
-    
-    def get_link(url):
+class selenuimTest (TestCase):
+    def test_url(self):
+        url = 'https://whole-food-cookbook.herokuapp.com/'
         driver = webdriver.Chrome()
         driver.get(url)
+        tag_name = driver.find_elements_by_tag_name('a')
+        all_link=[]
+        for i in tag_name:
+            all_link.append(i.get_attribute("href"))
         
+        invalid_links_list = []
+        for url in all_link:
+            request = request.head(str(url))
+            if request.status_code >= 400:
+                invalid_links_list.append(url)
+        self.assertEqual(len(invalid_links_list),0)
