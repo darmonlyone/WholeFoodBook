@@ -87,20 +87,20 @@
 
         });
     });
-    function checkInvalidInt (info) {
-        info.addEventListener ('keyup',function () {
-            var temp = info.value*1;
-            if (isNaN(temp))
-            {
-             info.classList.add('invalid'); 
-             $(this).popover({
-                content: "Pleas input in interger."
+    function checkInvalidInt(info) {
+        info.addEventListener('keyup', function () {
+            var temp = info.value * 1;
+            if (isNaN(temp)) {
+                info.classList.add('invalid');
+                $(this).popover({
+                    content: "Pleas input in interger."
                 });
                 $(this).popover('show');
             }
-            else  {invalidInput(info);
-            $(this).popover('hide');
-        }
+            else {
+                invalidInput(info);
+                $(this).popover('hide');
+            }
         });
     }
 
@@ -123,9 +123,12 @@
         $("#addmeasureandingre").append("<div class='row ing' id='ingredients-" + ingredients_count + "' style='width: 1800px;'><div class='col-6'><input type='text' id='ingre-id-measurement-" + ingredients_count + "' name='text_measurement' class='form-control formbox measurements'></div><div class='col-5'><input type='text' id='ingre-id-ingredients-" + ingredients_count + "' name='text_ingredient' class='form-control formbox ingredients'></div>");
     }
     function removeform() {
+        var meas = document.getElementById('ingre-id-measurement-'+ingredients_count);
+        var ingre = document.getElementById('ingre-id-ingredients-'+ingredients_count);
         if (ingredients_count > 0) {
-            $("#ingredients-" + ingredients_count).remove();
-            ingredients_count -= 1;
+            if (ingre.value.length > 0 || meas.value.length > 0) return;
+            else { $("#ingredients-" + ingredients_count).remove();
+            ingredients_count -= 1; }
         }
     }
 
@@ -138,9 +141,13 @@
         $("#addtextarea").append("<textarea name='text_direction' class='form-control directionbox' id='textarea-" + textarea_count + "'  rows='3'></textarea>");
     }
     function removebox() {
+        var textarea = document.getElementById('textarea-' + textarea_count);
         if (textarea_count > 0) {
-            $("#textarea-" + textarea_count).remove();
-            textarea_count -= 1;
+            if (textarea.value.length > 0) return;
+            else {
+                $("#textarea-" + textarea_count).remove();
+                textarea_count -= 1;
+            }
         }
     }
 // function deletebox() {  
