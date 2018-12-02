@@ -9,33 +9,33 @@
                     <div id="header">TIME PREP</div>
                     <hr>
                 </div>
-                <div class="row" align="left">
+                <div class="row" align="left" id="time-checkbox">
                     <div class="col-md-6">
 
                         <label class="containerfilter">15 minutes
-                            <input type="checkbox" class="check time-but" id="t15-min">
+                            <input type="checkbox" class="check time-but" id="t15-min" value="15-min">
                             <span class="checkmark"></span>
                         </label>
                         <label class="containerfilter">1 Hour
-                            <input type="checkbox" class="check time-but" id="t1-hr">
+                            <input type="checkbox" class="check time-but" id="t1-hr" value="1-hr">
                             <span class="checkmark"></span>
                         </label>
                         <label class="containerfilter">2 Hours
-                            <input type="checkbox" class="check time-but" id="t2-hr">
+                            <input type="checkbox" class="check time-but" id="t2-hr" value="2-hr">
                             <span class="checkmark"></span>
                         </label>
                     </div>
                     <div class="col-md-6">
                         <label class="containerfilter">30 minutes
-                            <input type="checkbox" class="check time-but" id="t30-min">
+                            <input type="checkbox" class="check time-but" id="t30-min" value="30-min">
                             <span class="checkmark"></span>
                         </label>
                         <label class="containerfilter">1 Half Hours
-                            <input type="checkbox" class="check time-but" id="t1-hr-30-min">
+                            <input type="checkbox" class="check time-but" id="t1-hr-30-min" value="1-hr-30-min">
                             <span class="checkmark"></span>
                         </label>
                         <label class="containerfilter">Over 2 hrs
-                            <input type="checkbox" class="check time-but" id="tmore-than-2-hr">
+                            <input type="checkbox" class="check time-but" id="tmore-than-2-hr" value="more-than-2-hr">
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -45,25 +45,25 @@
                     <div id="header">EQUIPMENT</div>
                     <hr>
                 </div>
-                <div class="row" align="left">
+                <div class="row" align="left" id="equipment-checkbox">
                     <div class="col-md-6">
 
                         <label class="containerfilter">Oven
-                            <input type="checkbox" class="check equip-but" id="oven">
+                            <input type="checkbox" class="check equip-but" id="oven" value="oven">
                             <span class="checkmark"></span>
                         </label>
                         <label class="containerfilter">Microwave
-                            <input type="checkbox" class="check equip-but" id="microwave">
+                            <input type="checkbox" class="check equip-but" id="microwave" value="microwave">
                             <span class="checkmark"></span>
                         </label>
                     </div>
                     <div class="col-md-6">
                         <label class="containerfilter">Mixer
-                            <input type="checkbox" class="check equip-but" id="mixer">
+                            <input type="checkbox" class="check equip-but" id="mixer" value="mixer">
                             <span class="checkmark"></span>
                         </label>
                         <label class="containerfilter">Blender
-                            <input type="checkbox" class="check equip-but" id="blender">
+                            <input type="checkbox" class="check equip-but" id="blender" value="blender">
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -74,33 +74,33 @@
                     <div id="header">ALLERGIES</div>
                     <hr>
                 </div>
-                <div class="row" align="left">
+                <div class="row" align="left" id="allergies-checkbox">
                     <div class="col-md-6">
 
                         <label class="containerfilter">Nuts
-                            <input type="checkbox" class="check aller-but" id="nuts">
+                            <input type="checkbox" class="check aller-but" id="nuts" value="nut">
                             <span class="checkmark"></span>
                         </label>
                         <label class="containerfilter">Milk
-                            <input type="checkbox" class="check aller-but" id="milk">
+                            <input type="checkbox" class="check aller-but" id="milk" value="milk">
                             <span class="checkmark"></span>
                         </label>
                         <label class="containerfilter">Shrimp
-                            <input type="checkbox" class="check aller-but" id="shrimp">
+                            <input type="checkbox" class="check aller-but" id="shrimp" value="shrimp">
                             <span class="checkmark"></span>
                         </label>
                     </div>
                     <div class="col-md-6">
                         <label class="containerfilter">Shellfish
-                            <input type="checkbox" class="check aller-but" id="shellfish">
+                            <input type="checkbox" class="check aller-but" id="shellfish" value="shellfish">
                             <span class="checkmark"></span>
                         </label>
                         <label class="containerfilter">Soy
-                            <input type="checkbox" class="check aller-but" id="soy">
+                            <input type="checkbox" class="check aller-but" id="soy" value="soy">
                             <span class="checkmark"></span>
                         </label>
                         <label class="containerfilter">Egg
-                            <input type="checkbox" class="check aller-but" id="egg">
+                            <input type="checkbox" class="check aller-but" id="egg" value="egg">
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -112,103 +112,64 @@
                 </div>
 
 
-                <button type="button" class="btn btn-light btn-lg btn-block" id="filter-but">Filter By</button>
-                <button type="button" class="btn btn-secondary btn-lg btn-block" id="clear-but">Clear Filter</button>
+                <button type="button" onclick="filterRecipe()" class="btn btn-light btn-lg btn-block" id="filter-but">Filter By</button>
+                <button type="button" onclick="clearAllFilter()" class="btn btn-secondary btn-lg btn-block" id="clear-but">Clear Filter</button>
             </div>
         </div>
 
         <script>
-            $(function () {
-                $('#clear-but').on('click', function () {
-                    var hidden = document.getElementsByClassName('unselected');
-                    // hidden.classList.remove("unselected")
-                    for (var i = 0; i < hidden.length; i++) {
-                        hidden[i].classList.remove("unselected");
+            function clearAllFilter(){
+                let allLi = document.getElementsByTagName("li");
+                for (let i = 0 ; i < allLi.length; i++){
+                    allLi[i].classList.remove('unselected')
+                }
+            }
+            function filterRecipe(){
+                let allTimeCheckbox = document.getElementById("time-checkbox").getElementsByTagName("input");
+                let equipmentCheckbox = document.getElementById("equipment-checkbox").getElementsByTagName("input");
+                let allergiesCheckbox = document.getElementById("allergies-checkbox").getElementsByTagName("input");
+                let allTimeEquipment = [];
+
+                for (let i = 0 ; i < allTimeCheckbox.length; i++){
+                   if(allTimeCheckbox[i].checked === true) {
+                        allTimeEquipment.push(allTimeCheckbox[i].value)
                     }
-                    var timeType = ['15-min', '30-min', '1-hr', '2-hr', '1-hr-30-min', 'more-than-2-hr'];
-                    var equipType = ['oven', 'mixer', 'blender', 'microwave'];
-                    var allerType = ['nuts', 'shellfish', 'milk', 'shrimp', 'egg', 'soy'];
-                    var filterbut = $('.check:checked');
-                    if (filterbut.length > 0) {
-                        for (var j = 0; j < filterbut.length; j++) {
-                            filterbut[j].checked = false;
-                        }
+                }
+                for (let i = 0 ; i < equipmentCheckbox.length; i++){
+                   if(equipmentCheckbox[i].checked === true) {
+                        allTimeEquipment.push(equipmentCheckbox[i].value)
                     }
-                });
-                $('#filter-but').on('click', function () {
-                    console.log('filter!');
-                    var time = $('.time-but:checked');
-                    var equip = $('.equip-but:checked');
-                    var aller = $('.aller-but:checked');
-                    var timeType = ['15-min', '30-min', '1-hr', '2-hr', '1-hr-30-min', 'more-than-2-hr'];
-                    var equipType = ['oven', 'mixer', 'blender', 'microwave'];
-                    var allerType = ['nuts', 'shellfish', 'milk', 'shrimp', 'egg', 'soy'];
+                }
 
-                    /** ไม่กดอะไรไม่ต้องทำอะไร
-                     * - วน .contain กลับมา -
-                     */
+                let allAllergies = [];
+                let listAllAllergis = [];
+                for (let i = 0 ; i < allergiesCheckbox.length; i++){
+                   if(allergiesCheckbox[i].checked === true) {
+                        allAllergies.push(allergiesCheckbox[i].value)
+                    }else {
+                       listAllAllergis.push(document.getElementsByClassName(allergiesCheckbox[i].value));
+                   }
+                }
 
-                    /* time -start */
-                    if (time.length > 0) {
-                        for (var i = 0; i < timeType.length; i++) {
-                            for (var j = 0; j < time.length; j++) {
-                                var temp = time[j].id.replace("t", "");
-                                if (timeType[i] === temp) timeType.splice(i, 1);
-                            }
-                        }
-                        for (var i = 0; i < timeType.length; i++) {
-                            var foodByTime = document.getElementsByClassName(timeType[i]);
-                            for (var j = 0; j < foodByTime.length; j++) {
-                                if (!foodByTime[j].classList.contains("unselected")){
-                                    foodByTime[j].className += " unselected";
-                                }
-                                for (var k = 0; k < time.length; k++) {
-                                    if (foodByTime[j].classList.contains(time[k])) foodByTime[j].classList.remove("unselected");
-                                }
-                            }
-                        }
+                let allLi = document.getElementsByTagName("li");
+                for (let i = 0 ; i < allLi.length; i++){
+                    allLi[i].classList.add('unselected')
+                }
 
-
+                for (let i = 0; i < listAllAllergis.length; i++){
+                    for (let j = 0 ; j < listAllAllergis[i].length; j++){
+                        listAllAllergis[i][j].classList.remove('unselected')
                     }
+                }
 
-                    /* equip - start*/
-                    if (equip.length > 0) {
-                        for (var i = 0; i < equipType.length; i++) {
-                            for (var k = 0; k < equip.length; k++) {
-                                if (equipType[i] === equip[k]) equipType.splice(i, 1);
-                            }
-                        }
-                        for (var i = 0; i < equipType.length; i++) {
-                            var foodByEquip = document.getElementsByClassName(equipType[i]);
-                            for (var j = 0; j < foodByEquip.length; j++) {
-                                if (!foodByTime[j].classList.contains("unselected")){
-                                    foodByTime[j].className += " unselected";
-                                }
-                                for (var k = 0; k < equip.length; k++) {
-                                    if (foodByEquip[j].classList.contains(equip[k])) foodByEquip[j].remove("unselected");
-                                }
-                            }
-                        }
-
-                    }
-                    /* aller - start */
-                    if (aller.length > 0) {
-                        for (var i = 0; i < allerType.length; i++) {
-                            var foodByAller = document.getElementsByClassName(aller[i]);
-                            for (var j = 0; j < foodByAller.length; j++) {
-                                if (!foodByTime[j].classList.contains("unselected")){
-                                    foodByTime[j].className += " unselected";
-                                }
-                            }
-                        }
-                    }
-
-
-
-
-                });
-
-            });
+                for (let i = 0 ; i < allLi.length; i++){
+                   for (let j = 0 ; j < allTimeEquipment.length; j++){
+                       if (allLi[i].classList.contains(allTimeEquipment[j])){
+                           allLi[i].classList.remove('unselected')
+                       }
+                   }
+                }
+            }
         </script>
 
         <style>
@@ -220,10 +181,11 @@
         </style>
         <!-- แสดงเมนู -->
         <div class="col-md-7 col-lg-9" id="display-food">
-            <ul id="{{ recipe_poin }}">
-                <li>
+            <ul id="">
+
                     {% for recipe in recipe_show %}
-                    <div class="card food-card {{ recipe.get_all_tag_str }}">
+                        <li class="{{ recipe.get_all_tag_str }}">
+                    <div class="card food-card">
                         <a href="{% url 'cookbook:recipe' recipe.get_recipe_name %}" style="color:black; text-decoration:none;">
                             {% if recipe.get_recipe_image_1 %}
                             <img class="card-img-top" src="{{ recipe.get_recipe_image_1.url }}" alt="Card image cap">
@@ -237,13 +199,9 @@
                             </div>
                         </a>
                     </div>
-                    {% if forloop.counter|divisibleby:3 %}
-                </li>
-                <li>
-                    {% endif %}
-
+                        </li>
                     {% endfor %}
-                </li>
+
             </ul>
         </div>
 
