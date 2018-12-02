@@ -160,7 +160,8 @@ class EditRecipeView(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         recipe_name = self.kwargs['recipe_name']
-        context['recipe'] = Recipe.objects.get(recipe_name__exact=recipe_name)
+        if Recipe.objects.filter(recipe_name__exact=recipe_name):
+            context['recipe'] = Recipe.objects.get(recipe_name__exact=recipe_name)
         context['author_user'] = AuthorUser.objects.all()
         context['author_alias'] = UserAlias.objects.all()
         context['recipe_all'] = Recipe.objects.all()

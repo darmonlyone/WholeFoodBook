@@ -4,6 +4,11 @@
 {% load static %}
 {% load diplay_tag profile_tag %}
 {% if edit %}
+    {% if not recipe %}
+        <script>
+      document.location.href = '{% url 'cookbook:profile' %}';
+        </script>
+    {% endif %}
 <title>Edit recipe</title>
 {% else %}
 <title>Add recipe</title>
@@ -38,6 +43,7 @@
     var ingredient;
     var directions;
     $(function () {
+        let i;
         var name = document.getElementById("name-input");
         var info = document.getElementsByClassName("info-input");
         //var formbox = document.getElementsByClassName("formbox");
@@ -48,17 +54,16 @@
         invalidType(directions[0]);
         //checkMeastureAndIngredient();
         if (directions.length >= 0) {
-            for (var i = 0; i < directions.length; i++) {
+            for (i = 0; i < directions.length; i++) {
                 invalidType(directions[i]);
             }
         }
-        for (var i = 0; i < measurement.length; i++) {
+        for (i = 0; i < measurement.length; i++) {
             if (measurement[i].value.length === 0 || ingredient[i].value.length === 0) {
                 invalidType(measurement[i]);
                 invalidType(ingredient[i]);
             }
         }
-
         invalidType(info[0]);
         checkInvalidInt(info[1]);
         invalidType(info[2]);
@@ -67,23 +72,25 @@
 
 
         $('.savebutton').on('click', function () {
+            let i;
             invalidInput(name);
-            invalidInput(info);
-            for (var i = 0; i < directions.length; i++) {
+            for (i = 0; i < directions.length; i++) {
                 invalidInput(directions[i]);
             }
-            for (var i = 0; i < measurement.length; i++) {
+            for (i = 0; i < measurement.length; i++) {
                 if (measurement[i].value.length === 0 || ingredient[i].value.length === 0) {
                     invalidInput(measurement[i]);
                     invalidInput(ingredient[i]);
                 }
             }
             invalidInput(info[0]);
+            invalidInput(info[1]);
             checkInvalidInt(info[1]);
             invalidInput(info[2]);
+            invalidInput(info[3]);
             checkInvalidInt(info[3]);
 
-
+            saveConfirm();
 
         });
     });
@@ -132,13 +139,17 @@
         }
     }
 
+    function addformWithText(mesuremented, ingrediented) {
+        ingredients_count += 1;
+        $("#addmeasureandingre").append("<div class='row ing' id='ingredients-" + ingredients_count + "' style='width: 1800px;'><div class='col-6'><input type='text' id='ingre-id-measurement-" + ingredients_count + "' name='text_measurement' value='"+ mesuremented + "' class='form-control formbox measurements'></div><div class='col-5'><input type='text' id='ingre-id-ingredients-" + ingredients_count + "' value='"+ingrediented+"' name='text_ingredient' class='form-control formbox ingredients'></div>");
+    }
 </script>
 
 <script>
 
     function addbox() {
         textarea_count += 1;
-        $("#addtextarea").append("<textarea name='text_direction' class='form-control directionbox' id='textarea-" + textarea_count + "'  rows='3'></textarea>");
+        $("#addtextarea").append("<input type='text' name='text_direction' class='form-control directionbox' id='textarea-" + textarea_count + "'  rows='3' />");
     }
     function removebox() {
         var textarea = document.getElementById('textarea-' + textarea_count);
@@ -150,6 +161,12 @@
             }
         }
     }
+
+    function addboxWithText(method) {
+        textarea_count += 1;
+        $("#addtextarea").append("<input type='text' name='text_direction' class='form-control directionbox' id='textarea-" + textarea_count + "'  rows='3' value='"+method+"' />");
+    }
+
 // function deletebox() {  
 //     a = document.getElementById("addtextarea");
 //     a.innerHTML -= "<div id='addtextarea'><textarea class='form-control directionbox' id='textarea-"+textarea_count+"' rows='3'></textarea></div>"
@@ -165,7 +182,7 @@
 {% is_recipe_owner author_user recipe.get_recipe_name user.username as is_recipe_ownered %}
 {% if not is_recipe_ownered %}
 <script>
-    document.location.href = '{% url 'cookbook: profile' %}';
+    document.location.href = '{% url 'cookbook:profile' %}';
 </script>
 {% endif %}
 {% endif %}
@@ -192,7 +209,7 @@
                 <label class="col-sm-2 col-form-label">Infomation: </label>
                 <div class="col-sm-10">
                     {% if edit %}
-                    <input name="info_input" class="form-control info ingo-input" value="{{ recipe.get_recipe_info }}" />
+                    <input name="info_input" class="form-control info info-input" value="{{ recipe.get_recipe_info }}" />
                     {% else %}
                     <input name="info_input" class="form-control info info-input" />
                     {% endif %}
@@ -220,7 +237,7 @@
                 <label class="col-form-label">Time preb: </label>
                 <div class="col-sm-2" style="margin-right: 50px">
                     {% if edit %}
-                    <input name="time_input" class="form-control info info-input" value="{{ recipe.get_recipe_time }}" />
+                    <input name="time_input" placeholder="Enter time in minutes.." class="form-control info info-input" value="{{ recipe.get_recipe_time }}" />
                     {% else %}
                     <input name="time_input" placeholder="Enter time in minutes.." class="form-control info info-input" />
                     {% endif %}
@@ -270,12 +287,18 @@
                 <div class='row ing' id='ingredients-0' style='width: 1800px;'>
                     {% if edit %}
                     {% for ingretient in recipe.get_recipe_ingredient %}
+                        {% if forloop.counter0 == 0 %}
                     <div class='col-6'>
                         <input type='text' id='ingre-id-measurement-0' name="text_measurement" class='form-control formbox measurements'
                             value="{{ ingretient.get_amount }}"></div>
                     <div class='col-5'>
                         <input type='text' id='ingre-id-ingredients-0' name="text_ingredient" class='form-control formbox ingredients'
                             value="{{ ingretient.get_detail }}"></div>
+                        {% else %}
+                            <script>
+                            addformWithText("{{ ingretient.get_amount }}","{{ ingretient.get_detail }}");
+                            </script>
+                        {% endif %}
                     {% endfor %}
                     {% else %}
                     <div class='col-6'>
@@ -306,15 +329,21 @@
             <button type="button" class="w3-button w3-circle cir-but" onclick="removebox()" id="buttonadddirection">-</button>
             <br>
         </div>
+    <div id="addtextarea">
         {% if edit %}
         {% for method in recipe.get_recipe_method_list %}
-        <textarea name="text_direction" class="form-control directionbox" rows="3" id="textarea-0">{{ method }}</textarea>
+            {% if forloop.counter0 == 0 %}
+                <input type="text" name="text_direction" class="form-control directionbox" rows="3" id="textarea-0" value="{{ method }}">
+            {% else %}
+                <script>
+                    addboxWithText("{{ method }}");
+                </script>
+            {% endif %}
         {% endfor %}
         {% else %}
-        <div id="addtextarea">
-            <textarea name="text_direction" class="form-control directionbox" rows="3" id="textarea-0"></textarea>
-        </div>
+            <input type="text" name="text_direction" class="form-control directionbox" rows="3" id="textarea-0"/>
         {% endif %}
+    </div>
     </div>
 
 
@@ -587,10 +616,24 @@
     </div>
     <script>
         function deleteConfirm() {
-            let r = confirm("Press a button!");
+            let r = confirm("Confirm to delete this recipe!");
             if (r) {
                 let delete_but = document.getElementById("delete_recipe_submit");
                 delete_but.click();
+            }
+        }
+        function saveConfirm() {
+
+            let r = false;
+            let  allInput = document.getElementsByClassName('invalid');
+            if (allInput.length === 0) {
+                r = confirm("Confirm to save this recipe!");
+            }else{
+              window.scrollTo(0, 20);
+            }
+            if (r){
+                let save_but = document.getElementById("save_recipe_submit");
+                save_but.click();
             }
         }
     </script>
@@ -603,7 +646,8 @@
             {% endif %}
         </div>
         <div class="col-8" style="text-align:right;">
-            <button type="submit" class="btn btn-success savebutton">Save</button>
+            <button type="submit" class="btn btn-success savebutton" style="visibility: hidden;" id="save_recipe_submit">Let Save</button>
+            <button type="button" class="btn btn-success savebutton">Save</button>
         </div>
     </div>
 </form>
