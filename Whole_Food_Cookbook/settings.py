@@ -94,6 +94,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.open_id.OpenIdAuth',
+    'social_core.backends.github.GithubOAuth2',
     'social_core.backends.facebook.FacebookOAuth2',
     'social_core.backends.google.GoogleOpenId',
     'social_core.backends.google.GoogleOAuth2',
@@ -178,3 +179,6 @@ SOCIAL_AUTH_FACEBOOK_SECRET = '497d0c4e785e64f75495148d49041e2c'
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '308470930055-nv9o7429iahssfvopt2tfmf5dvenmh6q.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'mtDhxbYfRFpnAggZyL6x7fz8'
+
+SOCIAL_AUTH_GITHUB_KEY = '709cef84c8cb1f40337b'
+SOCIAL_AUTH_GITHUB_SECRET = '0c16f44be196a45d306d37a6520895692d27a177'
