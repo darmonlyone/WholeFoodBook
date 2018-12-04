@@ -121,7 +121,7 @@
                         hidden[i].classList.remove("display_in_box");
                         hidden[i].classList.remove("unselected");
                     }
-                    var li = document.getElementsByName('li');
+                    var li = document.getElementsByClassName('list');
                     for (let k = 0 ; k < li.length; k++){
                       li[k].classList.add("display_in_box");
                     }
@@ -238,7 +238,7 @@
         <div class="col-md-7 col-lg-9" id="display-food">
             <ul id="{{ recipe_poin }}">
                     {% for recipe in recipe_show %}
-                        <li class="display_in_box {{ recipe.get_all_tag_str }}">
+                        <li class="list display_in_box {{ recipe.get_all_tag_str }}">
                     <div class="card food-card {{ recipe.get_all_tag_str }}">
                         <a href="{% url 'cookbook:recipe' recipe.get_recipe_name %}" style="color:black; text-decoration:none;">
                             {% if recipe.get_recipe_image_1 %}
