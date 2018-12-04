@@ -211,13 +211,16 @@
                 width: 0;
                 height: 0;
             }
+            .display_in_box{
+                display: -webkit-inline-box;
+            }
         </style>
         <!-- แสดงเมนู -->
         <div class="col-md-7 col-lg-9" id="display-food">
             <ul id="{{ recipe_poin }}">
                     {% for recipe in recipe_show %}
-                        <li class="{{ recipe.get_all_tag_str }}" style="display: -webkit-inline-box;">
-                    <div class="card food-card {{ recipe.get_all_tag_str }}">
+                        <li class="display_in_box {{ recipe.get_all_tag_str }}">
+                    <div class="card food-card">
                         <a href="{% url 'cookbook:recipe' recipe.get_recipe_name %}" style="color:black; text-decoration:none;">
                             {% if recipe.get_recipe_image_1 %}
                             <img class="card-img-top" src="{{ recipe.get_recipe_image_1.url }}" alt="Card image cap">
