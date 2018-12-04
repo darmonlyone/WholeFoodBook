@@ -215,8 +215,8 @@
         <!-- แสดงเมนู -->
         <div class="col-md-7 col-lg-9" id="display-food">
             <ul id="{{ recipe_poin }}">
-                <li>
                     {% for recipe in recipe_show %}
+                        <li>
                     <div class="card food-card {{ recipe.get_all_tag_str }}">
                         <a href="{% url 'cookbook:recipe' recipe.get_recipe_name %}" style="color:black; text-decoration:none;">
                             {% if recipe.get_recipe_image_1 %}
@@ -231,13 +231,9 @@
                             </div>
                         </a>
                     </div>
-                    {% if forloop.counter|divisibleby:3 %}
-                </li>
-                <li>
-                    {% endif %}
 
-                    {% endfor %}
                 </li>
+                    {% endfor %}
             </ul>
         </div>
 
