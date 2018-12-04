@@ -1,7 +1,7 @@
 $(function() {
     $('#showmore_all').on('click',function () {
        // console.log("clicked");
-            $('#all_list li:hidden').slice(0, 2).show();
+            $('#all_list li:hidden').slice(0, 4).show();
             if ($('#all_list li').length === $('#all_list li:visible').length) {
                 $('#showmore_all ').hide();
             }
@@ -10,7 +10,7 @@ $(function() {
 $(function() {
     $('#showmore_appertizers').on('click',function () {
        // console.log("clicked");
-            $('#appertizer_list li:hidden').slice(0, 2).show();
+            $('#appertizer_list li:hidden').slice(0, 4).show();
             if ($('#appertizer_list li').length === $('#appertizer_list li:visible').length) {
                 $('#showmore_appertizers ').hide();
             }
@@ -19,7 +19,7 @@ $(function() {
 $(function() {
     $('#showmore_main').on('click',function () {
        // console.log("clicked");
-            $('#main_list li:hidden').slice(0, 2).show();
+            $('#main_list li:hidden').slice(0, 4).show();
             if ($('#main_list li').length === $('#main_list li:visible').length) {
                 $('#showmore_main ').hide();
             }
@@ -28,7 +28,7 @@ $(function() {
 $(function() {
     $('#showmore_soup').on('click',function () {
        // console.log("clicked");
-            $('#soup_list li:hidden').slice(0, 2).show();
+            $('#soup_list li:hidden').slice(0, 4).show();
             if ($('#soup_list li').length === $('#soup_list li:visible').length) {
                 $('#showmore_soup ').hide();
             }
@@ -37,7 +37,7 @@ $(function() {
 $(function() {
     $('#showmore_dessert').on('click',function () {
        // console.log("clicked");
-            $('#dessert_list li:hidden').slice(0, 2).show();
+            $('#dessert_list li:hidden').slice(0, 4).show();
             if ($('#dessert_list li').length === $('#dessert_list li:visible').length) {
                 $('#showmore_dessert ').hide();
             }
@@ -46,7 +46,7 @@ $(function() {
 $(function() {
     $('#showmore_drink').on('click',function () {
        // console.log("clicked");
-            $('#drinks_list li:hidden').slice(0, 2).show();
+            $('#drinks_list li:hidden').slice(0, 4).show();
             if ($('#drinks_list li').length === $('#drinks_list li:visible').length) {
                 $('#showmore_drink ').hide();
             }
@@ -56,7 +56,7 @@ $(function() {
 $(function() {
     $('#showmore_salad').on('click',function () {
        // console.log("clicked");
-            $('#salad_list li:hidden').slice(0, 2).show();
+            $('#salad_list li:hidden').slice(0, 3).show();
             if ($('#salad_list li').length === $('#salad_list li:visible').length) {
                 $('#showmore_salad ').hide();
             }
@@ -176,22 +176,6 @@ new showHideText('.myContent', {
 
 
 // console.log("reach here");
-// var $list = $(".list li");
-// var numToShow = 3;
-// var $button = $("#showmore");
-// var numInList = list.length;
-// $list.hide();
-// if (numInList > numToShow) {
-//   $button.show();
-// }
-// $list.slice(0, numToShow).show();
-
-// $button.on('click',function(){
-//     console.log("clicked");
-//     var showing = $list.filter(':visible').length;
-//     $list.slice(showing - 1, showing + numToShow).fadeIn();
-//     var nowShowing = $list.filter(':visible').length;
-//     if (nowShowing >= numInList) {
-//       $button.hide();
-//     }
-// });
+var list = $("li");
+list.hide();
+$('li:hidden').slice(0, 10).show();
