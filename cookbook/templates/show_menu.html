@@ -130,7 +130,11 @@
                     }
                 });
                 $('#filter-but').on('click', function () {
-                    document.getElementById("clear-but").click();
+                    var hidden = document.getElementsByClassName('unselected');
+                    // hidden.classList.remove("unselected")
+                    for (var i = 0; i < hidden.length; i++) {
+                        hidden[i].classList.remove("unselected");
+                    }
                     var time = $('.time-but:checked');
                     var equip = $('.equip-but:checked');
                     var aller = $('.aller-but:checked');
