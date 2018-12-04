@@ -284,10 +284,6 @@
     display:none;
 }
 
-li {
-    display: -webkit-inline-box;
-}
-
 #filterby {
     text-align: center;
     width:450px;
