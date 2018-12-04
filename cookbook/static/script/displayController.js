@@ -174,8 +174,3 @@ new showHideText('.myContent', {
  });
 
 
-
-// console.log("reach here");
-var list = $("li");
-list.hide();
-$('li:hidden').slice(0, 10).show();
