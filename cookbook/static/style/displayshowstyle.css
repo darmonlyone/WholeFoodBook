@@ -1,6 +1,6 @@
 .page {
     max-width: 1920px;
-    min-width: 1280px;
+    min-width: 1920px;
     width: auto;
     height: auto;
     margin: auto;
@@ -254,7 +254,7 @@
 .food-card {
     margin-left: 25px;
     width: 430px;
-    height: 670px;
+    height: 750px;
     margin-bottom: 30px;
     padding: 10px 10px 10px 10px;
 }
