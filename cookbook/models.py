@@ -7,7 +7,7 @@ def replace_space(temp):
 
 class UserAlias(models.Model):
     user_username = models.CharField(max_length=100)
-    alias_name = models.CharField(max_length=50)
+    alias_name = models.CharField(max_length=1000)
 
     def __str__(self):
         return self.user_username

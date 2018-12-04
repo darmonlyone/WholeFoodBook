@@ -98,6 +98,8 @@ class SearchView(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         recipe_search = self.kwargs['recipe_search']
+        if recipe_search == "B&*(#)LANK^&#":
+            recipe_search = ""
         recipe_all = Recipe.objects.all()
         if recipe_all.count() > 8:
             random_int = randint(0, recipe_all.all().count() - 9)
@@ -119,6 +121,8 @@ class SearchView(generic.ListView):
 
 def search(request):
     searcher = request.POST.get('search_recipe', '')
+    if not searcher:
+        searcher = "B&*(#)LANK^&#"
     return HttpResponseRedirect(reverse("cookbook:search", args=[searcher]))
 
 
