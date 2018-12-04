@@ -114,10 +114,16 @@
         <script>
             $(function () {
                 $('#clear-but').on('click', function () {
+
                     var hidden = document.getElementsByClassName('unselected');
                     // hidden.classList.remove("unselected")
                     for (var i = 0; i < hidden.length; i++) {
+                        hidden[i].classList.remove("display_in_box");
                         hidden[i].classList.remove("unselected");
+                    }
+                    var li = document.getElementsByClassName('list');
+                    for (let k = 0 ; k < li.length; k++){
+                      li[k].classList.add("display_in_box");
                     }
                     var timeType = ['15-min', '30-min', '1-hr', '2-hr', '1-hr-30-min', 'more-than-2-hr'];
                     var equipType = ['oven', 'mixer', 'blender', 'microwave'];
@@ -130,7 +136,11 @@
                     }
                 });
                 $('#filter-but').on('click', function () {
-                    console.log('filter!');
+                    var hidden = document.getElementsByClassName('unselected');
+                    // hidden.classList.remove("unselected")
+                    for (var i = 0; i < hidden.length; i++) {
+                        hidden[i].classList.remove("unselected");
+                    }
                     var time = $('.time-but:checked');
                     var equip = $('.equip-but:checked');
                     var aller = $('.aller-but:checked');
@@ -154,10 +164,14 @@
                             var foodByTime = document.getElementsByClassName(timeType[i]);
                             for (var j = 0; j < foodByTime.length; j++) {
                                 if (!foodByTime[j].classList.contains("unselected")){
+                                    foodByTime[j].classList.remove("display_in_box");
                                     foodByTime[j].className += " unselected";
                                 }
                                 for (var k = 0; k < time.length; k++) {
-                                    if (foodByTime[j].classList.contains(time[k])) foodByTime[j].classList.remove("unselected");
+                                    if (foodByTime[j].classList.contains(time[k])) {
+                                        foodByTime[j].classList.remove("unselected");
+                                        foodByTime[j].classList.add("display_in_box");
+                                    }
                                 }
                             }
                         }
@@ -176,10 +190,14 @@
                             var foodByEquip = document.getElementsByClassName(equipType[i]);
                             for (var j = 0; j < foodByEquip.length; j++) {
                                 if (!foodByTime[j].classList.contains("unselected")){
+                                    foodByTime[j].classList.remove("display_in_box");
                                     foodByTime[j].className += " unselected";
                                 }
                                 for (var k = 0; k < equip.length; k++) {
-                                    if (foodByEquip[j].classList.contains(equip[k])) foodByEquip[j].remove("unselected");
+                                    if (foodByEquip[j].classList.contains(equip[k])) {
+                                        foodByEquip[j].classList.add("display_in_box");
+                                        foodByEquip[j].remove("unselected");
+                                    }
                                 }
                             }
                         }
@@ -191,6 +209,7 @@
                             var foodByAller = document.getElementsByClassName(aller[i]);
                             for (var j = 0; j < foodByAller.length; j++) {
                                 if (!foodByTime[j].classList.contains("unselected")){
+                                        foodByTime[j].classList.remove("display_in_box");
                                     foodByTime[j].className += " unselected";
                                 }
                             }
@@ -211,12 +230,15 @@
                 width: 0;
                 height: 0;
             }
+            .display_in_box{
+                display: -webkit-inline-box;
+            }
         </style>
         <!-- แสดงเมนู -->
         <div class="col-md-7 col-lg-9" id="display-food">
             <ul id="{{ recipe_poin }}">
-                <li>
                     {% for recipe in recipe_show %}
+                        <li class="list display_in_box {{ recipe.get_all_tag_str }}">
                     <div class="card food-card {{ recipe.get_all_tag_str }}">
                         <a href="{% url 'cookbook:recipe' recipe.get_recipe_name %}" style="color:black; text-decoration:none;">
                             {% if recipe.get_recipe_image_1 %}
@@ -231,13 +253,9 @@
                             </div>
                         </a>
                     </div>
-                    {% if forloop.counter|divisibleby:3 %}
-                </li>
-                <li>
-                    {% endif %}
 
-                    {% endfor %}
                 </li>
+                    {% endfor %}
             </ul>
         </div>
 
