@@ -114,11 +114,16 @@
         <script>
             $(function () {
                 $('#clear-but').on('click', function () {
+
                     var hidden = document.getElementsByClassName('unselected');
                     // hidden.classList.remove("unselected")
                     for (var i = 0; i < hidden.length; i++) {
-                        hidden[i].classList.add("display_in_box");
+                        hidden[i].classList.remove("display_in_box");
                         hidden[i].classList.remove("unselected");
+                    }
+                    var li = document.getElementsByName('li');
+                    for (let k = 0 ; k < li.length; k++){
+                      li[k].classList.add("display_in_box");
                     }
                     var timeType = ['15-min', '30-min', '1-hr', '2-hr', '1-hr-30-min', 'more-than-2-hr'];
                     var equipType = ['oven', 'mixer', 'blender', 'microwave'];
