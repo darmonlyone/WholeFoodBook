@@ -1,4 +1,4 @@
-.page {
+.page_add {
     margin-top: 20px;
     max-width: 1920px;
     min-width: 1440px;
@@ -58,6 +58,10 @@ margin-bottom: 35px;
     font-size: 40px;
     text-align: center;
 
+}
+
+.containerfilter{
+    width: 300px;
 }
 
 #firstform{

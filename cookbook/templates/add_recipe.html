@@ -2,261 +2,672 @@
 
 {% block content %}
 {% load static %}
-{% load diplay_tag %}
+{% load diplay_tag profile_tag %}
+{% if edit %}
+    {% if not recipe %}
+        <script>
+      document.location.href = '{% url 'cookbook:profile' %}';
+        </script>
+    {% endif %}
+<title>Edit recipe</title>
+{% else %}
 <title>Add recipe</title>
+{% endif %}
+<style>
+    .invalid {
+    border-color : red;
+    }
+    .formbox {
+        width: 800px;
+    }
+    .savebutton {
+        margin-left: 10px;
+    }
+    .cir-but {
+        margin-left: 10px;
+        width: 45px;
+    }
+    .ing {
+        padding: 25px 0 0 0;
+    }
+    .directionbox {
+        width: 1700px;
+    margin: 0 0 20px 0;
+    }
+</style>
 <script>
 
-var ingredients_count =0;
-var textarea_count = 0;
+    var ingredients_count = 0;
+    var textarea_count = 0;
+    var measurement;
+    var ingredient;
+    var directions;
+    $(function () {
+        let i;
+        var name = document.getElementById("name-input");
+        var info = document.getElementsByClassName("info-input");
+        //var formbox = document.getElementsByClassName("formbox");
+        measurement = document.getElementsByClassName("measurements");
+        ingredient = document.getElementsByClassName("ingredients");
+        directions = document.getElementsByClassName("directionbox");
+        invalidType(name);
+        invalidType(directions[0]);
+        //checkMeastureAndIngredient();
+        if (directions.length >= 0) {
+            for (i = 0; i < directions.length; i++) {
+                invalidType(directions[i]);
+            }
+        }
+        for (i = 0; i < measurement.length; i++) {
+            if (measurement[i].value.length === 0 || ingredient[i].value.length === 0) {
+                invalidType(measurement[i]);
+                invalidType(ingredient[i]);
+            }
+        }
+        invalidType(info[0]);
+        checkInvalidInt(info[1]);
+        invalidType(info[2]);
+        checkInvalidInt(info[3]);
 
-function myFunction()
- { ingredients_count+=1; 
-  a = document.getElementById("ingredients");
-  a.innerHTML += "<div class='row' id='ingredients' style='width: 1800px; margin-left:1px;'><div class='col'><input type='text' id='ingre-id-measurement-"+ingredients_count+"' class='form-control formbox'></div><div class='col'><input type='text' id='ingre-id-ingredients-"+ingredients_count+"' class='form-control formbox'></div>";
-}
+
+
+        $('.savebutton').on('click', function () {
+            let i;
+            invalidInput(name);
+            for (i = 0; i < directions.length; i++) {
+                invalidInput(directions[i]);
+            }
+            for (i = 0; i < measurement.length; i++) {
+                if (measurement[i].value.length === 0 || ingredient[i].value.length === 0) {
+                    invalidInput(measurement[i]);
+                    invalidInput(ingredient[i]);
+                }
+            }
+            invalidInput(info[0]);
+            invalidInput(info[1]);
+            checkInvalidInt(info[1]);
+            invalidInput(info[2]);
+            invalidInput(info[3]);
+            checkInvalidInt(info[3]);
+
+            saveConfirm();
+
+        });
+    });
+    function checkInvalidInt(info) {
+        info.addEventListener('keyup', function () {
+            var temp = info.value * 1;
+            if (isNaN(temp)) {
+                info.classList.add('invalid');
+                $(this).popover({
+                    content: "Pleas input in interger."
+                });
+                $(this).popover('show');
+            }
+            else {
+                invalidInput(info);
+                $(this).popover('hide');
+            }
+        });
+    }
+
+    function invalidType(textbox) {
+        textbox.addEventListener('keyup', function () {
+            if (textbox.value.length === 0) textbox.classList.add('invalid');
+            else textbox.classList.remove("invalid");
+        });
+    }
+
+    function invalidInput(textbox) {
+        if (textbox.value.length === 0) {
+            textbox.className += " invalid";
+        }
+        else textbox.classList.remove('invalid');
+    }
+
+    function addform() {
+        ingredients_count += 1;
+        $("#addmeasureandingre").append("<div class='row ing' id='ingredients-" + ingredients_count + "' style='width: 1800px;'><div class='col-6'><input type='text' id='ingre-id-measurement-" + ingredients_count + "' name='text_measurement' class='form-control formbox measurements'></div><div class='col-5'><input type='text' id='ingre-id-ingredients-" + ingredients_count + "' name='text_ingredient' class='form-control formbox ingredients'></div>");
+    }
+    function removeform() {
+        var meas = document.getElementById('ingre-id-measurement-'+ingredients_count);
+        var ingre = document.getElementById('ingre-id-ingredients-'+ingredients_count);
+        if (ingredients_count > 0) {
+            if (ingre.value.length > 0 || meas.value.length > 0) return;
+            else { $("#ingredients-" + ingredients_count).remove();
+            ingredients_count -= 1; }
+        }
+    }
+
+    function addformWithText(mesuremented, ingrediented) {
+        ingredients_count += 1;
+        $("#addmeasureandingre").append("<div class='row ing' id='ingredients-" + ingredients_count + "' style='width: 1800px;'><div class='col-6'><input type='text' id='ingre-id-measurement-" + ingredients_count + "' name='text_measurement' value='"+ mesuremented + "' class='form-control formbox measurements'></div><div class='col-5'><input type='text' id='ingre-id-ingredients-" + ingredients_count + "' value='"+ingrediented+"' name='text_ingredient' class='form-control formbox ingredients'></div>");
+    }
 </script>
 
 <script>
 
-function myFunction2() {
-    textarea_count+=1;
-  a = document.getElementById("addtextarea");
-  a.innerHTML += "<div id='addtextarea'><textarea class='form-control directionbox' id='textarea-"+textarea_count+"' rows='3'></textarea></div>"
-}
+    function addbox() {
+        textarea_count += 1;
+        $("#addtextarea").append("<input type='text' name='text_direction' class='form-control directionbox' id='textarea-" + textarea_count + "'  rows='3' />");
+    }
+    function removebox() {
+        var textarea = document.getElementById('textarea-' + textarea_count);
+        if (textarea_count > 0) {
+            if (textarea.value.length > 0) return;
+            else {
+                $("#textarea-" + textarea_count).remove();
+                textarea_count -= 1;
+            }
+        }
+    }
+
+    function addboxWithText(method) {
+        textarea_count += 1;
+        $("#addtextarea").append("<input type='text' name='text_direction' class='form-control directionbox' id='textarea-" + textarea_count + "'  rows='3' value='"+method+"' />");
+    }
+
+// function deletebox() {  
+//     a = document.getElementById("addtextarea");
+//     a.innerHTML -= "<div id='addtextarea'><textarea class='form-control directionbox' id='textarea-"+textarea_count+"' rows='3'></textarea></div>"
+//     textarea_count-=1;
+// }
+
 
 </script>
 
 
-<div class="page">
+{% if user.is_authenticated and user.username|length != 0 %}
+{% if edit %}
+{% is_recipe_owner author_user recipe.get_recipe_name user.username as is_recipe_ownered %}
+{% if not is_recipe_ownered %}
+<script>
+    document.location.href = '{% url 'cookbook:profile' %}';
+</script>
+{% endif %}
+{% endif %}
+<form action="{% url 'cookbook:addRecipe_request' %}" method="post">{% csrf_token %}
+    {% if edit %}
+    <input name="old_recipe" value="{{ recipe.get_recipe_name }}" style="visibility: hidden;">
+    {% endif %}
+    <div class="page_add">
+        <b id="header"> Add Recipe </b>
+        <div id="firstform">
+            <br>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Name: </label>
+                <div class="col-sm-10">
+                    {% if edit %}
+                    <input name="name_input" class="form-control info" id="name-input" value="{{ recipe.get_recipe_name }}" />
+                    {% else %}
+                    <input name="name_input" class="form-control info" id="name-input" />
+                    {% endif %}
+                </div>
+            </div>
 
-<b id="header"> Add Recipe </b>
-<div id="firstform">
-<br>
-    <form>
-        <div class="form-group row">
-            <label  class="col-sm-2 col-form-label">Name: </label>
-            <div class="col-sm-10">
-            <input  class="form-control info"  >
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Infomation: </label>
+                <div class="col-sm-10">
+                    {% if edit %}
+                    <input name="info_input" class="form-control info info-input" value="{{ recipe.get_recipe_info }}" />
+                    {% else %}
+                    <input name="info_input" class="form-control info info-input" />
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Chef: </label>
+                <div class="col-sm-10">
+
+                    {% get_last_alias_from_user author_alias user.username as current_user_alias %}
+                    {% if current_user_alias %}
+                    <p style="font-size:25px; margin-top:12px;">{{ current_user_alias.alias_name }}</p>
+                    <input name="chef_input" style="font-size: 1px; visibility: hidden;" value="{{ current_user_alias.alias_name }}">
+                    <input name="username_input" style="font-size: 1px; visibility: hidden;" value="{{ user.username }}">
+                    {% else %}
+                    <p style="font-size:25px; margin-top:12px;">{{ user.username }}</p>
+                    <input name="chef_input" style="font-size: 1px; visibility: hidden;" value="{{ user.username }}">
+                    <input name="username_input" style="font-size: 1px; visibility: hidden;" value="{{ user.username }}">
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-form-label">Time preb: </label>
+                <div class="col-sm-2" style="margin-right: 50px">
+                    {% if edit %}
+                    <input name="time_input" placeholder="Enter time in minutes.." class="form-control info info-input" value="{{ recipe.get_recipe_time }}" />
+                    {% else %}
+                    <input name="time_input" placeholder="Enter time in minutes.." class="form-control info info-input" />
+                    {% endif %}
+                </div>
+
+                <label class="col-form-label">Equipment (require): </label>
+                <div class="col-sm-2" style="margin-right: 50px">
+                    {% if edit %}
+                    <input name="equipment_input" class="form-control info info-input" value="{{ recipe.get_recipe_equipment }}" />
+                    {% else %}
+                    <input name="equipment_input" class="form-control info info-input" />
+                    {% endif %}
+                </div>
+
+                <label class="col-form-label">Fat (per serving): </label>
+                <div class="col-sm-2" style="margin-right: 50px">
+                    {% if edit %}
+                    <input name="fat_input" class="form-control info info-input" value="{{ recipe.get_recipe_fat }}" />
+                    {% else %}
+                    <input name="fat_input" class="form-control info info-input" />
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <b id="header"> Ingredients </b>
+        <div class="ingredients_part">
+            <div>
+                <button type="button" class="w3-button w3-circle cir-but" onclick="addform()" id="buttonaddingre">+</button>
+                <button type="button" class="w3-button w3-circle cir-but" onclick="removeform()" id="buttonaddingre">-</button>
+
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <h2 style="text-align: center;">Measurement</h2>
+                </div>
+                <div class="col">
+                    <h2 style="text-align: center;">Ingredients</h2>
+                </div>
+            </div>
+
+            <div id="addmeasureandingre">
+                <div class='row ing' id='ingredients-0' style='width: 1800px;'>
+                    {% if edit %}
+                    {% for ingretient in recipe.get_recipe_ingredient %}
+                        {% if forloop.counter0 == 0 %}
+                    <div class='col-6'>
+                        <input type='text' id='ingre-id-measurement-0' name="text_measurement" class='form-control formbox measurements'
+                            value="{{ ingretient.get_amount }}"></div>
+                    <div class='col-5'>
+                        <input type='text' id='ingre-id-ingredients-0' name="text_ingredient" class='form-control formbox ingredients'
+                            value="{{ ingretient.get_detail }}"></div>
+                        {% else %}
+                            <script>
+                            addformWithText("{{ ingretient.get_amount }}","{{ ingretient.get_detail }}");
+                            </script>
+                        {% endif %}
+                    {% endfor %}
+                    {% else %}
+                    <div class='col-6'>
+                        <input type='text' id='ingre-id-measurement-0' name="text_measurement" class='form-control formbox measurements'></div>
+                    <div class='col-5'>
+                        <input type='text' id='ingre-id-ingredients-0' name="text_ingredient" class='form-control formbox ingredients'></div>
+                    {% endif %}
+                    <!-- <div class="row" id="ingredients">
+                    <div class="col">
+                        <input type="text" class="form-control formbox measurements" id="ingre-id-measurement-0">
+                    </div>
+                    <div class="col" style="margin-left:12px;">
+                        <input type="text" class="form-control formbox ingredients" id="ingre-id-ingredients-0">
+                    </div>
+                </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <b id="header"> Directions </b>
+    <div id="directionspart">
+
+        <div style="margin-bottom: 40px;">
+            <button type="button" class="w3-button w3-circle cir-but" onclick="addbox()" id="buttonadddirection">+</button>
+            <button type="button" class="w3-button w3-circle cir-but" onclick="removebox()" id="buttonadddirection">-</button>
+            <br>
+        </div>
+    <div id="addtextarea">
+        {% if edit %}
+        {% for method in recipe.get_recipe_method_list %}
+            {% if forloop.counter0 == 0 %}
+                <input type="text" name="text_direction" class="form-control directionbox" rows="3" id="textarea-0" value="{{ method }}">
+            {% else %}
+                <script>
+                    addboxWithText("{{ method }}");
+                </script>
+            {% endif %}
+        {% endfor %}
+        {% else %}
+            <input type="text" name="text_direction" class="form-control directionbox" rows="3" id="textarea-0"/>
+        {% endif %}
+    </div>
+    </div>
+
+
+
+    <div id="imagepart">
+        <b id="header"> Image </b>
+        <div class="row addimagepart">
+            <div class="col-2 imagefont">
+                <p style="margin-bottom:16px;"> Recipe image 1: </p>
+                <p style="margin-bottom:16px;"> Recipe image 2: </p>
+                <p style="margin-bottom:17px;"> Recipe image 3: </p>
+                <p> Recipe image 4: </p>
+            </div>
+
+            <div class="col-3">
+                <div class="btn-group-vertical " style="margin-top: 30px; width:350px;">
+                    <input type="file" class="btn btn-outline-secondary  buttonimage" accept="image/*" name="image1" id="image1"
+                        value="Choose Image" />
+                    <input type="file" class="btn btn-outline-secondary  buttonimage" accept="image/*" name="image2" id="image2"
+                        value="Choose Image" />
+                    <input type="file" class="btn btn-outline-secondary  buttonimage" accept="image/*" name="image3" id="image3"
+                        value="Choose Image" />
+                    <input type="file" class="btn btn-outline-secondary  buttonimage" accept="image/*" name="image4" id="image4"
+                        value="Choose Image" />
+                </div>
+            </div>
+
+            <div class="col-3 ">
+                <p class="requireimage"> (Image 1 is Require.) </p>
+            </div>
+
+            <div class="col-4" style="align:right;">
+                <div id="cat">
+                    <div id="headercheck"><b>CATEGORIES</b></div>
+                    <hr>
+                </div>
+                <div class="row" align="left">
+                    <div class="col-md-6">
+                        <label class="containerfilter textfilter">Appetizers
+                            {% if edit and "appetizer" in recipe.get_category_tag_str %}
+                            <input type="checkbox" id="appetizer" name="check_category" value="1" checked>
+                            {% else %}
+                            <input type="checkbox" id="appetizer" name="check_category" value="1">
+                            {% endif %}
+                            <span class="checkmark bigger"></span>
+                        </label>
+                        <label class="containerfilter textfilter">Salad
+                            {% if edit and "salad" in recipe.get_category_tag_str %}
+                            <input type="checkbox" id="salad" name="check_category" value="2" checked>
+                            {% else %}
+                            <input type="checkbox" id="salad" name="check_category" value="2">
+                            {% endif %}
+                            <span class="checkmark bigger"></span>
+                        </label>
+                        <label class="containerfilter textfilter">Main dish
+                            {% if edit and "main" in recipe.get_category_tag_str %}
+                            <input type="checkbox" id="main-dish" name="check_category" value="3" checked>
+                            {% else %}
+                            <input type="checkbox" id="main-dish" name="check_category" value="3">
+                            {% endif %}
+                            <span class="checkmark bigger"></span>
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="containerfilter textfilter">Soup and Stew
+                            {% if edit and "soup" in recipe.get_category_tag_str %}
+                            <input type="checkbox" id="soup-and-stew" name="check_category" value="4" checked>
+                            {% else %}
+                            <input type="checkbox" id="soup-and-stew" name="check_category" value="4">
+                            {% endif %}
+                            <span class="checkmark bigger"></span>
+                        </label>
+                        <label class="containerfilter textfilter">Dessert
+                            {% if edit and "dessert" in recipe.get_category_tag_str %}
+                            <input type="checkbox" id="dessert" name="check_category" value="5" checked>
+                            {% else %}
+                            <input type="checkbox" id="dessert" name="check_category" value="5">
+                            {% endif %}
+                            <span class="checkmark bigger"></span>
+                        </label>
+                        <label class="containerfilter textfilter">Drink
+                            {% if edit and "dessert" in recipe.get_category_tag_str %}
+                            <input type="checkbox" id="drink" name="check_category" value="6" checked>
+                            {% else %}
+                            <input type="checkbox" id="drink" name="check_category" value="6">
+                            {% endif %}
+                            <span class="checkmark bigger"></span>
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="row centerpage" style="margin: 30px 80px 0 80px;">
+        <div class="col-4">
+            <div id="time">
+                <div id="headercheck"><b>TIME PREP</b></div>
+                <hr>
+            </div>
+            <div class="row" align="left">
+                <div class="col-md-6">
+
+                    <label class="containerfilter textfilter">15 minutes
+                        {% if edit and "15-min" in recipe.get_time_tag_str %}
+                        <input type="checkbox" id="t15-min" name="check_time" value="1" checked>
+                        {% else %}
+                        <input type="checkbox" id="t15-min" name="check_time" value="1">
+                        {% endif %}
+                        <span class="checkmark bigger"></span>
+                    </label>
+                    <label class="containerfilter textfilter">1 Hour
+                        {% if edit and "1-hr" in recipe.get_time_tag_str %}
+                        <input type="checkbox" id="t1-hr" name="check_time" value="3" checked>
+                        {% else %}
+                        <input type="checkbox" id="t1-hr" name="check_time" value="3">
+                        {% endif %}
+                        <span class="checkmark bigger"></span>
+                    </label>
+                    <label class="containerfilter textfilter">2 Hours
+                        {% if edit and "2-hr" in recipe.get_time_tag_str %}
+                        <input type="checkbox" id="t2-hr" name="check_time" value="5" checked>
+                        {% else %}
+                        <input type="checkbox" id="t2-hr" name="check_time" value="5">
+                        {% endif %}
+                        <span class="checkmark bigger"></span>
+                    </label>
+                </div>
+                <div class="col-md-6">
+                    <label class="containerfilter textfilter">30 minutes
+                        {% if edit and "30-min" in recipe.get_time_tag_str %}
+                        <input type="checkbox" id="t30-min" name="check_time" value="2" checked>
+                        {% else %}
+                        <input type="checkbox" id="t30-min" name="check_time" value="2">
+                        {% endif %}
+                        <span class="checkmark bigger"></span>
+                    </label>
+                    <label class="containerfilter textfilter">1 Half Hours
+                        {% if edit and "1-hr-30-min" in recipe.get_time_tag_str %}
+                        <input type="checkbox" id="t1-hr-30-min" name="check_time" value="4" checked>
+                        {% else %}
+                        <input type="checkbox" id="t1-hr-30-min" name="check_time" value="4">
+                        {% endif %}
+                        <span class="checkmark bigger"></span>
+                    </label>
+                    <label class="containerfilter textfilter">Over 2 hrs
+                        {% if edit and "more-than" in recipe.get_time_tag_str %}
+                        <input type="checkbox" id="tmore-than-2-hr" name="check_time" value="6" checked>
+                        {% else %}
+                        <input type="checkbox" id="tmore-than-2-hr" name="check_time" value="6">
+                        {% endif %}
+                        <span class="checkmark bigger"></span>
+                    </label>
+
+                </div>
             </div>
         </div>
 
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Info: </label>
-            <div class="col-sm-10">
-            <input class="form-control info" >
+        <div class="col-4" style="flaot:center;">
+            <div id="Equip">
+                <div id="headercheck"><b>EQUIPMENT</b></div>
+                <hr>
+            </div>
+            <div class="row" align="left">
+                <div class="col-md-6">
+                    <label class="containerfilter textfilter">Oven
+                        {% if edit and "oven" in recipe.get_equipment_tag_str %}
+                        <input type="checkbox" id="oven" name="check_equipment" value="1" checked>
+                        {% else %}
+                        <input type="checkbox" id="oven" name="check_equipment" value="1">
+                        {% endif %}
+                        <span class="checkmark bigger"></span>
+                    </label>
+                    <label class="containerfilter textfilter">Microwave
+                        {% if edit and "microwave" in recipe.get_equipment_tag_str %}
+                        <input type="checkbox" id="microwave" name="check_equipment" value="2" checked>
+                        {% else %}
+                        <input type="checkbox" id="microwave" name="check_equipment" value="2">
+                        {% endif %}
+                        <span class="checkmark bigger"></span>
+                    </label>
+                </div>
+                <div class="col-md-6">
+                    <label class="containerfilter textfilter">Mixer
+                        {% if edit and "mixer" in recipe.get_equipment_tag_str %}
+                        <input type="checkbox" id="mixer" name="check_equipment" value="3" checked>
+                        {% else %}
+                        <input type="checkbox" id="mixer" name="check_equipment" value="3">
+                        {% endif %}
+                        <span class="checkmark bigger"></span>
+                    </label>
+                    <label class="containerfilter textfilter">Blender
+                        {% if edit and "blender" in recipe.get_equipment_tag_str %}
+                        <input type="checkbox" id="blender" name="check_equipment" value="4" checked>
+                        {% else %}
+                        <input type="checkbox" id="blender" name="check_equipment" value="4">
+                        {% endif %}
+                        <span class="checkmark bigger"></span>
+                    </label>
+                </div>
             </div>
         </div>
 
-        <div  class="form-group row">
-            <label class="col-sm-2 col-form-label">Chef: </label>
-            <div class="col-sm-10">
-            <p style="font-size:25px; margin-top:12px;">EIEIEIEI</p>
+
+        <div class="col-4" style="flaot:center;">
+            <div id="aller">
+                <div id="headercheck"><b>ALLERGIES</b></div>
+                <hr>
             </div>
+            <div class="row" align="left">
+                <div class="col-md-6">
+
+                    <label class="containerfilter textfilter">Nuts
+                        {% if edit and "nut" in recipe.get_allergies_tag_str %}
+                        <input type="checkbox" id="nuts" name="check_allergies" value="1" checked>
+                        {% else %}
+                        <input type="checkbox" id="nuts" name="check_allergies" value="1">
+                        {% endif %}
+                        <span class="checkmark bigger"></span>
+                    </label>
+                    <label class="containerfilter textfilter">Milk
+                        {% if edit and "milk" in recipe.get_allergies_tag_str %}
+                        <input type="checkbox" id="milk" name="check_allergies" value="3" checked>
+                        {% else %}
+                        <input type="checkbox" id="milk" name="check_allergies" value="3">
+                        {% endif %}
+                        <span class="checkmark bigger"></span>
+                    </label>
+                    <label class="containerfilter textfilter">Shrimp
+                        {% if edit and "shrimp" in recipe.get_allergies_tag_str %}
+                        <input type="checkbox" id="shrimp" name="check_allergies" value="5" checked>
+                        {% else %}
+                        <input type="checkbox" id="shrimp" name="check_allergies" value="5">
+                        {% endif %}
+                        <span class="checkmark bigger"></span>
+                    </label>
+                </div>
+                <div class="col-md-6">
+                    <label class="containerfilter textfilter">Shellfish
+                        {% if edit and "shellfish" in recipe.get_allergies_tag_str %}
+                        <input type="checkbox" id="shellfish" name="check_allergies" value="2" checked>
+                        {% else %}
+                        <input type="checkbox" id="shellfish" name="check_allergies" value="2">
+                        {% endif %}
+                        <span class="checkmark bigger"></span>
+                    </label>
+                    <label class="containerfilter textfilter">Soy
+                        {% if edit and "soy" in recipe.get_allergies_tag_str %}
+                        <input type="checkbox" name="check_allergies" value="4" checked>
+                        {% else %}
+                        <input type="checkbox" name="check_allergies" value="4">
+                        {% endif %}
+                        <span class="checkmark bigger"></span>
+                    </label>
+                    <label class="containerfilter textfilter">Egg
+                        {% if edit and "egg" in recipe.get_allergies_tag_str %}
+                        <input type="checkbox" id="egg" name="check_allergies" value="6" checked>
+                        {% else %}
+                        <input type="checkbox" id="egg" name="check_allergies" value="6">
+                        {% endif %}
+                        <span class="checkmark bigger"></span>
+                    </label>
+                </div>
+            </div>
+
         </div>
+    </div>
+    <script>
+        function deleteConfirm() {
+            let r = confirm("Confirm to delete this recipe!");
+            if (r) {
+                let delete_but = document.getElementById("delete_recipe_submit");
+                delete_but.click();
+            }
+        }
+        function saveConfirm() {
+
+            let r = false;
+            let  allInput = document.getElementsByClassName('invalid');
+            if (allInput.length === 0) {
+                r = confirm("Confirm to save this recipe!");
+            }else{
+              window.scrollTo(0, 20);
+            }
+            if (r){
+                let save_but = document.getElementById("save_recipe_submit");
+                save_but.click();
+            }
+        }
+    </script>
+
+    <div class="row centerpage" style="margin: 30px 80px 30px 80px;">
+        <div class="col-4">
+            <button type="button" onclick="location.href='{% url 'cookbook:profile' %}'" class="btn btn-outline-dark savebutton">Cancel</button>
+            {% if edit %}
+            <button type="button" onclick="deleteConfirm()" class="btn btn-outline-danger savebutton">Delete</button>
+            {% endif %}
+        </div>
+        <div class="col-8" style="text-align:right;">
+            <button type="submit" class="btn btn-success savebutton" style="visibility: hidden;" id="save_recipe_submit">Let Save</button>
+            <button type="button" class="btn btn-success savebutton">Save</button>
+        </div>
+    </div>
+</form>
+{% if edit %}
+<div style="height: 0; visibility: hidden;">
+    <form action="{% url 'cookbook:delete_recipe' recipe.get_recipe_name %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="deleted_recipe" value="{{ recipe.get_recipe_name }}" style="color: white; outline: none; border: 0 white;">
+        <input type="text" name="user_name" value="{{ user.username }}" style="color: white; outline: none; border: 0 white;">
+        <input type="submit" id="delete_recipe_submit" value="DELETE" style="height: 0; outline: none; border: 0 white; "
+            class="">
     </form>
 </div>
-
-
-
-<b id="header"> Ingredients </b>
-<div class="ingredients_part">
-<div>
-    <button class="w3-button w3-circle " onclick="myFunction()" id="buttonaddingre">+</button>
+{% endif %}
+{% else %}
+<div class="col-md-3" id="user-profile">
+    You haven't login yet
+    <button class="btn azm-social azm-btn azm-border-bottom btn-warning" id="continue-login-button" onclick="location.href='{% url 'cookbook:index' %}'"
+        style="color: white; font-size: 40px">Back to main page </button>
 </div>
-
-  <div class="row">
-    <div class="col" >
-      <h2 style="text-align: center;">Measurement</h2>
-    </div>
-    <div class="col">
-      <h2 style="text-align: center;">Ingredients</h2>
-    </div>
-  </div>
-
-<form>
-  <div class="row" id="ingredients" >
-    <div class="col">
-      <input type="text" class="form-control formbox" id="ingre-id-measurement-0">
-    </div>
-    <div class="col" style="margin-left:12px;">
-      <input type="text" class="form-control formbox" id="ingre-id-ingredients-0">
-    </div>
-  </div>
-</form>
-</div>
-
-
-
-<b id="header"> Directions </b>
-<div id="directionspart">
-
-<div style="margin-bottom: 70px;">
-    <button class="w3-button w3-circle " onclick="myFunction2()" id="buttonadddirection">+</button>
-    <br>
-</div>
-<div id="addtextarea">
-<textarea class="form-control directionbox"  rows="3" id="textarea-0"></textarea>
-</div>
-
-</div>
-
-
-
-<div id="imagepart">
-<b id="header"> Image </b>
-<div class="row addimagepart">
-  <div class="col-2 imagefont">
-  <p style="margin-bottom:16px;"> Recipe image 1: </p>
-  <p style="margin-bottom:16px;"> Recipe image 2: </p>
-  <p style="margin-bottom:17px;"> Recipe image 3: </p>
-  <p> Recipe image 4: </p>
-  </div>
-
-  <div class="col-3">
-    <div class="btn-group-vertical " style="margin-top: 30px; width:350px;">
-      <button type="button" class="btn btn-outline-secondary  buttonimage" id="image1">Choose Image</button>
-      <button type="button" class="btn btn-outline-secondary buttonimage" id="image2">Choose Image</button>
-      <button type="button" class="btn btn-outline-secondary  buttonimage" id="image3">Choose Image</button>
-      <button type="button" class="btn btn-outline-secondary  buttonimage" id="image4">Choose Image</button>
-    </div>
-  </div>
-
-  <div class="col-6 ">
-    <p class="requireimage"> (Image 1 is Require.) </p>
-  </div>
-
-
-
-</div>
-
-
-</div>
-
-
-<div class="row centerpage" id="checkfilterpart">
-  <div class="col-4">
-  <div id="time">
-                <div id="headercheck"><b>TIME PREP</b></div>
-                    <hr>
-                </div>
-                    <div class="row" align="left">
-                        <div class="col-md-6">
-
-                            <label class="containerfilter textfilter">15 minutes
-                                <input type="checkbox" >
-                                <span class="checkmark bigger"></span>
-                            </label>
-                            <label class="containerfilter textfilter">1 Hour
-                                <input type="checkbox" >
-                                <span class="checkmark bigger"></span>
-                            </label>
-                                <label class="containerfilter textfilter">2 Hours
-                                <input type="checkbox" >
-                                <span class="checkmark bigger"></span>
-                            </label>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="containerfilter textfilter">30 minutes
-                                <input type="checkbox" >
-                                <span class="checkmark bigger"></span>
-                            </label>
-                                <label class="containerfilter textfilter">1 Half Hours
-                                <input type="checkbox" >
-                                <span class="checkmark bigger"></span>
-                            </label>
-                               <label class="containerfilter textfilter">Over 2 hrs
-                                <input type="checkbox" >
-                                <span class="checkmark bigger"></span>
-                            </label>
-                            
-                        </div>
-                    </div>
-  </div>
-
-  <div class="col-4" style="flaot:center;">
-  <div id="Equip">
-
-                    <div id="headercheck"><b>EQUIPMENT</b></div>
-                    <hr>
-                </div>
-                    <div class="row" align="left" >
-                        <div class="col-md-6">
-                            <label class="containerfilter textfilter" >Oven
-                                <input type="checkbox" >
-                                <span class="checkmark bigger"></span>
-                            </label>
-                            <label class="containerfilter textfilter">Microwave
-                                <input type="checkbox" >
-                                <span class="checkmark bigger"></span>
-                            </label>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="containerfilter textfilter">Mixer
-                                <input type="checkbox" >
-                                <span class="checkmark bigger"></span>
-                            </label>
-                                <label class="containerfilter textfilter">Blender
-                                <input type="checkbox" >
-                                <span class="checkmark bigger"></span>
-                            </label>
-                        </div>
-                    </div>
-  </div>
-
-
-  <div class="col-4" style="flaot:center;">
-     <div id="aller">
-                    <div id="headercheck"><b>ALLERGIES</b></div>
-                    <hr>
-                </div>
-                    <div class="row" align="left">
-                        <div class="col-md-6">
-
-                            <label class="containerfilter textfilter">Nuts
-                                <input type="checkbox" >
-                                <span class="checkmark bigger"></span>
-                            </label>
-                            <label class="containerfilter textfilter">Milk
-                                <input type="checkbox" >
-                                <span class="checkmark bigger"></span>
-                            </label>
-                            <label class="containerfilter textfilter">Shrimp
-                                <input type="checkbox" >
-                                <span class="checkmark bigger"></span>
-                            </label>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="containerfilter textfilter">Shellfish
-                                <input type="checkbox" >
-                                <span class="checkmark bigger"></span>
-                            </label>
-                                <label class="containerfilter textfilter">Soy
-                                <input type="checkbox" >
-                                <span class="checkmark bigger"></span>
-                            </label>
-                            <label class="containerfilter textfilter">Egg
-                                <input type="checkbox" >
-                                <span class="checkmark bigger"></span>
-                            </label>
-                        </div>
-                    </div>
-
-  </div>
-</div>
-
-<div class="row centerpage" style="margin: 30px 80px 0px 80px;">
-    <div class="col-4">
-    <button type="button" class="btn btn-outline-dark savebutton">Cancel</button>
-    <button type="button" class="btn btn-outline-danger savebutton">Delete</button>
-    </div>
-    <div class="col-8" style="text-align:right;">
-    <button type="button" class="btn btn-success savebutton">Save and add other</button>
-    <button type="button" class="btn btn-outline-success savebutton">Save</button>
-    </div>
-
-</div>
-
-</div>
-
+{% endif %}
 
 {% endblock %}

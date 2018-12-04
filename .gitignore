@@ -17,3 +17,7 @@ db.sqlite3
 
 ### static file ###
 statics/
+
+### coverage ###
+.coverage
+htmlcov/

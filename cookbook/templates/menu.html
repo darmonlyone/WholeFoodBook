@@ -11,7 +11,11 @@
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="8000">
                     <div class="carousel-inner show-img">
                         <div class="carousel-item active">
+                            {% if recipe.recipe_image_1 %}
                             <img class="d-block w-100" src="{{ recipe.recipe_image_1.url }}" alt="First slide">
+                            {% else %}
+                            <img class="d-block w-100" src="{% static 'image/noimage.jpg' %}" alt="First slide">
+                            {% endif %}
                         </div>
                         {% if recipe.get_all_recipe_image %}
                             {% for recipe_image in recipe.get_all_recipe_image %}
@@ -100,7 +104,6 @@
         <div class="row" id="menu-button">
             <div class="btn-group">
                 <button class="menu-but clicked" id="menu-but-recipe">Recipe</button>
-                <button class="menu-but" id="menu-but-review">Review</button>
             </div>
         </div>
 
@@ -151,13 +154,13 @@
         </div>
         <script>
         function editConfirm() {
-            let r = confirm("Press a button!");
+            let r = confirm("Confirm to edit!");
             if (r) {
                 document.location.href = '{% url 'cookbook:edit' recipe.get_recipe_name %}';
             }
         }
         function deleteConfirm() {
-            let r = confirm("Press a button!");
+            let r = confirm("Confirm to delete this recipe!");
             if (r) {
                 let delete_but = document.getElementById("delete_recipe_submit");
                 delete_but.click();

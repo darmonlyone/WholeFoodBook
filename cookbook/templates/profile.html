@@ -1,11 +1,11 @@
 {% extends 'base_template.html' %}
 {% load diplay_tag %}
 {% block content %}
-{% load static profile_tag %}}
+{% load static profile_tag %}
     <title>Profile</title>
 <link rel="stylesheet" href="{% static 'style/profileStyle.css' %}">
 <script src="{% static 'script/profileController.js' %}"></script>
-{% if user.is_authenticated %}
+{% if user.is_authenticated and user.username|length != 0 %}
     <div class="container user-content">
         <div class="row profile">
             <div class="col-md-3" id="user-profile">
@@ -92,7 +92,7 @@
                 <span class="dropdown-item-text font-weight-bold"  style="font-size: 50px">You haven't posted any recipe yet.</span>
             {% endif %}
     </div>
-    <button type="button" href="#" class="btn  btn-outline-danger" style="margin-left: 50px; font-size: 40px; margin-bottom: 50px;">Add New Recipe</button>
+    <button type="button" onclick="location.href='{% url 'cookbook:addRecipe' %}'"class="btn  btn-outline-danger" style="margin-left: 50px; font-size: 40px; margin-bottom: 50px;">Add New Recipe</button>
 
     {% else %}
      <div class="col-md-3" id="user-profile">

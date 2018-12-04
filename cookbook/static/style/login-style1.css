@@ -37,7 +37,6 @@
 }
 #login-login-container {
     width: 661px;
-    height: 101%;
     text-align: center;
     background-color: white;
 }
@@ -129,12 +128,6 @@
     height: 20;
     background-color: #5C7DEA;
     
-}
-
-#facebook2-login-button{
-    margin-bottom: 30px;
-    width: 411px;
-    background-color: #5C7DEA;
 }
 
 #google-login-button{

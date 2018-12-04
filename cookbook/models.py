@@ -7,7 +7,7 @@ def replace_space(temp):
 
 class UserAlias(models.Model):
     user_username = models.CharField(max_length=100)
-    alias_name = models.CharField(max_length=50)
+    alias_name = models.CharField(max_length=1000)
 
     def __str__(self):
         return self.user_username
@@ -121,6 +121,13 @@ class Recipe(models.Model):
 
     def get_recipe_method_list(self):
         return self.recipe_method.split("||")
+
+    def get_category_tag_str(self):
+        temp = ''
+        for i in self.category_tags.all():
+            temp += replace_space(i.food_category)
+            temp += " "
+        return temp
 
     def get_time_tag_str(self):
         temp = ''
