@@ -217,7 +217,7 @@
             <ul id="{{ recipe_poin }}">
                     {% for recipe in recipe_show %}
                         <li class="{{ recipe.get_all_tag_str }}" style="display: -webkit-inline-box;">
-                    <div class="card food-card">
+                    <div class="card food-card {{ recipe.get_all_tag_str }}">
                         <a href="{% url 'cookbook:recipe' recipe.get_recipe_name %}" style="color:black; text-decoration:none;">
                             {% if recipe.get_recipe_image_1 %}
                             <img class="card-img-top" src="{{ recipe.get_recipe_image_1.url }}" alt="Card image cap">
