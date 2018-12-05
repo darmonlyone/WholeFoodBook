@@ -6,8 +6,9 @@ services:
 env:
     global:
         - CODECOV_TOKEN="b3c5d783-c66e-41c9-bbb1-8242f56c1f01"
-before_install:
-    - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+addons:
+    postgresql: "9.6"
+    chrome: stable
 install:
     - wget -N http://chromedriver.storage.googleapis.com/2.30/chromedriver_linux64.zip -P ~/
     - unzip ~/chromedriver_linux64.zip -d ~/
@@ -16,12 +17,12 @@ install:
     - sudo chmod +x /usr/local/share/chromedriver
     - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
     - pip install -r requirements.txt
-addons:
-    postgresql: "9.6"
-    chrome: stable
+
 before_script:
     - psql -c 'create database mydb;' -U postgres
 script:
+    - whereis google-chrome-stable
+    - whereis chromedriver
     - python manage.py collectstatic --noinput --clear
     - python manage.py test
     - coverage run manage.py test
