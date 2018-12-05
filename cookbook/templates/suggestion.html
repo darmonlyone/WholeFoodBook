@@ -1,3 +1,4 @@
+{% load static %}
 {% block suggest %}
     <div class="header-big">
     <h3><b>SUGGESTION</b></h3>
@@ -9,7 +10,11 @@
                 {% if recipe_suggest %}
                 <div class="carousel__box">
                 <a href='{% url 'cookbook:recipe' recipe_suggest.get_recipe_name %}'>
+                    {% if recipe_suggest.get_recipe_image_1 or recipe_suggest.get_recipe_image_1.url != '' %}
                     <img src="{{ recipe_suggest.get_recipe_image_1.url }}">
+                        {% else %}
+                        <img src="{% static 'image/noimage.jpg' %}">
+                     {% endif %}
                 </a>
                 </div>
                 {% else %}

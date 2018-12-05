@@ -68,7 +68,20 @@
         checkInvalidInt(info[1]);
         invalidType(info[2]);
         checkInvalidInt(info[3]);
+        var save = document.getElementById("save-but");
+        save.disabled = true;
 
+        var image_st = $('#image1');
+
+        $(".page").on("mouseover", function (){
+        if (image_st.val().length <= 0) {
+            save.disabled = true;
+        }
+        else {
+            save.disabled = false;
+        }
+        });
+         
 
 
         $('.savebutton').on('click', function () {
@@ -172,6 +185,7 @@
 //     a.innerHTML -= "<div id='addtextarea'><textarea class='form-control directionbox' id='textarea-"+textarea_count+"' rows='3'></textarea></div>"
 //     textarea_count-=1;
 // }
+
 
 
 </script>
@@ -647,7 +661,7 @@
         </div>
         <div class="col-8" style="text-align:right;">
             <button type="submit" class="btn btn-success savebutton" style="visibility: hidden;" id="save_recipe_submit">Let Save</button>
-            <button type="button" class="btn btn-success savebutton">Save</button>
+            <button type="button" id="save-but" class="btn btn-success savebutton">Save</button>
         </div>
     </div>
 </form>
