@@ -57,6 +57,7 @@ class LoginView(generic.ListView):
 class IndexView(generic.ListView):
     template_name = 'display.html'
     model = Recipe
+    queryset = None
 
     def dispatch(self, request, *args, **kwargs):
         return super(IndexView, self).dispatch(request, *args, **kwargs)
@@ -82,6 +83,7 @@ class IndexView(generic.ListView):
 class AddRecipeView(generic.ListView):
     template_name = 'add_recipe.html'
     model = AuthorUser
+    queryset = None
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -160,6 +162,7 @@ class DeleteRecipeView(generic.ListView):
 class EditRecipeView(generic.ListView):
     template_name = 'add_recipe.html'
     model = Recipe
+    queryset = None
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
