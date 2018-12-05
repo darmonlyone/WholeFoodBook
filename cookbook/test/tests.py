@@ -1,7 +1,8 @@
 from django.test import TestCase
 from django.urls import reverse
 
-from cookbook.models import CookTime, Equipment, Allergies, Category, Recipe
+from cookbook.models import CookTime, Equipment, Allergies, Category, Recipe, AuthorUser, UserAlias
+from cookbook.test.mock.mock_data import ReadData
 
 
 class ViewTest(TestCase):
@@ -45,34 +46,55 @@ class ModelTest(TestCase):
         """
         Set up database for testing.
         """
-        CookTime.objects.create(cooking_time="10 Mins")
-        CookTime.objects.create(cooking_time="30 Mins")
-        CookTime.objects.create(cooking_time="1 Hour")
-        Equipment.objects.create(equipment_required="mixer")
-        Equipment.objects.create(equipment_required="blender")
-        Allergies.objects.create(allergies_ingredient="egg")
-        Allergies.objects.create(allergies_ingredient="milk")
-        Allergies.objects.create(allergies_ingredient="soy")
-        Category.objects.create(food_category="Main Course")
-        Recipe.objects.create(recipe_chef="Darm", recipe_name="Fire egg",
-                              recipe_info="This is super egg of the years",
-                              recipe_time=60, recipe_equipment="oven", recipe_fat=200,
-                              recipe_ingredient="10g:Sugar||100%:love",
-                              recipe_method="Put you egg in mixer||Take it off and fire with air",
-                              recipe_image_1='')
-        Recipe.objects.create(recipe_chef="Wanny", recipe_name="Super Chicken",
-                              recipe_info="This checken come form real word that you will never know",
-                              recipe_time=100, recipe_equipment="Fire", recipe_fat=1000,
-                              recipe_ingredient="10000kg:Nothing",
-                              recipe_method="Do nothing||Finished",
-                              recipe_image_1='')
-        self.recipe = Recipe.objects.first()
+        # CookTime.objects.create(cooking_time="10 Mins")
+        # CookTime.objects.create(cooking_time="30 Mins")
+        # CookTime.objects.create(cooking_time="1 Hour")
+        # Equipment.objects.create(equipment_required="mixer")
+        # Equipment.objects.create(equipment_required="blender")
+        # Allergies.objects.create(allergies_ingredient="egg")
+        # Allergies.objects.create(allergies_ingredient="milk")
+        # Allergies.objects.create(allergies_ingredient="soy")
+        # Category.objects.create(food_category="Main Course")
+        # Recipe.objects.create(recipe_chef="Darm", recipe_name="Fire egg",
+        #                       recipe_info="This is super egg of the years",
+        #                       recipe_time=60, recipe_equipment="oven", recipe_fat=200,
+        #                       recipe_ingredient="10g:Sugar||100%:love",
+        #                       recipe_method="Put you egg in mixer||Take it off and fire with air",
+        #                       recipe_image_1='')
+        # Recipe.objects.create(recipe_chef="Wanny", recipe_name="Super Chicken",
+        #                       recipe_info="This checken come form real word that you will never know",
+        #                       recipe_time=100, recipe_equipment="Fire", recipe_fat=1000,
+        #                       recipe_ingredient="10000kg:Nothing",
+        #                       recipe_method="Do nothing||Finished",
+        #                       recipe_image_1='')
+        # self.recipe = Recipe.objects.first()
+        #
+        # # set recipe tags
+        # self.recipe.time_tags.set(CookTime.objects.all())
+        # self.recipe.allergies_tags.set(Allergies.objects.all())
+        # self.recipe.category_tags.set(Category.objects.all())
+        # self.recipe.equipment_tags.set(Equipment.objects.all())
+        self.set_data()
 
-        # set recipe tags
-        self.recipe.time_tags.set(CookTime.objects.all())
-        self.recipe.allergies_tags.set(Allergies.objects.all())
-        self.recipe.category_tags.set(Category.objects.all())
-        self.recipe.equipment_tags.set(Equipment.objects.all())
+    @staticmethod
+    def set_data():
+        read = ReadData()
+        for time in read.time_tags:
+            CookTime.objects.create(cooking_time=time)
+        for equipment in read.equipment_tags:
+            Equipment.objects.create(equipment_required=equipment)
+        for allergies in read.allergies_tags:
+            Allergies.objects.create(allergies_ingredient=allergies)
+        for category in read.category_tags:
+            Category.objects.create(food_category=category)
+        for author in read.author_user:
+            AuthorUser.objects.create(user_username=author[0], recipe_name=author[1])
+        for alias in read.user_alias:
+            UserAlias.objects.create(user_username=alias[0], alias_name=alias[1])
+        for recipe in read.recipe_list:
+            Recipe.objects.create(recipe_chef=recipe[0], recipe_name=recipe[1], recipe_info=recipe[2],
+                                  recipe_time=recipe[3], recipe_equipment=recipe[4], recipe_fat=recipe[5],
+                                  recipe_ingredient=recipe[6], recipe_method=recipe[7])
 
     def test_amount_cooking_time_tags(self):
         """

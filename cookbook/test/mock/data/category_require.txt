@@ -1,0 +1,6 @@
+appetizer
+salad
+main dish
+soup and stew
+dessert
+drink
