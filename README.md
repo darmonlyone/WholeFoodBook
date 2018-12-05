@@ -12,10 +12,12 @@ and [develop plan](https://app.asana.com/0/0/869948396459242).
 Adobe XD is used for designing part. You can look out our [application design here](https://xd.adobe.com/spec/e6dedd13-b89d-4e4f-7e9e-1559692182b9-90ef/).
 
 ## Develop
-Website is developed by Django web framework for create website in html and python3 platform. We use Heroku for deploying our application and Travis Ci for building testing.
+Website is developed by Django web framework for create website in html and python3 platform. We use Heroku for deploying our application and Travis Ci for building testing. 
+We also user codecov to checkout code coverage of this application.
 
 - [Travis Ci](https://travis-ci.com/darmonlyone/WholeFoodBook)
 - [Issue tracker](https://github.com/darmonlyone/WholeFoodBook/issues)
+- [codecov](https://codecov.io/gh/darmonlyone/WholeFoodBook/)
 
 ## Installation
 This document gives the instructions to install this application to your computer.
