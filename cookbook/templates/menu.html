@@ -11,7 +11,7 @@
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="8000">
                     <div class="carousel-inner show-img">
                         <div class="carousel-item active">
-                            {% if recipe.recipe_image_1 %}
+                            {% if recipe.recipe_image_1 or recipe.recipe_image_1 != '' or recipe.recipe_image_1.url != '' %}
                             <img class="d-block w-100" src="{{ recipe.recipe_image_1.url }}" alt="First slide">
                             {% else %}
                             <img class="d-block w-100" src="{% static 'image/noimage.jpg' %}" alt="First slide">
