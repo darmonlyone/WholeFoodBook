@@ -1,8 +1,10 @@
 from django.test import TestCase
 
-
 from cookbook.models import CookTime
 from cookbook.test.mock.mock_data import ReadData
+
+from cookbook.models import *
+from cookbook.test.mock import mock_data
 
 
 class CooktimeTest(TestCase):
@@ -11,7 +13,7 @@ class CooktimeTest(TestCase):
         """
         Set up database for testing.
         """
-        self.set_data()
+        mock_data.set_data()
 
     @staticmethod
     def set_data():
@@ -32,48 +34,45 @@ class CooktimeTest(TestCase):
             Recipe.objects.create(recipe_chef=recipe[0], recipe_name=recipe[1], recipe_info=recipe[2],
                                   recipe_time=recipe[3], recipe_equipment=recipe[4], recipe_fat=recipe[5],
                                   recipe_ingredient=recipe[6], recipe_method=recipe[7])
-    
+
     def test_cooktime_amount(self):
         """
         Test amount of Cooktime tags
         """
-        self.assertEqual(6,CookTime.objects.count())
-    
+        self.assertEqual(6, CookTime.objects.count())
+
     def test_cooktime_30min(self):
         """
         Test filter 30-min tag 
         """
-        self.assertEqual("30 min",CookTime.objects.filter(cooking_time="30 min"))
+        self.assertEqual("30 min", CookTime.objects.filter(cooking_time="30 min"))
 
     def test_cooktime_morethan2hr(self):
         """
         Test filter more than 2 hr tag
         """
-        self.assertEqual("30 min",CookTime.objects.filter(cooking_time="2 hr"))
-    
+        self.assertEqual("30 min", CookTime.objects.filter(cooking_time="2 hr"))
+
     def test_cooktime_2hr(self):
         """
         Test filter 2 hr tag
         """
-        self.assertEqual("2 hr",CookTime.objects.filter(cooking_time="2 hr"))
+        self.assertEqual("2 hr", CookTime.objects.filter(cooking_time="2 hr"))
 
     def test_cooktime_1hr30min(self):
         """
         Test filter 1hr30min tag
         """
-        self.assertEqual("1 hr 30 min",CookTime.objects.filter(cooking_time="1 hr 30 min"))
-    
+        self.assertEqual("1 hr 30 min", CookTime.objects.filter(cooking_time="1 hr 30 min"))
+
     def test_cooktime_1hr(self):
         """
         Test filter 1hr tag
         """
-        self.assertEqual("1 hr",CookTime.objects.filter(cooking_time="1 hr"))
-    
+        self.assertEqual("1 hr", CookTime.objects.filter(cooking_time="1 hr"))
+
     def test_cooktime_15min(self):
         """
         Test filter 15 min tag
         """
-        self.assertEqual("15 min",CookTime.objects.filter(cooking_time="15 min"))
-
-    
-
+        self.assertEqual("15 min", CookTime.objects.filter(cooking_time="15 min"))
