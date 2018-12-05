@@ -5,6 +5,8 @@ services:
     - postgresql
 env:
     - DJANGO=2
+    global:
+    - CODECOV_TOKEN="b3c5d783-c66e-41c9-bbb1-8242f56c1f01"
 install:
     - pip install -r requirements.txt
 addons:
@@ -14,3 +16,6 @@ before_script:
 script:
     - python manage.py collectstatic --noinput --clear
     - python manage.py test
+    - coverage run manage.py test
+after_success:
+    - codecov
