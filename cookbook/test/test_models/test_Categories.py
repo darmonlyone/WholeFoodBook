@@ -23,34 +23,34 @@ class CategoriesTest(TestCase):
         """
         Test categories drink filter
         """
-        self.assertEqual("drink", Category.objects.filter(food_category="drink"))
+        self.assertEqual("drink", Category.objects.get(food_category="drink").food_category)
 
     def test_categories_dessert(self):
         """
         Test categories dessert filter
         """
-        self.assertEqual("dessert", Category.objects.filter(food_category="dessert"))
+        self.assertEqual("dessert", Category.objects.get(food_category="dessert").food_category)
 
     def test_categories_soup(self):
         """
         Test categories soup and stew filter
         """
-        self.assertEqual("soup and stew", Category.objects.filter(food_category="soup and stew"))
+        self.assertEqual("soup and stew", Category.objects.get(food_category="soup and stew").food_category)
 
     def test_categories_main(self):
         """
         Test categories main dish filter
         """
-        self.assertEqual("main dish", Category.objects.filter(food_category="main dish"))
+        self.assertEqual("main dish", Category.objects.get(food_category="main dish").food_category)
 
     def test_categories_salad(self):
         """
         Test categories salad filter
         """
-        self.assertEqual("salad", Category.objects.filter(food_category="salad"))
+        self.assertEqual("salad", Category.objects.get(food_category="salad").food_category)
 
     def test_categories_appetizer(self):
         """
         Test categories appetizer filter
         """
-        self.assertEqual("appetizer", Category.objects.fliter(food_category="appetizer"))
+        self.assertEqual("appetizer", Category.objects.flgetiter(food_category="appetizer").food_category)

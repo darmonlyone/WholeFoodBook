@@ -23,22 +23,22 @@ class EquipmentTest(TestCase):
         """
         Test equipment blender filter
         """
-        self.assertEqual("blender", Equipment.objects.filter(equipment_required="blender"))
+        self.assertEqual("blender", Equipment.objects.get(equipment_required="blender").equipment_required)
 
     def test_equipment_mixer(self):
         """
         Test equipment mixer filter
         """
-        self.assertEqual("mixer", Equipment.objects.filter(equipment_required="mixer"))
+        self.assertEqual("mixer", Equipment.objects.get(equipment_required="mixer").equipment_required)
 
     def test_equipment_microwave(self):
         """
         Test equipment microwave filter
         """
-        self.assertEqual("microwave", Equipment.objects.filter(equipment_required="microwave"))
+        self.assertEqual("microwave", Equipment.objects.get(equipment_required="microwave").equipment_required)
 
     def test_equipment_oven(self):
         """
         Test equipment oven filter
         """
-        self.assertEqual("oven", Equipment.objects.filter(equipment_required="oven"))
+        self.assertEqual("oven", Equipment.objects.get(equipment_required="oven").equipment_required)

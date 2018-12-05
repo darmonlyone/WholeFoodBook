@@ -21,34 +21,34 @@ class AllergiesTest(TestCase):
         """
         Test filter tag egg
         """
-        self.assertEqual("egg", Allergies.objects.filter(allergies_ingredient="egg"))
+        self.assertEqual("egg", Allergies.objects.get(allergies_ingredient="egg").allergies_ingredient)
 
     def test_allergy_shrimp(self):
         """
         Test filter tag shrimp
         """
-        self.assertEqual("shrimp", Allergies.objects.filter(allergies_ingredient="shrimp"))
+        self.assertEqual("shrimp", Allergies.objects.get(allergies_ingredient="shrimp").allergies_ingredient)
 
     def test_allergy_soy(self):
         """
         Test filter tag soy
         """
-        self.assertEqual("soy", Allergies.objects.filter(allergies_ingredient="soy"))
+        self.assertEqual("soy", Allergies.objects.get(allergies_ingredient="soy").allergies_ingredient)
 
     def test_allergy_milk(self):
         """
         Test filter tag milk
         """
-        self.assertEqual("milk", Allergies.objects.filter(allergies_ingredient="milk"))
+        self.assertEqual("milk", Allergies.objects.get(allergies_ingredient="milk").allergies_ingredient)
 
     def test_allergy_shellfish(self):
         """
         Test filter tag shellfish
         """
-        self.assertEqual("shellfish", Allergies.objects.filter(allergies_ingredient="shellfish"))
+        self.assertEqual("shellfish", Allergies.objects.get(allergies_ingredient="shellfish").allergies_ingredient)
 
     def test_allergy_nuts(self):
         """
         Test filter tag nuts
         """
-        self.assertEqual("nuts", Allergies.objects.filter(allergies_ingredient="nuts"))
+        self.assertEqual("nuts", Allergies.objects.get(allergies_ingredient="nuts").allergies_ingredient)
