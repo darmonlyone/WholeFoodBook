@@ -7,7 +7,7 @@ from selenium import webdriver
 class LoginTest(LiveServerTestCase):
 
     def setUp(self):
-        self.selenium = webdriver.Chrome('cookbook/test/test_with_selenium/chromedriver.exe')
+        self.selenium = webdriver.Chrome('cookbook/test/test_with_selenium/chromedriver')
         super(LoginTest, self).setUp()
 
     def tearDown(self):
