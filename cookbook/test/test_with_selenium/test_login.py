@@ -1,3 +1,4 @@
+import os
 from time import sleep
 
 from django.test import LiveServerTestCase
@@ -7,7 +8,9 @@ from selenium import webdriver
 class LoginTest(LiveServerTestCase):
 
     def setUp(self):
-        self.selenium = webdriver.Chrome('cookbook/test/test_with_selenium/chromedriver')
+        PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+        DRIVER = os.path.join(PROJECT_ROOT, "chromedriver")
+        self.selenium = webdriver.Chrome(executable_path=DRIVER)
         super(LoginTest, self).setUp()
 
     def tearDown(self):
