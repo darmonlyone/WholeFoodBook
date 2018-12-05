@@ -1,17 +1,9 @@
 from django.test import TestCase
 
 from cookbook.models import *
-from cookbook.test.mock.mock_data import ReadData
-from cookbook.models import *
-from cookbook.test.mock import mock_data
 
 
 class UserTest(TestCase):
-    def setUp(self):
-        """
-        Set up database for testing.
-        """
-        mock_data.set_data()
 
     def test_same_alias(self):
         """
@@ -50,22 +42,21 @@ class UserTest(TestCase):
         tempAlias = UserAlias.objects.filter(user_username="Wanny")
         recipe_from_alias = []
         for i in tempAlias:
-            recipe_from_alias.append(Recipe.objects.get(recipe_chef=i.recipe_chef))
+            recipe_from_alias.append(Recipe.objects.get(recipe_chef=i.alias_name))
 
-        self.assertContains("Wan", recipe_from_alias[0].recipe_chef)
+        self.assertIn("Wan", recipe_from_alias[0].recipe_chef)
         tempAlias = []
         tempAlias = UserAlias.objects.filter(user_username="Noning")
         recipe_from_alias = []
         for i in tempAlias:
-            recipe_from_alias.append(Recipe.objects.get(recipe_chef=i.recipe_chef))
-
-        self.assertContains("Amy Finn", recipe_from_alias[0].recipe_chef)
+            recipe_from_alias.append(Recipe.objects.get(recipe_chef=i.alias_name))
+        self.assertIn("Amy Finn", recipe_from_alias[0].recipe_chef)
 
     def test_author_recipename(self):
         tempUser = AuthorUser.objects.filter(user_username="Kung")
         recipe = []
         for i in tempUser:
             recipe.append(i.recipe_name)
-        self.assertContains("Green Split Pea Soup", recipe)
-        self.assertContains("Honey Garlic Salmon", recipe)
-        self.assertContains("Honey Garlic Butternut Squash", recipe)
+        self.assertIn( "Green Split Pea Soup", recipe )
+        self.assertIn("Honey Garlic Salmon", recipe)
+        self.assertIn("Honey Garlic Butternut Squash",recipe)

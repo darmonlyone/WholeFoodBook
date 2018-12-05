@@ -5,7 +5,8 @@ from cookbook.test.mock import mock_data
 
 
 class AllergiesTest(TestCase):
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         """
         Set up database for testing.
         """
@@ -21,34 +22,42 @@ class AllergiesTest(TestCase):
         """
         Test filter tag egg
         """
-        self.assertEqual("egg", Allergies.objects.get(allergies_ingredient="egg").allergies_ingredient)
+        alleries = Allergies.objects.get(allergies_ingredient="egg")
+        self.assertEqual("egg", str(alleries.allergies_ingredient))
 
     def test_allergy_shrimp(self):
         """
         Test filter tag shrimp
         """
-        self.assertEqual("shrimp", Allergies.objects.get(allergies_ingredient="shrimp").allergies_ingredient)
+        allere = Allergies.objects.get(allergies_ingredient="shrimp")
+        self.assertEqual("shrimp", str(allere.allergies_ingredient))
 
     def test_allergy_soy(self):
         """
         Test filter tag soy
         """
-        self.assertEqual("soy", Allergies.objects.get(allergies_ingredient="soy").allergies_ingredient)
+        aller = Allergies.objects.get(allergies_ingredient="soy")
+        self.assertEqual("soy", aller.allergies_ingredient)
 
     def test_allergy_milk(self):
         """
         Test filter tag milk
         """
-        self.assertEqual("milk", Allergies.objects.get(allergies_ingredient="milk").allergies_ingredient)
+        aller = Allergies.objects.get(allergies_ingredient="milk")
+        self.assertEqual("milk", str(aller.allergies_ingredient))
 
     def test_allergy_shellfish(self):
         """
         Test filter tag shellfish
         """
-        self.assertEqual("shellfish", Allergies.objects.get(allergies_ingredient="shellfish").allergies_ingredient)
+        self.assertEqual("shellfish", str(Allergies.objects.get(allergies_ingredient="shellfish").allergies_ingredient))
 
     def test_allergy_nuts(self):
         """
         Test filter tag nuts
         """
-        self.assertEqual("nuts", Allergies.objects.get(allergies_ingredient="nuts").allergies_ingredient)
+        self.assertEqual("nuts", str(Allergies.objects.get(allergies_ingredient="nuts").allergies_ingredient))
+
+    @classmethod
+    def tearDownClass(cls):
+        pass

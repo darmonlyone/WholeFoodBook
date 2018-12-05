@@ -7,11 +7,6 @@ from cookbook.test.mock import mock_data
 
 
 class RecipesTest(TestCase):
-    def setUp(self):
-        """
-        Set up database for testing.
-        """
-        mock_data.set_data()
 
     def test_recipe_chef(self):
         """
@@ -27,19 +22,19 @@ class RecipesTest(TestCase):
         Test get recipe's ingredient
         """
         recipe = Recipe.objects.get(recipe_name="Chicken Breast")
-        self.assertContains("kipfler potatoes", recipe.recipe_ingredient)
-        self.assertContains("olive oil", recipe.recipe.recipe_ingredient)
-        self.assertContains("macadamia nuts", recipe.recipe_ingredient)
+        self.assertIn("kipfler potatoes", recipe.recipe_ingredient)
+        self.assertIn("olive oil", recipe.recipe_ingredient)
+        self.assertIn("macadamia nuts", recipe.recipe_ingredient)
 
     def test_recipe_method(self):
         """
         Test get recipe's method
         """
         recipe = Recipe.objects.get(recipe_name="Strawberry Yogurt")
-        self.assertContains(
+        self.assertIn(
             "Place strawberries in a glass or serving dish and cut using kitchen shears until mushy. You can also use a food processor if making multiples (don’t over process into complete mush) or mash berries with a muddler.",
             recipe.recipe_method)
-        self.assertContains("Add maple syrup and mix well. Add Greek yogurt and stir gently to combine.",
+        self.assertIn("Add maple syrup and mix well. Add Greek yogurt and stir gently to combine.",
                             recipe.recipe_method)
 
     def test_recipe_info(self):
@@ -47,6 +42,6 @@ class RecipesTest(TestCase):
         Test get recipe's info
         """
         recipe = Recipe.objects.get(recipe_name="Healthy Chicken Broccoli")
-        self.assertContains(
-            "Almost One Pot Healthy Chicken Broccoli Casserole Recipe that is saucy with firm pasta and crunchy broccoli.",
-            recipe.recipe_info)
+        self.assertIn(
+            "Almost One Pot Healthy Chicken Broccoli Casserole Recipe that is saucy with firm pasta "
+            "and crunchy broccoli.", recipe.recipe_info)

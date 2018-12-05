@@ -7,12 +7,6 @@ from cookbook.test.mock import mock_data
 
 class TestLogin(TestCase):
 
-    def setUp(self):
-        """
-        Set up database for testing.
-        """
-        mock_data.set_data()
-
     def test_login_response(self):
         """
         Test check that index page is work.

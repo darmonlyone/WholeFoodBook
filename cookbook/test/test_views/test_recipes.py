@@ -6,11 +6,6 @@ from cookbook.test.mock import mock_data
 
 
 class TestRecipe(TestCase):
-    def setUp(self):
-        """
-        Set up database for testing.
-        """
-        mock_data.set_data()
 
     def test_recipe_status_code(self):
         """

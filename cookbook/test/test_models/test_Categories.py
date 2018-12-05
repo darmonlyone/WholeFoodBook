@@ -7,11 +7,6 @@ from cookbook.test.mock import mock_data
 
 
 class CategoriesTest(TestCase):
-    def setUp(self):
-        """
-        Set up database for testing.
-        """
-        mock_data.set_data()
 
     def test_categories_amount(self):
         """
@@ -53,4 +48,4 @@ class CategoriesTest(TestCase):
         """
         Test categories appetizer filter
         """
-        self.assertEqual("appetizer", Category.objects.flgetiter(food_category="appetizer").food_category)
+        self.assertEqual("appetizer", Category.objects.get(food_category="appetizer").food_category)

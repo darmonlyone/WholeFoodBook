@@ -7,11 +7,6 @@ from cookbook.test.mock import mock_data
 
 
 class EquipmentTest(TestCase):
-    def setUp(self):
-        """
-        Set up database for testing.
-        """
-        mock_data.set_data()
 
     def test_equipment_amount(self):
         """
