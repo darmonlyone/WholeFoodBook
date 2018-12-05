@@ -23,9 +23,6 @@ install:
 before_script:
     - "export DISPLAY=:99.0"
     - "sh -e /etc/init.d/xvfb start"
-    - sleep 3 # give xvfb some time to start
-    - rackup  # start a Web server
-    - sleep 3
     - psql -c 'create database mydb;' -U postgres
 script:
     - xvfb-run --server-args="-screen 0 1024x768x24" make test
