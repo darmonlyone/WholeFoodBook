@@ -9,8 +9,6 @@ from selenium.webdriver.common.keys import Keys
 class LoginTest(LiveServerTestCase):
 
     def setUp(self):
-        PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
-        DRIVER = os.path.join(PROJECT_ROOT, "chromedriver")
         self.selenium = webdriver.Chrome(executable_path='/usr/local/bin/chromedriver')
         super(LoginTest, self).setUp()
 
