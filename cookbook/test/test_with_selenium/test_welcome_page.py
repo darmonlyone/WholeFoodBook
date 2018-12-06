@@ -9,7 +9,7 @@ class WelcomeTest(LiveServerTestCase):
     def setUp(self):
         PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
         DRIVER = os.path.join(PROJECT_ROOT, "chromedriver")
-        self.selenium = webdriver.Chrome(executable_path='/home/travis/chromedriver')
+        self.selenium = webdriver.Chrome(executable_path='/usr/local/bin/chromedriver')
         super(WelcomeTest, self).setUp()
 
     def tearDown(self):
