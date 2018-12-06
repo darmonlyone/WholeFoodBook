@@ -10,7 +10,7 @@ class LoginTest(LiveServerTestCase):
     def setUp(self):
         PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
         DRIVER = os.path.join(PROJECT_ROOT, "chromedriver")
-        self.selenium = webdriver.Chrome(executable_path=DRIVER)
+        self.selenium = webdriver.Chrome(executable_path='/home/travis/chromedriver')
         super(LoginTest, self).setUp()
 
     def tearDown(self):
