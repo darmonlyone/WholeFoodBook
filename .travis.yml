@@ -24,6 +24,7 @@ install:
 before_script:
     - psql -c 'create database mydb;' -U postgres
     - sh -e /etc/init.d/xvfb start
+    - sudo apt-get install chromium-browser
 script:
     - python manage.py collectstatic --noinput --clear
     - python manage.py test
